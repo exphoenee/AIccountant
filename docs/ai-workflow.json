@@ -1,0 +1,56 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "AIccountant: így működik az AI-workflow",
+    "quality_profile": "showcase"
+  },
+  "lanes": [
+    { "id": "te", "label": "Te" },
+    { "id": "ai", "label": "AI-asszisztens (Claude)" },
+    { "id": "skill", "label": "Skillek és Python scriptek" },
+    { "id": "adat", "label": "Adatok és memória" }
+  ],
+  "mainPath": ["bemasol", "claude", "feldolgoz", "adatok", "profil", "szamol", "report"],
+  "nodes": [
+    { "id": "bemasol", "lane": "te", "col": 0, "type": "external", "label": "Iratok bemásolása", "sublabel": "input/ mappák", "width": 160 },
+    { "id": "dontes", "lane": "te", "col": 3, "type": "frontend", "label": "Te döntesz", "sublabel": "kérdésre válaszolsz", "width": 160 },
+    { "id": "report", "lane": "te", "col": 5, "type": "backend", "label": "Report és tennivalók", "sublabel": "tax-reports/ HTML", "width": 160 },
+    { "id": "claude", "lane": "ai", "col": 1, "type": "backend", "label": "Claude", "sublabel": "szabályok, skill-választás", "width": 160 },
+    { "id": "kerdes", "lane": "ai", "col": 3, "type": "security", "label": "Megáll és kérdez", "sublabel": "duplikátum, eltérés, hiány", "width": 160 },
+    { "id": "billingo", "lane": "skill", "col": 1, "type": "cloud", "label": "Billingo API", "sublabel": "csak olvasás", "width": 160 },
+    { "id": "feldolgoz", "lane": "skill", "col": 2, "type": "messagebus", "label": "Feldolgozó skillek", "sublabel": "PDF, kivonat, duplikáció-szűrés", "width": 160 },
+    { "id": "szamol", "lane": "skill", "col": 4, "type": "messagebus", "label": "Számítás és ellenőrzés", "sublabel": "csak script számol", "width": 160 },
+    { "id": "adatok", "lane": "adat", "col": 2, "type": "database", "label": "data/ és archive/", "sublabel": "eredmények, eredetik", "width": 160 },
+    { "id": "profil", "lane": "adat", "col": 3, "type": "security", "label": "Memória-profil", "sublabel": "kapu az ellenőrzéshez", "width": 160 }
+  ],
+  "edges": [
+    { "id": "e1", "from": "bemasol", "to": "claude", "label": "kéred", "variant": "emphasis" },
+    { "id": "e2", "from": "claude", "to": "feldolgoz", "label": "skill indul", "variant": "emphasis" },
+    { "id": "e3", "from": "billingo", "to": "feldolgoz", "label": "számlák", "variant": "dashed", "role": "branch" },
+    { "id": "e4", "from": "feldolgoz", "to": "adatok", "label": "mentés", "variant": "emphasis" },
+    { "id": "e5", "from": "adatok", "to": "profil", "label": "profil készül", "variant": "emphasis" },
+    { "id": "e6", "from": "profil", "to": "szamol", "label": "kapu nyitva", "variant": "emphasis" },
+    { "id": "e7", "from": "szamol", "to": "report", "label": "report", "variant": "emphasis" },
+    { "id": "e8", "from": "feldolgoz", "to": "kerdes", "label": "eltérés", "variant": "security", "role": "error" },
+    { "id": "e9", "from": "kerdes", "to": "dontes", "label": "kérdés", "variant": "security", "role": "error" }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Ki mit csinál",
+      "items": [
+        "Te bemásolod az iratokat, Claude a megfelelő skillt indítja",
+        "A számokat kizárólag Python script számolja, az AI nem becsül"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Biztonsági kapuk",
+      "items": [
+        "Memória-profil nélkül az adóellenőrzés nem indul",
+        "Duplikátumnál és eltérésnél a folyamat megáll, és téged kérdez"
+      ]
+    }
+  ]
+}

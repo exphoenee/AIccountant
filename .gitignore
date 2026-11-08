@@ -1,0 +1,31 @@
+# ======================================================================
+# KÖTELEZŐ – titkok. Ezt SOHA ne tedd fel GitHubra (API-kulcsok).
+# ======================================================================
+.env
+
+# ======================================================================
+# KÖTELEZŐ – személyes és pénzügyi adatok (számlák, NAV-kivonatok,
+# könyvelői iratok, vállalkozói iratok, számítások, riportok).
+# ======================================================================
+input/
+data/
+archive/
+tax-reports/
+
+# ======================================================================
+# KÖTELEZŐ – a saját vállalkozásodat azonosító beállítások és a belőlük
+# generált memória (település, státusz, időrend, határidők).
+# A sablon (config/vallalkozas.example.json) verziózott, ez a példány nem.
+# ======================================================================
+config/vallalkozas.json
+.claude/memory/vallalkozasi-profil.md
+.claude/memory/adonaptar-*.md
+
+# ======================================================================
+# AJÁNLOTT – generált és gépfüggő fájlok (nem személyes adat, csak
+# felesleges a repóban).
+# ======================================================================
+graphify-out/
+.claude/skills/*/.venv/
+__pycache__/
+*.pyc

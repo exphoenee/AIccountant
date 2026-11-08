@@ -1,0 +1,16 @@
+{
+ "id": "nav-ado-afa",
+ "url": "https://nav.gov.hu/ado/afa",
+ "vegso_url": "https://nav.gov.hu/ado/afa",
+ "letoltve": "2026-11-08T18:54:45",
+ "http_allapot": 200,
+ "tartalomtipus": "text/html;charset=UTF-8",
+ "last_modified": null,
+ "cim": "Általános forgalmi adó - Nemzeti Adó- és Vámhivatal",
+ "bajt": 359177,
+ "sha256": "c9a7a72f6f41ea0d313d333914a2c4634e34356daaf4a79fd55f824853b680fd",
+ "eredeti_fajl": "ado-afa.html",
+ "szovegkivonat": "ado-afa.txt",
+ "szovegkivonat_karakter": 2693,
+ "megjegyzes": "NAV-oldal; felvéve az input/torveny/áfa.-tv.pdf hivatkozásából"
+}

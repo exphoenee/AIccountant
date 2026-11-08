@@ -1,0 +1,16 @@
+{
+ "id": "nav-3",
+ "url": "https://nav.gov.hu/Elethelyzetek-adozasa/vallalkozas/adozasi-mod-valasztasa",
+ "vegso_url": "https://nav.gov.hu/Elethelyzetek-adozasa/vallalkozas/adozasi-mod-valasztasa",
+ "letoltve": "2026-11-08T12:38:01",
+ "http_allapot": 200,
+ "tartalomtipus": "text/html;charset=UTF-8",
+ "last_modified": null,
+ "cim": "Adózási mód választása - Nemzeti Adó- és Vámhivatal",
+ "bajt": 277484,
+ "sha256": "008fd1caa20a11c1a32566b03f70dbddd81678ee7e9b8408c21bdb0ec2a2b2de",
+ "eredeti_fajl": "adozasi-mod-valasztasa.html",
+ "szovegkivonat": "adozasi-mod-valasztasa.txt",
+ "szovegkivonat_karakter": 2141,
+ "megjegyzes": "NAV: Adózási mód választása"
+}

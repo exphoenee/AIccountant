@@ -1,0 +1,827 @@
+<!doctype html>
+<html lang="hu" data-ng-app="njtAppX" id="html">
+<head data-ng-non-bindable="true">
+    <base href="/">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="title" id="meta_title" content="2022. évi XIII. törvény - Nemzeti Jogszabálytár"/>
+    <meta name="description" id="meta_description" content="2022. évi XIII. törvény a kisadózó vállalkozók tételes adójáról"/>
+    <title>2022. évi XIII. törvény - Nemzeti Jogszabálytár</title>
+    <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png">
+
+        <link href="/css/njtfrontend-7106b941d9605d8cbe2cf85898ebbb4f4cce489d.css?v2029fd183.14117.20261022122540.2.18.4" type="text/css" rel="stylesheet"/>
+    <script>
+    function iPM() {
+        let css = "";
+        const t = ['padding', 'margin'];
+        for (let e of t) {
+            for (let i = 0; i <= 64; i += 4) {
+                css += `
+                    .${e[0]}-${i}{${e}:${i}px}
+                    .${e[0]}b-${i}{${e}-bottom:${i}px}
+                    .${e[0]}t-${i}{${e}-top:${i}px}
+                    .${e[0]}l-${i}{${e}-left:${i}px}
+                    .${e[0]}r-${i}{${e}-right:${i}px}
+                    .${e[0]}x-${i}{${e}-left:${i}px;${e}-right:${i}px}
+                    .${e[0]}y-${i}{${e}-top:${i}px;${e}-bottom:${i}px}`;
+            }
+        }
+
+        const style = document.createElement('style');
+        style.type = 'text/css';
+        style.textContent = css;
+        document.head.appendChild(style);
+    }
+    iPM();
+
+</script>        <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script>
+        window.njtLoadAnalytics = function () {
+            if (window.njtAnalyticsLoaded) {
+                return;
+            }
+            window.njtAnalyticsLoaded = true;
+
+            var script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=UA-28015740-1';
+            document.head.appendChild(script);
+
+            window.dataLayer = window.dataLayer || [];
+            window.gtag = function () {
+                dataLayer.push(arguments);
+            };
+            gtag('js', new Date());
+            gtag('config', 'UA-28015740-1');
+        };
+
+        if (/(?:^|;\s*)acceptCookieLaw=true(?:;|$)/.test(document.cookie)) {
+            window.njtLoadAnalytics();
+        }
+    </script>
+        </head>
+<body class="resp-body">
+<div id="loading-bar-host" aria-hidden="true"></div>
+
+<div id="menu-overlay" class="relative" style="display: none">
+    <div class="fixed"></div>
+</div>
+
+<header id="header" data-ng-controller="accountCtrl" aria-label="Az oldal fejléce">
+    <div id="top_flag_line" class="top-flag-line-fixed">
+        <div id="top_header_line"
+                >
+
+            <div id="top-bar--desktop">
+                <div class="wrapper w-1200 flex justify-between items-center">
+                    
+
+<a class="accessiblehidden" id="jumpToSearch" href="#" onclick="return njtApp.scrollToSearchForm()" hidden>Ugrás a keresőre</a>
+<a class="accessiblehidden" id="jumpToContent" href="#" onclick="return njtApp.scrollToElement('main')">Ugrás a tartalomra</a>
+<nav aria-label="Portálok" class="top-links flex flex-nowrap items-center basis-full justify-between">
+    <div class="logo">
+        <a class="flex gap-10 text-medium no-underline" onclick="njtApp.njtService.resetSearchPaths()" href="/">
+            <img alt="Nemzeti Jogszabálytár logó" src="/bundles/njtfrontend/images/layout/logo/njt-logo-header.svg?v2029fd183.14117.20261022122540.2.18.4"/>
+            Nemzeti Jogszabálytár
+        </a>
+                </div>    
+    <ul id="top-menu" class="text-medium flex gap-40 justify-center basis-full" aria-label="Fejléc hivatkozások">
+        <li>
+            <a href="https://jog.gov.hu/" class="no-underline" aria-label="Magyar Jogi Információs Portál - Külső hivatkozás" target="portal">Magyar Jogi Információs Portál</a><i class="ri-external-link-line"></i>
+        </li>
+        <li>
+            <a href="https://magyarkozlony.hu/" class="no-underline" aria-label="Magyar Közlöny Portál - Külső hivatkozás" target="_blank">Magyar Közlöny Portál</a><i class="ri-external-link-line"></i>
+        </li>
+        <li>
+            <a href="https://www.cegkozlony.hu/" class="no-underline" aria-label="Céginformációs Portál - Külső hivatkozás" target="_blank">Céginformációs Portál</a><i class="ri-external-link-line"></i>
+        </li>
+        <li>
+            <a href="https://eur-lex.europa.eu/homepage.html?locale=hu" class="no-underline" aria-label="EUR-LEX - Külső hivatkozás" target="_blank" >EUR-LEX</a><i class="ri-external-link-line"></i>   
+        </li>
+    </ul>
+   
+    <div><ul id="top-right" class="flex items-center justify-center gap-8"><li><a id="help" class="block no-underline" href="/kezikonyv" target="_blank" aria-label="Súgó - Új ablakban nyílik" data-njttip data-njttipposition="below" title="Súgó"><i class="ri-question-line text-24 color-white"></i></a></li><li><button onclick="njtApp.njtService.redirectToLogin()" class="login-button button outline inverted flex justify-center items-center" data-njttip data-njttipposition="below" title="Belépés" aria-label="Belépés"><i class="ri-user-line"></i></button></li></ul></div>
+</nav>
+                </div>
+            </div>
+
+            <div id="top-bar--mobile">
+                <div class="wrapper">
+                    <div class="top-bar">
+    <div class="logo">
+        <a class="flex gap-10 text-medium no-underline" onclick="njtApp.njtService.resetSearchPaths()" href="/">
+            <img alt="Nemzeti Jogszabálytár logó" src="/bundles/njtfrontend/images/layout/logo/njt-logo-header.svg?v2029fd183.14117.20261022122540.2.18.4"/>
+            <span class="w-120">Nemzeti Jogszabálytár</span>
+        </a>
+ 
+    </div>
+
+    <div class="top-bar__button-container">
+        <ul class="flex items-center justify-center gap-8">
+            <li>
+                <a class="no-underline" href="/kezikonyv" target="_blank" aria-label="Súgó - Új ablakban nyílik" data-njttip data-njttipposition="below" title="Súgó">
+                    <i class="ri-question-line text-24 color-white"></i>
+                </a>
+            </li>
+
+                            
+                <li>
+                    <button onclick="njtApp.njtService.redirectToLogin()" class="login-button button outline inverted flex justify-center items-center" data-njttip data-njttipposition="below" title="Belépés" aria-label="Belépés">
+                        <i class="ri-user-line"></i>
+                    </button>
+                </li>
+
+                <li>
+                    <button data-ng-click="toggleMobileMenu()" class="button secondary flex justify-center items-center" data-njttip data-njttipposition="below" title="Menü" aria-label="Menü">
+                        <i class="ri-menu-line"></i>
+                    </button>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="top-bar__menu menu" id="mobile-menu" style="display: none" >
+
+        <div class="menu__row">
+            <div class="logo sidebar">
+                <a class="flex gap-10 text-medium no-underline"
+                   onclick="njtApp.njtService.resetSearchPaths()"
+                   href="/">
+                    <img alt="Nemzeti Jogszabálytár logó" src="/bundles/njtfrontend/images/layout/logo/njt-logo-header.svg?v2029fd183.14117.20261022122540.2.18.4"/>
+                    <span class="w-120">Nemzeti Jogszabálytár</span>
+                </a>
+            </div>
+                        <button id="toggle-menu" data-ng-click="toggleMobileMenu(true)" data-njttip title="Bezárás" aria-label="Bezárás">
+                <i class="ri-close-line color-white text-24"></i>
+            </button>
+        </div>
+        <nav class="menu__links">
+                                        
+            <li class="cursor-pointer" onclick="njtApp.toggleMegnyitottak();">
+                <a href="#">Megnyitott jogszabályok</a>
+            </li>
+            <hr>
+
+                            <li><a href="/">Jogszabálytár</a></li>
+                        <li>
+                                                    <a aria-label="Önkormányzati rendeletek" href="/or"
+                            >
+                        Önkormányzati rendeletek
+                    </a>
+                            </li>
+            <li><a href="/justification_search">Indokolások Tára</a></li>
+            <li>
+                <a  href="/international_agreement/-/1/10">Nemzetközi szerződések</a>
+            </li>
+            <li>
+                <a href="/forditasok">Jogszabályfordítások</a>
+            </li>
+            <li>
+                <a href="/translations">Translated legislation</a>
+            </li>
+                                </nav>
+
+        <hr>
+        <nav class="menu__hyperlinks">
+            <li>
+                <a href="https://jog.gov.hu/" class="no-underline" aria-label="Magyar Jogi Információs Portál - Külső hivatkozás" target="_blank">Magyar Jogi Információs Portál</a>
+            </li>
+            <li>
+                <a href="https://magyarkozlony.hu/" class="no-underline" aria-label="Magyar Közlöny Portál - Külső hivatkozás" target="_blank">Magyar Közlöny Portál</a>
+            </li>
+            <li>
+                <a href="https://www.cegkozlony.hu/" class="no-underline" aria-label="Céginformációs Portál - Külső hivatkozás" target="_blank">Céginformációs Portál</a>
+            </li>
+            <li>
+                <a href="https://eur-lex.europa.eu/homepage.html?locale=hu" class="no-underline" aria-label="EUR-LEX - Külső hivatkozás" target="_blank" >EUR-LEX</a>
+            </li>
+        </nav>
+
+        
+    </div>
+
+</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div id="loggedin-menu-window" class="on-top-window">
+        <div class="section">
+    <div><a id="historyLink" href="/history/">Előzmények</a></div>
+    <div><a id="favouriteLink" href="/favourite/-/1">Kedvencek</a></div>
+    <div><a id="kerdoivLink" href="/elethelyzet/kerdoiv">Élethelyzet kérdőív</a></div>
+    <div><a id="elethelyzetLink" href="/elethelyzet/lista">Élethelyzet beállítás</a></div>
+        <div><a id="topicLink" href="/topic">Témakörök beállítása</a></div>
+    <div><a id="jogszabalyfigyelo" href="/jogszabalyfigyelo">Jogszabályfigyelő</a></div>
+    <div class="last"><a id="valtozasokLink" href="/valtozaskovetes/favourite/all">Változások követése</a></div>
+                <div><a id="accountLink" href="/account/modification">Beállítások</a></div>
+
+    
+    <div class="last mobile-fixed-logout"><a href="" data-ng-click="logout()">Kilépés</a></div>
+</div>
+
+
+
+
+
+
+
+    </div>
+</header><main id="main" tabindex="-1" aria-label="Az oldal tartalma">
+    <div id="orig" class="mainWrapper" data-ng-controller="origMainCtrl">
+            <div class="mainContent" id="jogszabaly-reader">
+        <div class="bigMargin">
+            <div class="action-menu-wrapper" id="operationMenu" data-ng-controller="mobileFooterCtrl"><div class="blur"><a class="accessiblehidden backToSearchLink text-small" data-ng-attr-href="{{ lastSearchPath }}">Vissza a Jogszabálykeresőre</a><div class="onlyMobile flex justify-between"><h2>Kifejezéskereső</h2><button data-ng-click="toggleOperationsMenu()" class="button subtle ri-close-line flex justify-center items-center p-0 w-32 h-32 color-link-neutral-enabled" data-njttip title="Bezárás" aria-label="Bezárás"></button></div><div class="action-menu"><div class="logo"><a class="flex gap-10 text-medium no-underline" onclick="njtApp.njtService.resetSearchPaths()" href="/"><img alt="Nemzeti Jogszabálytár logó" src="/bundles/njtfrontend/images/layout/logo/njt-logo-header.svg?v2029fd183.14117.20261022122540.2.18.4"/>
+                    Nemzeti Jogszabálytár
+                </a></div><div class="tartalomjegyzekButtonContainer"><button class="tartalomjegyzekButton button outline inverted small">Oldalmenü</button></div><ul class="flex items-center h-full" role="group" aria-label="Dokumentum műveletei"><li role="none" class="searchLi soloLi input-container flex items-center gap-5 flex-1" data-ng-controller="searchController"><input type="text" class="searchInput form-field"
+                           placeholder="Keresés a szövegben"
+                           id="szokereso"
+                           data-njtinput
+                           data-ng-model="searchText"
+                           data-ng-focus="focused.searchText=true"
+                           data-ng-blur="focused.searchText=false"
+                           data-enterkeypress="searchJogszabaly()"
+                           data-ng-disabled="isSearching.left"
+                           aria-label="Szókereső"/><div class="searchButtonHolder left flex gap-6 hidden"><button role="button" aria-label="Előző találat" class="searchPrev left button outline inverted flex justify-center items-center ri-arrow-left-s-line color-icon-neutral-base w-32 h-32"></button><button role="button" aria-label="Következő találat" class="searchNext left button outline inverted flex justify-center items-center ri-arrow-right-s-line color-icon-neutral-base w-32 h-32"></button></div><button
+                            data-ng-click="searchJogszabaly()"
+                            class="onlyMobile searchWordButton button primary text search w-full justify-center"
+                            aria-label="Keresés">Keresés
+                    </button></li><li role="none"><select id="zoomCombo" class="text-16 bg-transparent border-0 mx-8 cursor-pointer color-white" data-njttip data-njttipposition="below" aria-label="Betűméret állítása" title="Betűméret állítása"><option value="50" class="color-link-neutral-enabled">50%</option><option value="75" class="color-link-neutral-enabled">75%</option><option value="90" class="color-link-neutral-enabled">90%</option><option value="100" class="color-link-neutral-enabled" selected>100%</option><option value="125" class="color-link-neutral-enabled">125%</option><option value="150" class="color-link-neutral-enabled">150%</option><option value="175" class="color-link-neutral-enabled">175%</option><option value="200" class="color-link-neutral-enabled">200%</option></select></li><li role="none" class="onlyDesktop"><a class="no-underline color-white" data-njttip data-njttipposition="below"
+                           tabindex="0" href="/wcag"
+                           aria-label="Akadálymentes nézet"
+                           title="Akadálymentes nézet"><i class="ri-accessibility-line"></i></a></li><li role="none"  class="onlyDesktop" ><a class="eliLinkBtn no-underline color-white" data-njttip data-njttipposition="below"
+                               tabindex="0" href="#"
+                               onclick="growl.modal('&lt;a href=&quot;https://njt.jog.gov.hu/eli/TV/2022/13&quot; target=&quot;_blank&quot; &gt;https://njt.jog.gov.hu/eli/TV/2022/13&lt;/a&gt;', 'ELI', 'info');"
+                               aria-label="ELI" title="ELI">ELI</a></li><li role="none"  class="onlyDesktop" ><a class="printBtn no-underline color-white" data-njttip data-njttipposition="below"
+                           tabindex="0" href="#"
+                            onclick="njtPrint.handlePrintClick();"                            aria-label="Nyomtatás" title="Nyomtatás"><i class="printBtn ri-printer-fill"></i></a></li><li role="none" class="onlyMobile navigator__button-container"><div class="navigator__item"><a class="eliLinkBtn color-white" data-njttip data-njttipposition="below"
+                                   tabindex="0" href="#"
+                                   onclick="growl.modal('&lt;a href=&quot;https://njt.jog.gov.hu/eli/TV/2022/13&quot; target=&quot;_blank&quot; &gt;https://njt.jog.gov.hu/eli/TV/2022/13&lt;/a&gt;', 'ELI', 'info');"
+                                   title="ELI">ELI</a><span>ELI</span></div><div class="navigator__item"><a class="printBtn cursor-pointer color-white"
+                           tabindex="0" href="#"
+                            onclick="njtPrint.handlePrintClick();"                            title="Nyomtatás"><i class="printBtn ri-printer-fill"></i></a></div></li></ul><div class="loginButtonContainer"><button onclick="njtApp.njtService.redirectToLogin()" class="login-button button outline inverted flex justify-center items-center" data-njttitle data-njttipposition="below" title="Belépés" aria-label="Belépés"><i class="ri-user-line"></i></button></div></div></div></div>                <div class="content wrapper jogszabaly-wrapper">
+                    <div class="jumpButtonsContainer">
+                        <button class="jumpToPreviousFutureChangedSlice button flex justify-center items-center p-0" data-njttip title="Előző megváltozó">
+                            <i class="ri-arrow-up-s-line"></i>
+                        </button>
+
+                        <button class="jumpToNextFutureChangedSlice button flex justify-center items-center p-0" data-njttip title="Következő megváltozó">
+                            <i class="ri-arrow-down-s-line"></i>
+                        </button>
+
+                        
+                            <button class="jumpToPreviousPastChangedSlice button flex justify-center items-center p-0" data-njttip title="Előző megváltozott">
+                                <i class="ri-arrow-up-s-line"></i>
+                            </button>
+
+                            <button class="jumpToNextPastChangedSlice button flex justify-center items-center p-0" data-njttip title="Következő megváltozott">
+                                <i class="ri-arrow-down-s-line"></i>
+                            </button>
+
+                                            </div>
+                                                                        <div id="sidemenu-window-left" class="sidemenu-window rounded-8" aria-label="Oldalmenü">
+    <div class="sidemenu-mobile-header flex justify-between items-center p-16">
+        <h3>Tartalomjegyzék</h3>
+        <button class="tartalomjegyzekButton button subtle ri-close-line flex justify-center items-center p-0 w-32 h-32 color-link-neutral-enabled" data-njttip title="Bezárás" aria-label="Bezárás"></button>
+    </div>
+    <ul class="tab-menu">
+        <li class="tartalom active accessible" role="link" tabindex="0">Szerkezet</li>
+            </ul>
+    <div class="tartalom-tab tab-content active">
+        <div class="tartalom-tab__holder">
+
+            <label class="tartalom-tab__label">
+            <input
+                    id="treeFilter-left"
+                    type="text"
+                    class="sidemenu-window__search"
+                    placeholder="Keresés"
+                    data-njtinput
+            />
+            </label>
+            <div id="treeContainer-left" class="tartalom-tree tree" data-tree-label="Szerkezet"></div>
+        </div>
+    </div>
+        <div class="accessiblehidden" aria-hidden="true"><span>Az oldalmenübe visszatéréshez használhatja az <strong id="accesskey_help">ALT + S</strong> billentyűket.</span></div>
+</div>                                            
+                    
+                                                            <div class="jogszabalyCtrl" data-ng-controller="documentCtrl"
+                         data-ng-init="openDocument('jogszabaly','2022-13-00-00','2022. évi XIII. törvény','2022. évi XIII. törvény a kisadózó vállalkozók tételes adójáról', '1')"></div>
+                    <div class="jogszabaly                             "
+                         data-ng-non-bindable="true" id="jogszab">
+
+                        
+                        
+                                                                                    <div class="changeVersionParent flex items-center justify-center">
+                                    <button class="changeVersion flex items-center justify-center text-24" tabindex="0" href="#"
+                                            onclick="versionChooser.versionChooserClick(this)"
+                                            data-njttip title="Hatályosság választás" aria-expanded="false"
+                                            aria-controls="versionWindow">
+                                        <i class="ri-calendar-2-line"></i>
+                                    </button>
+                                </div>
+                                                        <!--i-->
+<span class="jhId" id="NR"></span><h1 id="sc2022-13-00-00-3" class="pslice jogszabalyMainTitle mainTitle">2022. évi XIII. törvény</h1><!--i-->
+<span class="jhId" id="CI"></span><h2 id="sc2022-13-00-00-5" class="pslice jogszabalySubtitle">a kisadózó vállalkozók tételes adójáról<sup class="fnSup" data-note-id="fnr_1">1</sup></h2><div class="hataly">2023.08.01.</div><!--i-->
+<span class="jhId" id="PR"></span><div id="sc2022-13-00-00-7" class="preambulum"><p class="AJ">Az Országgyűlés abból a meggyőződésből kiindulva, hogy a kiegyensúlyozott gazdasági növekedés záloga és egyben a társadalmi jólét forrása az értékteremtő munka, ugyanakkor elismerve annak fontosságát, hogy indokolt a legkisebb gazdasági teljesítményű, saját termékeikkel, szolgáltatásaikkal közvetlenül a lakosságot kiszolgáló egyéni vállalkozások adózási feltételeinek javítása az igazságos közteherviselés követelményeinek megfelelően, a következő törvényt alkotja:</p></div><!--i-->
+<!--as--><span class="jhId" id="AC1"></span><div id="sc2022-13-00-00-10" class="alcim"><p class="mhk-C6"><span class="jel"> 1.</span> <b>A törvény hatálya és alapvető rendelkezései</b></p></div><!--ae--><!--i-->
+<span class="jhId" id="SZ1"></span><div id="sc2022-13-00-00-12" class="szakasz"></div><!--n-->
+<span class="jhId" id="SZ1@BE1"></span><div id="sc2022-13-00-00-13" class="bekezdesNyito"><p class=" mt"><span class="jel"><span class="szakasz-jel">1. §</span> (1)</span> A főfoglalkozású egyéni vállalkozó az egyéni vállalkozóról és az egyéni cégről szóló <a class="link" href="jogszabaly/2009-115-00-00" data-type="kulso">2009. évi CXV. törvény (a továbbiakban: Evectv.)</a> szerinti egyéni vállalkozói nyilvántartásban rögzített tevékenysége(i) alapján keletkező adó- és más közteherfizetési kötelezettségének választása és jogosultsága esetén e törvény szabályai szerint tehet eleget.</p></div><!--n-->
+<span class="jhId" id="SZ1@BE2"></span><div id="sc2022-13-00-00-16" class="bekezdesNyito"><p><span class="jel"> (2)</span> A nemzetközi szerződés előírását kell alkalmazni, amennyiben a kihirdetett nemzetközi szerződés e törvénytől eltérő előírást tartalmaz. E törvénytől viszonosság alapján is helye van eltérésnek, de a viszonosság alkalmazása az adózó számára nem eredményezhet a törvényben meghatározottakhoz képest kiterjesztő adókötelezettséget. A viszonosság kérdésében az adópolitikáért felelős miniszter állásfoglalása az irányadó.</p></div><!--n-->
+<span class="jhId" id="SZ1@BE3"></span><div id="sc2022-13-00-00-19" class="bekezdesNyito"><p><span class="jel"> (3)</span> A kisadózó vállalkozók tételes adójával összefüggő hatósági ügyben az eljárás az állami adó- és vámhatóság hatáskörébe tartozik.</p></div><!--n-->
+<span class="jhId" id="SZ1@BE4"></span><div id="sc2022-13-00-00-22" class="bekezdesNyito"><p><span class="jel"> (4)</span> Az adózó az e törvény szerinti adóval összefüggő adókötelezettségeit e törvény, valamint az adózás rendjéről szóló <a class="link" href="jogszabaly/2017-150-00-00" data-type="kulso">2017. évi CL. törvény (a továbbiakban: Art.)</a> rendelkezései szerint teljesíti.</p></div><!--n-->
+<span class="jhId" id="SZ1@BE5"></span><div id="sc2022-13-00-00-25" class="bekezdesNyito"><p><span class="jel"> (5)</span> Az e törvény szerinti adó a központi költségvetés bevétele.</p></div><!--n-->
+<span class="jhId" id="SZ1@BE6"></span><div id="sc2022-13-00-00-28" class="bekezdesNyito"><p><span class="jel"> (6)</span> Az állami adó- és vámhatóság által az e törvény szerinti adófizetési kötelezettséget választó adózókról vezetett nyilvántartás – azon adat kivételével, amelyet jogszabály más nyilvántartás részeként közhitelesnek minősít – közhiteles hatósági nyilvántartásnak minősül.</p></div><!--i-->
+<span class="jhId" id="SZ2"></span><div id="sc2022-13-00-00-31" class="szakasz"></div><!--n-->
+<span class="jhId" id="SZ2@BE0"></span><div id="sc2022-13-00-00-32" class="bekezdesNyito"><p class="UJ mt"><span class="jel"><span class="szakasz-jel">2. §</span></span> E törvény alkalmazásában</p></div><span class="jhId" id="SZ2@BE0@PO1"></span><div id="sc2022-13-00-00-35" class="szamosPontNyito"><p><span class="jel"> 1.</span> <i>egyéni vállalkozó:</i> az <a class="link" href="jogszabaly/2009-115-00-00" data-type="kulso">Evectv.</a> szerinti egyéni vállalkozó;</p></div><span class="jhId" id="SZ2@BE0@PO2"></span><div id="sc2022-13-00-00-38" class="szamosPontNyito"><p><span class="jel"> 2.</span> <i>főfoglalkozású egyéni vállalkozó:</i> az egyéni vállalkozó, kivéve azt, aki a tárgyhó egészében megfelel az alábbi feltételek bármelyikének:</p></div><span class="jhId" id="SZ2@BE0@PO2@APA"></span><div id="sc2022-13-00-00-41" class="betusAlPont"><p><span class="jel"> a)</span> legalább heti 36 órás foglalkoztatással járó munkaviszonyban áll azzal, hogy a heti 36 órás foglalkoztatás megállapításánál az egyidejűleg fennálló munkaviszonyokban előírt munkaidőt össze kell számítani,</p></div><span class="jhId" id="SZ2@BE0@PO2@APB"></span><div id="sc2022-13-00-00-43" class="betusAlPont"><p><span class="jel"> b)</span> a társadalombiztosítás ellátásaira jogosultakról, valamint ezen ellátások fedezetéről szóló <a class="link" href="jogszabaly/2019-122-00-00" data-type="kulso">2019. évi CXXII. törvény (a továbbiakban: Tbj.)</a> szerinti kiegészítő tevékenységet folytatónak minősül,</p></div><span class="jhId" id="SZ2@BE0@PO2@APC"></span><div id="sc2022-13-00-00-45" class="betusAlPont"><p><span class="jel"> c)</span> a szociális biztonsági rendszerek koordinálásáról és annak végrehajtásáról szóló uniós rendeletek alapján külföldön biztosított személynek minősül,</p></div><span class="jhId" id="SZ2@BE0@PO2@APD"></span><div id="sc2022-13-00-00-47" class="betusAlPont"><p><span class="jel"> d)</span> a kétoldalú szociálpolitikai, szociális biztonsági egyezmény alapján más államban biztosítottnak minősül,</p></div><span class="jhId" id="SZ2@BE0@PO2@APE"></span><div id="sc2022-13-00-00-49" class="betusAlPont"><p><span class="jel"> e)</span> olyan magánszemély, aki 2011. december 31-én – a társadalombiztosítási nyugellátásról szóló <a class="link" href="jogszabaly/1997-81-00-00" data-type="kulso">1997. évi LXXXI. törvény</a> alapján megállapított – I., II., vagy III. csoportos rokkantsági, baleseti rokkantsági nyugdíjra volt jogosult, és a megváltozott munkaképességű személyek ellátásairól és egyes törvények módosításáról szóló <a class="link" href="jogszabaly/2011-191-00-00" data-jhid="SZ32" data-type="kulso">2011. évi CXCI. törvény 32–33. §</a>-a alapján rokkantsági ellátásban vagy rehabilitációs ellátásban részesül,</p></div><span class="jhId" id="SZ2@BE0@PO2@APF"></span><div id="sc2022-13-00-00-51" class="betusAlPont"><p><span class="jel"> f)</span> rokkantsági ellátásban részesül és egészségi állapota a rehabilitációs hatóság komplex minősítése alapján 50 százalékos vagy kisebb mértékű,</p></div><span class="jhId" id="SZ2@BE0@PO2@APG"></span><div id="sc2022-13-00-00-53" class="betusAlPont"><p><span class="jel"> g)</span> a kisadózóként folytatott egyéni vállalkozói tevékenységen kívül más vállalkozásban nem kiegészítő tevékenységet folytató társas vállalkozónak minősül,</p></div><span class="jhId" id="SZ2@BE0@PO2@APH"></span><div id="sc2022-13-00-00-55" class="betusAlPont"><p><span class="jel"> h)</span> a kisadózóként folytatott egyéni vállalkozói tevékenységen kívül nem kiegészítő tevékenységet folytató, az <a class="link" href="jogszabaly/2009-115-00-00" data-type="kulso">Evectv.</a> szerint nyilvántartásba nem vett, a személyi jövedelemadóról szóló <a class="link" href="jogszabaly/1995-117-00-00" data-type="kulso">1995. évi CXVII. törvény (a továbbiakban: Szja tv.)</a> szerinti egyéni vállalkozónak minősül,</p></div><span class="jhId" id="SZ2@BE0@PO2@API"></span><div id="sc2022-13-00-00-57" class="betusAlPont"><p><span class="jel"> i)</span> a gyermekek védelméről és a gyámügyi igazgatásról szóló <a class="link" href="jogszabaly/1997-31-00-00" data-type="kulso">1997. évi XXXI. törvény</a> szerinti nevelőszülői foglalkoztatási jogviszonyban áll,</p></div><span class="jhId" id="SZ2@BE0@PO2@APJ"></span><div id="sc2022-13-00-00-59" class="betusAlPont"><p><span class="jel"> j)</span> a köznevelési intézményben, a szakképző intézményben vagy a felsőoktatási intézményben, az Európai Gazdasági Térség tagállamában vagy Svájcban közép- vagy felsőoktatási intézményben nappali rendszerű oktatás keretében folytat tanulmányokat, vagy az előzőekben nem említett államokban folytat ez előbbieknek megfelelő tanulmányokat, azzal, hogy a 25. életévének betöltéséig idetartozik a tanulmányait szüneteltető kisadózó is;</p></div><span class="jhId" id="SZ2@BE0@PO3"></span><div id="sc2022-13-00-00-61" class="szamosPontNyito"><p><span class="jel"> 3.</span> <i>kisadózó:</i> a kisadózó vállalkozók tételes adója szerinti adózást jogszerűen választó egyéni vállalkozó;</p></div><span class="jhId" id="SZ2@BE0@PO4"></span><div id="sc2022-13-00-00-64" class="szamosPontNyito"><p><span class="jel"> 4.</span> <i>a kisadózó bevétele:</i> az egyéni vállalkozó által a vállalkozási tevékenységével összefüggésben bármely jogcímen és bármely formában mástól megszerzett vagyoni érték, ideértve a tevékenység végzéséhez kapott támogatást és a külföldön is adóköteles bevételt, valamint az az összeg, amelyet az adóalany az általa kibocsátott bizonylat alapján az adóalanyisága megszűnése napjáig még nem szerzett meg azzal, hogy nem bevétel</p></div><span class="jhId" id="SZ2@BE0@PO4@APA"></span><div id="sc2022-13-00-00-67" class="betusAlPont"><p><span class="jel"> a)</span> az áthárított általános forgalmi adó,</p></div><span class="jhId" id="SZ2@BE0@PO4@APB"></span><div id="sc2022-13-00-00-69" class="betusAlPont"><p><span class="jel"> b)</span> a visszatérített adó (ideértve különösen a szociális hozzájárulási adóról szóló <a class="link" href="jogszabaly/2018-52-00-00" data-jhid="SZ17A" data-type="kulso">2018. évi LII. törvény 17/A. §</a> alapján történő adóvisszatérítést),</p></div><span class="jhId" id="SZ2@BE0@PO4@APC"></span><div id="sc2022-13-00-00-71" class="betusAlPont"><p><span class="jel"> c)</span> az a vagyoni érték, amelyet az adóalany köteles visszaszolgáltatni (ideértve különösen a kapott kölcsönt, hitelt),</p></div><span class="jhId" id="SZ2@BE0@PO4@APD"></span><div id="sc2022-13-00-00-73" class="betusAlPont"><p><span class="jel"> d)</span> az adózó által korábban átadott vagyoni érték az adóalany részére nem ellenértékként történő visszaszolgáltatásakor (ideértve különösen a nyújtott kölcsön, hitel visszafizetett összegét, de ide nem értve különösen a nyújtott kölcsönre, hitelre kapott kamatot), ha azonban az adóalany csak a szokásos piaci ár egy részének megfizetésére köteles, akkor a szokásos piaci árból a fizetési kötelezettséget meghaladó rész bevételnek minősül,</p></div><span class="jhId" id="SZ2@BE0@PO4@APE"></span><div id="sc2022-13-00-00-75" class="betusAlPont"><p><span class="jel"> e)</span> az a vagyoni érték, amelynek a megszerzése alapjául szolgáló jogviszony keletkezésének napjára vonatkozóan megállapított szokásos piaci árát az adóalany köteles megfizetni,</p></div><span class="jhId" id="SZ2@BE0@PO4@APF"></span><div id="sc2022-13-00-00-77" class="betusAlPont"><p><span class="jel"> f)</span> jogszabály vagy jogerős bírósági, hatósági határozat alapján kapott nem jövedelempótló kártérítés, kártalanítás, továbbá az adóalany vállalkozási (gazdasági) tevékenységéhez használt vagyontárgy károsodására vagy megsemmisülésére tekintettel a károkozótól, annak felelősségbiztosítójától vagy harmadik személytől a káreseménnyel kapcsolatosan kapott vagyoni érték, továbbá az adóalany biztosítójától elemi kárra tekintettel kapott kártérítés összege,</p></div><span class="jhId" id="SZ2@BE0@PO4@APG"></span><div id="sc2022-13-00-00-79" class="betusAlPont"><p><span class="jel"> g)</span> a költségek fedezetére vagy fejlesztési célra folyósított támogatás,</p></div><span class="jhId" id="SZ2@BE0@PO4@APH"></span><div id="sc2022-13-00-00-81" class="betusAlPont"><p><span class="jel"> h)</span> a nem kizárólag üzemi célt szolgáló tárgyi eszközök, nem anyagi javak értékesítésekor kapott ellenérték; ha a kisadózó olyan ingó vagyontárgyat, ingatlant, vagyoni értékű jogot idegenít el, amelyet nem kizárólag üzemi célból használt, akkor az ebből származó jövedelem adózására egészében az <a class="link" href="jogszabaly/1995-117-00-00" data-jhid="FEXI" data-type="kulso">Szja tv. XI. Fejezet</a>ében foglalt rendelkezéseket kell alkalmaznia;</p></div><div id="sc2022-13-00-00-702" class="pontZaro"><p>azzal, hogy a külföldi pénznemben keletkezett bevételét a Magyar Nemzeti Bank (a továbbiakban: MNB) a bevétel megszerzésének időpontjában irányadó hivatalos devizaárfolyamának, olyan külföldi pénznem esetén, amely nem szerepel az MNB hivatalos devizaárfolyam-lapján, az MNB által közzétett, euróban megadott árfolyam alapulvételével kell forintra átszámítani;</p></div><span class="jhId" id="SZ2@BE0@PO5"></span><div id="sc2022-13-00-00-84" class="szamosPontNyito"><p><span class="jel"> 5.</span> <i>bevétel megszerzésének időpontja:</i></p></div><span class="jhId" id="SZ2@BE0@PO5@APA"></span><div id="sc2022-13-00-00-87" class="betusAlPont"><p><span class="jel"> a)</span> pénz, dolog, értékpapír, váltó, csekk és más hasonló okirat esetében az átvétel vagy a számlán való jóváírás napja;</p></div><span class="jhId" id="SZ2@BE0@PO5@APB"></span><div id="sc2022-13-00-00-89" class="betusAlPont"><p><span class="jel"> b)</span> igénybe vett szolgáltatás esetében az a nap, amelyen a szolgáltatás nyújtójának vagy igénybe vevőjének az általános forgalmi adóról szóló <a class="link" href="jogszabaly/2007-127-00-00" data-type="kulso">2007. évi CXXVII. törvény</a> rendelkezései szerint adófizetési kötelezettsége keletkezik vagy keletkezne;</p></div><span class="jhId" id="SZ2@BE0@PO5@APC"></span><div id="sc2022-13-00-00-91" class="betusAlPont"><p><span class="jel"> c)</span> jog esetében az a nap, amelytől kezdődően az adóalany a jog gyakorlására, átruházására, átengedésére vagy megszüntetésére jogosult;</p></div><span class="jhId" id="SZ2@BE0@PO5@APD"></span><div id="sc2022-13-00-00-93" class="betusAlPont"><p><span class="jel"> d)</span> elengedett követelés és átvállalt tartozás esetében az a nap, amelyen az adóalany kötelezettsége, tartozása megszűnik;</p></div><span class="jhId" id="SZ2@BE0@PO5@APE"></span><div id="sc2022-13-00-00-95" class="betusAlPont"><p><span class="jel"> e)</span> az adóalanyiság megszűnésének napja, amennyiben az általa kiállított bizonylat ellenértékét az adóalanyiság utolsó napjáig nem szerezte meg;</p></div><span class="jhId" id="SZ2@BE0@PO6"></span><div id="sc2022-13-00-00-97" class="szamosPontNyito"><p><span class="jel"> 6.</span> <i>költségek fedezetére vagy fejlesztési célra folyósított támogatás:</i> jogszabály vagy nemzetközi szerződés alapján költségek fedezetére vagy fejlesztési célra folyósított olyan támogatás, amelyet az adózó kizárólag a ténylegesen felmerült, igazolt kiadásainak a folyósítóval történő elszámolási kötelezettsége mellett, vagy a tevékenység megvalósulásának ellenőrzését követően kap, továbbá az Európai Mezőgazdasági Vidékfejlesztési Alapból társfinanszírozott, a fiatal mezőgazdasági termelők indulásához, gazdaságalapításhoz, valamint a mezőgazdasági kisüzemek fejlesztéséhez nyújtandó támogatások;</p></div><span class="jhId" id="SZ2@BE0@PO7"></span><div id="sc2022-13-00-00-100" class="szamosPontNyito"><p><span class="jel"> 7.</span> <i>külföldi kifizető:</i> külföldi illetőségű jogi személy, egyéb szervezet;</p></div><span class="jhId" id="SZ2@BE0@PO8"></span><div id="sc2022-13-00-00-103" class="szamosPontNyito"><p><span class="jel"> 8.</span> <i>kizárólag üzemi célt szolgáló tárgyi eszközök és nem anyagi javak:</i> olyan tárgyi eszközök és nem anyagi javak, amelyeket a kisadózó tevékenységével kapcsolatban használ, azokat más célra részben sem használja és üzleti nyilvántartásai ezt egyértelműen alátámasztják azzal, hogy nem minősül kizárólag üzemi célt szolgáló tárgyi eszköznek a személygépkocsi és a termőföld.</p></div><!--i-->
+<!--as--><span class="jhId" id="AC2"></span><div id="sc2022-13-00-00-107" class="alcim"><p class="mhk-C6"><span class="jel"> 2.</span> <b>Az adó alanya</b></p></div><!--ae--><!--i-->
+<span class="jhId" id="SZ3"></span><div id="sc2022-13-00-00-109" class="szakasz"></div><!--n-->
+<span class="jhId" id="SZ3@BE0"></span><div id="sc2022-13-00-00-110" class="bekezdesNyito"><p class="UJ mt"><span class="jel"><span class="szakasz-jel">3. §</span></span> Az adó alanya a főfoglalkozású egyéni vállalkozó, ha az állami adó- és vámhatóságnak az erre a célra rendszeresített nyomtatvány alkalmazásával bejelenti, hogy adókötelezettségeit e törvény rendelkezései szerint teljesíti. Az adóalanyiság létrejöttének nem akadálya, ha az adóalany a bejelentést megelőzően az adóévre az <a class="link" href="jogszabaly/1995-117-00-00" data-type="kulso">Szja tv.</a> szerinti átalányadózást választott.</p></div><!--i-->
+<!--as--><span class="jhId" id="AC3"></span><div id="sc2022-13-00-00-114" class="alcim"><p class="mhk-C6"><span class="jel"> 3.</span> <b>Az adóalanyiság keletkezése és megszűnése</b></p></div><!--ae--><!--i-->
+<span class="jhId" id="SZ4"></span><div id="sc2022-13-00-00-116" class="szakasz"></div><!--n-->
+<span class="jhId" id="SZ4@BE1"></span><div id="sc2022-13-00-00-117" class="bekezdesNyito"><p class=" mt"><span class="jel"><span class="szakasz-jel">4. §</span> (1)</span> A kisadózói adóalanyiság a választás bejelentését követő hónap első napjával jön létre.</p></div><!--n-->
+<span class="jhId" id="SZ4@BE2"></span><div id="sc2022-13-00-00-120" class="bekezdesNyito"><p><span class="jel"> (2)</span> A tevékenységét év közben kezdő egyéni vállalkozó bejelentését az állami adó- és vámhatósághoz való bejelentkezéssel egyidejűleg teljesítheti. Ebben az esetben az adóalanyiság az egyéni vállalkozás nyilvántartásba vételének napjával jön létre.</p></div><!--n-->
+<span class="jhId" id="SZ4@BE3"></span><div id="sc2022-13-00-00-123" class="bekezdesNyito"><p><span class="jel"> (3)</span> A kisadózói adóalanyiság választásának bejelentésével egyidejűleg az egyéni vállalkozó bejelenti a nevét, címét, adószámát és társadalombiztosítási azonosító jelét. Ha az egyéni vállalkozó bejelentett adataiban változás történik, a változást az annak bekövetkeztét követő 15 napon belül be kell jelenteni.</p></div><!--n-->
+<span class="jhId" id="SZ4@BE4"></span><div id="sc2022-13-00-00-126" class="bekezdesNyito"><p><span class="jel"> (4)</span> Nem választhatja az adóalanyiságot az az egyéni vállalkozó, akinek az adószámát az állami adó- és vámhatóság a bejelentés évében vagy az azt megelőző 12 hónapban törölte, vagy aki a bejelentés időpontjában adószám törlésének hatálya alatt áll.</p></div><!--n-->
+<span class="jhId" id="SZ4@BE5"></span><div id="sc2022-13-00-00-129" class="bekezdesNyito"><p><span class="jel"> (5)</span> Nem választhatja az adóalanyiságot az az egyéni vállalkozó, aki az Önálló vállalkozók tevékenységi jegyzéke szerint 68.20 Saját tulajdonú, bérelt ingatlan bérbeadása, üzemeltetése besorolású tevékenységből az adóalanyiság választásának évében bevételt szerzett.</p></div><!--n-->
+<span class="jhId" id="SZ4@BE6"></span><div id="sc2022-13-00-00-132" class="bekezdesNyito"><p><span class="jel"> (6)</span> Az állami adó- és vámhatóság az e törvény szerinti adó hatálya alá tartozó adózóként történő nyilvántartásba vételről értesítő levélben tájékoztatja a kisadózót. A tájékoztatás tartalmazza legalább</p></div><span class="jhId" id="SZ4@BE6@POA"></span><div id="sc2022-13-00-00-135" class="betusPontNyito"><p><span class="jel"> a)</span> a kisadózó nevét, címét és adószámát;</p></div><span class="jhId" id="SZ4@BE6@POB"></span><div id="sc2022-13-00-00-138" class="betusPontNyito"><p><span class="jel"> b)</span> az adóalanyiság kezdő dátumát;</p></div><span class="jhId" id="SZ4@BE6@POC"></span><div id="sc2022-13-00-00-141" class="betusPontNyito"><p><span class="jel"> c)</span> a tételes adó fizetendő összegét, esedékességét és a bevételi számla számát;</p></div><span class="jhId" id="SZ4@BE6@POD"></span><div id="sc2022-13-00-00-144" class="betusPontNyito"><p><span class="jel"> d)</span> rövid ismertetőt az e törvény szerinti adóval kapcsolatos adókötelezettségről.</p></div><!--i-->
+<span class="jhId" id="SZ5"></span><div id="sc2022-13-00-00-147" class="szakasz"></div><!--n-->
+<span class="jhId" id="SZ5@BE1"></span><div id="sc2022-13-00-00-148" class="bekezdesNyito"><p class=" mt"><span class="jel"><span class="szakasz-jel">5. §</span> (1)</span> A kisadózói adóalanyiság megszűnik</p></div><span class="jhId" id="SZ5@BE1@POA"></span><div id="sc2022-13-00-00-151" class="betusPontNyito"><p><span class="jel"> a)</span> a bejelentés hónapjának utolsó napjával, ha a kisadózó bejelenti, hogy adókötelezettségeit a jövőben nem e törvény szabályai szerint teljesíti;</p></div><span class="jhId" id="SZ5@BE1@POB"></span><div id="sc2022-13-00-00-154" class="betusPontNyito"><p><span class="jel"> b)</span> az egyéni vállalkozói jogállás megszűnésének napjával, ha a kisadózó egyéni vállalkozói tevékenység folytatására való jogosultsága az <a class="link" href="jogszabaly/2009-115-00-00" data-type="kulso">Evectv.</a> szerint megszűnik;</p></div><span class="jhId" id="SZ5@BE1@POC"></span><div id="sc2022-13-00-00-157" class="betusPontNyito"><p><span class="jel"> c)</span> az adóalanyiság megszűnéséről rendelkező határozat véglegessé válása hónapjának utolsó napjával, ha az adóalanyiság időszakában elkövetett jogsértés miatt a kisadózó terhére az állami adó- és vámhatóság számla- vagy nyugtaadás elmulasztásáért, be nem jelentett alkalmazott foglalkoztatásáért vagy igazolatlan eredetű áru forgalmazásáért mulasztási bírságot, jövedéki bírságot állapít meg;</p></div><span class="jhId" id="SZ5@BE1@POD"></span><div id="sc2022-13-00-00-160" class="betusPontNyito"><p><span class="jel"> d)</span> az adószám törléséről szóló határozat véglegessé válása hónapjának utolsó napjával, ha a kisadózó adószámát az állami adó- és vámhatóság az adóalanyiság ideje alatt véglegessé vált döntéssel törli;</p></div><span class="jhId" id="SZ5@BE1@POE"></span><div id="sc2022-13-00-00-163" class="betusPontNyito"><p><span class="jel"> e)</span> az adóalanyiság megszűnéséről rendelkező határozat véglegessé válása hónapjának utolsó napjával, ha a kisadózó állami adó- és vámhatóságnál nyilvántartott, végrehajtható, nettó módon számított adótartozása a naptári év utolsó napján meghaladja a 100 ezer forintot azzal, hogy az állami adó- és vámhatóság visszavonja az adóalanyiság megszűnéséről rendelkező határozatát, ha a kisadózó az adótartozását az adóalanyiság megszűnéséről rendelkező határozat véglegessé válásáig megfizeti;</p></div><span class="jhId" id="SZ5@BE1@POF"></span><div id="sc2022-13-00-00-166" class="betusPontNyito"><p><span class="jel"> f)</span> a <a class="link" data-jhid="SZ4@BE5" data-type="belso">4. § (5) bekezdés</a>e szerinti tevékenységből származó bevétel megszerzése esetén a bevétel megszerzését megelőző nappal;</p></div><span class="jhId" id="SZ5@BE1@POG"></span><div id="sc2022-13-00-00-169" class="betusPontNyito"><p><span class="jel"> g)</span><sup class="fnSup" data-note-id="fnr_679">2</sup>  a bevétel megszerzését megelőző nappal, ha a kisadózó az <a class="link" href="jogszabaly/2017-150-00-00" data-type="kulso">Art.</a> szerinti kifizetőtől (ideértve a külföldi kifizetőt is) szerez termékértékesítés, szolgáltatásnyújtás ellenértékeként bevételt, ide nem értve a TESZOR’15 49.32.11 szerinti taxis személyszállításból származó bevételt;</p></div><span class="jhId" id="SZ5@BE1@POH"></span><div id="sc2022-13-00-00-684" class="betusPontNyito"><p><span class="jel"> h)</span><sup class="fnSup" data-note-id="fnr_680">3</sup>  annak a hónapnak az utolsó napjával, amelyben a kisadózó a <a class="link" data-jhid="SZ2@BE0@PO2@APA" data-type="belso">2. § 2. pont a)–j) alpont</a>jának bármelyike szerint nem minősül főfoglalkozású kisadózónak.</p></div><!--n-->
+<span class="jhId" id="SZ5@BE2"></span><div id="sc2022-13-00-00-172" class="bekezdesNyito"><p><span class="jel"> (2)</span> A kisadózó a <a class="link" data-jhid="SZ4@BE5" data-type="belso">4. § (5) bekezdés</a>e szerinti tevékenységből származó bevétel megszerzését követő 15 napon belül bejelenti az állami adó- és vámhatósághoz ezen bevétel megszerzésének időpontját.</p></div><!--n-->
+<span class="jhId" id="SZ5@BE3"></span><div id="sc2022-13-00-00-175" class="bekezdesNyito"><p><span class="jel"> (3)</span><sup class="fnSup" data-note-id="fnr_681">4</sup>  A kisadózó a bevétel megszerzését követő 15 napon belül bejelenti az állami adó- és vámhatósághoz, ha az <a class="link" href="jogszabaly/2017-150-00-00" data-type="kulso">Art.</a> szerinti kifizetőtől (ideértve a külföldi kifizetőt is) szerez termékértékesítés, szolgáltatásnyújtás ellenértékeként bevételt, kivéve, ha a bevétel TESZOR’15 49.32.11 szerinti taxis személyszállításból származik.</p></div><!--n-->
+<span class="jhId" id="SZ5@BE3A"></span><div id="sc2022-13-00-00-687" class="bekezdesNyito"><p><span class="jel"> (3a)</span><sup class="fnSup" data-note-id="fnr_682">5</sup>  A kisadózó az <a class="link" data-jhid="SZ5@BE1@POH" data-type="belso">(1) bekezdés h) pont</a>ja szerinti tényt a tárgyhónapot követő 15 napon belül bejelenti az állami adó- és vámhatósághoz.</p></div><!--n-->
+<span class="jhId" id="SZ5@BE4"></span><div id="sc2022-13-00-00-178" class="bekezdesNyito"><p><span class="jel"> (4)</span> Az adóalanyiság megszűnéséről – az <a class="link" data-jhid="SZ5@BE1@POA" data-type="belso">(1) bekezdés a)</a> és <a class="link" data-jhid="SZ5@BE1@POB" data-type="belso">b) pont</a>jában meghatározott eset kivételével – az állami adó- és vámhatóság határozatot hoz.</p></div><!--n-->
+<span class="jhId" id="SZ5@BE5"></span><div id="sc2022-13-00-00-690" class="bekezdesNyito"><p><span class="jel"> (5)</span><sup class="fnSup" data-note-id="fnr_683">6</sup>  Az állami adó- és vámhatóság határozattal állapítja meg a kisadózói adóalanyiság megszűnését abban az esetben is, ha a kisadózó a <a class="link" data-jhid="SZ5@BE3A" data-type="belso">(3a) bekezdés</a> szerinti bejelentési kötelezettségét nem teljesíti, vagy bejelentésében az adóalanyiság megszűnésének időpontját helytelenül jelöli meg.</p></div><!--i-->
+<span class="jhId" id="SZ6"></span><div id="sc2022-13-00-00-181" class="szakasz"></div><!--n-->
+<span class="jhId" id="SZ6@BE0"></span><div id="sc2022-13-00-00-182" class="bekezdesNyito"><p class="UJ mt"><span class="jel"><span class="szakasz-jel">6. §</span></span> Az adóalanyiság megszűnésének évére és az azt követő 12 hónapra az adóalanyiság ismételten nem választható.</p></div><!--i-->
+<!--as--><span class="jhId" id="AC4"></span><div id="sc2022-13-00-00-186" class="alcim"><p class="mhk-C6"><span class="jel"> 4.</span> <b>Az adó mértéke és megfizetése</b></p></div><!--ae--><!--i-->
+<span class="jhId" id="SZ7"></span><div id="sc2022-13-00-00-188" class="szakasz"></div><!--n-->
+<span class="jhId" id="SZ7@BE1"></span><div id="sc2022-13-00-00-189" class="bekezdesNyito"><p class=" mt"><span class="jel"><span class="szakasz-jel">7. §</span> (1)</span> A tételes adó mértéke havonta 50 ezer forint.</p></div><!--n-->
+<span class="jhId" id="SZ7@BE2"></span><div id="sc2022-13-00-00-192" class="bekezdesNyito"><p><span class="jel"> (2)</span> Az <a class="link" data-jhid="SZ7@BE1" data-type="belso">(1) bekezdés</a> szerinti tételes adó teljes összegét az adóalanyiság fennállásának minden megkezdett naptári hónapjára meg kell fizetni.</p></div><!--n-->
+<span class="jhId" id="SZ7@BE3"></span><div id="sc2022-13-00-00-195" class="bekezdesNyito"><p><span class="jel"> (3)</span> A tételes adót a kisadózó a tárgyhónapot követő hónap 12. napjáig fizeti meg.</p></div><!--n-->
+<span class="jhId" id="SZ7@BE4"></span><div id="sc2022-13-00-00-198" class="bekezdesNyito"><p><span class="jel"> (4)</span> Az a kisadózó, aki a naptári év minden hónapjára köteles az <a class="link" data-jhid="SZ7@BE1" data-type="belso">(1) bekezdés</a> szerinti tételes adót megfizetni, az egyéni vállalkozásból származó bevételének naptári évben elért összegéből az <a class="link" data-jhid="SZ7@BE5" data-type="belso">(5) bekezdés</a> szerinti keretösszeget meghaladó rész után 40 százalékos mértékű különadót (a továbbiakban: különadó) fizet. Ha a kisadózó nem köteles a naptári év minden hónapjára az <a class="link" data-jhid="SZ7@BE1" data-type="belso">(1) bekezdés</a> szerinti tételes adót megfizetni, a különadót a kisadózói bevételének</p></div><span class="jhId" id="SZ7@BE4@POA"></span><div id="sc2022-13-00-00-201" class="betusPontNyito"><p><span class="jel"> a)</span> az e törvény szerinti adóalanyiság fennállásának az <a class="link" data-jhid="SZ7@BE1" data-type="belso">(1) bekezdés</a> szerinti adófizetési kötelezettséggel érintett hónapjai és</p></div><span class="jhId" id="SZ7@BE4@POB"></span><div id="sc2022-13-00-00-204" class="betusPontNyito"><p><span class="jel"> b)</span> a keretösszeg egytizenkettedének</p></div><div id="sc2022-13-00-00-207" class="bekezdesZaro"><p class="mhk-KI MF">szorzatát meghaladó része után fizeti meg.</p></div><!--n-->
+<span class="jhId" id="SZ7@BE5"></span><div id="sc2022-13-00-00-209" class="bekezdesNyito"><p><span class="jel"> (5)</span> A <a class="link" data-jhid="SZ7@BE4" data-type="belso">(4) bekezdés</a>ben meghatározott keretösszeg 18 millió forint.</p></div><!--n-->
+<span class="jhId" id="SZ7@BE6"></span><div id="sc2022-13-00-00-212" class="bekezdesNyito"><p><span class="jel"> (6)</span> Ha a kisadózó az adóévben megszerzett bevétel után a <a class="link" data-jhid="SZ7@BE4" data-type="belso">(4) bekezdés</a> szerinti különadó megfizetésére köteles, a különadót az adóévet követő év február 25. napjáig vagy – ha az adóalanyiság év közben szűnik meg – az adóalanyiság megszűnését követő 30 napon belül vallja be és fizeti meg.</p></div><!--n-->
+<span class="jhId" id="SZ7@BE7"></span><div id="sc2022-13-00-00-215" class="bekezdesNyito"><p><span class="jel"> (7)</span> A <a class="link" data-jhid="SZ7@BE4" data-type="belso">(4) bekezdés</a> szerint meghatározott különadó megfizetése nem mentesít az <a class="link" data-jhid="SZ7@BE1" data-type="belso">(1) bekezdés</a> szerinti adó megfizetése alól.</p></div><!--n-->
+<span class="jhId" id="SZ7@BE8"></span><div id="sc2022-13-00-00-218" class="bekezdesNyito"><p><span class="jel"> (8)</span> A kisadózó nem fizeti meg az <a class="link" data-jhid="SZ7@BE1" data-type="belso">(1) bekezdés</a> szerinti tételes adót azon hónapokra vonatkozóan, amelyek egészében</p></div><span class="jhId" id="SZ7@BE8@POA"></span><div id="sc2022-13-00-00-221" class="betusPontNyito"><p><span class="jel"> a)</span> táppénzben, baleseti táppénzben, csecsemőgondozási díjban, örökbefogadói díjban, gyermekgondozási díjban, gyermekgondozást segítő ellátásban, gyermeknevelési támogatásban vagy gyermekek otthongondozási díjában, ápolási díjban részesül,</p></div><span class="jhId" id="SZ7@BE8@POB"></span><div id="sc2022-13-00-00-224" class="betusPontNyito"><p><span class="jel"> b)</span> katonai szolgálatot teljesítő önkéntes tartalékos katona,</p></div><span class="jhId" id="SZ7@BE8@POC"></span><div id="sc2022-13-00-00-227" class="betusPontNyito"><p><span class="jel"> c)</span> fogvatartott, vagy</p></div><span class="jhId" id="SZ7@BE8@POD"></span><div id="sc2022-13-00-00-230" class="betusPontNyito"><p><span class="jel"> d)</span> egyéni vállalkozói tevékenységét szüneteltette,</p></div><div id="sc2022-13-00-00-233" class="bekezdesZaro"><p class="mhk-KI MF">kivéve ha az e törvény szerinti adóalanyiságába tartozó tevékenységet végez, ideértve különösen, ha az említett időszakban bevételt szerez.</p></div><!--n-->
+<span class="jhId" id="SZ7@BE9"></span><div id="sc2022-13-00-00-235" class="bekezdesNyito"><p><span class="jel"> (9)</span> Nem kell megfizetni az <a class="link" data-jhid="SZ7@BE1" data-type="belso">(1) bekezdés</a> szerinti adót azon hónapokra vonatkozóan sem, amelyben a <a class="link" data-jhid="SZ7@BE8@POA" data-type="belso">(8) bekezdés a)–c) pont</a>ja szerinti állapot megszűnik akkor, ha ez az állapot legalább 30 napig fennállt. A 30 nap számítása szempontjából figyelmen kívül kell hagyni azt az időszakot, amelyre vonatkozóan a <a class="link" data-jhid="SZ7@BE8" data-type="belso">(8) bekezdés</a> szerint az adót nem kell megfizetni.</p></div><!--n-->
+<span class="jhId" id="SZ7@BE10"></span><div id="sc2022-13-00-00-238" class="bekezdesNyito"><p><span class="jel"> (10)</span> A kisadózó – ide nem értve a <a class="link" data-jhid="SZ7@BE8@POD" data-type="belso">(8) bekezdés d) pont</a>ja szerinti esetet – a tárgyhónapot követő hónap 12. napjáig bejelenti az állami adó- és vámhatósághoz azt, ha a tárgyhónapra vonatkozóan a <a class="link" data-jhid="SZ7@BE8" data-type="belso">(8)</a> és <a class="link" data-jhid="SZ7@BE9" data-type="belso">(9) bekezdés</a> szerint nem keletkezik adófizetési kötelezettsége. A kisadózónak a <a class="link" data-jhid="SZ7@BE8@POD" data-type="belso">(8) bekezdés d) pont</a>ja szerinti esetben nem kell bejelentést tennie, azzal, hogy a kötelezettség módosítását a rendelkezésre álló adatok alapján az állami adó- és vámhatóság hivatalból végzi el. A kisadózónak ugyanakkor be kell jelentenie a tárgyhónapot követő hónap 12. napjáig, ha a szünetelés ideje alatt az e törvény szerinti adóalanyiságába tartozó tevékenységet végez, ideértve különösen, ha az említett időszakban bevételt szerez.</p></div><!--n-->
+<span class="jhId" id="SZ7@BE11"></span><div id="sc2022-13-00-00-241" class="bekezdesNyito"><p><span class="jel"> (11)</span> Az állami adó- és vámhatóság a kisadózó tételes és különadó-fizetési kötelezettségét a <a class="link" data-jhid="SZ3" data-type="belso">3. §</a> és a <a class="link" data-jhid="SZ7@BE10" data-type="belso">(10) bekezdés</a> szerinti bejelentés és az állami adó- és vámhatóság határozata alapján tartja nyilván.</p></div><!--i-->
+<!--as--><span class="jhId" id="AC5"></span><div id="sc2022-13-00-00-245" class="alcim"><p class="mhk-C6"><span class="jel"> 5.</span> <b>A tételes adóval teljesített közterhek</b></p></div><!--ae--><!--i-->
+<span class="jhId" id="SZ8"></span><div id="sc2022-13-00-00-247" class="szakasz"></div><!--n-->
+<span class="jhId" id="SZ8@BE1"></span><div id="sc2022-13-00-00-248" class="bekezdesNyito"><p class=" mt"><span class="jel"><span class="szakasz-jel">8. §</span> (1)</span> A kisadózó az adóalanyiság időszakában mentesül a gazdasági tevékenységével összefüggő alábbi közterhekkel kapcsolatos kötelezettségek alól:</p></div><span class="jhId" id="SZ8@BE1@POA"></span><div id="sc2022-13-00-00-251" class="betusPontNyito"><p><span class="jel"> a)</span> az <a class="link" href="jogszabaly/1995-117-00-00" data-type="kulso">Szja tv.</a> szerinti vállalkozói személyi jövedelemadó és vállalkozói osztalékalap utáni adó vagy átalányadó megállapítása, bevallása és megfizetése;</p></div><span class="jhId" id="SZ8@BE1@POB"></span><div id="sc2022-13-00-00-254" class="betusPontNyito"><p><span class="jel"> b)</span> a saját maga után fizetendő személyi jövedelemadó és társadalombiztosítási járulék megállapítása, bevallása és megfizetése;</p></div><span class="jhId" id="SZ8@BE1@POC"></span><div id="sc2022-13-00-00-257" class="betusPontNyito"><p><span class="jel"> c)</span> a szociális hozzájárulási adó megállapítása, bevallása és megfizetése.</p></div><!--n-->
+<span class="jhId" id="SZ8@BE2"></span><div id="sc2022-13-00-00-260" class="bekezdesNyito"><p><span class="jel"> (2)</span> A tételes adó megfizetésével a kisadózó nem mentesül az általa foglalkoztatott magánszemélyek foglalkoztatására tekintettel juttatott jövedelmek után teljesítendő adókötelezettségek alól.</p></div><!--i-->
+<!--as--><span class="jhId" id="AC6"></span><div id="sc2022-13-00-00-264" class="alcim"><p class="mhk-C6"><span class="jel"> 6.</span> <b>A kisadózót megillető ellátások és a kisadózó jövedelme</b></p></div><!--ae--><!--i-->
+<span class="jhId" id="SZ9"></span><div id="sc2022-13-00-00-266" class="szakasz"></div><!--n-->
+<span class="jhId" id="SZ9@BE1"></span><div id="sc2022-13-00-00-267" class="bekezdesNyito"><p class=" mt"><span class="jel"><span class="szakasz-jel">9. §</span> (1)</span> A kisadózó e jogállásának időtartama alatt biztosítottnak minősül, a Tbj-ben és a foglalkoztatás elősegítéséről és a munkanélküliek ellátásáról szóló <a class="link" href="jogszabaly/1991-4-00-00" data-type="kulso">1991. évi IV. törvény</a>ben meghatározott valamennyi ellátásra jogosultságot szerez. Ezen ellátások számításának alapja havonta 108 ezer forint. Az állami adó- és vámhatóság a <a class="link" data-jhid="SZ3" data-type="belso">3. §</a> és a <a class="link" data-jhid="SZ7@BE10" data-type="belso">7. § (10) bekezdés</a>e szerinti bejelentés adattartalma alapján adatot szolgáltat az egészség- és nyugdíjbiztosítási szervek felé a kisadózó biztosítotti jogállásának időtartamáról és az ellátások alapjáról.</p></div><!--n-->
+<span class="jhId" id="SZ9@BE2"></span><div id="sc2022-13-00-00-270" class="bekezdesNyito"><p><span class="jel"> (2)</span> Szünetel a kisadózó biztosítása abban a hónapban, amelyben a tételes adót a <a class="link" data-jhid="SZ7@BE8@POD" data-type="belso">7. § (8) bekezdés d) pont</a>ja alapján nem kell megfizetni, kivéve, ha a kisadózó az adott hónapban kisadózóként folytatott tevékenységébe tartozó tevékenységet végez (ideértve különösen, ha az említett időszakban bevételt szerez), és erre tekintettel megfizeti a <a class="link" data-jhid="SZ7@BE1" data-type="belso">7. § (1) bekezdés</a>e szerinti tételes adót.</p></div><!--n-->
+<span class="jhId" id="SZ9@BE3"></span><div id="sc2022-13-00-00-273" class="bekezdesNyito"><p><span class="jel"> (3)</span> Más jogszabályok alkalmazásában, különösen az adóigazgatási eljárás részletszabályairól szóló kormányrendelet szerinti jövedelemigazolás kiállításának szempontjából a kisadózó jövedelmének a kisadózó utolsó, a megszerzett bevételről tett nyilatkozatában feltüntetett bevételének 60 százaléka minősül.</p></div><!--i-->
+<!--as--><span class="jhId" id="AC7"></span><div id="sc2022-13-00-00-277" class="alcim"><p class="mhk-C6"><span class="jel"> 7.</span> <b>Nyilatkozat a bevételről</b></p></div><!--ae--><!--i-->
+<span class="jhId" id="SZ10"></span><div id="sc2022-13-00-00-279" class="szakasz"></div><!--n-->
+<span class="jhId" id="SZ10@BE1"></span><div id="sc2022-13-00-00-280" class="bekezdesNyito"><p class=" mt"><span class="jel"><span class="szakasz-jel">10. §</span> (1)</span> A kisadózó az adóévet követő év február 25. napjáig az állami adó- és vámhatóság által rendszeresített nyomtatvány alkalmazásával nyilatkozatot tesz az adóévben adóalanyként megszerzett bevételéről. A nyilatkozat a jogkövetkezmények szempontjából bevallásnak minősül.</p></div><!--n-->
+<span class="jhId" id="SZ10@BE2"></span><div id="sc2022-13-00-00-283" class="bekezdesNyito"><p><span class="jel"> (2)</span> Ha az adóalanyiság év közben szűnik meg, a nyilatkozatot az adóalanyiság megszűnését követő 30 napon belül kell megtenni.</p></div><!--i-->
+<!--as--><span class="jhId" id="AC8"></span><div id="sc2022-13-00-00-287" class="alcim"><p class="mhk-C6"><span class="jel"> 8.</span> <b>Nyilvántartási kötelezettség</b></p></div><!--ae--><!--i-->
+<span class="jhId" id="SZ11"></span><div id="sc2022-13-00-00-289" class="szakasz"></div><!--n-->
+<span class="jhId" id="SZ11@BE1"></span><div id="sc2022-13-00-00-290" class="bekezdesNyito"><p class=" mt"><span class="jel"><span class="szakasz-jel">11. §</span> (1)</span> Az adóalany az e törvény szerinti adóval összefüggő nyilvántartási kötelezettségeit e § szerint teljesíti.</p></div><!--n-->
+<span class="jhId" id="SZ11@BE2"></span><div id="sc2022-13-00-00-293" class="bekezdesNyito"><p><span class="jel"> (2)</span> A kisadózó bevételi nyilvántartást vezet, amelyben időrendben, folyamatosan, ellenőrizhető módon nyilvántart és rögzít minden olyan adatot, amely adókötelezettsége teljesítéséhez és a teljesítés ellenőrzéséhez szükséges. A bevételi nyilvántartás legalább a következő adatokat tartalmazza:</p></div><span class="jhId" id="SZ11@BE2@POA"></span><div id="sc2022-13-00-00-296" class="betusPontNyito"><p><span class="jel"> a)</span> sorszám;</p></div><span class="jhId" id="SZ11@BE2@POB"></span><div id="sc2022-13-00-00-299" class="betusPontNyito"><p><span class="jel"> b)</span> a bizonylat sorszáma;</p></div><span class="jhId" id="SZ11@BE2@POC"></span><div id="sc2022-13-00-00-302" class="betusPontNyito"><p><span class="jel"> c)</span> a bevétel összege;</p></div><span class="jhId" id="SZ11@BE2@POD"></span><div id="sc2022-13-00-00-305" class="betusPontNyito"><p><span class="jel"> d)</span> a bevétel megszerzésének időpontja.</p></div><!--n-->
+<span class="jhId" id="SZ11@BE3"></span><div id="sc2022-13-00-00-308" class="bekezdesNyito"><p><span class="jel"> (3)</span> A bevételi nyilvántartás vezetésével összefüggő kötelezettséget teljesítettnek kell tekinteni, ha a kisadózó az általa kiállított nyugtákat, számlákat teljeskörűen megőrzi és ezen dokumentumokból a bevétel megszerzésének időpontja hitelt érdemlően megállapítható.</p></div><!--n-->
+<span class="jhId" id="SZ11@BE4"></span><div id="sc2022-13-00-00-311" class="bekezdesNyito"><p><span class="jel"> (4)</span> A nyilvántartásban adatot rögzíteni, módosítani és törölni csak bizonylat alapján lehet. A nyilvántartásban rögzített adatot módosítani vagy törölni csak úgy lehet, hogy az eredeti adat a módosítást vagy a törlést követően is megállapítható legyen.</p></div><!--n-->
+<span class="jhId" id="SZ11@BE5"></span><div id="sc2022-13-00-00-314" class="bekezdesNyito"><p><span class="jel"> (5)</span> A bizonylatot, a nyilvántartást a kiállítás adóévét követő 5. naptári év végéig kell megőrizni. E kötelezettség a bizonylat rontott példányára is vonatkozik.</p></div><!--i-->
+<!--as--><span class="jhId" id="AC9"></span><div id="sc2022-13-00-00-318" class="alcim"><p class="mhk-C6"><span class="jel"> 9.</span> <b>Az áttérés szabályai</b></p></div><!--ae--><!--i-->
+<span class="jhId" id="SZ12"></span><div id="sc2022-13-00-00-320" class="szakasz"></div><!--n-->
+<span class="jhId" id="SZ12@BE1"></span><div id="sc2022-13-00-00-321" class="bekezdesNyito"><p class=" mt"><span class="jel"><span class="szakasz-jel">12. §</span> (1)</span> A kisadózói adóalanyiságot megelőzően az <a class="link" href="jogszabaly/1995-117-00-00" data-type="kulso">Szja tv.</a> szerint adózó egyéni vállalkozó esetében az e törvény szerinti adóalanyiság kezdő napját megelőző napon megszerzett bevételnek kell tekinteni minden olyan ellenértéket, amelyről kiállított bizonylat szerinti teljesítési időpont az <a class="link" href="jogszabaly/1995-117-00-00" data-type="kulso">Szja tv.</a> szerinti adózás időszakára esik. A kisadózói adóalanyiság időtartama alatt felmerült, az adóalanyiság választását megelőző időszakra vonatkozó kiadásokat a kisadózó oly módon számolhatja el, mintha azok a kisadózói adóalanyiság kezdő napját megelőző napon merültek volna fel.</p></div><!--n-->
+<span class="jhId" id="SZ12@BE2"></span><div id="sc2022-13-00-00-324" class="bekezdesNyito"><p><span class="jel"> (2)</span> A vállalkozói jövedelem szerinti adózást alkalmazó egyéni vállalkozó a kisadózói adóalanyiság választása bejelentésének adóévében az Szja tv-nek az egyéni vállalkozói tevékenység megszüntetésére vonatkozó előírásai szerint megállapítja a meglévő készletekkel kapcsolatos bevételét. E bevételt a továbbiakban mindaddig adóalapot nem érintő bevételként tartja nyilván, amíg adókötelezettségeit az e törvény szerinti adóra vonatkozó rendelkezések szerint teljesíti vagy az <a class="link" href="jogszabaly/1995-117-00-00" data-type="kulso">Szja tv.</a> szerinti átalányadózást alkalmaz. Ha a kisadózó a tevékenységét megszünteti, akkor a bevételét növeli az az összeg, amelyet a kisadózói adóalanyiság bejelentése adóévében megállapított.</p></div><!--n-->
+<span class="jhId" id="SZ12@BE3"></span><div id="sc2022-13-00-00-327" class="bekezdesNyito"><p><span class="jel"> (3)</span> Ha a kisadózó az adóévben egyidejűleg mezőgazdasági őstermelői tevékenységet is folytat, akkor</p></div><span class="jhId" id="SZ12@BE3@POA"></span><div id="sc2022-13-00-00-330" class="betusPontNyito"><p><span class="jel"> a)</span> a mindkét tevékenységgel összefüggő költségeket a bevételek arányában meg kell osztania;</p></div><span class="jhId" id="SZ12@BE3@POB"></span><div id="sc2022-13-00-00-333" class="betusPontNyito"><p><span class="jel"> b)</span> e tevékenysége tekintetében – feltéve, hogy arra jogosult – alkalmazhatja az átalányadózást.</p></div><!--n-->
+<span class="jhId" id="SZ12@BE4"></span><div id="sc2022-13-00-00-336" class="bekezdesNyito"><p><span class="jel"> (4)</span> A kisadózó az <a class="link" href="jogszabaly/1995-117-00-00" data-jhid="SZ49B@BE5" data-type="kulso">Szja tv. 49/B. § (5)</a>, <a class="link" href="jogszabaly/1995-117-00-00" data-jhid="SZ49B@BE11" data-type="kulso">(11)</a>, <a class="link" href="jogszabaly/1995-117-00-00" data-jhid="SZ49B@BE14" data-type="kulso">(14)</a> és <a class="link" href="jogszabaly/1995-117-00-00" data-jhid="SZ49B@BE16" data-type="kulso">(16) bekezdés</a>ét, vagy 13. számú mellékletének 14. pontját alkalmazza, ha a kisadózói adóalanyiság bejelentésének adóévében vagy azt megelőzően az <a class="link" href="jogszabaly/1995-117-00-00" data-jhid="SZ49B@BE6@POG" data-type="kulso">Szja tv. 49/B. § (6) bekezdés g) pont</a>ja szerinti kedvezményt, a kisvállalkozói kedvezményt vagy a kisvállalkozások adókedvezményét vette igénybe, fejlesztési tartalékot képzett.</p></div><!--n-->
+<span class="jhId" id="SZ12@BE5"></span><div id="sc2022-13-00-00-339" class="bekezdesNyito"><p><span class="jel"> (5)</span> Az egyéni vállalkozó a kisadózói adóalanyisága megszűnése bejelentésével egyidejűleg az egyéni vállalkozó átalányadózására vonatkozó rendelkezések alkalmazását is bejelentheti, ha a bejelentés időpontjában megfelel az Szja tv-ben foglalt valamennyi feltételnek.</p></div><!--n-->
+<span class="jhId" id="SZ12@BE6"></span><div id="sc2022-13-00-00-342" class="bekezdesNyito"><p><span class="jel"> (6)</span> Az egyéni vállalkozó a kisadózói adóalanyisága megszűnésének adóévét követő első adóév első napjára vonatkozóan – az Szja tv-nek a nyilvántartásra vonatkozó rendelkezései megfelelő alkalmazásával – részletes vagyonleltárt készít minden olyan eszközéről, amelyet vállalkozói tevékenysége keretében fog használni.</p></div><!--n-->
+<span class="jhId" id="SZ12@BE7"></span><div id="sc2022-13-00-00-345" class="bekezdesNyito"><p><span class="jel"> (7)</span> A kisadózó vállalkozások tételes adója és az e törvény szerinti adóalanyiság időszaka alatt megszerzett nem anyagi jószág, tárgyi eszköz alapján az adózó az adóalanyiság megszűnése – ide nem értve, ha az egyéni vállalkozói tevékenységre való jogosultság egyéni cég, egyszemélyes korlátolt felelősségű társaság alapítása miatt szűnik meg – után a jövedelem meghatározásakor az értékcsökkenési leírást a más által kibocsátott bizonylaton feltüntetett értékre mint beruházási költségre vetítve állapítja meg.</p></div><!--n-->
+<span class="jhId" id="SZ12@BE8"></span><div id="sc2022-13-00-00-348" class="bekezdesNyito"><p><span class="jel"> (8)</span> A személyi jövedelemadó szempontjából költségként elszámoltnak kell tekinteni</p></div><span class="jhId" id="SZ12@BE8@POA"></span><div id="sc2022-13-00-00-351" class="betusPontNyito"><p><span class="jel"> a)</span> a kisadózói adóalanyként lezárt adóévben teljesített valamennyi, egyébként az <a class="link" href="jogszabaly/1995-117-00-00" data-type="kulso">Szja tv.</a> alapján költségnek minősülő kiadást (juttatást);</p></div><span class="jhId" id="SZ12@BE8@POB"></span><div id="sc2022-13-00-00-354" class="betusPontNyito"><p><span class="jel"> b)</span> a kisadózói adóalanyiság megszűnésekor a <a class="link" data-jhid="SZ12@BE6" data-type="belso">(6) bekezdés</a> szerinti vagyonleltárban kimutatott nem anyagi javak és tárgyi eszközök (ide nem értve az adóalanyiság időszaka alatt megszerzett nem anyagi javakat, tárgyi eszközöket) beruházási költségének az e törvény szerinti adóalanyiság, vagy ha az adóalany az e törvény szerinti adóalanyiságot megelőzően a kisadózó vállalkozások tételes adója szerinti adózást alkalmazta, akkor ez utóbbi adóalanyiság keletkezését megelőző adóév utolsó napjára az <a class="link" href="jogszabaly/1995-117-00-00" data-type="kulso">Szja tv.</a> szerinti nyilvántartásban kimutatott beruházási költséget meghaladó részét és</p></div><span class="jhId" id="SZ12@BE8@POC"></span><div id="sc2022-13-00-00-357" class="betusPontNyito"><p><span class="jel"> c)</span> a nem anyagi javaknak és a tárgyi eszközöknek a kisadózói adóalanyként lezárt adóévre az <a class="link" href="jogszabaly/1995-117-00-00" data-type="kulso">Szja tv.</a> szerint időarányosan jutó értékcsökkenési leírását (függetlenül megszerzésük időpontjától).</p></div><!--n-->
+<span class="jhId" id="SZ12@BE9"></span><div id="sc2022-13-00-00-360" class="bekezdesNyito"><p><span class="jel"> (9)</span> A kisadózói adóalanyként lezárt adóévet figyelembe kell venni a megelőző időszakból fennmaradt elhatárolt veszteség érvényesítésének időtartama tekintetében. A kisadózói adóalanyiságot megelőző időszakból fennmaradt összes elhatárolt veszteségből az említett adóalanyiság időszakának minden 12 hónapjában 20-20 százalékot, vagy annak időarányos részét elszámoltnak kell tekinteni.</p></div><!--n-->
+<span class="jhId" id="SZ12@BE10"></span><div id="sc2022-13-00-00-363" class="bekezdesNyito"><p><span class="jel"> (10)</span> A kisadózói adóalanyként lezárt adóévet figyelembe kell venni az olyan bevételt csökkentő kedvezmény, valamint adókedvezmény tekintetében, amelyet az adózó az <a class="link" href="jogszabaly/1995-117-00-00" data-type="kulso">Szja tv.</a> rendelkezései szerint meghatározott számú adóévben vehet igénybe.</p></div><!--n-->
+<span class="jhId" id="SZ12@BE11"></span><div id="sc2022-13-00-00-366" class="bekezdesNyito"><p><span class="jel"> (11)</span> Ha az egyéni vállalkozó halála után a tevékenységét özvegye vagy örököse folytatja, akkor az özvegy, az örökös 90 napon belül bejelentheti, hogy e törvény szerinti adózási mód alkalmazásával kívánja folytatni az egyéni vállalkozó tevékenységét. Az állami adó- és vámhatóság a bejelentés alapján írja elő a fizetendő tételes adót azzal, hogy a bejelentést megelőző időszak tekintetében késedelmi pótlék felszámításának nincs helye. E § alkalmazásában az elhunyt egyéni vállalkozót és az elhunyt személy egyéni vállalkozását folytató egyéni vállalkozót egy adóalanynak kell tekinteni.</p></div><!--i-->
+<span class="jhId" id="SZ13"></span><div id="sc2022-13-00-00-369" class="szakasz"></div><!--n-->
+<span class="jhId" id="SZ13@BE1"></span><div id="sc2022-13-00-00-370" class="bekezdesNyito"><p class=" mt"><span class="jel"><span class="szakasz-jel">13. §</span> (1)</span> A kisadózói adóalanyiságot megelőzően a kisadózó vállalkozások tételes adója hatálya alá tartozó egyéni vállalkozónak az adóalanyisága megszűnésének utolsó napján megszerzett bevételnek kell tekinteni minden olyan ellenértéket, amelyről kiállított bizonylat szerinti teljesítési időpont a kisadózó vállalkozások tételes adója szerinti adóalanyiság időszakára esik.</p></div><!--n-->
+<span class="jhId" id="SZ13@BE2"></span><div id="sc2022-13-00-00-373" class="bekezdesNyito"><p><span class="jel"> (2)</span> A kisadózó vállalkozások tételes adója szerinti adóalanyiságot megelőzően a vállalkozói jövedelem szerinti adózást alkalmazó egyéni vállalkozó a kisadózó adóalanyiság időszaka alatt is adóalapot nem érintő bevételként tartja nyilván azt a bevételt, amelyet a kisadózó vállalkozások tételes adója szerinti adóalanyiság bejelentésének adóévében az Szja tv-nek az egyéni vállalkozói tevékenység megszüntetésére vonatkozó előírásai szerint a meglévő készletekkel kapcsolatban megállapított. Ha az egyéni vállalkozó kisadózói adóalanyiságát megszünteti, akkor ezt az összeget bevételnövelő tételként kell figyelembe vennie, kivéve ha az <a class="link" href="jogszabaly/1995-117-00-00" data-type="kulso">Szja tv.</a> szerinti átalányadózást alkalmaz.</p></div><!--n-->
+<span class="jhId" id="SZ13@BE3"></span><div id="sc2022-13-00-00-376" class="bekezdesNyito"><p><span class="jel"> (3)</span> A <a class="link" data-jhid="SZ13@BE2" data-type="belso">(2) bekezdés</a> szerinti egyéni vállalkozó egyebekben a <a class="link" data-jhid="SZ12@BE4" data-type="belso">12. § (4)–(10) bekezdés</a>eiben foglalt rendelkezéseknek megfelelően jár el.</p></div><!--i-->
+<!--as--><span class="jhId" id="AC10"></span><div id="sc2022-13-00-00-380" class="alcim"><p class="mhk-C6"><span class="jel"> 10.</span> <b>Hatályba léptető rendelkezések</b></p></div><!--ae--><!--i-->
+<span class="jhId" id="SZ14"></span><div id="sc2022-13-00-00-382" class="szakasz"></div><!--n-->
+<span class="jhId" id="SZ14@BE1"></span><div id="sc2022-13-00-00-383" class="bekezdesNyito"><p class=" mt"><span class="jel"><span class="szakasz-jel">14. §</span> (1)</span> Ez a törvény – a <a class="link" data-jhid="SZ14@BE2" data-type="belso">(2) bekezdés</a>ben meghatározott kivétellel – 2022. augusztus 1-jén lép hatályba.</p></div><!--n-->
+<span class="jhId" id="SZ14@BE2"></span><div id="sc2022-13-00-00-386" class="bekezdesNyito"><p><span class="jel"> (2)</span> Az <a class="link" data-jhid="SZ1" data-type="belso">1–3. §</a>, <a class="link" data-jhid="SZ5" data-type="belso">5–13. §</a> és a <a class="link" data-jhid="SZ16" data-type="belso">16–34. §</a> 2022. szeptember 1-jén lép hatályba.</p></div><!--i-->
+<!--as--><span class="jhId" id="AC11"></span><div id="sc2022-13-00-00-390" class="alcim"><p class="mhk-C6"><span class="jel"> 11.</span> <b>Átmeneti rendelkezések</b></p></div><!--ae--><!--i-->
+<span class="jhId" id="SZ15"></span><div id="sc2022-13-00-00-392" class="szakasz"></div><!--n-->
+<span class="jhId" id="SZ15@BE1"></span><div id="sc2022-13-00-00-393" class="bekezdesNyito"><p class=" mt"><span class="jel"><span class="szakasz-jel">15. §</span> (1)</span> Az e törvény szerinti adóalanyiság bejelentésére vonatkozó nyilatkozat 2022. augusztus 1-jétől tehető meg a <a class="link" data-jhid="SZ4" data-type="belso">4. §</a>-ban foglalt szabályok szerint. Az e törvény szerinti adóalanyiság bejelentésére vonatkozóan 2022. szeptember 25-éig megtett nyilatkozat alapján az adóalanyiság a <a class="link" data-jhid="SZ4@BE1" data-type="belso">4. § (1) bekezdés</a>étől eltérően 2022. szeptember 1-jétől jön létre.</p></div><!--n-->
+<span class="jhId" id="SZ15@BE2"></span><div id="sc2022-13-00-00-396" class="bekezdesNyito"><p><span class="jel"> (2)</span> Az e törvény szerinti adóalanyiság választására nem jogosult, 2022. augusztus 31-én a kisadózó vállalkozások tételes adóját alkalmazó egyéni vállalkozó az <a class="link" href="jogszabaly/1995-117-00-00" data-jhid="SZ50" data-type="kulso">Szja tv. 50–56. §</a>-a szerinti átalányadózás választását a 2022. adóévre vonatkozóan 2022. október 31-éig jelentheti be. A bejelentés módját és formáját az állami adó-és vámhatóság honlapján 2022. augusztus 15-éig közzé teszi.</p></div><!--n-->
+<span class="jhId" id="SZ15@BE3"></span><div id="sc2022-13-00-00-399" class="bekezdesNyito"><p><span class="jel"> (3)</span> A 2022. augusztus 31-én a kisadózó vállalkozások tételes adóját alkalmazó kisadózó vállalkozás 2022. évben – a kisadózó vállalkozások tételes adójáról és a kisvállalati adóról szóló <a class="link" href="jogszabaly/2012-147-00-00" data-jhid="SZ8@BE6" data-type="kulso">2012. évi CXLVII. törvény (a továbbiakban: Katv.) 8. § (6) bekezdés</a>től eltérően – 40 százalékos mértékű adót abban az esetben fizet, ha az adóévben augusztus 31-éig megszerzett bevétele</p></div><span class="jhId" id="SZ15@BE3@POA"></span><div id="sc2022-13-00-00-402" class="betusPontNyito"><p><span class="jel"> a)</span> a <a class="link" href="jogszabaly/2012-147-00-00" data-type="kulso">Katv.</a> szerinti adóalanyiság fennállásának a <a class="link" href="jogszabaly/2012-147-00-00" data-type="kulso">Katv.</a> szerinti tételes adófizetési kötelezettséggel érintett hónapjai és</p></div><span class="jhId" id="SZ15@BE3@POB"></span><div id="sc2022-13-00-00-405" class="betusPontNyito"><p><span class="jel"> b)</span> 1,5 millió forint</p></div><div id="sc2022-13-00-00-408" class="bekezdesZaro"><p class="mhk-KI MF">szorzatát meghaladja.</p></div><!--n-->
+<span class="jhId" id="SZ15@BE4"></span><div id="sc2022-13-00-00-410" class="bekezdesNyito"><p><span class="jel"> (4)</span> Az e törvény <a class="link" data-jhid="SZ3" data-type="belso">3. §</a>-a szerinti kisadózói adóalanyiságot 2022. szeptember 1-jétől választó kisadózó 2022. évben a különadót a kisadózói bevételének</p></div><span class="jhId" id="SZ15@BE4@POA"></span><div id="sc2022-13-00-00-413" class="betusPontNyito"><p><span class="jel"> a)</span> a kisadózói adóalanyiság fennállásának az <a class="link" data-jhid="SZ7@BE1" data-type="belso">7. § (1) bekezdés</a> szerinti adófizetési kötelezettséggel érintett hónapjai és</p></div><span class="jhId" id="SZ15@BE4@POB"></span><div id="sc2022-13-00-00-416" class="betusPontNyito"><p><span class="jel"> b)</span> 1,5 millió forint</p></div><div id="sc2022-13-00-00-419" class="bekezdesZaro"><p class="mhk-KI MF">szorzatát meghaladó része után fizeti meg.</p></div><!--i-->
+<!--as--><span class="jhId" id="AC12"></span><div id="sc2022-13-00-00-422" class="alcim"><p class="mhk-C6"><span class="jel"> 12.</span> <b>Módosító rendelkezések</b></p></div><!--ae--><!--i-->
+<span class="jhId" id="SZ16"></span><div id="sc2022-13-00-00-424" class="szakasz"><p class=" mt"><span class="szakasz-jel">16. §<sup class="fnSup" data-note-id="fnr_659">7</sup> </span></p></div><!--i-->
+<span class="jhId" id="SZ17"></span><div id="sc2022-13-00-00-431" class="szakasz"><p class=" mt"><span class="szakasz-jel">17. §<sup class="fnSup" data-note-id="fnr_660">8</sup> </span></p></div><!--i-->
+<span class="jhId" id="SZ18"></span><div id="sc2022-13-00-00-441" class="szakasz"><p class=" mt"><span class="szakasz-jel">18. §<sup class="fnSup" data-note-id="fnr_661">9</sup> </span></p></div><!--i-->
+<span class="jhId" id="SZ19"></span><div id="sc2022-13-00-00-459" class="szakasz"><p class=" mt"><span class="szakasz-jel">19. §<sup class="fnSup" data-note-id="fnr_662">10</sup> </span></p></div><!--i-->
+<span class="jhId" id="SZ20"></span><div id="sc2022-13-00-00-463" class="szakasz"><p class=" mt"><span class="szakasz-jel">20. §<sup class="fnSup" data-note-id="fnr_663">11</sup> </span></p></div><!--i-->
+<span class="jhId" id="SZ21"></span><div id="sc2022-13-00-00-467" class="szakasz"><p class=" mt"><span class="szakasz-jel">21. §<sup class="fnSup" data-note-id="fnr_664">12</sup> </span></p></div><!--i-->
+<span class="jhId" id="SZ22"></span><div id="sc2022-13-00-00-471" class="szakasz"><p class=" mt"><span class="szakasz-jel">22. §<sup class="fnSup" data-note-id="fnr_665">13</sup> </span></p></div><!--i-->
+<span class="jhId" id="SZ23"></span><div id="sc2022-13-00-00-480" class="szakasz"><p class=" mt"><span class="szakasz-jel">23. §<sup class="fnSup" data-note-id="fnr_666">14</sup> </span></p></div><!--i-->
+<span class="jhId" id="SZ24"></span><div id="sc2022-13-00-00-484" class="szakasz"><p class=" mt"><span class="szakasz-jel">24. §<sup class="fnSup" data-note-id="fnr_667">15</sup> </span></p></div><!--i-->
+<span class="jhId" id="SZ25"></span><div id="sc2022-13-00-00-488" class="szakasz"><p class=" mt"><span class="szakasz-jel">25. §<sup class="fnSup" data-note-id="fnr_668">16</sup> </span></p></div><!--i-->
+<span class="jhId" id="SZ26"></span><div id="sc2022-13-00-00-497" class="szakasz"><p class=" mt"><span class="szakasz-jel">26. §<sup class="fnSup" data-note-id="fnr_669">17</sup> </span></p></div><!--i-->
+<span class="jhId" id="SZ27"></span><div id="sc2022-13-00-00-519" class="szakasz"><p class=" mt"><span class="szakasz-jel">27. §<sup class="fnSup" data-note-id="fnr_670">18</sup> </span></p></div><!--i-->
+<span class="jhId" id="SZ28"></span><div id="sc2022-13-00-00-529" class="szakasz"><p class=" mt"><span class="szakasz-jel">28. §<sup class="fnSup" data-note-id="fnr_671">19</sup> </span></p></div><!--i-->
+<span class="jhId" id="SZ29"></span><div id="sc2022-13-00-00-539" class="szakasz"><p class=" mt"><span class="szakasz-jel">29. §<sup class="fnSup" data-note-id="fnr_672">20</sup> </span></p></div><!--i-->
+<span class="jhId" id="SZ30"></span><div id="sc2022-13-00-00-548" class="szakasz"><p class=" mt"><span class="szakasz-jel">30. §<sup class="fnSup" data-note-id="fnr_673">21</sup> </span></p></div><!--i-->
+<span class="jhId" id="SZ31"></span><div id="sc2022-13-00-00-552" class="szakasz"><p class=" mt"><span class="szakasz-jel">31. §<sup class="fnSup" data-note-id="fnr_674">22</sup> </span></p></div><!--i-->
+<span class="jhId" id="SZ32"></span><div id="sc2022-13-00-00-561" class="szakasz"><p class=" mt"><span class="szakasz-jel">32. §<sup class="fnSup" data-note-id="fnr_675">23</sup> </span></p></div><!--i-->
+<span class="jhId" id="SZ33"></span><div id="sc2022-13-00-00-568" class="szakasz"><p class=" mt"><span class="szakasz-jel">33. §<sup class="fnSup" data-note-id="fnr_676">24</sup> </span></p></div><!--i-->
+<span class="jhId" id="SZ34"></span><div id="sc2022-13-00-00-575" class="szakasz"><p class=" mt"><span class="szakasz-jel">34. §<sup class="fnSup" data-note-id="fnr_677">25</sup> </span></p></div>
+                                                        <div class="footnote" id="fnr_1"><sup>1</sup><p>A törvényt az Országgyűlés a 2022. július 12-i ülésnapján fogadta el. A kihirdetés napja: 2022. július 18.</p></div><div class="footnote" id="fnr_679"><sup>2</sup><p>Az 5. § (1) bekezdés g) pontja a <a class="link" href="jogszabaly/2023-59-00-00" data-jhid="SZ46@BE1" data-type="kulso">2023. évi LIX. törvény 46. § (1) bekezdés</a>ével megállapított szöveg.</p></div><div class="footnote" id="fnr_680"><sup>3</sup><p>Az 5. § (1) bekezdés h) pontját a <a class="link" href="jogszabaly/2023-59-00-00" data-jhid="SZ46@BE2" data-type="kulso">2023. évi LIX. törvény 46. § (2) bekezdés</a>e iktatta be.</p></div><div class="footnote" id="fnr_681"><sup>4</sup><p>Az 5. § (3) bekezdése a <a class="link" href="jogszabaly/2023-59-00-00" data-jhid="SZ46@BE3" data-type="kulso">2023. évi LIX. törvény 46. § (3) bekezdés</a>ével megállapított szöveg.</p></div><div class="footnote" id="fnr_682"><sup>5</sup><p>Az 5. § (3a) bekezdését a <a class="link" href="jogszabaly/2023-59-00-00" data-jhid="SZ46@BE4" data-type="kulso">2023. évi LIX. törvény 46. § (4) bekezdés</a>e iktatta be.</p></div><div class="footnote" id="fnr_683"><sup>6</sup><p>Az 5. § (5) bekezdését a <a class="link" href="jogszabaly/2023-59-00-00" data-jhid="SZ46@BE5" data-type="kulso">2023. évi LIX. törvény 46. § (5) bekezdés</a>e iktatta be.</p></div><div class="footnote" id="fnr_659"><sup>7</sup><p>A 16. § a <a class="link" href="jogszabaly/2010-130-00-00" data-jhid="SZ12@BE2" data-type="kulso">2010: CXXX. törvény 12. § (2) bekezdése</a> alapján hatályát vesztette.</p></div><div class="footnote" id="fnr_660"><sup>8</sup><p>A 17. § a <a class="link" href="jogszabaly/2010-130-00-00" data-jhid="SZ12@BE2" data-type="kulso">2010: CXXX. törvény 12. § (2) bekezdése</a> alapján hatályát vesztette.</p></div><div class="footnote" id="fnr_661"><sup>9</sup><p>A 18. § a <a class="link" href="jogszabaly/2010-130-00-00" data-jhid="SZ12@BE2" data-type="kulso">2010: CXXX. törvény 12. § (2) bekezdése</a> alapján hatályát vesztette.</p></div><div class="footnote" id="fnr_662"><sup>10</sup><p>A 19. § a <a class="link" href="jogszabaly/2010-130-00-00" data-jhid="SZ12@BE2" data-type="kulso">2010: CXXX. törvény 12. § (2) bekezdése</a> alapján hatályát vesztette.</p></div><div class="footnote" id="fnr_663"><sup>11</sup><p>A 20. § a <a class="link" href="jogszabaly/2010-130-00-00" data-jhid="SZ12@BE2" data-type="kulso">2010: CXXX. törvény 12. § (2) bekezdése</a> alapján hatályát vesztette.</p></div><div class="footnote" id="fnr_664"><sup>12</sup><p>A 21. § a <a class="link" href="jogszabaly/2010-130-00-00" data-jhid="SZ12@BE2" data-type="kulso">2010: CXXX. törvény 12. § (2) bekezdése</a> alapján hatályát vesztette.</p></div><div class="footnote" id="fnr_665"><sup>13</sup><p>A 22. § a <a class="link" href="jogszabaly/2010-130-00-00" data-jhid="SZ12@BE2" data-type="kulso">2010: CXXX. törvény 12. § (2) bekezdése</a> alapján hatályát vesztette.</p></div><div class="footnote" id="fnr_666"><sup>14</sup><p>A 23. § a <a class="link" href="jogszabaly/2010-130-00-00" data-jhid="SZ12@BE2" data-type="kulso">2010: CXXX. törvény 12. § (2) bekezdése</a> alapján hatályát vesztette.</p></div><div class="footnote" id="fnr_667"><sup>15</sup><p>A 24. § a <a class="link" href="jogszabaly/2010-130-00-00" data-jhid="SZ12@BE2" data-type="kulso">2010: CXXX. törvény 12. § (2) bekezdése</a> alapján hatályát vesztette.</p></div><div class="footnote" id="fnr_668"><sup>16</sup><p>A 25. § a <a class="link" href="jogszabaly/2010-130-00-00" data-jhid="SZ12@BE2" data-type="kulso">2010: CXXX. törvény 12. § (2) bekezdése</a> alapján hatályát vesztette.</p></div><div class="footnote" id="fnr_669"><sup>17</sup><p>A 26. § a <a class="link" href="jogszabaly/2010-130-00-00" data-jhid="SZ12@BE2" data-type="kulso">2010: CXXX. törvény 12. § (2) bekezdése</a> alapján hatályát vesztette.</p></div><div class="footnote" id="fnr_670"><sup>18</sup><p>A 27. § a <a class="link" href="jogszabaly/2010-130-00-00" data-jhid="SZ12@BE2" data-type="kulso">2010: CXXX. törvény 12. § (2) bekezdése</a> alapján hatályát vesztette.</p></div><div class="footnote" id="fnr_671"><sup>19</sup><p>A 28. § a <a class="link" href="jogszabaly/2010-130-00-00" data-jhid="SZ12@BE2" data-type="kulso">2010: CXXX. törvény 12. § (2) bekezdése</a> alapján hatályát vesztette.</p></div><div class="footnote" id="fnr_672"><sup>20</sup><p>A 29. § a <a class="link" href="jogszabaly/2010-130-00-00" data-jhid="SZ12@BE2" data-type="kulso">2010: CXXX. törvény 12. § (2) bekezdése</a> alapján hatályát vesztette.</p></div><div class="footnote" id="fnr_673"><sup>21</sup><p>A 30. § a <a class="link" href="jogszabaly/2010-130-00-00" data-jhid="SZ12@BE2" data-type="kulso">2010: CXXX. törvény 12. § (2) bekezdése</a> alapján hatályát vesztette.</p></div><div class="footnote" id="fnr_674"><sup>22</sup><p>A 31. § a <a class="link" href="jogszabaly/2010-130-00-00" data-jhid="SZ12@BE2" data-type="kulso">2010: CXXX. törvény 12. § (2) bekezdése</a> alapján hatályát vesztette.</p></div><div class="footnote" id="fnr_675"><sup>23</sup><p>A 32. § a <a class="link" href="jogszabaly/2010-130-00-00" data-jhid="SZ12@BE2" data-type="kulso">2010: CXXX. törvény 12. § (2) bekezdése</a> alapján hatályát vesztette.</p></div><div class="footnote" id="fnr_676"><sup>24</sup><p>A 33. § a <a class="link" href="jogszabaly/2010-130-00-00" data-jhid="SZ12@BE2" data-type="kulso">2010: CXXX. törvény 12. § (2) bekezdése</a> alapján hatályát vesztette.</p></div><div class="footnote" id="fnr_677"><sup>25</sup><p>A 34. § a <a class="link" href="jogszabaly/2010-130-00-00" data-jhid="SZ12@BE2" data-type="kulso">2010: CXXX. törvény 12. § (2) bekezdése</a> alapján hatályát vesztette.</p></div>
+                        
+
+                    </div>
+                    <div class="clbo"></div>
+                </div>
+        </div>
+
+        <div class="versionWindow versionWindowDefault" id="versionWindow"></div>
+
+        <div class="footnoteDisplay footnote-fixed">
+    <div class="footnoteContent">
+        <div class="footnoteText" tabindex="0"></div>
+        <button class="footnoteClose absolute top-0 right-0 button outline flex justify-center items-center w-32 h-32 p-0" tabindex="0" data-njttip title="Lábjegyzet bezárása" aria-label="Lábjegyzet bezárása">
+            <i class="footnoteClose ri-close-line"></i>
+        </button>
+    </div>
+</div>
+<div id="fake_footnote_display"></div>
+        
+        <div id="navigation_panel" style="display: none" class="navigation-panel" data-ng-controller="mobileFooterCtrl">
+            <div class="navigation-panel__header flex justify-between items-center p-16">
+                <h3> Változott rendelkezések</h3>
+                <button data-ng-click="toggleNavigationPanel()" class="button subtle ri-close-line flex justify-center items-center p-0 w-32 h-32 color-link-neutral-enabled" data-njttip title="Bezárás" aria-label="Bezárás"></button>
+            </div>
+            <div class="navigation-panel__nav-content nav-content">
+                <div class="flex flex-col gap-8">
+                    <span class="text-16"> Megváltozott</span>
+                    <div class="flex justify-evenly">
+                        <button class="jumpToPreviousPastChangedSlice prevChange button outline negative flex justify-center items-center p-0 w-32 h-32" data-njttip title="Előző megváltozott">
+                            <i class="ri-arrow-up-s-line"></i>
+                        </button>
+                        <button class="jumpToNextPastChangedSlice prevChange button outline negative flex justify-center items-center p-0 w-32 h-32" data-njttip title="Következő megváltozott">
+                            <i class="ri-arrow-down-s-line"></i>
+                        </button>
+                        <span class="noPrevChange noChange">
+                            Nincs változás
+                        </span>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-8">
+                    <span class="text-16"> Változni fog </span>
+                    <div class="flex justify-evenly">
+                        <button class="jumpToPreviousFutureChangedSlice nextChange button outline flex justify-center items-center p-0 w-32 h-32" data-njttip title="Előző megváltozó">
+                            <i class="ri-arrow-up-s-line"></i>
+                        </button>
+                        <button class="jumpToNextFutureChangedSlice nextChange button outline flex justify-center items-center p-0 w-32 h-32" data-njttip title="Következő megváltozó">
+                            <i class="ri-arrow-down-s-line"></i>
+                        </button>
+                        <span class="noNextChange noChange">
+                            Nincs változás
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="eszkoztar_panel" style="display: none" class="eszkoztar_panel " data-ng-controller="mobileFooterCtrl">
+            <div class="navigation-panel__header flex justify-between items-center p-16">
+                <h3> Eszköztár</h3>
+                <button data-ng-click="toggleEszkoztarPanel()" class="button subtle ri-close-line flex justify-center items-center p-0 w-32 h-32 color-link-neutral-enabled" data-njttip title="Bezárás" aria-label="Bezárás"></button>
+            </div>
+            <div class="eszkoztar_panel__content">
+                                                                            <div class="flex flex-col items-center justify-center">
+                        <a class="no-underline text-small" href="#"
+                           onclick="growl.modal('&lt;a href=&quot;https://njt.jog.gov.hu/eli/TV/2022/13&quot; target=&quot;_blank&quot; &gt;https://njt.jog.gov.hu/eli/TV/2022/13&lt;/a&gt;', 'ELI', 'info eli-link-modal');"
+                           data-njttip title="ELI">ELI</a>
+                    </div>
+                                <div>
+                    <div onclick="njtPrint.handlePrintClick();"
+                         class="flex flex-col items-center">
+                        <i class="ri-printer-fill text-18"></i>
+                        <span class="text-small">Nyomtatás</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="context_menu">
+            <ul>
+                <li class="context_menu__selection" onclick="exportText.configureExport();">Másolás a vágólapra</li>
+                                    <li class="context_menu__selection" onclick="njtPrint.handlePrintClick();">Nyomtatás</li>
+                                            </ul>
+        </div>
+        </div>
+        <div id="scrollbarRuler"></div>
+
+        <footer id="mobileFooter">
+            <div data-ng-controller="mobileFooterCtrl">
+    <div id="mobile-footer" >
+        <div class="m-footer-item sideMenu color-white cursor-pointer"
+             aria-expanded="false"
+             aria-controls="sidemenu-window-left">
+            <i class="ri-list-check text-16 color-white"></i>
+            <span>
+                Szerkezet
+            </span>
+        </div>
+        <div data-ng-click="toggleOperationsMenu()"
+             class="m-footer-item color-white cursor-pointer">
+            <i class="ri-file-search-line text-16 color-white"></i>
+            <span>
+                Keresés
+            </span>
+        </div>
+        <div data-ng-click="toggleMegnyitottak()"
+             class="m-footer-item color-white cursor-pointer">
+            <i class="ri-archive-stack-line text-16 color-white"></i>
+            <span>
+                Megnyitottak
+            </span>
+        </div>
+                <div data-ng-click="toggleEszkoztarPanel()"
+             class="m-footer-item color-white cursor-pointer">
+            <i class="ri-settings-5-line text-16 color-white"></i>
+            <span>
+                Eszköztár
+            </span>
+        </div>
+        <div data-ng-click="toggleNavigationPanel()"
+             class="m-footer-item color-white cursor-pointer">
+            <i class="ri-expand-up-down-line text-16 color-white"></i>
+            <span>
+                Változások
+            </span>
+        </div>
+    </div>
+</div>        </footer>
+    </div>
+
+
+    <!-- p: 2026-04-30 17:30:01, i: 2026-05-01 21:02:24 -->
+    </div>
+    <div id="dynamic" class="mainWrapper empty" style="display: none">
+        <div data-ng-view></div>
+    </div>
+        <div id="bottom_flag_line" class="bg-white">
+            <div id="sztp_banner" style="position:absolute; bottom: 50px; right: 0; display: none;">
+                <img src="/bundles/njtfrontend/images/layout/sztp.svg?v2029fd183.14117.20261022122540.2.18.4" alt="Széchenyi Terv Plusz logó" style="height: 100px;"/>
+            </div>
+            <div id="bottom_black_line">
+                <div class="wrapper">
+                    <div data-ng-controller="pageBarCtrl">
+                        <div class="pageBar ng-cloak" data-ng-init="initPageBar('jogszabaly','2022-13-00-00')"><ul><li class="pager search" id="pageBarSearch"><div class="searchPopup"><div class="searchPopupBox"><a class="page or"
+                               data-ng-attr-href="{{ lastOrSearchPath }}">Önkormányzati rendeletek</a></div><div><a class="no-underline" data-ng-attr-href="{{ lastSearchPath }}"><i class="ri-search-line"></i><span class="hidden">Jogszabálykereső</span></a></div></div></li><li class="pager left items-center justify-center" id="pageBarBack" aria-label="Előző fül megjelenítése"
+                data-ng-click="changePager(-1)" data-ng-keydown="$event.keyCode === 13 && changePager(-1)"
+                data-ng-show="backForward"><i tabindex="0" class="ri-arrow-left-s-line text-24"></i></li><li class="flex items-center px-2" data-ng-repeat="page in pages" data-ng-class="[page.style, {'last':$last}]"
+                data-njttip title="<b>{{ page.title }}</b> {{ page.shortDescription }}"><div class="pagerWrapper flex-1 flex"><a class="page content-center pageTabLink" href="{{ page.url }}" data-ng-bind="page.title">{{ page.url }}</a><div><a class="no-underline text-16" tabindex="0" href="#"
+                       data-ng-click="deleteCookie(page.pageId, true, page.type, page.documentTypeForHistory)"
+                    ><i class="ri-close-line"></i></a></div></div></li><li class="pager right items-center justify-center" id="pageBarForward" aria-label="Következő fül megjelenítése"
+                data-ng-click="changePager(1)" data-ng-keydown="$event.keyCode === 13 && changePager(1)"
+                data-ng-show="backForward"><i tabindex="0" class="ri-arrow-right-s-line text-24"></i></li></ul></div>                        <div class="mobile-megnyitottak-tab">
+    <div class="megnyitottak-mobile-header flex justify-between items-center p-16">
+        <h3>Megnyitottak</h3>
+        <button class="megnyitottakCloseButton button subtle ri-close-line flex justify-center items-center p-0 w-32 h-32 color-link-neutral-enabled" data-njttip title="Bezárás" aria-label="Bezárás"></button>
+    </div>
+    <h2 class="p-16">Megnyitottak</h2>
+    <ul class="flex flex-col gap-16 px-16">
+        <li class="flex justify-between" data-ng-repeat="page in localData track by $index"
+            data-njttip title="{{ page.title }} {{ page.shortDescription }}">
+            <a class="no-underline text-16" href="{{ page.url }}"
+               data-ng-bind="page.title" onclick="njtApp.toggleMegnyitottak();">{{ page.url }}</a>
+
+            <button data-ng-click="deleteCookie($index,true)"
+                    class="button outline flex justify-center items-center w-32 h-32 p-0">
+                <i class="ri-close-line text-16"></i>
+            </button>
+        </li>
+    </ul>
+</div>
+                    </div>
+                    <div id="scrollToTop" class="absolute items-center gap-4 text-small">
+                        <button class="button secondary flex justify-center items-center p-0 ri-arrow-up-s-line h-32">
+                            <span>Lap tetejére</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div id="sticky-footer-wrapper"></div>
+</main>
+<div id="sztp_banner_mobile" style="position:fixed; right: 0; bottom: 0;z-index: 2; display: none;">
+    <img src="/bundles/njtfrontend/images/layout/sztp.svg?v2029fd183.14117.20261022122540.2.18.4" alt="Széchenyi Terv Plusz logó" style="height: 100px; max-width: 100%"/></div>
+
+<footer id="mainFooter">
+    <div class="flag-separator"></div>
+    <div class="w-full flex justify-center text-small color-white">
+        <div class="text">
+            <img class="footer-logo" src="/bundles/njtfrontend/images/layout/logo/njt-logo-footer-white.svg?v2029fd183.14117.20261022122540.2.18.4"
+                 alt=""/>
+            <div class="text-right">
+                <ul>
+                    <li>
+                        <a id="aboutLink"
+                           href="https://jog.gov.hu/kapcsolat"
+                           target="_blank"
+                           class="color-white">Kapcsolat</a>
+                    </li>
+                    <li>
+                        <a href="https://jog.gov.hu/felhasznalasi-feltetelek"
+                           target="_blank"
+                           class="color-white"
+                           aria-label="Felhasználási feltételek">
+                            Felhasználási feltételek
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/bundles/njtfrontend/docs/akadalymentesitesi.pdf?v2029fd183.14117.20261022122540.2.18.4"
+                           target="_blank"
+                           class="color-white"
+                           aria-label="Akadálymentesítési nyilatkozat PDF dokumentum">
+                            Akadálymentesítési nyilatkozat
+                            <span class="pdf accessiblehidden">PDF</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://jog.gov.hu/adatkezelesi-tajekoztato"
+                           target="_blank"
+                           class="color-white"
+                           aria-label="Adatkezelési tájékoztató">
+                            Adatkezelési tájékoztató
+                        </a>
+                    </li>
+                    <li>
+                        <a href="static/cookie"
+                           onclick="njtOpenCookieSettings();"
+                           class="color-white"
+                           aria-label="Süti beállítások">
+                            Süti beállítások
+                        </a>
+                    </li>
+                                                        </ul>
+                <span class="text-right__text">
+                    <span data-njttip title="v2029fd183.14117.20261022122540.2.18.4">©</span> A Nemzeti Jogszabálytárban elérhető szövegek tekintetében az MKIFK Magyar Közlönykiadó és Igazságügyi Fordítóközpont Zrt. minden jogot fenntart!
+                </span>
+            </div>
+        </div>
+    </div>
+    <div id="blank-clipboard-select-area">_</div>
+</footer>
+<div data-ng-controller="cookieLawCtrl" data-ng-init="init()"
+     class="cookie-law ng-cloak flex fixed w-full color-white" data-ng-show="!accepted">
+    <div class="cookie-law__holder flex flex-row justify-center items-center gap-40">
+        <div class="flex flex-row gap-8">
+            <i class="ri-information-2-fill text-24 color-white"></i>
+            <span class="text-medium color-white font-medium">
+                <span data-ng-non-bindable="true">A működéshez szükséges sütik mellett a Google Analytics statisztikai sütijeit, a munkamenet-azonosítót és a bejelentkezést csak az Ön hozzájárulásával használjuk. Döntését bármikor megváltoztathatja a lábléc „Süti beállítások” hivatkozásával.</span>
+                <span data-ng-hide="onCookiePage"><br/><span data-ng-non-bindable="true">A cookie-k kezeléséről részletesebb információt <a href="static/cookie">ide</a> kattintva olvashat.</span></span>
+            </span>
+        </div>
+        <div class="flex flex-row gap-8">
+            <button class="button primary" id="acceptButton" data-ng-if="!consentGiven"
+                    data-ng-click="acceptCookieLaw()">Elfogadom</button>
+            <button class="button primary" id="keepButton" data-ng-if="consentGiven"
+                    data-ng-click="keepCookieLaw()">Nem változtatok</button>
+            <button class="button outline inverted" id="rejectButton"
+                    data-ng-click="rejectCookieLaw()">Elutasítom</button>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var njtConfig = {
+        cachedPageDataUrl: '/ajax/cachedPageData.json',
+        searchUrl: '/ajax/get_search_url.json',
+        onkormanyzatiSearchUrl: '/ajax/get_onkormanyzati_search_url.json',
+        justificationSearchUrl: '/ajax/get_justification_search_url.json',
+        documentTranslationSearchUrl: '/ajax/get_document_translation_search_url.json',
+        internationalAgreementSearchUrl: '/ajax/get_international_agreement_search_url.json',
+        loggerUrl: '/ajax/logger.json',
+        collectAllDocumentVersion: '/ajax/collectAllDocumentVersion.json',
+        collectDocumentVhrVersion: '/ajax/collectDocumentVhrVersion.json',
+        documentVersions: '/ajax/getDocumentVersions.json',
+        currentDocumentFromAbbr: '/ajax/getCurrentDocumentFromAbbr.json',
+        documentVersionsFromAbbr: '/ajax/getDocumentVersionsFromAbbr.json',
+        documentConfig: '/ajax/config.json',
+        tagSearch: '/ajax/tags.json',
+        getBlock: '/ajax/njtGetBlock.json',
+        searchInText: '/ajax/searchInText.json',
+        modifyAccount: '/account/registration/modify.json',
+        printWindowSkeleton: '/ajax/getPrintWindow',
+        organisationGetPrintableDatas: '/organisation/print_datas.json/',
+        simpleSearchPredict: '/ajax/simple_predict.json',
+        acceptCookieLaw: '/ajax/acl.json',
+        rejectCookieLaw: '/ajax/rcl.json',
+        analyticsId: 'UA-28015740-1',
+        getMessage: '/ajax/message.json',
+        acceptMessage: '/ajax/accept_message.json',
+        exportWindowSkeleton: '/ajax/getExportWindow',
+        acceptCookieLawName: 'acceptCookieLaw',
+        sidemenu: '/ajax/sidemenu/:id',
+        requirements: [],
+        isLoggedIn: false,
+        indokolasSearchPrefix: '𝒿',
+        onkormanyzatSearchPrefix: 'ℴ',
+        pagebarMarkArchivum: '𝒶',
+        pagebarMarkFogalomtar: '𝒻',
+        pagebarMarkElethelyzet: '𝓮',
+        pagebarMarkElethelyzetTerulet: '𝓽',
+        pagebarMarkTopic: '𝓴',
+        loadQuestion: '/elethelyzet/question',
+        getAllElethelyzet: '/elethelyzet/index',
+        lazyModeLoggedOut:  false,
+        valtozasJelzesekVersions: '/ajax/getValtozasJelzesekVersions.json',
+        getTelepulesKibocsatoByMegye: '/getTelepulesKibocsatoByMegye.json',
+        szakaszSliceType: 'SZAKASZ',
+        mellekletCimkeSliceType: 'SZAKASZ',
+        jogszabalyHighlight: '/ajax/jogszabaly_highlight',
+        getElethelyzetData: '/elethelyzet/getElethelyzetData.json',
+        getElethelyzetTeruletData: '/elethelyzet/getElethelyzetTeruletData.json',
+        getTopicSearchListForHater: '/getTopicSearchList.json',
+    };
+
+
+    
+    var njtTranslate = {
+        cancel: 'Mégsem',
+        ok: 'Rendben',
+        send: 'Küldés',
+        login: 'Belépés',
+        gazette_state: 'Közlönyállapot',
+        hatalyos: 'Hatályos',
+        meg_nem_hatalyos: 'Még nem hatályos',
+        nemIsmert: 'Nem ismert',
+        nemLepettHatalyba: 'Nem lépett hatályba',
+        closeWindowText: 'Biztosan elnavigál az oldalról?',
+        szervezetAdminCaption: 'Szervezeti adminisztrátor adatai:',
+        datepickerPlaceholder: 'éééé.hh.nn',
+        documentInfo: 'Jogszabályinfó',
+        documentSampleAddWindowTitle: 'Jogszabály adatai',
+        footnoteTitle: 'Lábjegyzetek',
+        figyelem: 'Figyelem!',
+        figyelemMessage: 'A szolgáltatások igénybevételéhez jelentkezzen be!',
+        jogszabalyLoginTitle: 'A jogszabály megtekintéséhez jelentkezzen be!',
+        jogszabalyLoginMessage: 'A hivatkozott jogszabály, jogszabályi időállapot a Nemzeti Jogszabálytár regisztrációval vagy ügyfélkapus bejelentkezéssel használható szolgáltatási szintjén érhető el [338/2011. (XII. 29.) Korm. rendelet 2. § (1) bekezdése alapján].',
+        jogszabalyMissingMessage: 'A hivatkozott jogi dokumentum nem áll rendelkezésre.',
+        sessionMessage: 'A munkamenet <span class="time"></span> múlva lejár és automatikusan ki lesz léptetve.<br>A meghosszabbításhoz kattintson a tovább gombra.',
+        csrfExpired: 'Lejárt a munkamenet, kérjük jelentkezzen be újra.',
+        orgRegistrationFileUploadError: 'Kérjük, töltse fel az aláírt regisztrációs lapot',
+        registrationHandleTitle: 'Elfogadja a regisztrációt?',
+        registrationHandleSubTitle: 'Elutasítás esetén, kérjük, adja meg a elutasítás okát. Erről a regisztráló felhasználót e-mailben értesítjük.',
+        registrationCreated: 'Sikeres regisztráció',
+        registrationModified: 'Sikeres módosítás',
+        registrationMergeError: 'Regisztrált felhasználók összefésülése sikertelen',
+        underProcessWarning: 'A jogszabály feldolgozás alatt van, a felület korlátozottan használható',
+        metaDescription: 'Magyarország hivatalos, hiteles, ingyenesen használható jogszabálygyűjteménye, az MKIFK Magyar Közlönykiadó és Igazságügyi Fordítóközpont Zrt. gondozásában',
+        metaTitle: 'Nemzeti Jogszabálytár – MKIFK Magyar Közlönykiadó és Igazságügyi Fordítóközpont Zrt.',
+        hiba: 'Hiba',
+        noResult: 'Nincs találat',
+        nemMegfelelo: 'Nem megfelelő',
+        evszam: 'évszám',
+        lekerdezesIdeje: 'Lekérdezés ideje',
+        kivonat: 'KIVONAT',
+        iratminta: 'iratminta',
+        errorNeedReload: 'HIBA! Újratöltés szükséges!',
+        beforeDeleteLawRequest: 'Biztosan törölni szeretné jogszabály igénylését?',
+        lawRequest: 'Jogszabály igénylés',
+        igen: 'Igen',
+        nem: 'Nem',
+        tablazatKinyitasa: 'Táblázat kinyitása',
+        emailCim: 'E-mail cím',
+        giveYourEmailAddress: 'Adja meg az e-mail címét',
+        informacio: 'Információ',
+        successfulModification: 'Sikeres módosítás!',
+        maganszemely: 'Magánszemély',
+        unsuccessfulExport: 'Sikertelen exportálás',
+        unsuccessfulCopy: 'Sikertelen másolás',
+        copiedToClipboard: 'Kimásolva a vágólapra',
+        documentTranslations: 'Jogszabályfordítások',
+        internationalAgreements: 'Nemzetközi szerződések',
+        kozismertJogszabalyok: 'Közismert jogszabályok',
+        registration: 'Regisztráció',
+        accountSettings: 'Fiók módosítás',
+        simpleSearch: 'Jogszabálykereső',
+        cif: 'Adott napon hatályba lépő jogszabályok',
+        expired: 'Adott napon hatályukat vesztő jogszabályok',
+        info: 'Információ',
+        justificationSearch: 'Indokolások Tára',
+        popupHeader: 'Karbantartás',
+        popupMessage: 'Tájékoztatjuk Tisztelt Felhasználóinkat, hogy technikai karbantartás miatt 2023. április 25-én 20:00-21:00 óra között a Nemzeti Jogszabálytár Ügyfélkapus bejelentkezéssel történő használatában fennakadások várhatók.',
+        clearField: 'Mező tartalmának törlése',
+        privacy: 'Adatkezelési tájékoztató',
+        loginNeedsCookieConsent: 'A bejelentkezéshez el kell fogadnia a sütik használatát.',
+        cookieConsentWithdrawLogout: 'A sütik elutasításával ki is jelentkezik. Folytatja?'
+    };
+</script>
+    <script src="/bundles/njtfrontend/datepicker/duet/duet.js?v2029fd183.14117.20261022122540.2.18.4" type="text/javascript"></script>
+                            <script src="/js/m-04042633b7e29fc47a744cf0973e3db4eda5a4eb.js?v2029fd183.14117.20261022122540.2.18.4" type="text/javascript"></script>
+        
+<div class="loadingFadeLayer"></div>
+</body>
+</html>

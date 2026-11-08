@@ -1,0 +1,142 @@
+{
+  "_megjegyzes": "A torvenytar/atalanyado-szabalyok-osszefoglalo.md hivatkozásai. Új forrás: új elem; a script csak a még nem letöltöttet tölti le. mappa = NAV: NAV/<év>, jogszabály: <törvény>/<év>.",
+  "forrasok": [
+    {
+      "id": "nav-1",
+      "tipus": "nav",
+      "mappa": "NAV/2026",
+      "nev": "atalanyado-alapveto-szabalyai-2026-02-20",
+      "url": "https://nav.gov.hu/pfile/file?path=/ugyfeliranytu/nezzen-utana/inf_fuz/2026/100.-Az-egyeni-vallalkozok-atalanyadozasanak-alapveto-szabalyai-2026.-02.-20",
+      "megjegyzes": "NAV: Az egyéni vállalkozók átalányadózásának alapvető szabályai (PDF, 2026.02.20.)"
+    },
+    {
+      "id": "nav-2",
+      "tipus": "nav",
+      "mappa": "NAV/2026",
+      "nev": "kedvezo-valtozasok-az-atalanyadozasban",
+      "url": "https://nav.gov.hu/szja/ujdonsagok-tudnivalok/Kedvezo_valtozasok_az_atalanyadozasban",
+      "megjegyzes": "NAV: Kedvező változások az átalányadózásban"
+    },
+    {
+      "id": "nav-3",
+      "tipus": "nav",
+      "mappa": "NAV/2026",
+      "nev": "adozasi-mod-valasztasa",
+      "url": "https://nav.gov.hu/Elethelyzetek-adozasa/vallalkozas/adozasi-mod-valasztasa",
+      "megjegyzes": "NAV: Adózási mód választása"
+    },
+    {
+      "id": "nav-4",
+      "tipus": "nav",
+      "mappa": "NAV/2026",
+      "nev": "atalanyadozassal-kapcsolatos-teendok",
+      "url": "https://nav.gov.hu/ado/katas-voltam/atalanyadozassal-kapcsolatos-teendok",
+      "megjegyzes": "NAV: Átalányadózással kapcsolatos teendők"
+    },
+    {
+      "id": "torveny-szja-tv",
+      "tipus": "torveny",
+      "mappa": "szja-tv/2026",
+      "nev": "1995-evi-cxvii-torveny",
+      "url": "https://njt.hu/jogszabaly/1995-117-00-00",
+      "megjegyzes": "Szja tv. (1995. évi CXVII.): a NAV-oldalak számmal idézik, a docs linkjei között is szerepel"
+    },
+    {
+      "id": "torveny-szocho-tv",
+      "tipus": "torveny",
+      "mappa": "szocho-tv/2026",
+      "nev": "2018-evi-lii-torveny",
+      "url": "https://njt.hu/jogszabaly/2018-52-00-00",
+      "megjegyzes": "Szocho tv. (2018. évi LII.): a docs linkjei között; a NAV PDF 'Szocho tv.' rövidítéssel idézi"
+    },
+    {
+      "id": "torveny-tbj",
+      "tipus": "torveny",
+      "mappa": "tbj/2026",
+      "nev": "2019-evi-cxxii-torveny",
+      "url": "https://njt.hu/jogszabaly/2019-122-00-00",
+      "megjegyzes": "Tbj.: a NAV PDF csak rövidítéssel idézi ('Tbj.'); a szám ELLENŐRIZENDŐ a letöltött cím alapján"
+    },
+    {
+      "id": "torveny-htv",
+      "tipus": "torveny",
+      "mappa": "htv/2026",
+      "nev": "1990-evi-c-torveny",
+      "url": "https://njt.hu/jogszabaly/1990-100-00-00",
+      "megjegyzes": "Htv. (1990. évi C.): a docs linkjei között (iparűzési adó)"
+    },
+    {
+      "id": "torveny-evectv",
+      "tipus": "torveny",
+      "mappa": "evectv/2026",
+      "nev": "2009-evi-cxv-torveny",
+      "url": "https://njt.hu/jogszabaly/2009-115-00-00",
+      "megjegyzes": "Evectv.: a NAV-oldalak számmal idézik (2009. évi CXV.)"
+    },
+    {
+      "id": "torveny-kata-tv",
+      "tipus": "torveny",
+      "mappa": "kata-tv/2026",
+      "nev": "2022-evi-xiii-torveny",
+      "url": "https://njt.hu/jogszabaly/2022-13-00-00",
+      "megjegyzes": "Kata tv. (2022. évi XIII.): az adózási mód választása oldal számmal idézi"
+    },
+    {
+      "id": "torveny-2025-lxxxiv-tv",
+      "tipus": "torveny",
+      "mappa": "2025-lxxxiv-tv/2026",
+      "nev": "2025-evi-lxxxiv-torveny",
+      "url": "https://njt.hu/jogszabaly/2025-84-00-00",
+      "megjegyzes": "2025. évi LXXXIV. törvény: a 'Kedvező változások' oldal idézi"
+    },
+    {
+      "id": "torveny-2025-xiv-tv",
+      "tipus": "torveny",
+      "mappa": "2025-xiv-tv/2026",
+      "nev": "2025-evi-xiv-torveny",
+      "url": "https://njt.hu/jogszabaly/2025-14-00-00",
+      "megjegyzes": "2025. évi XIV. törvény: a NAV PDF idézi"
+    },
+    {
+      "id": "torveny-2025-xv-tv",
+      "tipus": "torveny",
+      "mappa": "2025-xv-tv/2026",
+      "nev": "2025-evi-xv-torveny",
+      "url": "https://njt.hu/jogszabaly/2025-15-00-00",
+      "megjegyzes": "2025. évi XV. törvény: a NAV PDF idézi"
+    },
+    {
+      "id": "nav-5",
+      "tipus": "nav",
+      "mappa": "NAV/2026",
+      "nev": "egyeni-vallalkozok-szja-es-jarulekkotelezettsege-2026-08-31",
+      "helyi_forras": "input/torveny/03 Az egyéni vállalkozók szja- és járulékkötelezettsége 20260831.pdf",
+      "hivatalos": true,
+      "megjegyzes": "NAV információs füzet: Egyéni vállalkozók szja- és járulékkötelezettsége (Közzétéve: 2026.08.31.). A felhasználó adta (helyi fájl)."
+    },
+    {
+      "id": "torveny-kamara",
+      "tipus": "torveny",
+      "mappa": "kamarai-tv/2026",
+      "nev": "1999-evi-cxxi-torveny",
+      "url": "https://njt.hu/jogszabaly/1999-121-00-00",
+      "megjegyzes": "Gazdasági kamarákról szóló 1999. évi CXXI. törvény (kamarai hozzájárulás: 34/A. §)"
+    },
+    {
+      "id": "torveny-afa-tv",
+      "tipus": "torveny",
+      "mappa": "afa-tv/2026",
+      "nev": "2007-evi-cxxvii-torveny",
+      "url": "https://njt.hu/jogszabaly/2007-127-00-00",
+      "megjegyzes": "2007. évi CXXVII. törvény; felvéve az input/torveny/áfa.-tv.pdf hivatkozásából"
+    },
+    {
+      "id": "nav-ado-afa",
+      "tipus": "nav",
+      "mappa": "NAV/2026",
+      "nev": "ado-afa",
+      "url": "https://nav.gov.hu/ado/afa",
+      "megjegyzes": "NAV-oldal; felvéve az input/torveny/áfa.-tv.pdf hivatkozásából"
+    }
+  ]
+}

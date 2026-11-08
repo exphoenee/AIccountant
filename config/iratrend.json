@@ -1,0 +1,13 @@
+{
+  "_megjegyzes": "Általános besorolási szabályok a vállalkozói iratokhoz: kizárólag az útvonal (mappa- és fájlnév) alapján; az első találat dönt, a többi a 99-ellenorizendo mappába kerül. Saját mappanevekhez bővítsd. A minta a teljes relatív útvonalra illesztett kisbetűs-nagybetűs regex; {REST} az eredeti almappa-szerkezetet adja a {rest} helyettesítéshez.",
+  "alap": "archive/vallalkozas-iratok",
+  "szabalyok": [
+    {"nev": "szerzodes", "minta": "^(?=.*(?:szerz[őo]d|megb[ií]z[aá]s)){REST}", "cel": "02-szerzodesek/{rest}"},
+    {"nev": "szamla", "minta": "^(?=.*(?:sz[aá]ml|invoice)){REST}", "cel": "03-szamlak/{rest}"},
+    {"nev": "helyi-ado", "minta": "^(?=.*(?:iparűz|iparuz|helyi ad|[öo]nkorm[aá]nyzat)){REST}", "cel": "04-adozas/helyi-adok/{rest}"},
+    {"nev": "nav", "minta": "^(?=.*(?:nav|bevall|ad[oó]sz[aá]ml|2658|2558|szja)){REST}", "cel": "04-adozas/nav/{rest}"},
+    {"nev": "kamara", "minta": "^(?=.*kamar){REST}", "cel": "01-alapadatok/kamara/{rest}"},
+    {"nev": "alapadat", "minta": "^(?=.*(?:bejelent|nyilv[aá]ntart|sz[uü]netel|sz[eé]khely|tev[eé]kenys[eé]gi|v[aá]llalkoz[oó]i ig)){REST}", "cel": "01-alapadatok/{rest}"},
+    {"nev": "konyveles", "minta": "^(?=.*k[öo]nyvel){REST}", "cel": "05-konyveles/{rest}"}
+  ]
+}

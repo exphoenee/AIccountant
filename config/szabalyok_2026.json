@@ -1,0 +1,13 @@
+{
+  "_megjegyzes": "A 2026. évi szabályparaméterek. Forrás: .claude/rules/atalanyado.md és jarulek-szocho.md (NAV tájékoztató 2026.02.20., torvenytar/NAV/2026/). Évente új fájl kell; a költséghányad a vallalkozas.json-ban van (2027-től 50%: NAV, 2025. évi LXXXIV. tv.). A figyelmeztetési küszöbök a repó saját döntései, nem törvényiek.",
+  "ev": 2026,
+  "minimalber_havi": 322800,
+  "garantalt_berminimum_havi": 373200,
+  "adomentes_jovedelem_eves": 1936800,
+  "bevetel_hatar_altalanos": 38736000,
+  "szja_kulcs": "0.15",
+  "tbj_kulcs": "0.185",
+  "szocho_kulcs": "0.13",
+  "figyelmeztetes_kuszob_sarga": "0.80",
+  "figyelmeztetes_kuszob_piros": "0.95"
+}

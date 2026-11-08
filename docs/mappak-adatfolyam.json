@@ -1,0 +1,284 @@
+{
+  "schema_version": 1,
+  "diagram_type": "dataflow",
+  "meta": {
+    "title": "Melyik mappába mit kell tenni, és mi történik vele",
+    "quality_profile": "standard",
+    "viewBox": [
+      1100,
+      760
+    ]
+  },
+  "stages": [
+    {
+      "label": "Ide másolod"
+    },
+    {
+      "label": "Skill dolgozza fel"
+    },
+    {
+      "label": "Hová kerül"
+    },
+    {
+      "label": "Ellenőrzés"
+    },
+    {
+      "label": "Kimenet"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "in_vall",
+      "type": "external",
+      "label": "input/vallalkozas-adatok",
+      "sublabel": "cégiratok, szerződések",
+      "stage": 0,
+      "row": 0,
+      "width": 150
+    },
+    {
+      "id": "in_nav",
+      "type": "external",
+      "label": "input/nav-egyenleg",
+      "sublabel": "adószámla XML, bevallás",
+      "stage": 0,
+      "row": 1,
+      "width": 150
+    },
+    {
+      "id": "in_konyvelo",
+      "type": "external",
+      "label": "input/konyvelo",
+      "sublabel": "utalandó adó, 2658",
+      "stage": 0,
+      "row": 2,
+      "width": 150
+    },
+    {
+      "id": "in_kiad",
+      "type": "external",
+      "label": "input/kiadasok",
+      "sublabel": "szállítói számlák PDF",
+      "stage": 0,
+      "row": 3,
+      "width": 150
+    },
+    {
+      "id": "in_naptar",
+      "type": "external",
+      "label": "input/adonaptar,torveny",
+      "sublabel": "naptár .md, források",
+      "stage": 0,
+      "row": 4,
+      "width": 150
+    },
+    {
+      "id": "sk_vall",
+      "type": "messagebus",
+      "label": "vallalkozas-dokum.",
+      "sublabel": "rendez, profil, Billingo",
+      "stage": 1,
+      "row": 0,
+      "width": 150
+    },
+    {
+      "id": "sk_nav",
+      "type": "messagebus",
+      "label": "adofizetes",
+      "sublabel": "típus+időszak, duplikáció",
+      "stage": 1,
+      "row": 1,
+      "width": 150
+    },
+    {
+      "id": "sk_konyvelo",
+      "type": "messagebus",
+      "label": "konyvelo-dokum.",
+      "sublabel": "összeg kiolvas, összevet",
+      "stage": 1,
+      "row": 2,
+      "width": 150
+    },
+    {
+      "id": "sk_kiad",
+      "type": "messagebus",
+      "label": "kiadasok-dokum.",
+      "sublabel": "számla vs. díjbekérő",
+      "stage": 1,
+      "row": 3,
+      "width": 150
+    },
+    {
+      "id": "sk_naptar",
+      "type": "messagebus",
+      "label": "adonaptar, nav-forrasok",
+      "sublabel": "határidők, törvénytár",
+      "stage": 1,
+      "row": 4,
+      "width": 150
+    },
+    {
+      "id": "memoria",
+      "type": "security",
+      "label": "Memória-profil",
+      "sublabel": ".claude/memory/ kapu",
+      "stage": 2,
+      "row": 0,
+      "width": 150
+    },
+    {
+      "id": "adatok",
+      "type": "database",
+      "label": "data/ + archive/",
+      "sublabel": "eredmény, eredeti, dup.",
+      "stage": 2,
+      "row": 2,
+      "width": 150
+    },
+    {
+      "id": "ellenorzes",
+      "type": "backend",
+      "label": "Számítás, ellenőrzés",
+      "sublabel": "ellenőrzés, számítás, IPA",
+      "stage": 3,
+      "row": 1,
+      "width": 150
+    },
+    {
+      "id": "report",
+      "type": "frontend",
+      "label": "adoreport.html",
+      "sublabel": "számok, határidők",
+      "stage": 4,
+      "row": 0,
+      "width": 150
+    },
+    {
+      "id": "kerdes",
+      "type": "security",
+      "label": "Tennivalók, kérdések",
+      "sublabel": "eltérésnél kérdez",
+      "stage": 4,
+      "row": 2,
+      "width": 150
+    }
+  ],
+  "flows": [
+    {
+      "id": "f1",
+      "from": "in_vall",
+      "to": "sk_vall",
+      "label": "másolod",
+      "variant": "emphasis"
+    },
+    {
+      "id": "f2",
+      "from": "in_nav",
+      "to": "sk_nav",
+      "label": "másolod",
+      "variant": "emphasis"
+    },
+    {
+      "id": "f3",
+      "from": "in_konyvelo",
+      "to": "sk_konyvelo",
+      "label": "másolod",
+      "variant": "emphasis"
+    },
+    {
+      "id": "f4",
+      "from": "in_kiad",
+      "to": "sk_kiad",
+      "label": "másolod",
+      "variant": "emphasis"
+    },
+    {
+      "id": "f5",
+      "from": "in_naptar",
+      "to": "sk_naptar",
+      "label": "másolod",
+      "variant": "emphasis"
+    },
+    {
+      "id": "f6",
+      "from": "sk_vall",
+      "to": "memoria",
+      "label": "profil",
+      "variant": "security"
+    },
+    {
+      "id": "f7",
+      "from": "sk_nav",
+      "to": "adatok",
+      "label": "mentés",
+      "variant": "default"
+    },
+    {
+      "id": "f8",
+      "from": "sk_konyvelo",
+      "to": "adatok",
+      "label": "mentés",
+      "variant": "default"
+    },
+    {
+      "id": "f9",
+      "from": "sk_kiad",
+      "to": "adatok",
+      "label": "mentés",
+      "variant": "default"
+    },
+    {
+      "id": "f10",
+      "from": "sk_naptar",
+      "to": "adatok",
+      "label": "mentés",
+      "variant": "default"
+    },
+    {
+      "id": "f11",
+      "from": "memoria",
+      "to": "ellenorzes",
+      "label": "kapu nyitva",
+      "variant": "security"
+    },
+    {
+      "id": "f12",
+      "from": "adatok",
+      "to": "ellenorzes",
+      "label": "adatok",
+      "variant": "default"
+    },
+    {
+      "id": "f13",
+      "from": "ellenorzes",
+      "to": "report",
+      "label": "report",
+      "variant": "emphasis"
+    },
+    {
+      "id": "f14",
+      "from": "ellenorzes",
+      "to": "kerdes",
+      "label": "eltérés",
+      "variant": "security"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Sorrend",
+      "items": [
+        "Először a vállalkozás iratai, mert a memória-profil nyitja a kaput",
+        "Utána bármelyik másik mappa, tetszőleges sorrendben"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Mi történik az irattal",
+      "items": [
+        "A feldolgozott eredeti az archive/ mappába kerül, az input/ üres lesz",
+        "Duplikátum külön mappába, ellentmondásnál az irat marad, és kérdez"
+      ]
+    }
+  ]
+}
