@@ -1,6 +1,6 @@
 # Kamarai hozzájárulás (egyéni vállalkozó)
 
-> Forrás: 1999. évi CXXI. törvény a gazdasági kamarákról, 34/A. § (`torvenytar/kamarai-tv/2026/1999-evi-cxxi-torveny.txt`). A kamarák 2026. évi tájékoztatói ugyanezt az összeget és határidőt közlik.
+> Forrás: 1999. évi CXXI. törvény a gazdasági kamarákról, 34/A. § (`torvenytar/docs/kamarai-tv/2026/1999-evi-cxxi-torveny.txt`). A kamarák 2026. évi tájékoztatói ugyanezt az összeget és határidőt közlik.
 
 ## Szabály (a törvényszövegből)
 
@@ -12,7 +12,7 @@
 
 ## Hogyan kezeli a repó
 
-- A vállalkozói profil készítésekor **rá kell kérdezni** a kötelezettségre; a válasz a `config/vallalkozas.json` `kamara_koteles` mezőjébe kerül (`dokumentumok.py --kamara igen|nem`), az összeg `kamara_hozzajarulas_ft` (alapértelmezés 5000), a határidő `kamara_hatarido`.
+- A vállalkozói profil készítésekor **rá kell kérdezni** a kötelezettségre; a válasz a `config/vallalkozas.json` `kamara_koteles` mezőjébe kerül (`dokumentumok.py --kamara igen|nem`), az összeg és a határidő évente a `config/szabalyok_<év>.json`-ból jön (`kamara_hozzajarulas_ft`, `kamara_hatarido_nap`); a `vallalkozas.json`-beli érték csak akkor érvényes, ha ott kézzel megadták.
 - Az `adoszamitas` az `egyeb_fizetendo` listában mutatja; az éves összegbe (szja + tbj + szocho) **külön tételként** kerül, nem az adószámlán.
 - A befizetés igazolása (banki bizonylat, kamarai igazolás) a repóban nincs; a `kamara_befizetes_igazolva` jelző addig `false`, és a report tennivalóként jelzi.
 

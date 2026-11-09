@@ -1,6 +1,6 @@
 # Tbj-járulék és szociális hozzájárulási adó (szocho) – 2026
 
-> Forrás: `torvenytar/atalanyado-szabalyok-osszefoglalo.md`. Számok: lásd `atalanyado.md`.
+> Forrás: `torvenytar/docs/atalanyado-szabalyok-osszefoglalo.md`. Számok: lásd `atalanyado.md`.
 
 ## Mértékek
 

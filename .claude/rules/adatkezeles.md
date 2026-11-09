@@ -20,7 +20,8 @@ input/            nyers, a felhasználó által bemásolt fájlok (NAV XML, adó
 | `data/adonaptar/` | feldolgozott adónaptár (JSON) | nem |
 | `data/kiadasok/` | Billingo bejövő számlák/kiadások (JSON, nyers) | nem |
 | `data/pdf/` | PDF-ekből készült tömör Markdown (`<név>.md` + `.json`), mappa-módban az eredeti mappaszerkezettel | nem |
-| `data/graphify/<korpusz>/` | a Graphify tudásgráf kimenete (`graphify-out/`), a futtatás munkakönyvtára itt van | nem |
+| `data/graphify/<korpusz>/` | a Graphify **munkakönyvtára** (korpusz-másolatok, `graphify-out/`: gyorsítótár, alügynök-fájlok); a kész gráfot a közzétételi lépés a `torvenytar/graph/`-ba másolja | nem |
+| `torvenytar/graph/` | a **kész Graphify törvénytérkép** (`graph.json`, `graph.html`, `GRAPH_REPORT.md`, `inferred_ellenorzes.json`, `korpusz-szabalyok.md`, `forras-terkep.json`, `README.md`); nyilvános jogszabályszövegből készül, személyes adatot nem tartalmaz; generált, kézzel ne szerkeszd | **igen** |
 | `data/vallalkozas/` | a vállalkozói iratok leltára, besorolási terve, áthelyezési naplója, profilja (`profil.md/json`) és a PDF-ek Markdown-ja (`iratok-md/`) | nem |
 | `input/konyvelo/` | a könyvelőtől kapott PDF-ek; feldolgozás (`konyvelo-dokumentumok`) után **üres**, az eredetik az `archive/konyvelo/`-ba kerülnek | nem |
 | `data/konyvelo/` | a könyvelői iratok Markdown-ja (`md/`), adatkivonata (`konyvelo_adatok.json`) és az ellenőrzés eredménye (`ellenorzes_<év>.json`) | nem |
@@ -30,7 +31,7 @@ input/            nyers, a felhasználó által bemásolt fájlok (NAV XML, adó
 | `tax-reports/adoreport_<év>.html` | az `adoreport` skill HTML reportja; minden `adoellenorzes` futás után újragenerálódik | nem |
 | `archive/nav-egyenleg/`, `archive/adonaptar/`, `archive/pdf/` | már feldolgozott nyers fájlok | nem |
 | `archive/vallalkozas-iratok/` | a vállalkozói iratok, a `config/iratrend.json` szerinti logikus mappaszerkezetben (`01-alapadatok` … `99-ellenorizendo`) | nem |
-| `torvenytar/NAV/<év>/`, `torvenytar/<törvény>/<év>/` | hivatalos források **módosítás nélkül** (eredeti fájl + gépies `.txt` + `.forras.json`); jegyzék: `torvenytar/forrasok.json` | nem |
+| `torvenytar/docs/NAV/<év>/`, `torvenytar/docs/<törvény>/<év>/` | hivatalos források **módosítás nélkül** (eredeti fájl + gépies `.txt` + `.forras.json`); jegyzék: `torvenytar/forrasok.json` | nem |
 | `.claude/memory/` | adónaptár-kivonat (`adonaptar-<év>.md`), a **vállalkozói profil** (`vallalkozasi-profil.md`, az `adoellenorzes` kapuja) + `MEMORY.md` index; csak generált, azonosító- és névmentes adat (ügyfél-, szolgáltató-, könyvelőnevek nem). A profil és az adónaptár-kivonat **nem verziózott** (`.gitignore`), a `MEMORY.md` index igen | részben |
 | `config/` | szabályparaméterek (`szabalyok_<év>.json`), besorolási szabályok (`iratrend.json`) és a `vallalkozas.example.json` sablon: igen. A vállalkozó saját `vallalkozas.json`-ja személyes beállításokat tartalmaz: **nem verziózott** (`.gitignore`) | részben |
 

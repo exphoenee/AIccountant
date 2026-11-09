@@ -1,6 +1,6 @@
 # Általános forgalmi adó (Áfa tv.): amit a repó használ
 
-> Forrás: 2007. évi CXXVII. törvény (`torvenytar/afa-tv/2026/2007-evi-cxxvii-torveny.txt`, letöltve 2026-11-08 a `torvenytar/forrasok.json` szerint). A szakaszszámokat a letöltött szövegből vettem.
+> Forrás: 2007. évi CXXVII. törvény (`torvenytar/docs/afa-tv/2026/2007-evi-cxxvii-torveny.txt`, letöltve 2026-11-08 a `torvenytar/forrasok.json` szerint). A szakaszszámokat a letöltött szövegből vettem.
 
 ## Alanyi adómentesség (187–191. §)
 
@@ -19,3 +19,11 @@
 - **Összesítő nyilatkozat:** a szabályra az Áfa tv. szövege a 4/A. számú mellékletre utal (pl. 89/A., 96. §), amelynek szövege a letöltött törvényszövegben **nincs meg**; az adózás rendjéről szóló törvény (Art.) sem szerepel a törvénytárban. Hogy a szolgáltatásnyújtásról (37. §) kell-e és milyen gyakorisággal összesítő nyilatkozat, **nem ellenőrzött**: könyvelő vagy NAV.
 - **Közösségi adószám:** uniós ügyfeleknek szóló számlákhoz kell; a megállapítás tényét a vállalkozói profil rögzíti (iratból).
 - **A számlázóprogram jelölése:** ha a számlázóprogramban az eladó státusza (`small_taxpayer`) eltér a tényleges ÁFA-státusztól, a program beállítását javítani kell; a `szamla_ellenorzes.py` az ellentmondást jelzi.
+
+## Összesítő nyilatkozat (4/A. számú melléklet, a letöltött szövegből, 2026-11-08)
+
+> Forrás: `torvenytar/docs/afa-tv/2026/2007-evi-cxxvii-torveny.jogtar.txt` (a melléklet az njt.hu főoldali szövegében nincs meg).
+
+- **4/A. melléklet I. 1. e):** az összesítő nyilatkozat tartalmazza a Közösség más tagállamában adószámmal rendelkező adóalany részére teljesített, a **37. § hatálya alá eső szolgáltatásnyújtást**, amely a teljesítési hely szerinti tagállamban adóköteles, és amely után az **igénybevevő az adófizetésre kötelezett** (a fordítottan adózó uniós B2B szolgáltatás).
+- **I. 2.:** havi bevallónak a tárgyhónapot követő hónap **20.** napjáig, negyedéves bevallónak a tárgynegyedévet követő hónap **20.** napjáig kell benyújtania.
+- **Nem ellenőrzött (könyvelő/NAV):** hogy a vállalkozóra a saját áfa-státusza (alanyi adómentes) mellett és a bevallási gyakorisága szerint ez a kötelezettség mikor és milyen gyakorisággal vonatkozik; az Art. vonatkozó szankciós/eljárási részét nem olvastuk el. A repó ezt nem számolja: a report Tennivalókban jelzi, ha uniós vevős számla van.

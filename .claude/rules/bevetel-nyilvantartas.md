@@ -1,6 +1,6 @@
 # Bevétel-elszámolás és nyilvántartás átalányadózóként
 
-> Forrás: `torvenytar/atalanyado-szabalyok-osszefoglalo.md`, `torvenytar/konyveles-szoftver-jegyzetek.md`.
+> Forrás: `torvenytar/docs/atalanyado-szabalyok-osszefoglalo.md`, `torvenytar/docs/konyveles-szoftver-jegyzetek.md`.
 
 ## Mi számít bevételnek és mikor?
 
