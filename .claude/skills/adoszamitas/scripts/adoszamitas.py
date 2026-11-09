@@ -27,6 +27,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[4]
 import sys as _sys; _sys.path.insert(0, str(ROOT / ".claude" / "scripts")); import konfig  # noqa: E402
+_sys.path.insert(0, str(Path(__file__).resolve().parent)); import kedvezmenyek  # noqa: E402
+import jogi_kerdesek  # noqa: E402
 CONFIG = ROOT / "config"
 
 
@@ -57,7 +59,24 @@ def load_configs(cfg_path, ev=None):
     rp = konfig.szabalyok_ut(cfg["ev"])
     if not rp.exists():
         die(f"hiányzik a szabályparaméter-fájl: {rp.relative_to(ROOT)} (évente létre kell hozni a .claude/rules alapján)")
-    return cfg, json.loads(rp.read_text(encoding="utf-8"))
+    rules = json.loads(rp.read_text(encoding="utf-8"))
+    # Az évente változó paraméter (költséghányad, kamarai hozzájárulás) az ÉV szabályfájljából jön (struktura.md 3.), nem a vállalkozó
+    # egyetlen, évhez nem kötött beállításából: így a 2026-os és a 2027-es számítás külön értéket kap.
+    cfg["_figyelmeztetesek"] = []
+    if rules.get("koltseghanyad") is not None:
+        if cfg.get("koltseghanyad") not in (None, rules["koltseghanyad"]):
+            cfg["_figyelmeztetesek"].append(f"A config/vallalkozas.json költséghányada ({cfg['koltseghanyad']}) eltér a {cfg['ev']}. évi szabályfájlétól "
+                                            f"({rules['koltseghanyad']}); a szabályfájl értékét használom (a költséghányad évente változik, ott kell vezetni).")
+        cfg["koltseghanyad"] = rules["koltseghanyad"]
+    elif cfg.get("koltseghanyad") is None:
+        die(f"nincs költséghányad: sem a {rp.name}, sem a config/vallalkozas.json nem tartalmazza (a költséghányadot nem találjuk ki).")
+    else:
+        cfg["_figyelmeztetesek"].append(f"A {rp.name} nem tartalmaz költséghányadot; a config/vallalkozas.json értékét használom. Vedd fel a szabályfájlba, mert évente változik.")
+    if cfg.get("kamara_hozzajarulas_ft") is None and rules.get("kamara_hozzajarulas_ft") is not None:
+        cfg["kamara_hozzajarulas_ft"] = rules["kamara_hozzajarulas_ft"]
+    if not cfg.get("kamara_hatarido") and rules.get("kamara_hatarido_nap"):
+        cfg["kamara_hatarido"] = f"{cfg['ev']}-{rules['kamara_hatarido_nap']}"
+    return cfg, rules
 
 
 def find_invoice_file(ev, explicit, today):
@@ -67,8 +86,10 @@ def find_invoice_file(ev, explicit, today):
             die(f"nincs ilyen fájl: {p}")
         return p
     ok = []
+    find_invoice_file.nyers = False
     # az egyesített, keresztvalidált számlafájl (Billingo + Számlázz.hu + bevételi fájlok) az elsődleges; a nyers Billingo-fájl csak tartalék
     egyesitett = list((ROOT / "data" / "szamlak").glob("egyesitett_*.json"))
+    find_invoice_file.nyers = not egyesitett  # nincs egyesített fájl: a nyers (csak Billingo) fájlra esünk vissza, ezt a futás kiírja
     for p in (egyesitett or (ROOT / "data" / "szamlak").glob("szamlak_*.json")):
         m = re.fullmatch(r"(?:egyesitett|szamlak)_(\d{4}-\d{2}-\d{2})_(\d{4}-\d{2}-\d{2})\.json", p.name)
         # az adóévi számításhoz az előző év elejétől kell a számlaadat: a tavaly kiállított, idén kifizetett számla idei bevétel
@@ -76,8 +97,9 @@ def find_invoice_file(ev, explicit, today):
                 date.fromisoformat(m.group(2)) >= min(today, date(ev, 12, 31)):
             ok.append(p)
     if not ok:
-        die(f"nincs {ev}. évet lefedő számlafájl a data/szamlak/ alatt. Futtasd a 'szamlak' skillt "
-            f"({ev}-01-01 – {ev}-12-31).")
+        die(f"nincs {ev}. évet lefedő számlafájl a data/szamlak/ alatt. A fájlnak legkésőbb {ev - 1}-01-01-től kell indulnia (a tavaly kiállított, "
+            f"idén kifizetett számla idei bevétel), és legalább {min(today, date(ev, 12, 31)).isoformat()}-ig kell tartania. Futtasd a 'szamlak' skillt: "
+            f"{ev - 1}-01-01 – {ev}-12-31 (vagy az adoellenorzes skillt, amely ezt maga megteszi).")
     return max(ok, key=lambda p: p.stat().st_mtime)
 
 
@@ -148,7 +170,7 @@ def active_fraction(year, month, start, end, szun=()):
     if days <= 0:
         return D(0)
     # Teljes hónap = 1. Töredék hónap: naptári naponként a járulékalap harmincad része
-    # (forrás: torvenytar/NAV/2026/atalanyado-alapveto-szabalyai-2026-02-20.txt, a járulékfizetési alsó határról szóló rész).
+    # (forrás: torvenytar/docs/NAV/2026/atalanyado-alapveto-szabalyai-2026-02-20.txt, a járulékfizetési alsó határról szóló rész).
     # A szünetelő napok kihagyása értelmezés (a jogállás szünetelés alatti hatása nem ellenőrzött: könyvelő / NAV).
     return D(1) if days >= dim else min(D(days) / D(30), D(1))
 
@@ -236,7 +258,7 @@ def compute(ev, counted, cfg, rules, cal, today):
             row.update(jarulekalap_gongyolt=0, tbj_gongyolt=0, tbj_eloleg=0, szocho_gongyolt=0, szocho_eloleg=0,
                        min_alap_gongyolt=0)
         elif jarulek_ok:
-            # NAV göngyölítés (torvenytar/NAV/2026/atalanyado-alapveto-szabalyai-2026-02-20.txt, 6.1.): a negyedév járulékalapja
+            # NAV göngyölítés (torvenytar/docs/NAV/2026/atalanyado-alapveto-szabalyai-2026-02-20.txt, 6.1.): a negyedév járulékalapja
             # = (az év elejétől göngyölt, adómentes rész nélküli jövedelem) − (a korábbi negyedévekben ténylegesen figyelembe
             # vett járulékalap), de legalább a negyedév minimális alapja (havonta a minimálbér/garantált bérminimum;
             # töredék hónapban naponként a harmincad része).
@@ -278,7 +300,7 @@ def egyeb_fizetendo(cfg, ev):
         else:
             tetelek.append({"nev": "Kamarai hozzájárulás", "osszeg": int(osszeg), "hatarido": cfg.get("kamara_hatarido") or f"{ev}-03-31",
                             "befizetes_igazolva": bool(cfg.get("kamara_befizetes_igazolva")),
-                            "forras": "1999. évi CXXI. törvény 34/A. § (2)-(3) (torvenytar/kamarai-tv/2026/)"})
+                            "forras": "1999. évi CXXI. törvény 34/A. § (2)-(3) (torvenytar/docs/kamarai-tv/2026/)"})
             if not cfg.get("kamara_befizetes_igazolva"):
                 figy.append(f"A kamarai hozzájárulás ({int(osszeg)} Ft, határidő {cfg.get('kamara_hatarido') or f'{ev}-03-31'}) befizetése nincs igazolva a repó adataiban: "
                             "kérd a banki bizonylatot vagy a kamara igazolását.")
@@ -293,9 +315,13 @@ def kedvezmeny_ellenorzes(cfg):
         return ["NEM SZÁMOLHATÓ: a kedvezményekre való jogosultság nincs megadva (config: kedvezmenyek). Kérdezd meg a vállalkozó profil készítésekor."]
     if kd.get("nincs"):
         return []
-    valasztott = [k for k, v in kd.items() if k != "nincs" and v]
-    if valasztott:
-        return ["NEM SZÁMOLHATÓ: a(z) " + ", ".join(valasztott) + " kedvezmény számítása nincs implementálva; a kimenet kedvezmény nélkül számol. Egyeztess a könyvelővel."]
+    # a részletes (dict) adatú jogcímeket a kedvezmenyek.py számolja; itt csak az üres igen/nem jelzéseket jelezzük
+    jelzes = [k for k, v in kd.items() if k != "nincs" and v is True]
+    if jelzes:
+        return ["NEM SZÁMOLHATÓ: a(z) " + ", ".join(jelzes) + " kedvezménynél csak igen/nem jelzés van; a számításhoz a részletes adat kell (jogosultsági hónapok, eltartottak száma): "
+                "python -I .claude/skills/adoszamitas/scripts/kedvezmenyek.py --pelda. A kimenet kedvezmény nélkül számol."]
+    if any(v for k, v in kd.items() if k != "nincs" and isinstance(v, dict)):
+        return []
     return ["NEM SZÁMOLHATÓ: a kedvezményekre való jogosultság nincs eldöntve (config: kedvezmenyek)."]
 
 
@@ -321,7 +347,11 @@ def main():
     counted, unpaid, excluded, partial = classify(docs, ev)
     rows, missing = compute(ev, counted, cfg, rules, cal, today)
 
-    warns = []
+    warns = list(cfg.pop("_figyelmeztetesek", []))
+    if getattr(find_invoice_file, "nyers", False) and not a.szamlak:
+        warns.append("🔴 Nincs egyesített, keresztvalidált számlafájl (data/szamlak/egyesitett_*.json): a nyers, csak Billingo-s fájlból számolok. "
+                     "Számlázz.hu-ból vagy az input/bevetelek fájljaiból származó bevétel kimarad, és a duplikáció-ellenőrzés nem futott. "
+                     "Futtasd a szamlak_egyesites.py-t (vagy az adoellenorzes skillt).")
     if age_h > 24:
         warns.append(f"A számlaadat {age_h/24:.1f} napos; azóta kiállított/kifizetett számlák hiányozhatnak. Frissítsd a 'szamlak' skill-lel.")
     prev_year = [d for d in counted if (d.get("invoice_date") or "")[:4] < str(ev)]
@@ -330,10 +360,26 @@ def main():
                  "A vállalkozói bevételről szóló 4. és 10. számú melléklet szövege nincs a letöltött njt.hu-kivonatban, ezért az esetleges eltérő időpont-szabályt nem tudtam ellenőrizni.")
     warns.append(f"A Billingo dátumszűrője a számla KIÁLLÍTÁSI dátumára vonatkozik, ezért a lekérés a {ev - 1}. év elejétől indul. "
                  f"A {ev - 1}. évnél korábban kiállított, {ev}-ben kifizetett számla nem látszik; ilyen számla létezését nem ellenőriztem (kérd a szamlak skilltől a korábbi időszak lekérését).")
-    warns.append("NYITOTT JOGI KÉRDÉS (nem számoltam vele): az Szja tv. 29. § és 47. § (5) szerint, ha a magánszemély szocho-fizetésre kötelezett, "
-                 "a megállapított jövedelem 89%-át kell figyelembe venni; a NAV 2026-os számpéldája és ez a számítás ezt nem alkalmazza. "
-                 "A letöltött törvényszöveg és a NAV-példa látszólag ellentmond; a feloldást a repó nem tartalmazza. Az szja összege emiatt eltérhet: "
-                 "egyeztess a könyvelővel vagy a NAV-val.")
+    jk = jogi_kerdesek.allapotok(cfg)
+    _a89 = next(x["allapot"] for x in jk if x["id"] == "89_szazalek")
+    if _a89 == "nyitott":
+        warns.append("NYITOTT JOGI KÉRDÉS (nem számoltam vele): az Szja tv. 29. § és 47. § (5) szerint, ha a magánszemély szocho-fizetésre kötelezett, "
+                     "a megállapított jövedelem 89%-át kell figyelembe venni; a NAV 2026-os számpéldája és ez a számítás ezt nem alkalmazza. "
+                     "A letöltött törvényszöveg és a NAV-példa látszólag ellentmond; a feloldást a repó nem tartalmazza. Az szja összege emiatt eltérhet: "
+                     "egyeztess a könyvelővel vagy a NAV-val (kérdéslista: data/szamitas/konyvelo_kerdeslista.md).")
+    elif _a89 == "mas":
+        warns.append("NEM SZÁMOLHATÓ (89%-os szabály): a rögzített döntés szerint más kezelés kell, ennek a képlete nincs implementálva; az szja, a kedvezményes szja "
+                     "és az előlegek nem tekinthetők véglegesnek.")
+    else:
+        warns.append("A 89%-os szabály (Szja tv. 29. §, 47. § (5)) alkalmazhatóságáról rögzített döntés van (a jelenlegi kezelés elfogadva; lásd config/konyvelo-dontesek.json).")
+    for _x in jk:
+        if _x["allapot"] == "mas" and _x["id"] != "89_szazalek":
+            warns.append(f"NEM SZÁMOLHATÓ ({_x['id']}): a rögzített döntés szerint más kezelés kell, mint amit a számítás alkalmaz ({_x['hely']}); az érintett számok nem véglegesek.")
+    _nyitott_db = sum(1 for _x in jk if _x["allapot"] != "elfogadva")
+    if _nyitott_db:
+        jogi_kerdesek.ment_kerdeslista(cfg)
+        warns.append(f"{_nyitott_db} nyitott jogi kérdés van (a repó nem dönti el; a döntés a könyvelőé/NAV-é): data/szamitas/konyvelo_kerdeslista.md. "
+                     "Döntés rögzítése: python -I .claude/skills/adoszamitas/scripts/jogi_kerdesek.py --rogzit ID ERTEK.")
     if cfg.get("szunetelesek"):
         warns.append("A config 'szunetelesek' napjai kimaradnak az időarányos bevételi határból és a töredékhónapos minimális alapból. "
                      "Hogy a szünetelés alatt a járulék szempontjából a jogállás fennáll-e, nem ellenőrzött: könyvelő / NAV.")
@@ -359,7 +405,8 @@ def main():
                      "A törvény a nevezőt nem mondja ki; a naptári napok / az adóév napjai értelmezést használom (nem ellenőrzött). "
                      "Az adómentes jövedelemkeret (1 936 800 Ft) év közbeni kezdésnél nem arányosítandó (NAV tájékoztató).")
     if not (cfg.get("kedvezmenyek") or {}).get("nincs"):
-        warns.append("Az szja-számítás kedvezményeket (családi stb.) nem tartalmaz; a töredékhónap minimális alapját naptári naponként a járulékalap 1/30-ával számolom (NAV tájékoztató).")
+        warns.append("Az éves szja kedvezményekkel való csökkentése külön tétel (kedvezmenyek_szamitas); a negyedéves előleg és a tbj/szocho kedvezmény nélkül számolódik. "
+                     "A töredékhónap minimális alapját naptári naponként a járulékalap 1/30-ával számolom (NAV tájékoztató).")
 
     alt = None
     if (not missing and cfg.get("tb_statusz") == "fofoglalkozasu" and cfg.get("min_alap_tipus")
@@ -390,6 +437,14 @@ def main():
 
     egyeb, egyeb_figy = egyeb_fizetendo(cfg, ev)
     warns += egyeb_figy + kedvezmeny_ellenorzes(cfg)
+    # kedvezmények (Szja tv. 29/A.–29/H. §): az éves adó csökkentése a megadott jogosultsági hónapok alapján
+    ked = None
+    kd = cfg.get("kedvezmenyek")
+    if last and isinstance(kd, dict) and not kd.get("nincs") and any(v for k, v in kd.items() if k != "nincs" and not str(k).startswith("_")):
+        jov_ked = D(last["bevetel_gongyolt_pontos"]) * (D(1) - D(cfg["koltseghanyad"]))
+        ado_ked = max(D(0), jov_ked - D(rules["adomentes_jovedelem_eves"]))
+        ked = kedvezmenyek.szamol(jov_ked, ado_ked, {k: v for k, v in kd.items() if not str(k).startswith("_")}, rules, ev)
+        warns += ["NEM SZÁMOLHATÓ (kedvezmény): " + m for m in ked["nem_szamolhato"]]
 
     result = {
         "ev": ev, "szamitas_datuma": today.isoformat(), "szamlak_forras": inv_path.name,
@@ -417,6 +472,8 @@ def main():
         "alternativ_min_alap": alt,
         "egyeb_fizetendo": egyeb,
         "kedvezmenyek": cfg.get("kedvezmenyek"),
+        "kedvezmenyek_szamitas": ked,
+        "jogi_kerdesek": jk,
         "figyelmeztetesek": warns,
     }
     out_dir = ROOT / "data" / "szamitas"
@@ -460,6 +517,20 @@ def main():
             print(f"  TBJ   göngyölt: {ft(r['tbj_gongyolt'])}  ->  negyedéves: {ft(r['tbj_eloleg'])}")
             print(f"  SZOCHO göngyölt: {ft(r['szocho_gongyolt'])}  ->  negyedéves: {ft(r['szocho_eloleg'])}"
                   f"   (határidő: {r['tb_hatarido'] or 'nincs az adónaptárban'})")
+        print()
+    if ked:
+        print("Kedvezmények (az éves szja-ra, az eddigi bevételből; Szja tv. 29/H. § szerinti sorrendben):")
+        for t in ked["tetelek"]:
+            print(f"  {t['nev']}: számított {ft(t['szamitott_kedvezmeny'])}, alkalmazott {ft(t['alkalmazott'])}  [{t['torvenyi_hely']}]")
+            for l in t["leiras"]:
+                print(f"      {l}")
+        if ked["szamolhato"]:
+            print(f"  Adóalap: {ft(ked['adoalap_elotte'])} -> {ft(ked['adoalap_utana'])}; éves SZJA kedvezmény nélkül {ft(ked['szja_kedvezmeny_nelkul'])}, "
+                  f"kedvezménnyel {ft(ked['szja_kedvezmennyel'])} (megtakarítás {ft(ked['megtakaritas'])})")
+        else:
+            print("  NEM SZÁMOLHATÓ a kedvezményes szja:")
+            for m in ked["nem_szamolhato"]:
+                print(f"    - {m}")
         print()
     if last:
         print(f"Eddig keletkezett kötelezettség ({last['negyedev']}. negyedév végéig göngyölve"

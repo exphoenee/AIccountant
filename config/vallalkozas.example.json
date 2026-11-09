@@ -4,7 +4,6 @@
   "jogallas": "egyeni_vallalkozo",
   "adozasi_mod": "atalanyado",
   "tevekenyseg": null,
-  "koltseghanyad": "0.45",
   "tb_statusz": null,
   "_tb_statusz_ertekek": "fofoglalkozasu | munkaviszony_36_vagy_nappali | nyugdijas",
   "min_alap_tipus": null,
@@ -23,5 +22,8 @@
   "ipa_telepules": null,
   "ipa_telephelyek": [],
   "ipa_adozasi_mod": null,
-  "tisztazott_tennivalok": []
+  "tisztazott_tennivalok": [],
+  "ipa_tetelesen_bejelentve": null,
+  "_ipa_tetelesen_bejelentve": "true, ha a tételes IPA-adóalap választását bejelentették (Htv. 39/A. § (4): az adóév 5. hónapjának végéig; új tevékenységnél a bejelentkezési nyomtatványon); false, ha nem; null, ha nem tudod. Az igazolás útvonalát az ipa_bejelentes_igazolas mezőbe írd.",
+  "ipa_bejelentes_igazolas": null
 }

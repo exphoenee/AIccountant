@@ -1,0 +1,36 @@
+{
+  "_megjegyzes": "SABLON az évváltáshoz (szabalyok_<év>.json). A null értékeket a HIVATALOS forrásból kell kitölteni (NAV tájékoztató, kormányrendelet, Szja tv. hatályos szövege a nav-forrasok skillel letöltve); a repó nem találja ki őket. Másold szabalyok_<év>.json néven, töltsd ki, majd futtasd: python -I .claude/skills/nav-forrasok/scripts/forras_letoltes.py --ellenoriz. A kulcsok (szja/tbj/szocho) a 2026-os értéket mutatják: ellenőrizd őket. A költséghányad 2027-től 50% a NAV szerint (2025. évi LXXXIV. tv. 3. § a)): ezt is a forrásban erősítsd meg.",
+  "ev": null,
+  "minimalber_havi": null,
+  "garantalt_berminimum_havi": null,
+  "adomentes_jovedelem_eves": null,
+  "bevetel_hatar_altalanos": null,
+  "szja_kulcs": "0.15",
+  "tbj_kulcs": "0.185",
+  "szocho_kulcs": "0.13",
+  "figyelmeztetes_kuszob_sarga": null,
+  "figyelmeztetes_kuszob_piros": null,
+  "koltseghanyad": null,
+  "kamara_hozzajarulas_ft": null,
+  "kamara_hatarido_nap": null,
+  "csaladi_kedvezmeny_havi": {
+    "1": null,
+    "2": null,
+    "3": null
+  },
+  "csaladi_kedvezmeny_beteg_noveles_havi": null,
+  "elso_hazasok_havi": null,
+  "elso_hazasok_max_honap": 24,
+  "brutto_atlagkereset_elozo_julius": null,
+  "_kedvezmenyek_forras": "Szja tv. 29/A. § (2), (2a): családi kedvezmény kedvezményezett eltartottanként és jogosultsági hónaponként 133 340 / 266 660 / 440 000 Ft (1 / 2 / 3+ eltartott), +133 340 Ft tartósan beteg/súlyosan fogyatékos eltartottanként; 29/C. § (3)-(4): első házasok 33 335 Ft/hó, legfeljebb 24 hónap; 29/E. § (3): személyi kedvezmény = minimálbér/3, 100 Ft-ra kerekítve (a script számolja). A brutto_atlagkereset_elozo_julius (25 év alatti fiatalok plafonja, 29/F. § (2)) a KSH által a tárgyévet megelőző év júliusára közzétett nemzetgazdasági bruttó átlagkereset: NINCS a repóban, a felhasználónak kell megadnia (KSH közlemény); amíg null, a 25 év alatti kedvezmény NEM SZÁMOLHATÓ.",
+  "_evvaltasi_ellenorzolista": [
+    "minimálbér és garantált bérminimum (kormányrendelet)",
+    "adómentes jövedelemrész = az éves minimálbér fele (Szja tv. 1. melléklet 4.48.)",
+    "bevételi határ = 10 × éves minimálbér (Szja tv. 52. § (1) a))",
+    "költséghányad (Szja tv. 53. §)",
+    "családi kedvezmény havi összegei (Szja tv. 29/A. § (2)) és az első házasok kedvezménye (29/C. § (3))",
+    "KSH bruttó átlagkereset (a tárgyévet megelőző év júliusára; 25 év alatti kedvezmény plafonja)",
+    "űrlapkódok és határidők az adónaptárban (nav_adonaptar.py --ev)",
+    "kamarai hozzájárulás összege és határideje"
+  ]
+}

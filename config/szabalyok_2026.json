@@ -1,5 +1,5 @@
 {
-  "_megjegyzes": "A 2026. évi szabályparaméterek. Forrás: .claude/rules/atalanyado.md és jarulek-szocho.md (NAV tájékoztató 2026.02.20., torvenytar/NAV/2026/). Évente új fájl kell; a költséghányad a vallalkozas.json-ban van (2027-től 50%: NAV, 2025. évi LXXXIV. tv.). A figyelmeztetési küszöbök a repó saját döntései, nem törvényiek.",
+  "_megjegyzes": "A 2026. évi szabályparaméterek. Forrás: .claude/rules/atalanyado.md és jarulek-szocho.md (NAV tájékoztató 2026.02.20., torvenytar/docs/NAV/2026/). Évente új fájl kell; a költséghányad és a kamarai hozzájárulás is itt van, mert évente változhat (a költséghányad 2027-től 50%: NAV, 2025. évi LXXXIV. tv. 3. § a); a 2027. évi fájlban 0.50). A vallalkozas.json ezeket nem írja felül. A figyelmeztetési küszöbök a repó saját döntései, nem törvényiek.",
   "ev": 2026,
   "minimalber_havi": 322800,
   "garantalt_berminimum_havi": 373200,
@@ -9,5 +9,18 @@
   "tbj_kulcs": "0.185",
   "szocho_kulcs": "0.13",
   "figyelmeztetes_kuszob_sarga": "0.80",
-  "figyelmeztetes_kuszob_piros": "0.95"
+  "figyelmeztetes_kuszob_piros": "0.95",
+  "koltseghanyad": "0.45",
+  "kamara_hozzajarulas_ft": 5000,
+  "kamara_hatarido_nap": "03-31",
+  "csaladi_kedvezmeny_havi": {
+    "1": 133340,
+    "2": 266660,
+    "3": 440000
+  },
+  "csaladi_kedvezmeny_beteg_noveles_havi": 133340,
+  "elso_hazasok_havi": 33335,
+  "elso_hazasok_max_honap": 24,
+  "brutto_atlagkereset_elozo_julius": null,
+  "_kedvezmenyek_forras": "Szja tv. 29/A. § (2), (2a): családi kedvezmény kedvezményezett eltartottanként és jogosultsági hónaponként 133 340 / 266 660 / 440 000 Ft (1 / 2 / 3+ eltartott), +133 340 Ft tartósan beteg/súlyosan fogyatékos eltartottanként; 29/C. § (3)-(4): első házasok 33 335 Ft/hó, legfeljebb 24 hónap; 29/E. § (3): személyi kedvezmény = minimálbér/3, 100 Ft-ra kerekítve (a script számolja). A brutto_atlagkereset_elozo_julius (25 év alatti fiatalok plafonja, 29/F. § (2)) a KSH által a tárgyévet megelőző év júliusára közzétett nemzetgazdasági bruttó átlagkereset: NINCS a repóban, a felhasználónak kell megadnia (KSH közlemény); amíg null, a 25 év alatti kedvezmény NEM SZÁMOLHATÓ."
 }

@@ -17,6 +17,8 @@ A `scripts/adoszamitas.py` Decimal aritmetikával, **AI-beavatkozás nélkül** 
 - negyedéves előleg = a göngyölt érték különbsége az előző negyedévhez képest,
 - a határidők a feldolgozott adónaptárból jönnek (`data/adonaptar/<év>.json`).
 
+**Évhez kötött paraméterek:** a költséghányad és a kamarai hozzájárulás összege/határideje a `config/szabalyok_<év>.json`-ból jön (a 2027. évi fájlban a költséghányad 0.50); a `vallalkozas.json` ezeket nem írja felül, eltérésnél a futás figyelmeztet. **Számlafájl:** az egyesített, keresztvalidált `egyesitett_*.json`-t olvassa, amelynek az előző év január 1-jétől kell indulnia (a tavaly kiállított, idén kifizetett számla idei bevétel); egyesített fájl hiányában a nyers Billingo-fájlra esik vissza, és ezt 🔴 figyelmeztetéssel kiírja.
+
 Bemenet: `data/szamlak/` (skill: `szamlak`), `data/adonaptar/` (skill: `adonaptar`), `config/vallalkozas.json`, `config/szabalyok_<év>.json`. Kimenet: képernyő + `data/szamitas/adoszamitas_<év>.json`.
 
 ## Futtatás
@@ -34,6 +36,10 @@ A `config/vallalkozas.json` `null` mezői (`tb_statusz`, `min_alap_tipus`, `vall
 ## Kamarai hozzájárulás és kedvezmények
 
 A script az `egyeb_fizetendo` listában adja a kamarai hozzájárulást (config: `kamara_koteles`, `kamara_hozzajarulas_ft`; forrás: 1999. évi CXXI. tv. 34/A. §), és jelzi, ha a befizetés nincs igazolva. A kedvezmények (`kedvezmenyek`) jogosultságát a vállalkozói profil készítésekor kell megadni; „nincs” esetén a számítás nem csökken, kedvezmény megadásakor `NEM SZÁMOLHATÓ` jelzés van (a képletek nincsenek implementálva). Hiányzó válasznál ugyanígy.
+
+## Kedvezmények (elkészült)
+
+A `scripts/kedvezmenyek.py` az összevont adóalapot csökkentő kedvezményeket számolja a törvényszövegből igazolt képletekkel (családi, első házasok, személyi, 25 év alattiak, négy+/három/két gyermekes és 30 év alatti anyák; sorrend: Szja tv. 29/H. §). Részletek, korlátok és a bemenet formátuma: [`kedvezmenyek.md`](../../rules/kedvezmenyek.md). A jogcímenkénti adatot (jogosultsági hónapok, eltartottak) a felhasználó adja a `config/vallalkozas.json` `kedvezmenyek` mezőjébe (minta: `kedvezmenyek.py --pelda`); könyvelő nem kell hozzá. A kimenet `kedvezmenyek_szamitas` blokkja az éves szja-t kedvezmény nélkül és kedvezménnyel adja; a negyedéves előleg és a tbj/szocho nem változik. Önteszt: `teszt_kedvezmenyek.py`. A 25 év alatti jogcímhez a KSH bruttó átlagkeresete kell a `szabalyok_<év>.json`-ba (a felhasználó adja).
 
 ## Szabályok ehhez a skillhez
 

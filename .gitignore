@@ -18,6 +18,7 @@ tax-reports/
 # A sablon (config/vallalkozas.example.json) verziózott, ez a példány nem.
 # ======================================================================
 config/vallalkozas.json
+config/konyvelo-dontesek.json
 .claude/memory/vallalkozasi-profil.md
 .claude/memory/adonaptar-*.md
 

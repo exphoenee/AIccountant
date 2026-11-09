@@ -466,7 +466,7 @@ def build(ev: int) -> str:
     kv = []
     kv.append(("Jogállás, adózás", f"{JOG.get(cfg.get('jogallas'), cfg.get('jogallas') or 'NEM TUDOM')}, {ADO.get(cfg.get('adozasi_mod'), cfg.get('adozasi_mod') or 'NEM TUDOM')}"))
     kv.append(("Főtevékenység", (cfg.get("tevekenyseg") or "NEM TUDOM").replace("szoftverfejlesztes", "szoftverfejlesztés")))
-    kv.append(("Költséghányad", f"{float(cfg['koltseghanyad']) * 100:.0f}%" if cfg.get("koltseghanyad") else "NEM TUDOM"))
+    kv.append(("Költséghányad", f"{float(sz['beallitasok']['koltseghanyad']) * 100:.0f}%" if sz["beallitasok"].get("koltseghanyad") else "NEM TUDOM"))
     kv.append(("TB-státusz", TBS.get(cfg.get("tb_statusz"), cfg.get("tb_statusz") or "NEM TUDOM")))
     mt = cfg.get("min_alap_tipus")
     kv.append(("Minimális járulékalap", (f"{'minimálbér' if mt == 'minimalber' else 'garantált bérminimum' if mt == 'garantalt' else 'NEM TUDOM'}"
@@ -481,7 +481,7 @@ def build(ev: int) -> str:
                                             + (" (befizetve, MKIK-igazolás)" if cfg.get("kamara_befizetes_igazolva") else " (befizetés nem igazolt)")) if cfg.get("kamara_koteles") else "nem köteles"))
     kd = cfg.get("kedvezmenyek")
     if kd is not None:
-        kv.append(("Adó- és járulékkedvezmények", "nincs: nem jogosult családi, személyi, első házasok, 25 év alattiak vagy anyák kedvezményére" if kd.get("nincs") else ", ".join(k for k, v in kd.items() if v and k != "nincs") or "nincs eldöntve"))
+        kv.append(("Adó- és járulékkedvezmények", "nincs: nem jogosult családi, személyi, első házasok, 25 év alattiak vagy anyák kedvezményére" if kd.get("nincs") else ", ".join(k for k, v in kd.items() if v and k != "nincs" and not str(k).startswith("_")) or "nincs eldöntve"))
     if ipa_p.exists():
         kv.append(("Éves IPA (számított)", ft(loadj(ipa_p)["eves_ipa"])))
     vall_html = ('<p class="sub">A config/vallalkozas.json és a vállalkozói profil alapján. Személyes azonosító (adószám, cím, bankszámla) nincs a reportban.</p>'
@@ -547,18 +547,28 @@ def build(ev: int) -> str:
         todo_konyvelo.append(f"Számlák megfelelősége: {sze_db} megállapítás a kimenő számlákon (lásd a Bevételek szakasz táblázatát): a figyelmeztetések a számlázóprogram adatai alapján ellenőrizendők a könyvelővel; "
                              "hibás számlát az Áfa tv. 170. § szerinti okirattal (sztornó/helyesbítés) kell javítani. A javítás után futtasd újra az adóellenőrzést.")
     todo_konyvelo.append("Kérj a könyvelőtől vagy a NAV-tól beadási igazolást a negyedéves bevallásokról: az irat nyomtatási dátuma és a NAV-előírás megléte nem mondja meg, mikor adták be.")
-    eu = "Egyeztesd a könyvelővel az uniós, külföldi vevők felé kiállított számlák teendőit (áfa-státusz, összesítő nyilatkozat); az Áfa tv. 37. § szerint ezek nem belföldi teljesítésű ügyletek (lásd .claude/rules/afa.md), de az összesítő nyilatkozat szabálya a 4/A. mellékletben és az Art.-ban van, amelyek nincsenek a törvénytárban."
+    eu = "Egyeztesd a könyvelővel az uniós, külföldi vevők felé kiállított számlák teendőit (áfa-státusz; összesítő nyilatkozat: Áfa tv. 4/A. melléklet I. 1. e) és I. 2. szerint a 37. § szerinti uniós szolgáltatásnyújtásról a tárgyhót/tárgynegyedévet követő hónap 20. napjáig; a rád való vonatkozás nem ellenőrzött); az Áfa tv. 37. § szerint ezek nem belföldi teljesítésű ügyletek (lásd .claude/rules/afa.md), de az összesítő nyilatkozat szabálya a 4/A. mellékletben és az Art.-ban van, amelyek nincsenek a törvénytárban."
     if bil.get("eu_tax_number") and not bil.get("small_taxpayer"):
         eu += " A közösségi adószámod a NAV 2026.07.31-i igazolása szerint megállapított (2026.07.21-től alkalmazható); a Billingo viszont nem jelöli alanyi adómentesként, ami eltér az általad megadott státusztól."
         todo_konyvelo.append("Javítsd a Billingo cégadatait: az alanyi adómentesség jelölése eltér az iratoktól és az általad megadott státusztól (a közösségi adószám rendben van).")
     todo_konyvelo.append(eu)
     if any("devizás" in w for w in warns):
         todo_konyvelo.append("Devizás számlák: kérdezd meg, hogy a bevétel forintosításához a számlán alkalmazott árfolyam (Szja tv. 6. § (2a) a)) vagy az MNB-árfolyam az irányadó, és kinél melyik.")
+    _jk_nyitott = [x for x in (sz.get("jogi_kerdesek") or []) if x.get("allapot") != "elfogadva"]
+    if _jk_nyitott:
+        todo_konyvelo.append(f"{len(_jk_nyitott)} nyitott jogi kérdés (89%-os szabály, minimális alap típusa, időarányosítás, szünetelés stb.): a törvényi hellyel ellátott kérdéslista a data/szamitas/konyvelo_kerdeslista.md fájlban van, vidd a könyvelőhöz/NAV-hoz; "
+                             "a választ így rögzítheted: python -I .claude/skills/adoszamitas/scripts/jogi_kerdesek.py --rogzit ID ERTEK --ki \"könyvelő\".")
     todo_konyvelo.append("Kérdezd meg, hogy az időarányos bevételi határnál (Szja tv. 50. § (8)) a nevező a naptári napok száma (365) vagy más; a törvény ezt nem mondja ki.")
     if cfg.get("kedvezmenyek") is None:
-        todo_konyvelo.append("Kedvezmények (családi, személyi stb.): kérdezd meg, jár-e valamelyik; a vállalkozói profil készítésekor rögzíteni kell (a számítás ezeket jelenleg nem tartalmazza).")
+        todo_ai.append("Kedvezmények: add meg, melyik jár neked (családi, személyi, első házasok, 25 év alattiak, anyák kedvezményei) vagy hogy egyik sem (\"nincs\"): a számítás elkészült, a részletes adatot (jogosultsági hónapok, eltartottak száma) a config/vallalkozas.json 'kedvezmenyek' mezőjébe kell írni; minta: python -I .claude/skills/adoszamitas/scripts/kedvezmenyek.py --pelda. Könyvelő nem kell hozzá, de a jogosultság feltételeit te felelsz.")
     elif not kd.get("nincs"):
-        todo_konyvelo.append("A megadott kedvezmények számítása nincs implementálva (" + ", ".join(k for k, v in kd.items() if v and k != "nincs") + "): a számítás ezek nélkül fut; egyeztess a könyvelővel.")
+        ks = sz.get("kedvezmenyek_szamitas")
+        if ks and ks.get("szamolhato"):
+            todo_info.append(f"Kedvezmények: az éves szja kedvezmény nélkül {ft(ks['szja_kedvezmeny_nelkul'])}, kedvezménnyel {ft(ks['szja_kedvezmennyel'])} (megtakarítás {ft(ks['megtakaritas'])}). "
+                             "Az adóbevallásban a jogcímekről nyilatkozni kell (pl. Szja tv. 29/B. § (2), 29/D. § (6)); a negyedéves előleg változatlan, a tbj/szocho kedvezmény nélkül számolódik.")
+        else:
+            todo_ai.append("Kedvezmények: a számításhoz részletes adat kell a config/vallalkozas.json 'kedvezmenyek' mezőjében (jogosultsági hónapok, eltartottak száma stb.; minta: "
+                           "python -I .claude/skills/adoszamitas/scripts/kedvezmenyek.py --pelda). Hiányzó vagy hibás: " + "; ".join((ks or {}).get("nem_szamolhato") or ["nincs részletes adat"]))
     if cfg.get("kamara_koteles") is None:
         todo_konyvelo.append("Kamarai hozzájárulás: kérdezd meg, hogy köteles-e a vállalkozás (az egyéni vállalkozó évi 5 000 Ft-ot fizet március 31-ig, kivéve ha a teljes naptári évben szünetel; 1999. évi CXXI. tv. 34/A. §), és rögzítsd a profilban.")
     elif cfg.get("kamara_koteles") and not cfg.get("kamara_befizetes_igazolva"):
@@ -581,10 +591,10 @@ def build(ev: int) -> str:
     if not _szunetelt:  # szüneteltetés alatt nem állítható ki számla: ilyenkor a korábbi kiállítású számlák kizárhatók
         todo_ai.append(f"A {ev - 1}. január 1. előtt kiállított, de {ev}-ben kifizetett számlák nem látszanak: az alapértelmezett Billingo-lekérés {ev - 1}. január 1-jétől indul. Ha ilyen számla lehet, kérd a szamlak skilltől a korábbi időszak lekérését.")
     _szja_txt = ""
-    for _f in (ROOT / "torvenytar" / "szja-tv").rglob("*.txt"):
+    for _f in (ROOT / "torvenytar" / "docs" / "szja-tv").rglob("*.txt"):
         _szja_txt += _f.read_text(encoding="utf-8", errors="ignore")
-    if not _re2.search(r"^\s*(4|10)\. számú melléklet a 1995\. évi CXVII\. törvényhez", _szja_txt, _re2.M):
-        todo_ai.append("A Szja tv. 4. és 10. számú melléklete nincs a letöltött szövegben (csak hivatkozás és lábjegyzet van rá): töltsd le a hivatalos PDF-et az input/torveny/ mappába, és kérd a nav-forrasok skilltől az importálást.")
+    if not _re2.search(r"^\s*(4|10)\. számú melléklet az? 1995\. évi CXVII\. törvényhez", _szja_txt, _re2.M):
+        todo_ai.append("A Szja tv. 4. és 10. számú melléklete nincs a letöltött szövegben (az njt.hu főoldala nem adja a mellékleteket): futtasd a nav-forrasok skillt (a net.jogtar.hu-s kiegészítést is letölti: *.jogtar.txt).")
     navs_ = sorted((ROOT / "data" / "nav-egyenleg").glob("nav_egyenleg_*.json"))
     if navs_:
         lek = loadj(navs_[-1]).get("lekerdezes", "")[:10]

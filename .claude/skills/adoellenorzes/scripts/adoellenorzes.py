@@ -133,6 +133,16 @@ def main():
         sys.exit(2)
     cfg_path = Path(a.config) if a.config else konfig.vallalkozas_ut()
     cfgd = json.loads(cfg_path.read_text(encoding="utf-8"))
+    # A kapu nem csak azt nézi, hogy a profil létrejött, hanem hogy a kötelező kérdésekre (kamara, kedvezmények, IPA-hely) van-e válasz:
+    # ezek nélkül az ellenőrzés hiányos állításokat tenne (pl. a kamarai hozzájárulás nem szerepelne a kötelezettségek között).
+    if not a.config:
+        valasz_hiany = [t for t, ok in (("kamarai hozzájárulás: köteles-e (dokumentumok.py --kamara igen|nem)", cfgd.get("kamara_koteles") is not None),
+                                        ("adó- és járulékkedvezmények (dokumentumok.py --kedvezmeny nincs | ...)", cfgd.get("kedvezmenyek") is not None),
+                                        ("iparűzési adó illetékességi helye (dokumentumok.py --ipa-beallit \"<település>\")", bool(cfgd.get("ipa_telepules")))) if not ok]
+        if valasz_hiany:
+            print("🔴 LEÁLLT: a vállalkozói profil kötelező kérdései közül hiányzik válasz: " + "; ".join(valasz_hiany) + ".")
+            print("   A skill a profilkészítéskor megkérdezi ezeket (usage.md 2.7–2.8); válasz nélkül az ellenőrzés hiányos állításokat tenne.")
+            sys.exit(2)
     ev = a.ev or today.year
     # Az "indulás előtti" határidők csak a vállalkozás ELSŐ napja előtt nem relevánsak. A vallalkozas_kezdete a jelenlegi jogviszony (újraindulás)
     # kezdete: az az előtti határidők (előző évi bevallás, kamara, korábbi negyedévek) egy régebbi vállalkozásnál is érvényesek lehetnek.
@@ -387,10 +397,18 @@ def main():
     print("\n-- Összegzés")
     if k_hibak:
         print(f"🔴 Könyvelői ellenőrzés: {k_hibak} eltérés / igazolatlan bevallás (lásd fent).")
+    # lejárt, de NEM ellenőrizhető tételek (régi NAV-kivonat, IPA, kamara, éves bevallás, nem NAV-adószámlás tételek): ezekről nem állítjuk, hogy rendben vannak
+    nem_ell = [x for x in all_items if x["szint"] in ("nem_ellenorizheto", "nem_szamolhato") and x["nap"] < 0]
     if findings:
         print(f"🔴 {len(findings)} elmaradás / eltérés / nem számolható tétel – lásd fent.")
-    else:
-        print("Nem találtam elmaradást a számolható tételeknél.")
+    if nem_ell:
+        print(f"❓ {len(nem_ell)} lejárt határidő NEM ellenőrizhető a repó adataiból; ezekről nem állítom, hogy rendben vannak:")
+        for x in nem_ell:
+            print(f"   ❓ {x['datum']} [{x['adonem']}] {x['teendo']}")
+    if not findings and not nem_ell:
+        print("Nem találtam elmaradást: minden lejárt határidő ellenőrizve volt.")
+    elif not findings:
+        print("Bizonyított elmaradást nem találtam, de ez csak az ellenőrizhető tételekre igaz (lásd a ❓ sorokat).")
     for u in upcoming:
         if u["nap"] <= 30:
             print(f"{u['jel']} {u['datum']}: {u['teendo'].replace('**', '')} ({u['nap']} nap)")
@@ -404,6 +422,11 @@ def main():
     p = ROOT / "data" / "szamitas" / f"ellenorzes_{ev}.json"
     p.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"\nMentve: {p.relative_to(ROOT)}")
+
+    # bevételi nyilvántartás (Szja tv. 51. § (3)) az egyesített számlákból
+    ok, bout = try_run([str(SK / "adoszamitas" / "scripts" / "bevetel_nyilvantartas.py"), "--ev", str(ev), "--ma", str(today)])
+    print("\n-- Bevételi nyilvántartás")
+    print(bout.splitlines()[0] if ok and bout else f"🔴 A bevételi nyilvántartás elkészítése NEM sikerült: {bout.splitlines()[-1] if bout else 'ismeretlen hiba'}")
 
     # minden futás után: HTML adóreport (skill: adoreport)
     ok, rout = try_run([str(SK / "adoreport" / "scripts" / "adoreport.py"), "--ev", str(ev)])
