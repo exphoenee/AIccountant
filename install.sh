@@ -48,7 +48,7 @@ echo "OK   mappák létrehozva"
 
 # 4) .gitignore: az érzékeny mappák ne kerüljenek verziókezelésbe
 touch .gitignore
-for e in ".env" "data/" "archive/" "input/" "tax-reports/" "audits/" "config/vallalkozas.json" ".claude/memory/vallalkozasi-profil.md" ".claude/memory/adonaptar-*.md" "todo.md" "level-*.md" "__pycache__/" "*.pyc"; do
+for e in ".env" "data/" "archive/" "input/" "tax-reports/" "audits/" "config/vallalkozas.json" "config/konyvelo-dontesek.json" ".claude/memory/vallalkozasi-profil.md" ".claude/memory/adonaptar-*.md" "todo.md" "level-*.md" "__pycache__/" "*.pyc"; do
   grep -qxF "$e" .gitignore || echo "$e" >> .gitignore
 done
 echo "OK   .gitignore ellenőrizve"
@@ -73,7 +73,7 @@ if [ "$NEM_INTERAKTIV" = "1" ]; then
   SOROZAT="${SOROZAT:-${SZAMLAZZ_SOROZAT:-}}"
 else
   echo
-  echo "API-kulcsok (Enter = kihagyás; kulcs nélkül az adott forrás adatait a rendszer csendben átugorja):"
+  echo "API-kulcsok (Enter = kihagyás; kulcs nélkül az adott forrás adatait a rendszer kihagyja (az adóellenőrzés kiírja, mely források hiányoznak)):"
   if [ -z "$BILLING" ]; then
     printf "  Billingo API-kulcs (csak olvasási jogosultság, Billingo > Beállítások > API): "
     read -r -s BILLING; echo
@@ -88,12 +88,16 @@ else
   fi
 fi
 
+# a .env egyéb (általunk nem ismert) sorai megmaradnak: csak a három ismert változót és a fejléc-megjegyzést írjuk újra
+EXTRA=""
+[ -f .env ] && EXTRA="$(grep -vE '^(BILLING_API_KEY|SZAMLAZZ_API_KEY|SZAMLAZZ_SOROZAT)=|^# AIccountant titkok' .env)"
 ( umask 077
   {
     echo "# AIccountant titkok: NEM verziózott, ne oszd meg."
     echo "BILLING_API_KEY=$BILLING"
     echo "SZAMLAZZ_API_KEY=$SZAMLAZZ"
     echo "SZAMLAZZ_SOROZAT=$SOROZAT"
+    [ -n "$EXTRA" ] && printf '%s\n' "$EXTRA"
   } > .env )
 chmod 600 .env 2>/dev/null || true
 [ -n "$BILLING" ] && echo "OK   .env: BILLING_API_KEY megadva" || echo "INFO .env: BILLING_API_KEY üres (a Billingo-adatok kimaradnak)"

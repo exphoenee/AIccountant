@@ -49,15 +49,15 @@ Write-Host 'OK   mappák létrehozva'
 # 4) .gitignore
 if (-not (Test-Path .gitignore)) { New-Item -ItemType File -Path .gitignore | Out-Null }
 $gi = Get-Content .gitignore -ErrorAction SilentlyContinue
-foreach ($e in '.env', 'data/', 'archive/', 'input/', 'tax-reports/', 'audits/', 'config/vallalkozas.json', '.claude/memory/vallalkozasi-profil.md', '.claude/memory/adonaptar-*.md', 'todo.md', 'level-*.md', '__pycache__/', '*.pyc') {
+foreach ($e in '.env', 'data/', 'archive/', 'input/', 'tax-reports/', 'audits/', 'config/vallalkozas.json', 'config/konyvelo-dontesek.json', '.claude/memory/vallalkozasi-profil.md', '.claude/memory/adonaptar-*.md', 'todo.md', 'level-*.md', '__pycache__/', '*.pyc') {
     if ($gi -notcontains $e) { Add-Content -Path .gitignore -Value $e -Encoding utf8 }
 }
 Write-Host 'OK   .gitignore ellenőrizve'
 
 # 4/b) config/vallalkozas.json a sablonból (a null mezőket a vállalkozónak kell kitöltenie; a fájl nincs verziókezelve)
-if (-not (Test-Path 'configallalkozas.json') -and (Test-Path 'configallalkozas.example.json')) {
-    Copy-Item 'configallalkozas.example.json' 'configallalkozas.json'
-    Write-Host 'OK   configallalkozas.json létrehozva a sablonból (a null mezőket töltsd ki; lásd usage.md)'
+if (-not (Test-Path 'config\vallalkozas.json') -and (Test-Path 'config\vallalkozas.example.json')) {
+    Copy-Item 'config\vallalkozas.example.json' 'config\vallalkozas.json'
+    Write-Host 'OK   config\vallalkozas.json létrehozva a sablonból (a null mezőket töltsd ki; lásd usage.md)'
 }
 
 # 5) .env
@@ -85,13 +85,16 @@ if ($NemInteraktiv) {
 }
 else {
     Write-Host ''
-    Write-Host 'API-kulcsok (Enter = kihagyás; kulcs nélkül az adott forrás adatait a rendszer csendben átugorja):'
+    Write-Host 'API-kulcsok (Enter = kihagyás; kulcs nélkül az adott forrás adatait a rendszer kihagyja (az adóellenőrzés kiírja, mely források hiányoznak)):'
     if (-not $billing) { $billing = Read-Titok '  Billingo API-kulcs (csak olvasási jogosultság; Billingo > Beállítások > API)' } else { Write-Host '  Billingo API-kulcs: már megvan a .env-ben' }
     if (-not $szamlazz) { $szamlazz = Read-Titok '  Számlázz.hu Számla Agent kulcs (Számlázz.hu > Beállítások > Számla Agent)' } else { Write-Host '  Számlázz.hu kulcs: már megvan a .env-ben' }
     if ($szamlazz -and -not $sorozat) { $sorozat = Read-Host -Prompt '  Számlázz.hu számlaszám-minta a lekéréshez, pl. ABC-2026-{n} (Enter = később)' }
 }
 
-$tartalom = "# AIccountant titkok: NEM verziózott, ne oszd meg.`nBILLING_API_KEY=$billing`nSZAMLAZZ_API_KEY=$szamlazz`nSZAMLAZZ_SOROZAT=$sorozat`n"
+# a .env egyéb (általunk nem ismert) sorai megmaradnak: csak a három ismert változót és a fejléc-megjegyzést írjuk újra
+$extra = @()
+if (Test-Path .env) { $extra = @(Get-Content .env -Encoding utf8 | Where-Object { $_ -notmatch '^(BILLING_API_KEY|SZAMLAZZ_API_KEY|SZAMLAZZ_SOROZAT)=' -and $_ -notmatch '^# AIccountant titkok' }) }
+$tartalom = "# AIccountant titkok: NEM verziózott, ne oszd meg.`nBILLING_API_KEY=$billing`nSZAMLAZZ_API_KEY=$szamlazz`nSZAMLAZZ_SOROZAT=$sorozat`n" + (($extra | ForEach-Object { "$_`n" }) -join '')
 [System.IO.File]::WriteAllText((Join-Path $PWD '.env'), $tartalom, $utf8)
 # a .env csak a jelenlegi felhasználó számára olvasható
 try { & icacls .env /inheritance:r /grant:r "$($env:USERNAME):(R,W)" | Out-Null } catch { }
