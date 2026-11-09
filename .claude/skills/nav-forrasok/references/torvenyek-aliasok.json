@@ -1,0 +1,237 @@
+{
+  "_megjegyzes": "A törvénytár Graphify-korpuszának közös azonosító-szótára és alias-táblája. Ebből készül a data/graphify/torvenyek/graphify-out/.graphify_corpus_rules.md (forras_letoltes.py --korpusz), és ezt használja a graf_ellenorzes.py is. Új törvény felvételekor ide is fel kell venni (id, fájlnév-előtag, rövidítés-minta, név-alias). A rovidites és nev_alias mezők reguláris kifejezések (Python re).",
+  "torvenyek": {
+    "szja_tv": {
+      "nev": "1995. évi CXVII. (Szja tv.)",
+      "fajl_elotag": [
+        "1995-evi-cxvii"
+      ],
+      "rovidites": "Szja\\.? ?tv\\.?|1995\\. évi CXVII\\.",
+      "nev_alias": "személyi jövedelemadóról szóló",
+      "alias_szoveg": [
+        "személyi jövedelemadóról szóló (törvény)",
+        "Szja tv.",
+        "Szja."
+      ]
+    },
+    "szocho_tv": {
+      "nev": "2018. évi LII. (Szocho tv.)",
+      "fajl_elotag": [
+        "2018-evi-lii"
+      ],
+      "rovidites": "Szocho\\.? ?tv\\.?|Szochotv\\.?|2018\\. évi LII\\.",
+      "nev_alias": "szociális hozzájárulási adóról szóló",
+      "alias_szoveg": [
+        "szociális hozzájárulási adóról szóló"
+      ]
+    },
+    "tbj": {
+      "nev": "2019. évi CXXII. (Tbj.)",
+      "fajl_elotag": [
+        "2019-evi-cxxii"
+      ],
+      "rovidites": "Tbj\\.|2019\\. évi CXXII\\.",
+      "nev_alias": "társadalombiztosítási ellátásokra jogosultakról és a fedezetéről szóló",
+      "alias_szoveg": [
+        "társadalombiztosítási ellátásokra jogosultakról és a fedezetéről szóló"
+      ]
+    },
+    "htv": {
+      "nev": "1990. évi C. (helyi adók, Htv.)",
+      "fajl_elotag": [
+        "1990-evi-c-"
+      ],
+      "rovidites": "Htv\\.|1990\\. évi C\\.",
+      "nev_alias": "helyi adókról szóló",
+      "alias_szoveg": [
+        "helyi adókról szóló"
+      ]
+    },
+    "afa_tv": {
+      "nev": "2007. évi CXXVII. (Áfa tv.)",
+      "fajl_elotag": [
+        "2007-evi-cxxvii"
+      ],
+      "rovidites": "Áfa tv\\.?|Áfa-törvény|2007\\. évi CXXVII\\.",
+      "nev_alias": "általános forgalmi adóról szóló",
+      "alias_szoveg": [
+        "általános forgalmi adóról szóló",
+        "Áfa-törvény"
+      ]
+    },
+    "art": {
+      "nev": "2017. évi CL. (adózás rendje, Art.)",
+      "fajl_elotag": [
+        "2017-evi-cl-"
+      ],
+      "rovidites": "Art\\.|2017\\. évi CL\\.",
+      "nev_alias": "adózás rendjéről szóló",
+      "alias_szoveg": [
+        "adózás rendjéről szóló"
+      ]
+    },
+    "evectv": {
+      "nev": "2009. évi CXV. (Evectv.)",
+      "fajl_elotag": [
+        "2009-evi-cxv"
+      ],
+      "rovidites": "Evectv\\.|2009\\. évi CXV\\.",
+      "nev_alias": "egyéni vállalkozóról és az egyéni cégről",
+      "alias_szoveg": [
+        "egyéni vállalkozóról és az egyéni cégről szóló"
+      ]
+    },
+    "kata_tv": {
+      "nev": "2022. évi XIII. (Kata tv.)",
+      "fajl_elotag": [
+        "2022-evi-xiii"
+      ],
+      "rovidites": "Kata tv\\.?|2022\\. évi XIII\\.",
+      "nev_alias": "kisadózó vállalkozások tételes adójáról szóló",
+      "alias_szoveg": [
+        "kisadózó vállalkozások tételes adójáról szóló"
+      ]
+    },
+    "kamarai_tv": {
+      "nev": "1999. évi CXXI. (gazdasági kamarák)",
+      "fajl_elotag": [
+        "1999-evi-cxxi"
+      ],
+      "rovidites": "Kamarai tv\\.|1999\\. évi CXXI\\.",
+      "nev_alias": "gazdasági kamarákról szóló",
+      "alias_szoveg": [
+        "gazdasági kamarákról szóló"
+      ]
+    },
+    "anya30_tv": {
+      "nev": "2025. évi XIII. (30 év alatti anyák kedvezménye)",
+      "fajl_elotag": [
+        "2025-evi-xiii"
+      ],
+      "rovidites": "2025\\. évi XIII\\.",
+      "nev_alias": "30 év alatti anyák kedvezménye",
+      "alias_szoveg": [
+        "30 év alatti anyák kedvezménye"
+      ]
+    },
+    "anya2_tv": {
+      "nev": "2025. évi XIV. (két gyermeket nevelő anyák kedvezménye)",
+      "fajl_elotag": [
+        "2025-evi-xiv"
+      ],
+      "rovidites": "2025\\. évi XIV\\.",
+      "nev_alias": "két gyermeket nevelő anyák kedvezménye",
+      "alias_szoveg": [
+        "két gyermeket nevelő anyák kedvezménye"
+      ]
+    },
+    "anya3_tv": {
+      "nev": "2025. évi XV. (három gyermeket nevelő anyák kedvezménye)",
+      "fajl_elotag": [
+        "2025-evi-xv"
+      ],
+      "rovidites": "2025\\. évi XV\\.",
+      "nev_alias": "három gyermeket nevelő anyák kedvezménye",
+      "alias_szoveg": [
+        "három gyermeket nevelő anyák kedvezménye"
+      ]
+    },
+    "modosito_2025_lxxxiv": {
+      "nev": "2025. évi LXXXIV. (módosító törvény)",
+      "fajl_elotag": [
+        "2025-evi-lxxxiv"
+      ],
+      "rovidites": "2025\\. évi LXXXIV\\.",
+      "nev_alias": "adó- és járulékszabályok módosításáról",
+      "alias_szoveg": []
+    },
+    "air_tv": {
+      "nev": "2017. évi CLI. (adóigazgatási rendtartás, Air.)",
+      "fajl_elotag": [
+        "2017-evi-cli-"
+      ],
+      "rovidites": "Air\\.|2017\\. évi CLI\\.",
+      "nev_alias": "adóigazgatási rendtartásról szóló",
+      "alias_szoveg": [
+        "adóigazgatási rendtartásról szóló"
+      ]
+    },
+    "tao_tv": {
+      "nev": "1996. évi LXXXI. (társasági adó, Tao. tv.)",
+      "fajl_elotag": [
+        "1996-evi-lxxxi"
+      ],
+      "rovidites": "Tao\\.? ?tv\\.?|1996\\. évi LXXXI\\.",
+      "nev_alias": "társasági adóról és az osztalékadóról szóló",
+      "alias_szoveg": [
+        "társasági adóról és az osztalékadóról szóló"
+      ]
+    },
+    "cst": {
+      "nev": "1998. évi LXXXIV. (családok támogatása, Cst.)",
+      "fajl_elotag": [
+        "1998-evi-lxxxiv"
+      ],
+      "rovidites": "Cst\\.|1998\\. évi LXXXIV\\.",
+      "nev_alias": "családok támogatásáról szóló",
+      "alias_szoveg": [
+        "családok támogatásáról szóló"
+      ]
+    },
+    "katv": {
+      "nev": "2012. évi CXLVII. (kisadózó vállalkozások tételes adója és kisvállalati adó, Katv.; NEM a 2022. évi Kata tv.)",
+      "fajl_elotag": [
+        "2012-evi-cxlvii"
+      ],
+      "rovidites": "Katv\\.|2012\\. évi CXLVII\\.",
+      "nev_alias": "kisadózó vállalkozások tételes adójáról és a kisvállalati adóról szóló",
+      "alias_szoveg": [
+        "kisadózó vállalkozások tételes adójáról és a kisvállalati adóról szóló"
+      ]
+    }
+  },
+  "nav_forrasok": [
+    "nav_atalanyado_2026",
+    "nav_ev_szja_jarulek_2026",
+    "nav_ado_afa",
+    "nav_adozasi_mod",
+    "nav_atalanyado_teendok",
+    "nav_kedvezo_valtozasok"
+  ],
+  "fogalmak": [
+    "atalanyadozas",
+    "koltseghanyad",
+    "osszevont_adoalap",
+    "adomentes_jovedelemresz",
+    "eves_minimalber",
+    "minimalber",
+    "garantalt_berminimum",
+    "csaladi_kedvezmeny",
+    "elso_hazasok_kedvezmenye",
+    "szemelyi_kedvezmeny",
+    "25_ev_alatti_kedvezmeny",
+    "anyak_kedvezmenye",
+    "csaladi_jarulekkedvezmeny",
+    "jogosultsagi_honap",
+    "adoeloleg",
+    "adoeloleg_alap",
+    "szocialis_hozzajarulasi_ado",
+    "jarulekalap",
+    "minimalis_jarulekalap",
+    "alanyi_adomentesseg",
+    "forditott_adozas",
+    "osszesito_nyilatkozat",
+    "teljesites_helye",
+    "szamla",
+    "helyi_iparuzesi_ado",
+    "teteles_adoalap",
+    "kamarai_hozzajarulas",
+    "egyeni_vallalkozo",
+    "bevetel_megszerzese",
+    "onadozas",
+    "negyedeves_bevallas"
+  ],
+  "alias_kiegeszites": [
+    "négy vagy több gyermeket nevelő anyák kedvezménye -> szja_tv_29_d_par (az Szja tv. saját szakasza, nem külön törvény)"
+  ]
+}
