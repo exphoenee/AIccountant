@@ -27,6 +27,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[4]
 INPUT = ROOT / "input" / "pdf"
+sys.path.insert(0, str(ROOT / ".claude" / "scripts"))
+import bemenet  # noqa: E402
+bemenet.takarit_kilepeskor(INPUT)
 DATA = ROOT / "data" / "pdf"
 ARCHIVE = ROOT / "archive" / "pdf"
 MARK = re.compile(r"^<!-- p:(\d+) -->$")
@@ -178,7 +181,7 @@ def archive_file(src: Path) -> Path:
 
 
 def process_all():
-    pdfs = sorted(INPUT.glob("*.pdf"), key=lambda p: p.stat().st_mtime)
+    pdfs = sorted(bemenet.fajlok(INPUT, (".pdf",)), key=lambda p: p.stat().st_mtime)
     if not pdfs:
         print("Nincs feldolgozandó PDF az input/pdf/ mappában. (Feldolgozott PDF-ek: --lista)")
         return

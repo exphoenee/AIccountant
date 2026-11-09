@@ -30,6 +30,8 @@ import szamla_parser  # noqa: E402
 import szamlazz_xml  # noqa: E402
 
 IN = ROOT / "input" / "bevetelek"
+import bemenet  # noqa: E402
+bemenet.takarit_kilepeskor(IN)
 ARCH = ROOT / "archive" / "bevetelek"
 DATA = ROOT / "data" / "szamlak"
 MD = DATA / "bevetelek-md"
@@ -157,7 +159,7 @@ def kulcs(num):
 
 
 def feldolgoz() -> int:
-    fajlok = sorted(x for x in IN.iterdir() if x.is_file() and x.name != ".gitkeep") if IN.exists() else []
+    fajlok = bemenet.fajlok(IN)  # almappákkal együtt
     if not fajlok:
         print("Nincs feldolgozandó fájl az input/bevetelek/ mappában.")
         return 0

@@ -35,3 +35,7 @@ Felismert irattípusok (a fájlnév alapján): `2658_*.pdf`, `Utalandó adók É
 6. Személyes azonosító (adószám, név, bankszámla) nem kerül a kivonatba; az `archive/` és `data/` nincs verziókezelve.
 7. Jogértelmezési kérdésben (melyik minimális alap, helyesbítő bevallás) a válasz: egyeztess a könyvelővel vagy a NAV-val.
 8. **Azonosító-ellenőrzés:** minden irat a vállalkozás adószáma/adóazonosítója szerint ellenőrződik (`.claude/scripts/azonosito.py`); másik vállalkozás irata esetén a script megáll, az irat az `input/`-ban marad, és utasítást ad.
+
+## Bemeneti mappa: almappák is, és a maradék jelzése
+
+Az `input/<mappa>/` **almappáit is feldolgozza** a script (rekurzívan; pl. `input/kiadasok/2026/…`), a kiterjesztés kis/nagybetűtől független (`.pdf` = `.PDF`); a közös segéd: `.claude/scripts/bemenet.py`. A feldolgozás után a kiürült almappák törlődnek. Az `input/` feldolgozás után **üres** kell legyen (`adatkezeles.md`): ami ott marad, az nem dolgozódott fel (azonosító-eltérés, ismeretlen irattípus, ellentmondás, nem támogatott formátum). Ezt az `adoellenorzes` minden futáskor kiírja, és a report Tennivalói között jelzi (`feldolgozatlan_input`).

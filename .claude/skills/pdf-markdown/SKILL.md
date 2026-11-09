@@ -39,3 +39,7 @@ Ajánlott sorrend: **vázlat -> keresés -> a releváns oldalak olvasása**. A `
 4. Ha a `pdftotext` nincs meg, a script megáll. **Ne telepíts csomagot** a felhasználó kérése nélkül; kérdezd meg, engedélyezi-e (pl. egy Python PDF-könyvtárat).
 5. A PDF-ek személyes adatot is tartalmazhatnak (számla, bevallás): a `data/pdf/` és `archive/pdf/` nincs verziókezelve; a tartalom nem kerül `.claude/memory/`-ba és külső szolgáltatásba.
 6. Archivált PDF-et törölni csak a felhasználó kérésére szabad.
+
+## Bemeneti mappa: almappák is, és a maradék jelzése
+
+Az `input/<mappa>/` **almappáit is feldolgozza** a script (rekurzívan; pl. `input/kiadasok/2026/…`), a kiterjesztés kis/nagybetűtől független (`.pdf` = `.PDF`); a közös segéd: `.claude/scripts/bemenet.py`. A feldolgozás után a kiürült almappák törlődnek. Az `input/` feldolgozás után **üres** kell legyen (`adatkezeles.md`): ami ott marad, az nem dolgozódott fel (azonosító-eltérés, ismeretlen irattípus, ellentmondás, nem támogatott formátum). Ezt az `adoellenorzes` minden futáskor kiírja, és a report Tennivalói között jelzi (`feldolgozatlan_input`).

@@ -41,3 +41,7 @@ A fájlnév `ÉÉÉÉ.md` legyen (pl. `2027.md`). A napok kiszámítását (hán
 3. A `.claude/memory/adonaptar-<év>.md` generált fájl: kézzel ne szerkeszd; hiba esetén javítsd az `input/` forrást, és futtasd újra a scriptet.
 4. Ha a script „nem találtam egyetlen határidősort sem" vagy oszlopszám-hibát jelez, a fájl az `input/`-ban maradt; idézd a hibát, és kérd a formátum javítását.
 5. Új évre új fájl kell (`config/szabalyok_<év>.json` is). Ha az adott évhez nincs feldolgozott naptár, mondd ki: „ehhez az évhez nincs adónaptár".
+
+## Bemeneti mappa: almappák is, és a maradék jelzése
+
+Az `input/<mappa>/` **almappáit is feldolgozza** a script (rekurzívan; pl. `input/kiadasok/2026/…`), a kiterjesztés kis/nagybetűtől független (`.pdf` = `.PDF`); a közös segéd: `.claude/scripts/bemenet.py`. A feldolgozás után a kiürült almappák törlődnek. Az `input/` feldolgozás után **üres** kell legyen (`adatkezeles.md`): ami ott marad, az nem dolgozódott fel (azonosító-eltérés, ismeretlen irattípus, ellentmondás, nem támogatott formátum). Ezt az `adoellenorzes` minden futáskor kiírja, és a report Tennivalói között jelzi (`feldolgozatlan_input`).

@@ -24,6 +24,8 @@ import sys as _sys; _sys.path.insert(0, str(ROOT / ".claude" / "scripts")); impo
 sys.path.insert(0, str(ROOT / ".claude" / "scripts"))
 import azonosito  # noqa: E402
 IN = ROOT / "input" / "konyvelo"
+import bemenet  # noqa: E402
+bemenet.takarit_kilepeskor(IN)
 ARCH = ROOT / "archive" / "konyvelo"
 DATA = ROOT / "data" / "konyvelo"
 KIV = DATA / "konyvelo_adatok.json"
@@ -111,7 +113,7 @@ def load():
 
 
 def feldolgoz():
-    pdfs = sorted(IN.glob("*.pdf")) if IN.exists() else []
+    pdfs = bemenet.fajlok(IN, (".pdf",))  # almappákkal együtt, kis/nagybetű független
     if not pdfs:
         print("Az input/konyvelo/ mappa üres: nincs mit feldolgozni.")
         return 0

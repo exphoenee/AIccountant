@@ -416,9 +416,21 @@ def main():
     for w in sz["figyelmeztetesek"]:
         print(f"- {w}")
     print("- Az adónaptár IPA, kamarai és egyéb tételeit nem tudom a repó adataiból ellenőrizni.")
+    # az input/ alatt maradt, FELDOLGOZATLAN fájlok (az input/ feldolgozás után üres kell legyen: adatkezeles.md); az ok a skill üzenetében van
+    import bemenet
+    maradek = bemenet.maradek(ROOT / "input")
+    maradek.pop("vallalkozas-adatok", None)  # a vállalkozói iratokat a vallalkozas-dokumentumok skill külön, kérdések után rendezi
+    print("\n-- Feldolgozatlan fájlok az input/ alatt")
+    if maradek:
+        for mappa, m in maradek.items():
+            print(f"🟡 input/{mappa}/: {m['db']} fájl ({', '.join(f'{k}={v}' for k, v in m['tipusok'].items())})"
+                  + (f"; ebből {m['nem_tamogatott']} nem támogatott formátum (támogatott: {', '.join(m['tamogatott_kiterjesztesek'])})" if m["nem_tamogatott"] else "")
+                  + ": futtasd a megfelelő skillt, és olvasd el az üzenetét (azonosító-eltérés, ismeretlen irattípus vagy ellentmondás miatt maradhat itt)")
+    else:
+        print("✅ Az input/ mappák üresek (minden feldolgozódott).")
     out = {"ev": ev, "datum": today.isoformat(), "szamitas": f"adoszamitas_{ev}.json", "nav": navp.name,
            "talalatok": findings, "kozelgo": upcoming, "kovetkezo_kotelezettseg": next_block,
-           "hataridok": all_items, "frissites": refresh, "konyvelo_hibak": k_hibak}
+           "hataridok": all_items, "frissites": refresh, "konyvelo_hibak": k_hibak, "feldolgozatlan_input": maradek}
     p = ROOT / "data" / "szamitas" / f"ellenorzes_{ev}.json"
     p.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"\nMentve: {p.relative_to(ROOT)}")

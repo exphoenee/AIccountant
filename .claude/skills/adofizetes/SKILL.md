@@ -40,3 +40,7 @@ python -I .claude/skills/adofizetes/scripts/bevallasok.py
 5. Archivált XML-t törölni vagy átnevezni csak a felhasználó kérésére szabad.
 6. Az „adófizetési kötelezettség vs. befizetés" összevetéshez az `adoellenorzes` skillt használd.
 - **Azonosító-ellenőrzés:** a NAV-kivonat (XML) és a bevallások (PDF) a vállalkozás adószáma/adóazonosítója szerint ellenőrződnek; másik adózó dokumentumánál a script megáll, a fájl az `input/`-ban marad, és utasítást ad.
+
+## Bemeneti mappa: almappák is, és a maradék jelzése
+
+Az `input/<mappa>/` **almappáit is feldolgozza** a script (rekurzívan; pl. `input/kiadasok/2026/…`), a kiterjesztés kis/nagybetűtől független (`.pdf` = `.PDF`); a közös segéd: `.claude/scripts/bemenet.py`. A feldolgozás után a kiürült almappák törlődnek. Az `input/` feldolgozás után **üres** kell legyen (`adatkezeles.md`): ami ott marad, az nem dolgozódott fel (azonosító-eltérés, ismeretlen irattípus, ellentmondás, nem támogatott formátum). Ezt az `adoellenorzes` minden futáskor kiírja, és a report Tennivalói között jelzi (`feldolgozatlan_input`).

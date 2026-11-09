@@ -11,7 +11,7 @@ Minden PDF-ről megállapítja a típust és a bevallási időszakot (a szöveg�
     archive/nav-egyenleg/duplikatumok/ mappába kerül (nem törlődik);
   - azonos típus + időszak, de ELTÉRŐ kulcsadat -> ELLENTMONDÁS: a fájl az input/-ban marad, a script megáll (3-as kilépési kód),
     és a felhasználónak kell dönteni;
-  - új -> az archive/vallalkozas-iratok/04-adozas/ alá kerül, Markdown a data/vallalkozas/iratok-md/ alá, nyilvántartásba vétel.
+  - új -> az archive/vallalkozas-iratok/<év>/04-adozas/ alá kerül, Markdown a data/vallalkozas/iratok-md/ alá, nyilvántartásba vétel.
 Szabályok: .claude/rules/adatkezeles.md, .claude/rules/nincs-becsles.md. Az összegeket a script olvassa ki, nem az AI.
 """
 import argparse
@@ -28,11 +28,13 @@ ROOT = Path(__file__).resolve().parents[4]
 sys.path.insert(0, str(ROOT / ".claude" / "scripts"))
 import azonosito  # noqa: E402
 IN = ROOT / "input" / "nav-egyenleg"
+import bemenet  # noqa: E402
+bemenet.takarit_kilepeskor(IN)
 REG = ROOT / "data" / "nav-egyenleg" / "bevallasok.json"
 KONYVELO = ROOT / "data" / "konyvelo" / "konyvelo_adatok.json"
 DUP = ROOT / "archive" / "nav-egyenleg" / "duplikatumok"
-ARCHIVE = ROOT / "archive" / "vallalkozas-iratok" / "04-adozas"
-MD = ROOT / "data" / "vallalkozas" / "iratok-md" / "04-adozas"
+ARCHIVE = ROOT / "archive" / "vallalkozas-iratok"  # <év>/04-adozas/<mappa>: az iratok az évük szerint csoportosítva
+MD = ROOT / "data" / "vallalkozas" / "iratok-md"
 PDFMD = ROOT / ".claude" / "skills" / "pdf-markdown" / "scripts" / "pdf_markdown.py"
 
 
@@ -115,7 +117,7 @@ def load_reg():
 
 
 def process():
-    pdfs = sorted(IN.glob("*.pdf")) if IN.exists() else []
+    pdfs = bemenet.fajlok(IN, (".pdf",))  # almappákkal együtt, kis/nagybetű független
     if not pdfs:
         print("Nincs feldolgozandó PDF az input/nav-egyenleg/ mappában.")
         return 0
@@ -170,7 +172,10 @@ def process():
             konfliktus += 1
             continue
         # új irat
-        dest = ARCHIVE / mappa
+        ev_dir = re.search(r"(?<!\d)((?:19[89]|20[0-4])\d)(?!\d)", mappa) or re.search(r"(?<!\d)((?:19[89]|20[0-4])\d)(?!\d)", per)
+        ev_dir = ev_dir.group(1) if ev_dir else str(datetime.now().year)
+        rel_mappa = f"{ev_dir}/04-adozas/{mappa}"
+        dest = ARCHIVE / rel_mappa
         dest.mkdir(parents=True, exist_ok=True)
         name = f"{tipus}_{per}_{p.name}".replace("_download.pdf", "_adoszamla-kivonat.pdf")
         dst = dest / name
@@ -178,13 +183,13 @@ def process():
         if hashlib.sha256(dst.read_bytes()).hexdigest() != raw:
             print(f"HIBA: hash eltérés áthelyezés után: {name}")
             return 1
-        mdp = MD / mappa / (dst.stem + ".md")
+        mdp = MD / rel_mappa / (dst.stem + ".md")
         mdp.parent.mkdir(parents=True, exist_ok=True)
         subprocess.run([sys.executable, "-I", str(PDFMD), "--fajl", str(dst), "--ki", str(mdp)], capture_output=True, text=True, encoding="utf-8")
         reg["bevallasok"][key] = {"forras": str(dst.relative_to(ROOT)).replace("\\", "/"), "sha256": [raw], "tartalom_hash": [ch],
                                   "kulcsadatok": kulcs, "feldolgozva": datetime.now().isoformat(timespec="seconds")}
         ki = ", ".join(f"{k}: {ft(v)}" for k, v in kulcs.items())
-        print(f"+ ÚJ: {tipus}, {per} -> archive/vallalkozas-iratok/04-adozas/{mappa}/" + (f" ({ki})" if ki else ""))
+        print(f"+ ÚJ: {tipus}, {per} -> archive/vallalkozas-iratok/{rel_mappa}/" + (f" ({ki})" if ki else ""))
     REG.parent.mkdir(parents=True, exist_ok=True)
     REG.write_text(json.dumps(reg, ensure_ascii=False, indent=1), encoding="utf-8")
     return 3 if konfliktus else 0

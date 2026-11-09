@@ -38,6 +38,8 @@ def ft(n):
 
 sys.path.insert(0, str(ROOT / ".claude" / "scripts"))
 import azonosito  # noqa: E402
+import bemenet  # noqa: E402
+bemenet.takarit_kilepeskor(IN)  # az almappák is feldolgozódnak; a kiürült almappák törlődnek
 from szamla_parser import parse, pdf_szoveg, num  # noqa: E402
 
 
@@ -46,7 +48,7 @@ def load():
 
 
 def feldolgoz():
-    pdfs = sorted(IN.glob("*.pdf")) if IN.exists() else []
+    pdfs = bemenet.fajlok(IN, (".pdf",))  # almappákkal együtt, kis/nagybetű független
     if not pdfs:
         print("Nincs feldolgozandó PDF az input/kiadasok/ mappában.")
         return 0

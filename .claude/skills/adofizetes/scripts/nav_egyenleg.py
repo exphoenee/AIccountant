@@ -24,6 +24,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[4]
 INPUT = ROOT / "input" / "nav-egyenleg"
+sys.path.insert(0, str(ROOT / ".claude" / "scripts"))
+import bemenet  # noqa: E402
+bemenet.takarit_kilepeskor(INPUT)
 DATA = ROOT / "data" / "nav-egyenleg"
 ARCHIVE = ROOT / "archive" / "nav-egyenleg"
 NS = {"a": "adoszamlaafr:export"}
@@ -115,7 +118,7 @@ def archive_file(src: Path, dest_dir: Path) -> Path:
 def process_new() -> list[Path]:
     done = []
     DATA.mkdir(parents=True, exist_ok=True)
-    for xml in sorted(INPUT.glob("*.xml"), key=lambda p: p.stat().st_mtime):
+    for xml in sorted(bemenet.fajlok(INPUT, (".xml",)), key=lambda p: p.stat().st_mtime):
         try:
             sys.path.insert(0, str(ROOT / ".claude" / "scripts"))
             import azonosito

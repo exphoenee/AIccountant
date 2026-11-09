@@ -26,6 +26,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[4]
 INPUT = ROOT / "input" / "adonaptar"
+sys.path.insert(0, str(ROOT / ".claude" / "scripts"))
+import bemenet  # noqa: E402
+bemenet.takarit_kilepeskor(INPUT)
 DATA = ROOT / "data" / "adonaptar"
 ARCHIVE = ROOT / "archive" / "adonaptar"
 MEMORY = ROOT / ".claude" / "memory"
@@ -122,7 +125,7 @@ def archive_file(src: Path) -> Path:
 
 
 def process_new():
-    for md in sorted(INPUT.glob("*.md")):
+    for md in bemenet.fajlok(INPUT, (".md",)):
         try:
             if not re.fullmatch(r"\d{4}", md.stem):
                 raise ValueError("a fájlnév nem ÉÉÉÉ.md (pl. 2026.md)")
@@ -176,7 +179,7 @@ def main():
     if a.lista:
         lista(a.ev, a.napok, a.ma)
         return
-    if not list(INPUT.glob("*.md")):
+    if not bemenet.fajlok(INPUT, (".md",)):
         print("Nincs új feldolgozandó fájl az input/adonaptar/ mappában. (A feldolgozott naptár listázása: --lista)")
         return
     process_new()

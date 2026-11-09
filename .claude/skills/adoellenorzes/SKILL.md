@@ -55,3 +55,7 @@ A frissítés a `.env`-ben lévő `BILLING_API_KEY`-t használja (a script olvas
 5. Mindig jelezd a „Nem ellenőrzött / ismert korlátok" listát, különösen: devizaárfolyam, a Billingo dátumszűrő, a folyamatban lévő negyedév nem végleges, az IPA/kamarai tételek nem ellenőrizhetők.
 6. A válasz végén add meg a report útvonalát (`tax-reports/adoreport_<év>.html`), és mondd el, hogy a report ugyanazokból a script-kimenetekből készült.
 7. Ha a felhasználó döntést vagy jogértelmezést kér, a válasz: egyeztessen a könyvelővel vagy a NAV-val.
+
+## Feldolgozatlan bemeneti fájlok
+
+A futás végén az `adoellenorzes` megnézi az `input/` mappákat (a vállalkozói iratok mappáját kivéve): ami ott feldolgozás után is megmaradt, azt mappánként, típus szerint kiírja („Feldolgozatlan fájlok az input/ alatt”), a `data/szamitas/ellenorzes_<év>.json` `feldolgozatlan_input` mezőbe menti, és a report Tennivalói között jelzi. Az ok a megfelelő skill üzenetében van (azonosító-eltérés, ismeretlen irattípus, ellentmondás, nem támogatott formátum). A skillek az almappákat is feldolgozzák (`.claude/scripts/bemenet.py`).

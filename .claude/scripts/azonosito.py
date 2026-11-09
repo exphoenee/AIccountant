@@ -118,8 +118,15 @@ def ellenoriz(szoveg: str, fajlnev: str, skill: str, mit: str = "dokumentum") ->
     # Határolt keresés: a saját azonosító csak önálló számként (nem hosszabb számjegyfolyam részeként) fogadható el.
     def onallo(azon, minta):
         return bool(azon) and re.search(r"(?<!\d)" + minta + r"(?!\d)", szoveg) is not None
+    # NAV-nyomtatványok cellás mezői: a számjegyek külön cellákban állnak ("6 8 6 8 9 4 8 1 1 2 2 8 4 0 9 ..."), a szomszédos mezők (adószám,
+    # adóazonosító jel) a nyers szövegkivonatban egyetlen, térközzel tagolt számsorrá folynak össze. Az ilyen számsor digitjeit összeolvasztjuk,
+    # és a saját azonosító akkor fogadható el, ha a számsor ELEJÉN vagy VÉGÉN áll (egy hosszabb számsor közepén nem).
+    futamok = [re.sub(r"\D", "", m.group(0)) for m in re.finditer(r"(?<!\d)(?:\d\s{1,2}){9,}\d(?!\d)", szoveg)]
+
+    def szokozos(azon):
+        return bool(azon) and any(f.startswith(azon) or f.endswith(azon) for f in futamok)
     ado_minta = r"\s?-?\s?".join([sajat_ado[:8], sajat_ado[8:9], sajat_ado[9:11]]) if len(sajat_ado) == 11 else re.escape(sajat_ado)
-    megvan = (sajat_ado and (sajat_ado in ado_digits or onallo(sajat_ado, ado_minta))) or (sajat_az and (sajat_az in az or onallo(sajat_az, re.escape(sajat_az))))
+    megvan = (sajat_ado and (sajat_ado in ado_digits or onallo(sajat_ado, ado_minta))) or (sajat_az and (sajat_az in az or onallo(sajat_az, re.escape(sajat_az)))) or szokozos(sajat_ado) or szokozos(sajat_az)
     if megvan:
         return
     mas = sorted(ado | az)

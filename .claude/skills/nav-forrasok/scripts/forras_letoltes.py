@@ -461,7 +461,7 @@ def bevesz_input() -> int:
     """Az input/torveny/ mappába tett fájlokban (PDF, MD, TXT, HTML) szereplő HIVATALOS hivatkozásokat (njt.hu törvény, nav.gov.hu oldal)
     felveszi a torvenytar/forrasok.json-ba; a letöltés és feldolgozás a szokásos lépésekkel történik. A bemeneti fájl (általában egy jegyzet,
     nem maga a forrás) az archive/torveny/ mappába kerül. Hivatkozás nélküli fájl az input/-ban marad, jelzéssel."""
-    fajlok = sorted(p for p in INPUT_TORVENY.glob("*") if p.is_file() and p.name != ".gitkeep") if INPUT_TORVENY.exists() else []
+    fajlok = sorted(p for p in INPUT_TORVENY.rglob("*") if p.is_file() and p.name != ".gitkeep") if INPUT_TORVENY.exists() else []
     if not fajlok:
         return 0
     man = json.loads(MANIFEST.read_text(encoding="utf-8"))

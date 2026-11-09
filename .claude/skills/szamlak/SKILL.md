@@ -64,3 +64,7 @@ Minden API-lekérés előtt a script ellenőrzi, hogy a kulcs a vállalkozói pr
 ## Jogi forrás ehhez a skillhez
 
 A hivatkozott törvényhelyek (Áfa tv. 37., 163., 169., 187. §) a `torvenytar/` letöltött szövegében vannak (a mellékletek a `*.jogtar.txt`-ben); a hivatkozások meglétét a `nav-forrasok` skill `--ellenoriz` parancsa ellenőrzi. Ha a szabályfájl és a törvényszöveg eltér, a törvényszöveg az irányadó, az eltérést jelezni kell. Nyitott jogi kérdés: `adoszamitas/scripts/jogi_kerdesek.py --lista`; döntés nélkül a könyvelő/NAV dönt.
+
+## Bemeneti mappa: almappák is, és a maradék jelzése
+
+Az `input/<mappa>/` **almappáit is feldolgozza** a script (rekurzívan; pl. `input/kiadasok/2026/…`), a kiterjesztés kis/nagybetűtől független (`.pdf` = `.PDF`); a közös segéd: `.claude/scripts/bemenet.py`. A feldolgozás után a kiürült almappák törlődnek. Az `input/` feldolgozás után **üres** kell legyen (`adatkezeles.md`): ami ott marad, az nem dolgozódott fel (azonosító-eltérés, ismeretlen irattípus, ellentmondás, nem támogatott formátum). Ezt az `adoellenorzes` minden futáskor kiírja, és a report Tennivalói között jelzi (`feldolgozatlan_input`).
