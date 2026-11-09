@@ -48,7 +48,7 @@ A telepítő létrehozza a mappákat és a `.env` fájlt (rákérdez a Billingo 
 |---|---|
 | **Python 3.10 vagy újabb** | `python --version`. Külső Python-csomag nem kell, a scriptek a standard könyvtárat használják. |
 | **`pdftotext`** (PDF-ek szövegéhez) | A Git for Windows tartalmazza; ellenőrzés: `pdftotext -v`. |
-| **API-kulcsok** (`.env`) | `BILLING_API_KEY` (Billingo, csak olvasási), `SZAMLAZZ_API_KEY` (Számlázz.hu Számla Agent), `SZAMLAZZ_SOROZAT` (számlaszám-minta, pl. `ABC-2026-{n}`). Kulcs nélkül az adott forrás csendben kimarad. Ne add át és ne írd ki sehova. |
+| **API-kulcsok** (`.env`) | `BILLING_API_KEY` (Billingo, csak olvasási), `SZAMLAZZ_API_KEY` (Számlázz.hu Számla Agent), `SZAMLAZZ_SOROZAT` (számlaszám-minta, pl. `ABC-2026-{n}`). Kulcs nélkül az adott forrás kimarad (a futás kiírja). Ne add át és ne írd ki sehova. |
 | **Claude Code** a repo gyökerében | A skillek a `.claude/skills/` mappában vannak. |
 | *(opcionális)* **Graphify** | A törvénytérkép (`graphify` skill) saját, elszigetelt Python-környezetben él; csak ha a törvényeket gráfként akarod vizsgálni. |
 
@@ -117,7 +117,7 @@ python -I .claude/skills/szamlak/scripts/szamlak_egyesites.py          # kereszt
 python -I .claude/skills/szamlak/scripts/szamla_ellenorzes.py          # megfelelőség az Áfa tv. szerint
 ```
 
-- **Számlázz.hu:** a Számla Agent csak egy számlát tud lekérdezni számlaszám alapján, ezért a számlaszám-sorozatot járja végig; tömeges exportot az `input/bevetelek/` mappába tegyél. Kulcs nélkül minden kimarad, csendben.
+- **Számlázz.hu:** a Számla Agent csak egy számlát tud lekérdezni számlaszám alapján, ezért a számlaszám-sorozatot járja végig; tömeges exportot az `input/bevetelek/` mappába tegyél. Kulcs nélkül a forrás kimarad, a futás ezt kiírja.
 - **Keresztvalidálás:** egy számla csak egyszer könyvelődik. Azonos számlaszám + eltérő adat, vagy gyanúsan azonos számla más számlaszámmal különböző forrásokból **megállítja** az egyesítést (5-ös kód).
 - **Idegen dokumentum:** másik vállalkozás számlájánál vagy bejövő számlánál a feldolgozás megáll, megmondja, hová való.
 
@@ -132,6 +132,10 @@ Skill: **`konyvelo-dokumentumok`**: `python -I .claude/skills/konyvelo-dokumentu
 ### 2.7 Iparűzési adó (IPA)
 
 A profilkészítéskor a Claude rákérdez az illetékességi helyre (`dokumentumok.py --ipa-javaslat`, `--ipa-beallit "<település>"`). Utána a `helyi-ipa` skill (`ipa.py --allapot`, `--mod tetelesen|hagyomanyos`, `--rogzit`, `--szamol`) a helyi rendelet mértékét **forrással** rögzíti, és kiszámolja az éves adót. Kötelező kérdés az adózás módja (tételes vagy hagyományos).
+
+### 2.8a Kedvezmények számítása
+
+A kedvezmények (családi, első házasok, személyi, 25 év alattiak, anyák kedvezményei) számítása **elkészült** (`adoszamitas/scripts/kedvezmenyek.py`, szabályok: `.claude/rules/kedvezmenyek.md`). A jogosult jogcímeket a `config/vallalkozas.json` `kedvezmenyek` mezőjébe kell írni jogosultsági hónapokkal és eltartottak számával (minta: `python -I .claude/skills/adoszamitas/scripts/kedvezmenyek.py --pelda`); a 25 év alatti kedvezményhez a KSH bruttó átlagkeresetét a `config/szabalyok_<év>.json` `brutto_atlagkereset_elozo_julius` mezőjébe kell beírnod. A jogosultság feltételeiért és az adóbevallási nyilatkozatért te felelsz. Az éves szja-t mutatja kedvezmény nélkül és kedvezménnyel; a negyedéves előleg nem változik.
 
 ### 2.8 Kamarai hozzájárulás és kedvezmények
 
@@ -183,10 +187,10 @@ A Claude **nem számol fejben**: minden számot script ad, és ami nem ellenőrz
 | `data/` | feldolgozott eredmények: `szamlak/` (köztük `egyesitett_*`, `szamla_ellenorzes.json`), `kiadasok/`, `konyvelo/`, `nav-egyenleg/`, `adonaptar/`, `szamitas/` (köztük `tennivalok_<év>.json`), `ipa/`, `vallalkozas/` |
 | `archive/` | a feldolgozott nyers fájlok és a duplikátumok (mozgatás, nem törlés) |
 | `tax-reports/` | a HTML adóreport |
-| `torvenytar/` | hivatalos források módosítás nélkül (Szja tv., Tbj., Szocho tv., Htv., Áfa tv., kamarai tv., NAV-füzetek, az illetékes önkormányzat IPA-rendelete), és belőlük készült összefoglalók |
+| `torvenytar/` | `docs/`: hivatalos források módosítás nélkül (Szja tv., Tbj., Szocho tv., Htv., Áfa tv., Art., kamarai tv., NAV-füzetek, az illetékes önkormányzat IPA-rendelete); `graph/`: a belőlük készült törvénytérkép (Graphify; verziózott, személyes adat nélkül); és az összefoglalók |
 | `config/` | beállítások és szabályparaméterek |
 | `docs/` | Archify diagramok (AI-workflow, mappák adatfolyama) |
-| `audits/` | a saját megfelelőségi auditjaid (generált, alapból üres) |
+| `audits/` | a repó kiadott auditjai (személyes adat nélkül) és a saját auditjaid (ez utóbbiak nem verziózottak) |
 
 ## 5. Új adóév vagy új adat
 
@@ -201,6 +205,9 @@ A Claude **nem számol fejben**: minden számot script ad, és ami nem ellenőrz
 | „LEÁLLT: nincs feldolgozott vállalkozói profil" | Futtasd a 2.1 lépést, különösen a `--profil` parancsot. |
 | „MEGÁLLTAM: a dokumentum NEM a te vállalkozásodra szól" | Másik vállalkozás vagy magánszemély dokumentuma került a mappába; ellenőrizd, vidd át a helyes helyre vagy töröld. A fájl nem lett feldolgozva. |
 | „a vállalkozás azonosítója még nincs rögzítve" | `dokumentumok.py --billingo` (kell hozzá a `BILLING_API_KEY`). |
+| „adóazonosító-jelölt az iratokból" | az adóazonosító jelet az iratokból csak jelöltként olvassuk ki (lehet ügyfélé vagy a könyvelőé is). Ha a kiírt (maszkolt) szám a tiéd: `python -I .claude/scripts/azonosito.py --megerosit-adoazonosito`; addig csak az adószám alapján ellenőrzünk. |
+| „LEÁLLT: a kötelező kérdések közül hiányzik válasz" | az adóellenőrzés csak a kamara-, kedvezmény- és IPA-hely kérdések megválaszolása után fut (2.7–2.8); a parancsokat kiírja. |
+| „nincs … évet lefedő számlafájl" | a számlafájlnak az előző év január 1-jétől kell indulnia: `billingo_szamlak.py <előző év>-01-01 <adóév>-12-31` (az `adoellenorzes` ezt maga elvégzi). |
 | „a BILLING/SZAMLAZZ_API_KEY másik vállalkozás fiókjához tartozik" | Cseréld a `.env`-ben a kulcsot a saját fiókodéra. |
 | „ELLENTMONDÁS" / „gyanús duplikáció" (számla) | Nézd meg a felsorolt számlákat az eredeti rendszerben; javítsd vagy töröld a hibás forrásfájlt, és futtasd újra. |
 | „ez nem kiadási számla, hanem …" | A fájl rossz mappában van; a hibaüzenet megmondja, hová tedd. |
@@ -214,7 +221,7 @@ A Claude **nem számol fejben**: minden számot script ad, és ami nem ellenőrz
 
 1. **Számítást csak script végez**, soha nem az AI; nincs becslés. Ami nem ellenőrzött, azt kimondja.
 2. A **személyes azonosítók** (adószám, TAJ, cím, bankszámla, API-kulcs) nem kerülnek a chatbe, a memóriába vagy a reportba.
-3. A **`torvenytar/` forrásfájljait** nem módosítjuk.
+3. A **`torvenytar/docs/` forrásfájljait** nem módosítjuk.
 4. **Nem vagyunk adótanácsadók:** a döntést igénylő pontokat (minimális alap, árfolyam, helyesbítés, összesítő nyilatkozat) a könyvelővel vagy a NAV-val kell tisztázni.
 
 A részletes szabályok: `.claude/rules/` (`adatkezeles.md`, `nincs-becsles.md`, `struktura.md`, `atalanyado.md`, `jarulek-szocho.md`, `bevetel-nyilvantartas.md`, `hataridok.md`, `afa.md`, `szamlazas.md`, `kamarai-hozzajarulas.md`).

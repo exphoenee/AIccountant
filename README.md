@@ -1,6 +1,17 @@
 # AIccountant
 
-Személyes adóügyi asszisztens átalányadózó egyéni vállalkozók számára. Claude Code-dal figyelmeztet az adófizetési határidőkre és egyéb teendőkre a Billingo számlák, a NAV adószámla, az adónaptár és a vállalkozás iratai alapján. **A számításokat Python scriptek végzik, nem az AI.** Ami nem ellenőrzött, azt a rendszer kimondja, nem becsül.
+Személyes adóügyi asszisztens átalányadózó egyéni vállalkozók számára. Claude Code-dal figyelmeztet az adófizetési határidőkre és egyéb teendőkre a Billingo számlák, a NAV adószámla, az adónaptár és a vállalkozás iratai alapján. **A számításokat Python scriptek végzik, nem az AI.** Ami nem ellenőrzött, azt a rendszer kimondja, nem becsül. **Nem helyettesíti a könyvelőt és a jogi szakértőt: lásd a [DISCLAIMER.md](DISCLAIMER.md) fájlt.**
+
+> ## ⚖️ Nem helyettesíti a könyvelőt és a jogi szakértőt
+> Ez az eszköz a vállalkozás törvényi és számviteli ügyeit **követi**, és **kérdéseket vet fel** a könyvelő és a jogi képviselő felé. **Nem ad adótanácsot, nem dönt jogértelmezési kérdésekben, és nem helyettesíti a könyvelőt, az adótanácsadót vagy a jogi szakértőt.** A számított értékek tájékoztató jellegűek. Olvasd el a teljes nyilatkozatot: **[DISCLAIMER.md](DISCLAIMER.md)**.
+
+> ## ⚠️ Figyelem: amit az AI beolvas, azt a modellszolgáltató is megkapja
+> Ez az eszköz Claude Code-dal (AI) dolgozik. **Minden fájlt és adatot, amelyet az AI a munka közben elolvas, a modellszolgáltatóhoz (Anthropic) kerül feldolgozásra**, nem csak a chatben megjelenő szöveget. Ide tartozik: a vállalkozói iratok és szerződések Markdown-változata, a NAV- és könyvelői iratok, számlák, a `data/` fájljai, a profil és a script-kimenetek, amelyeket az AI kiolvas.
+> - Ezek az iratok tartalmazhatnak **adószámot, adóazonosító jelet, TAJ-számot, nevet, címet, bankszámlaszámot, ügyfél- és könyvelőneveket**. A repó **nem maszkolja** a beolvasott szöveget; a „nem írom ki a chatbe” szabályok csak a kimenetre vonatkoznak.
+> - A `.gitignore` a GitHubra kerülést akadályozza, **a modellszolgáltatóhoz kerülést nem**.
+> - Csak akkor használd, ha vállalod ezt. Add az AI-nak csak azokat az iratokat, amelyek a feladathoz kellenek (az `input/` mappába ne tegyél fölöslegeset), és ellenőrizd a szolgáltatód adatkezelési feltételeit (megőrzés, tanításra használat).
+> - Mi marad helyben: a számításokat Python scriptek végzik a saját gépeden; a `.env` kulcsait a script olvassa, az AI nem.
+> - A `helyi-ipa` skill ezen felül az interneten keres (a településnevet külső szolgáltatás látja), a `nav-forrasok` és az `adonaptar` csak nyilvános oldalakat tölt le, személyes adat nélkül.
 
 > **Először a vállalkozás adatait kell feldolgoztatni.** Az adóellenőrzés (`adoellenorzes`) addig nem fut le, amíg a memóriában (`.claude/memory/vallalkozasi-profil.md`) nincs feldolgozott vállalkozói profil. Lépésről lépésre: **[`usage.md`](usage.md)**.
 
@@ -14,7 +25,7 @@ Két azonos működésű telepítő van a repó gyökerében:
 | Windows (PowerShell) | `.\install.ps1` |
 
 A telepítő: ellenőrzi a Python 3.10+ és a `pdftotext` meglétét; létrehozza az `input/` almappákat (`vallalkozas-adatok`, `nav-egyenleg`, `adonaptar`, `konyvelo`, `kiadasok`, `bevetelek`, `torveny`, `pdf`), a `data/`, `archive/`, `tax-reports/`, `audits/` mappákat; kiegészíti a `.gitignore`-t az érzékeny mappákkal; **létrehozza a `.env` fájlt**: rákérdez a **Billingo** és a **Számlázz.hu** API-kulcsra (a bevitel rejtett, Enter = kihagyás); végül lefuttatja a számítás önellenőrző tesztjét.
-Kulcs nélkül az adott forrás adatait a rendszer **csendben átugorja**. Meglévő `.env` esetén a kitöltött értékeket megtartja. Nem interaktív használat: `BILLING_API_KEY=... SZAMLAZZ_API_KEY=... ./install.sh --nem-interaktiv` (PowerShell: környezeti változók, majd `.\install.ps1 -NemInteraktiv`).
+Kulcs nélkül az adott forrás adatait a rendszer **kihagyja, és ezt az adóellenőrzés kiírja**. Meglévő `.env` esetén a kitöltött értékeket megtartja. Nem interaktív használat: `BILLING_API_KEY=... SZAMLAZZ_API_KEY=... ./install.sh --nem-interaktiv` (PowerShell: környezeti változók, majd `.\install.ps1 -NemInteraktiv`).
 
 ## Gyors indulás
 
@@ -43,7 +54,7 @@ A teljes útmutató (mit hova másolj, milyen sorrendben, hibaelhárítás): [`u
 | `szamlak` | Kimenő számlák: Billingo, Számlázz.hu és az `input/bevetelek/` fájljai; egyesítés és keresztvalidálás (egy számla csak egyszer könyvelődik); bejövő számlák a Billingóból (csak olvasás) |
 | `adoreport` | HTML adóreport (Chart.js, világos/sötét mód, vállalkozás története) |
 | `pdf-markdown` | PDF → tömör Markdown, tokentakarékos célzott olvasás |
-| `nav-forrasok` | NAV-oldalak és törvények módosítás nélkül a `torvenytar/` mappába, Markdown, törvénytérkép |
+| `nav-forrasok` | NAV-oldalak és törvények módosítás nélkül a `torvenytar/docs/` mappába, Markdown, törvénytérkép (`torvenytar/graph/`) |
 | `graphify` | Külső skill: tudásgráf a jogszabályszövegekből |
 | `design-taste-frontend` | Külső skill: a report arculatának alapja |
 
@@ -52,7 +63,7 @@ A teljes útmutató (mit hova másolj, milyen sorrendben, hibaelhárítás): [`u
 - [AI-workflow](docs/ai-workflow.html): hogyan működik a folyamat, ki mit csinál, hol áll meg és kérdez.
 - [Mappák és adatfolyam](docs/mappak-adatfolyam.html): melyik `input/` mappába mit kell tenni, melyik skill dolgozza fel, és mi történik az irattal.
 
-A forrás-JSON-ok mellettük vannak (`docs/*.json`). A saját auditjaid az `audits/` mappába kerülnek.
+A forrás-JSON-ok mellettük vannak (`docs/*.json`). Az `audits/` mappában a repó kiadott auditjai vannak (személyes adat nélkül, verziózva); a **saját** auditjaid is ide kerülnek, de azokat a telepítő a `.gitignore`-ba teszi (nem verziózottak). Push előtt ellenőrizd, hogy nincs bennük ügyfélnév, összeg vagy azonosító.
 
 ## Mappák
 
@@ -65,12 +76,17 @@ input/              feldolgozásra váró nyers fájlok (vallalkozas-adatok, kon
 archive/            feldolgozott nyers fájlok (archive/vallalkozas-iratok: a rendezett iratok)
 data/               feldolgozott eredmények (számlák, NAV, naptár, számítás, vallalkozas, pdf, graphify)
 tax-reports/        adoreport_<év>.html
-torvenytar/         NAV-források és törvények módosítás nélkül + összefoglalók
+torvenytar/         docs/ (NAV-források és törvények módosítás nélkül), graph/ (a kész törvénytérkép, verziózott) + összefoglalók
 install.sh / install.ps1   telepítő (mappák, .env, API-kulcsok)
 usage.md            használati útmutató
 ```
 
 A `data/`, `archive/`, `input/`, `tax-reports/` és az `.env` érzékeny, nincs verziókezelve.
+
+## Licenc és jogi nyilatkozat
+
+- **Licenc:** MIT, lásd a [LICENCE.md](LICENCE.md) fájlt. A harmadik féltől származó részekre (Chart.js, a `design-taste-frontend` skill és fényképei, a `torvenytar/` hivatalos szövegei) a saját licencük vonatkozik; a részleteket a LICENCE.md tartalmazza.
+- **Nem adótanácsadás:** a repó nem helyettesíti a könyvelőt és a jogi szakértőt, lásd a [DISCLAIMER.md](DISCLAIMER.md) fájlt.
 
 ## Személyes adatok és a GitHub
 
@@ -82,7 +98,7 @@ A személyes és pénzügyi adatok (`.env`, `input/`, `data/`, `archive/`, `tax-
 
 - **Számítást csak script végez**, nincs becslés és nincs kitalált érték.
 - **Személyes azonosító** (adószám, TAJ, cím, bankszámla, API-kulcs) nem kerül a chatbe, a memóriába vagy a reportba.
-- A **`torvenytar/` forrásfájljait** nem módosítjuk.
+- A **`torvenytar/docs/` forrásfájljait** nem módosítjuk. A `torvenytar/graph/` a gráf kész, generált kimenete (nyilvános szövegből, személyes adat nélkül), a repó része.
 - **Nem adótanácsadás.** A döntést igénylő pontokat (minimális alap típusa, árfolyam, helyesbítő bevallás) a könyvelővel vagy a NAV-val kell tisztázni.
 
 A részletes szabályok: [`CLAUDE.md`](CLAUDE.md) és `.claude/rules/`.

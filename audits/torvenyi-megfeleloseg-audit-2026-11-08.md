@@ -93,7 +93,7 @@ Az alábbi törvényszövegeket olvastam a `torvenytar/` mappából: Szja tv. (1
 
 ## Frissítés (2026-11-08): az Áfa tv. letöltve
 
-Az `input/torveny/` mappába tett jegyzet hivatkozásából letöltöttük a 2007. évi CXXVII. törvényt (`torvenytar/afa-tv/2026/`). Az alábbi pontok a szövegből ellenőrzöttek (részletek: `.claude/rules/afa.md`):
+Az `input/torveny/` mappába tett jegyzet hivatkozásából letöltöttük a 2007. évi CXXVII. törvényt (`torvenytar/docs/afa-tv/2026/`). Az alábbi pontok a szövegből ellenőrzöttek (részletek: `.claude/rules/afa.md`):
 
 | Pont | Törvényi hely | Állapot |
 |---|---|---|
@@ -101,3 +101,9 @@ Az `input/torveny/` mappába tett jegyzet hivatkozásából letöltöttük a 200
 | Az alanyi adómentesség értékhatára 20 000 000 Ft (előző év tényleges, tárgyév várható/tényleges) | 188. § (1)–(2) | ✅; a tárgyévi bevételt az `adoszamitas` mutatja |
 | Az értékhatárba a belföldön teljesített ügyletek számítanak; az uniós adóalanynak nyújtott szolgáltatás teljesítési helye másik tagállam | 2. § a); 37. § (1) | ✅ a szabály, ❓ a gyakorlati alkalmazása (könyvelő) |
 | Összesítő nyilatkozat szolgáltatásnyújtásról | 4/A. számú melléklet, Art. | ⛔ a melléklet szövege és az Art. nincs a törvénytárban |
+
+## Frissítés (2026-11-08): az Art. és a mellékletek letöltve (a `nav-forrasok` javítása után)
+
+- Az njt.hu főoldali szövege a törvények **mellékleteit nem tartalmazza**; ez volt az oka annak, hogy az Szja tv. 1., 4., 10. és az Áfa tv. 4/A. mellékletének szövege hiányzott. A `nav-forrasok` skill ma a net.jogtar.hu azonos törvényét is letölti kiegészítésként (`torvenytar/docs/<törvény>/<év>/*.jogtar.txt`), a mellékletek jegyzékével.
+- Letöltve: az Art. (2017. évi CL.; `torvenytar/docs/art/2026/`), az Szja tv. 1–13., az Áfa tv. 1–11. (köztük 3/A, 3/B, 4/A, 6/A–C, 8/A) melléklete.
+- **A tartalmukat ebben a frissítésben nem olvastam el**, ezért a fenti ⛔/🟡/❓ jelölések (pl. 5., 11. sor, 6. pont az 4. fejezetben, összesítő nyilatkozat) **még nem változtak**: a következő lépés a hivatkozott szakaszok célzott elolvasása és a szabályfájlok frissítése.
