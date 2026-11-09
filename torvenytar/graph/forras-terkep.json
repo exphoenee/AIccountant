@@ -1,0 +1,271 @@
+{
+ "nav-atalanyado-alapveto-szabalyai-2026-02-20.md": {
+  "forras": "torvenytar/docs/NAV/2026/atalanyado-alapveto-szabalyai-2026-02-20.md"
+ },
+ "nav-kedvezo-valtozasok-az-atalanyadozasban.txt": {
+  "forras": "torvenytar/docs/NAV/2026/kedvezo-valtozasok-az-atalanyadozasban.txt"
+ },
+ "nav-adozasi-mod-valasztasa.txt": {
+  "forras": "torvenytar/docs/NAV/2026/adozasi-mod-valasztasa.txt"
+ },
+ "nav-atalanyadozassal-kapcsolatos-teendok.txt": {
+  "forras": "torvenytar/docs/NAV/2026/atalanyadozassal-kapcsolatos-teendok.txt"
+ },
+ "1995-evi-cxvii-torveny": {
+  "forras": "torvenytar/docs/szja-tv/2026/1995-evi-cxvii-torveny.txt",
+  "forras_sorok_osszesen": 8301,
+  "kihagyott_labjegyzet_sorok": [
+   3387,
+   8301
+  ],
+  "reszek": [
+   {
+    "fajl": "1995-evi-cxvii-torveny_01.txt",
+    "forras_sorok": [
+     1,
+     1702
+    ]
+   },
+   {
+    "fajl": "1995-evi-cxvii-torveny_02.txt",
+    "forras_sorok": [
+     1703,
+     3386
+    ]
+   }
+  ]
+ },
+ "2018-evi-lii-torveny": {
+  "forras": "torvenytar/docs/szocho-tv/2026/2018-evi-lii-torveny.txt",
+  "forras_sorok_osszesen": 1212,
+  "kihagyott_labjegyzet_sorok": [
+   783,
+   1212
+  ],
+  "reszek": [
+   {
+    "fajl": "2018-evi-lii-torveny.txt",
+    "forras_sorok": [
+     1,
+     782
+    ]
+   }
+  ]
+ },
+ "2019-evi-cxxii-torveny": {
+  "forras": "torvenytar/docs/tbj/2026/2019-evi-cxxii-torveny.txt",
+  "forras_sorok_osszesen": 2857,
+  "kihagyott_labjegyzet_sorok": [
+   2119,
+   2857
+  ],
+  "reszek": [
+   {
+    "fajl": "2019-evi-cxxii-torveny_01.txt",
+    "forras_sorok": [
+     1,
+     1702
+    ]
+   },
+   {
+    "fajl": "2019-evi-cxxii-torveny_02.txt",
+    "forras_sorok": [
+     1703,
+     2118
+    ]
+   }
+  ]
+ },
+ "1990-evi-c-torveny": {
+  "forras": "torvenytar/docs/htv/2026/1990-evi-c-torveny.txt",
+  "forras_sorok_osszesen": 2796,
+  "kihagyott_labjegyzet_sorok": [
+   1575,
+   2796
+  ],
+  "reszek": [
+   {
+    "fajl": "1990-evi-c-torveny.txt",
+    "forras_sorok": [
+     1,
+     1574
+    ]
+   }
+  ]
+ },
+ "2009-evi-cxv-torveny": {
+  "forras": "torvenytar/docs/evectv/2026/2009-evi-cxv-torveny.txt",
+  "forras_sorok_osszesen": 1726,
+  "kihagyott_labjegyzet_sorok": [
+   979,
+   1726
+  ],
+  "reszek": [
+   {
+    "fajl": "2009-evi-cxv-torveny.txt",
+    "forras_sorok": [
+     1,
+     978
+    ]
+   }
+  ]
+ },
+ "2022-evi-xiii-torveny": {
+  "forras": "torvenytar/docs/kata-tv/2026/2022-evi-xiii-torveny.txt",
+  "forras_sorok_osszesen": 460,
+  "kihagyott_labjegyzet_sorok": [
+   355,
+   460
+  ],
+  "reszek": [
+   {
+    "fajl": "2022-evi-xiii-torveny.txt",
+    "forras_sorok": [
+     1,
+     354
+    ]
+   }
+  ]
+ },
+ "2025-evi-lxxxiv-torveny": {
+  "forras": "torvenytar/docs/2025-lxxxiv-tv/2026/2025-evi-lxxxiv-torveny.txt",
+  "forras_sorok_osszesen": 314,
+  "kihagyott_labjegyzet_sorok": null,
+  "reszek": [
+   {
+    "fajl": "2025-evi-lxxxiv-torveny.txt",
+    "forras_sorok": [
+     1,
+     314
+    ]
+   }
+  ]
+ },
+ "2025-evi-xiv-torveny": {
+  "forras": "torvenytar/docs/2025-xiv-tv/2026/2025-evi-xiv-torveny.txt",
+  "forras_sorok_osszesen": 133,
+  "kihagyott_labjegyzet_sorok": null,
+  "reszek": [
+   {
+    "fajl": "2025-evi-xiv-torveny.txt",
+    "forras_sorok": [
+     1,
+     133
+    ]
+   }
+  ]
+ },
+ "2025-evi-xv-torveny": {
+  "forras": "torvenytar/docs/2025-xv-tv/2026/2025-evi-xv-torveny.txt",
+  "forras_sorok_osszesen": 120,
+  "kihagyott_labjegyzet_sorok": null,
+  "reszek": [
+   {
+    "fajl": "2025-evi-xv-torveny.txt",
+    "forras_sorok": [
+     1,
+     120
+    ]
+   }
+  ]
+ },
+ "nav-egyeni-vallalkozok-szja-es-jarulekkotelezettsege-2026-08-31.md": {
+  "forras": "torvenytar/docs/NAV/2026/egyeni-vallalkozok-szja-es-jarulekkotelezettsege-2026-08-31.md"
+ },
+ "1999-evi-cxxi-torveny": {
+  "forras": "torvenytar/docs/kamarai-tv/2026/1999-evi-cxxi-torveny.txt",
+  "forras_sorok_osszesen": 1276,
+  "kihagyott_labjegyzet_sorok": [
+   793,
+   1276
+  ],
+  "reszek": [
+   {
+    "fajl": "1999-evi-cxxi-torveny.txt",
+    "forras_sorok": [
+     1,
+     792
+    ]
+   }
+  ]
+ },
+ "2007-evi-cxxvii-torveny": {
+  "forras": "torvenytar/docs/afa-tv/2026/2007-evi-cxxvii-torveny.txt",
+  "forras_sorok_osszesen": 6662,
+  "kihagyott_labjegyzet_sorok": [
+   3917,
+   6662
+  ],
+  "reszek": [
+   {
+    "fajl": "2007-evi-cxxvii-torveny_01.txt",
+    "forras_sorok": [
+     1,
+     1716
+    ]
+   },
+   {
+    "fajl": "2007-evi-cxxvii-torveny_02.txt",
+    "forras_sorok": [
+     1717,
+     3434
+    ]
+   },
+   {
+    "fajl": "2007-evi-cxxvii-torveny_03.txt",
+    "forras_sorok": [
+     3435,
+     3916
+    ]
+   }
+  ]
+ },
+ "nav-ado-afa.txt": {
+  "forras": "torvenytar/docs/NAV/2026/ado-afa.txt"
+ },
+ "2017-evi-cl-torveny": {
+  "forras": "torvenytar/docs/art/2026/2017-evi-cl-torveny.txt",
+  "forras_sorok_osszesen": 5779,
+  "kihagyott_labjegyzet_sorok": [
+   3901,
+   5779
+  ],
+  "reszek": [
+   {
+    "fajl": "2017-evi-cl-torveny_01.txt",
+    "forras_sorok": [
+     1,
+     1708
+    ]
+   },
+   {
+    "fajl": "2017-evi-cl-torveny_02.txt",
+    "forras_sorok": [
+     1709,
+     3408
+    ]
+   },
+   {
+    "fajl": "2017-evi-cl-torveny_03.txt",
+    "forras_sorok": [
+     3409,
+     3900
+    ]
+   }
+  ]
+ },
+ "2025-evi-xiii-torveny": {
+  "forras": "torvenytar/docs/2025-xiii-tv/2026/2025-evi-xiii-torveny.txt",
+  "forras_sorok_osszesen": 119,
+  "kihagyott_labjegyzet_sorok": null,
+  "reszek": [
+   {
+    "fajl": "2025-evi-xiii-torveny.txt",
+    "forras_sorok": [
+     1,
+     119
+    ]
+   }
+  ]
+ }
+}
