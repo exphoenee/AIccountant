@@ -63,7 +63,7 @@ A teljes útmutató (mit hova másolj, milyen sorrendben, hibaelhárítás): [`u
 - [AI-workflow](docs/ai-workflow.html): hogyan működik a folyamat, ki mit csinál, hol áll meg és kérdez.
 - [Mappák és adatfolyam](docs/mappak-adatfolyam.html): melyik `input/` mappába mit kell tenni, melyik skill dolgozza fel, és mi történik az irattal.
 
-A forrás-JSON-ok mellettük vannak (`docs/*.json`). Az `audits/` mappában a repó kiadott auditjai vannak (személyes adat nélkül, verziózva); a **saját** auditjaid is ide kerülnek, de azokat a telepítő a `.gitignore`-ba teszi (nem verziózottak). Push előtt ellenőrizd, hogy nincs bennük ügyfélnév, összeg vagy azonosító.
+A forrás-JSON-ok mellettük vannak (`docs/*.json`). Az `audits/` mappában a repó kiadott auditjai vannak (személyes adat nélkül, verziózva); a **saját** auditjaid is ide kerülnek; a telepítő a `.gitignore`-t **nem** módosítja ezekre (az `audits/`, `todo.md`, `level-*.md` sorokat nem írja be): ha nem akarod verziózni őket, vedd fel a `.gitignore`-ba magad. Push előtt ellenőrizd, hogy nincs bennük ügyfélnév, összeg vagy azonosító.
 
 ## Mappák
 
@@ -90,7 +90,7 @@ A `data/`, `archive/`, `input/`, `tax-reports/` és az `.env` érzékeny, nincs 
 
 ## Személyes adatok és a GitHub
 
-A személyes és pénzügyi adatok (`.env`, `input/`, `data/`, `archive/`, `tax-reports/`, `config/vallalkozas.json`, a generált vállalkozói profil és adónaptár-kivonat) a `.gitignore` miatt **nem kerülnek verziókezelésbe**; a telepítő is beírja őket. A `.gitignore` kategóriánként jelöli, mi **kötelező** (titkok, személyes adatok, a saját vállalkozást azonosító beállítások) és mi **ajánlott** (saját auditok, teendőlisták, levélvázlatok, generált fájlok).
+A személyes és pénzügyi adatok (`.env`, `input/`, `data/`, `archive/`, `tax-reports/`, `config/vallalkozas.json`, a generált vállalkozói profil és adónaptár-kivonat) a `.gitignore` miatt **nem kerülnek verziókezelésbe**; a telepítő is beírja őket. A `.gitignore` kategóriánként jelöli, mi **kötelező** (titkok, személyes adatok, a saját vállalkozást azonosító beállítások) és mi **ajánlott** (generált és gépfüggő fájlok; a saját auditokat, teendőlistákat és levélvázlatokat a telepítő nem teszi a `.gitignore`-ba, azt te döntöd el).
 
 **Az ajánlott sorokat te döntöd el:** ízlés kérdése, hogy ki mit tesz fel a saját GitHub-repójába. Ha a saját auditjaidat vagy jegyzeteidet is verziózni akarod, vedd ki a sorukat, de előbb olvasd át őket, hogy nincs-e bennük ügyfélnév, összeg vagy más személyes adat. A kötelező sorokat ne töröld. A repó nem ellenőrzi, mit commitolsz: push előtt nézd át a `git status` kimenetét.
 

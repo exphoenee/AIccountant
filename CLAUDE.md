@@ -50,7 +50,7 @@ Nyelv: **magyar** (kommunikáció, riportok, dokumentáció is).
 | `tax-reports/` | Az `adoreport` skill HTML reportja (`adoreport_<év>.html`); nincs verziókezelve |
 | `install.sh`, `install.ps1` | Telepítő: mappák, `.gitignore`, `.env` (Billingo és Számlázz.hu API-kulcs) |
 | `.env` | Titkok (`BILLING_API_KEY`, `SZAMLAZZ_API_KEY`, `SZAMLAZZ_SOROZAT`). **Soha ne olvasd ki az értékét az outputba, ne commitold.** |
-| `docs/`, `audits/` | `docs/`: Archify HTML-diagramok és forrás-JSON-jaik (AI-workflow, mappák adatfolyama); `audits/`: a repó kiadott auditjai (személyes adat nélkül, verziózva) és a felhasználó saját auditjai (ez utóbbiakat a telepítő a `.gitignore`-ba teszi) |
+| `docs/`, `audits/` | `docs/`: Archify HTML-diagramok és forrás-JSON-jaik (AI-workflow, mappák adatfolyama); `audits/`: a repó kiadott auditjai (személyes adat nélkül, verziózva) és a felhasználó saját auditjai (ezeket a telepítő nem teszi a `.gitignore`-ba, azt te döntöd el) |
 | `usage.md` | Használati útmutató |
 
 Adatfolyam: `input/` → script feldolgozza → eredmény a `data/`-ba, nyers fájl az `archive/`-ba. Lásd: `adatkezeles.md`.

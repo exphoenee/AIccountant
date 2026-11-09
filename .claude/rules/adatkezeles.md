@@ -14,7 +14,7 @@ input/            nyers, a felhasználó által bemásolt fájlok (NAV XML, adó
 
 | Mappa | Tartalom | Verziózott? |
 |---|---|---|
-| `input/nav-egyenleg/`, `input/adonaptar/` | feldolgozásra váró nyers fájlok; sikeres feldolgozás után **üresnek kell lennie** | nem |
+| `input/nav-egyenleg/`, `input/adonaptar/` | feldolgozásra váró nyers fájlok (**az almappákat is feldolgozzák**, `.claude/scripts/bemenet.py`); sikeres feldolgozás után **üresnek kell lennie**; ami marad, azt az `adoellenorzes` jelzi | nem |
 | `data/szamlak/` | Billingo számlák (JSON + CSV), `szamlak_<tol>_<ig>.*` | nem |
 | `data/nav-egyenleg/` | feldolgozott NAV adószámla-tételek (JSON) | nem |
 | `data/adonaptar/` | feldolgozott adónaptár (JSON) | nem |
@@ -30,7 +30,7 @@ input/            nyers, a felhasználó által bemásolt fájlok (NAV XML, adó
 | `data/szamitas/` | az `adoszamitas` és `adoellenorzes` skill eredménye (JSON) | nem |
 | `tax-reports/adoreport_<év>.html` | az `adoreport` skill HTML reportja; minden `adoellenorzes` futás után újragenerálódik | nem |
 | `archive/nav-egyenleg/`, `archive/adonaptar/`, `archive/pdf/` | már feldolgozott nyers fájlok | nem |
-| `archive/vallalkozas-iratok/` | a vállalkozói iratok, a `config/iratrend.json` szerinti logikus mappaszerkezetben (`01-alapadatok` … `99-ellenorizendo`) | nem |
+| `archive/vallalkozas-iratok/` | a vállalkozói iratok **keletkezésük éve szerint** csoportosítva: `<év>/<témakör>/…` (`01-alapadatok` … `06-egyeb`, a témakört a `config/iratrend.json` adja), a témakörbe nem sorolhatók `<év>/besorolatlan/` alatt | nem |
 | `torvenytar/docs/NAV/<év>/`, `torvenytar/docs/<törvény>/<év>/` | hivatalos források **módosítás nélkül** (eredeti fájl + gépies `.txt` + `.forras.json`); jegyzék: `torvenytar/forrasok.json` | nem |
 | `.claude/memory/` | adónaptár-kivonat (`adonaptar-<év>.md`), a **vállalkozói profil** (`vallalkozasi-profil.md`, az `adoellenorzes` kapuja) + `MEMORY.md` index; csak generált, azonosító- és névmentes adat (ügyfél-, szolgáltató-, könyvelőnevek nem). A profil és az adónaptár-kivonat **nem verziózott** (`.gitignore`), a `MEMORY.md` index igen | részben |
 | `config/` | szabályparaméterek (`szabalyok_<év>.json`), besorolási szabályok (`iratrend.json`) és a `vallalkozas.example.json` sablon: igen. A vállalkozó saját `vallalkozas.json`-ja személyes beállításokat tartalmaz: **nem verziózott** (`.gitignore`) | részben |

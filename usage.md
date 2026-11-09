@@ -69,6 +69,8 @@ A telepítő létrehozza a mappákat és a `.env` fájlt (rákérdez a Billingo 
 
 A `data/`, `archive/`, `input/`, `tax-reports/` és az `.env` **érzékeny, nincs verziókezelve**.
 
+**Almappák:** az `input/` mappák almappái is feldolgozódnak (pl. `input/kiadasok/2026/…`), a kiterjesztés kis/nagybetűtől független; a feldolgozás után a kiürült almappák törlődnek. Az `input/` feldolgozás után üres: ami ott marad (azonosító-eltérés, ismeretlen irattípus, ellentmondás, nem támogatott formátum miatt), azt az `adoellenorzes` kiírja, és a report Tennivalói között is szerepel.
+
 ## 2. A feldolgozás sorrendje
 
 ### 2.1 A vállalkozás iratai (EZ AZ ELSŐ, KÖTELEZŐ LÉPÉS)
@@ -84,7 +86,7 @@ python -I .claude/skills/vallalkozas-dokumentumok/scripts/dokumentumok.py --bill
 python -I .claude/skills/vallalkozas-dokumentumok/scripts/dokumentumok.py --profil      # vállalkozói profil -> memória
 ```
 
-1. **`--leltar`**, **`--konvertal`**, **`--terv`** (nézd át az összesítést; ami nem sorolható be, a `99-ellenorizendo/` mappába kerülne), **`--vegrehajt`** (nem töröl semmit, a `--visszaallit` mindent visszarak).
+1. **`--leltar`**, **`--konvertal`**, **`--terv`** (nézd át az összesítést: az iratok az évük szerint, `<év>/<témakör>/` alá kerülnek; ami nem sorolható témakörbe, az `<év>/besorolatlan/` mappába), **`--vegrehajt`** (nem töröl semmit, a `--visszaallit` mindent visszarak).
 2. **`--billingo`:** a cégadatokat (név, adószám, székhely, közösségi adószám, alanyi adómentesség) összeveti az iratokkal; az értékeket nem írja ki. **Eltérésnél megáll (4-es kód): a Claude megkérdezi, melyik a helyes**; tudomásul vétel után: `--profil --billingo-eltereseket-elfogadom`. Itt készül a vállalkozás azonosítója is.
 3. **`--profil`:** a **memóriába** elkészíti a vállalkozói profilt (jogállás, adózási mód, ÁFA, szünetelés, kamara, IPA, kedvezmények, nyitott pontok), mindegyik forrással. Ha a kamarára, a kedvezményekre vagy az IPA-helyre még nincs válasz, **kilistázza, mit kell megkérdezni** (lásd 2.7 és 2.8).
 
@@ -130,6 +132,8 @@ Skill: **`kiadasok-dokumentumok`**: `python -I .claude/skills/kiadasok-dokumentu
 Skill: **`konyvelo-dokumentumok`**: `python -I .claude/skills/konyvelo-dokumentumok/scripts/konyvelo.py --feldolgoz`, majd az `adoellenorzes` minden futáskor összeveti lezárt negyedévenként a könyvelő összegeit (SZJA, TBJ, SZOCHO) a számítottal, és a 2658-ak meglétét. A nyomtatvány „Nyomtatva” dátuma nem a beadás napja: a beadás igazolásához NAV beküldési igazolás kell.
 
 ### 2.7 Iparűzési adó (IPA)
+
+> **Az IPA-mérték beszerzése a vállalkozói profil része:** a `--profil` kilistázza, ha az IPA módja vagy mértéke hiányzik. A `helyi-ipa` skill a rendeletet a településről keresi meg (a településnév külső szolgáltatáshoz kerül), az eredeti szöveget a `torvenytar/docs/<település>-ipa-rendelet/<év>/` alá menti, a mértéket onnan olvassa ki, és forrással rögzíti.
 
 A profilkészítéskor a Claude rákérdez az illetékességi helyre (`dokumentumok.py --ipa-javaslat`, `--ipa-beallit "<település>"`). Utána a `helyi-ipa` skill (`ipa.py --allapot`, `--mod tetelesen|hagyomanyos`, `--rogzit`, `--szamol`) a helyi rendelet mértékét **forrással** rögzíti, és kiszámolja az éves adót. Kötelező kérdés az adózás módja (tételes vagy hagyományos).
 
@@ -190,7 +194,7 @@ A Claude **nem számol fejben**: minden számot script ad, és ami nem ellenőrz
 | `torvenytar/` | `docs/`: hivatalos források módosítás nélkül (Szja tv., Tbj., Szocho tv., Htv., Áfa tv., Art., kamarai tv., NAV-füzetek, az illetékes önkormányzat IPA-rendelete); `graph/`: a belőlük készült törvénytérkép (Graphify; verziózott, személyes adat nélkül); és az összefoglalók |
 | `config/` | beállítások és szabályparaméterek |
 | `docs/` | Archify diagramok (AI-workflow, mappák adatfolyama) |
-| `audits/` | a repó kiadott auditjai (személyes adat nélkül) és a saját auditjaid (ez utóbbiak nem verziózottak) |
+| `audits/` | a repó kiadott auditjai (személyes adat nélkül) és a saját auditjaid (ezeket a telepítő nem teszi a .gitignore-ba) |
 
 ## 5. Új adóév vagy új adat
 
