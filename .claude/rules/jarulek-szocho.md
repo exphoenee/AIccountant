@@ -17,7 +17,7 @@
 
 - **Negyedévente, göngyölítéssel** kell megállapítani.
 - Bevallás és befizetés: a tárgynegyedévet követő hónap **12. napjáig**, negyedéves bevallással (2026-ban 2658-as, a 2025. IV. negyedévre 2558-as). Az érvényes űrlapszámot a feldolgozott adónaptár adja (`data/adonaptar/`).
-- **Töredék hónap** (a vállalkozás hónap közben kezdődött vagy szűnt meg): a minimális alapnál naptári naponként a járulékalap **harmincad részét** kell alapul venni (NAV: `torvenytar/NAV/2026/atalanyado-alapveto-szabalyai-2026-02-20.txt`); teljes hónap = a teljes alap.
+- **Töredék hónap** (a vállalkozás hónap közben kezdődött vagy szűnt meg): a minimális alapnál naptári naponként a járulékalap **harmincad részét** kell alapul venni (NAV: `torvenytar/docs/NAV/2026/atalanyado-alapveto-szabalyai-2026-02-20.txt`); teljes hónap = a teljes alap.
 - **Minimális alap** (főfoglalkozású vállalkozó): havi járulék- és szocho-alap legalább a minimálbér (**322 800 Ft**); középfokú végzettséget/szakképzettséget igénylő személyes főtevékenységnél a garantált bérminimum (**373 200 Ft**).
 - Az adómentes 1 936 800 Ft-os jövedelemrész nem képez járulékalapot, de a **minimum alap miatti fizetési kötelezettség ettől függetlenül fennáll**.
 - Nyugdíjas vállalkozó nem fizet tbj-t és szochót. Kivétel: az anyák kedvezményét érvényesítő saját jogú nyugdíjas, bizonyos jövedelemhatár felett szochót fizet.

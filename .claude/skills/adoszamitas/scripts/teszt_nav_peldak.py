@@ -4,7 +4,7 @@
 Használat:
     python -I .claude/skills/adoszamitas/scripts/teszt_nav_peldak.py
 
-Forrás: torvenytar/NAV/2026/atalanyado-alapveto-szabalyai-2026-02-20.txt (a NAV „Az egyéni vállalkozók átalányadózásának
+Forrás: torvenytar/docs/NAV/2026/atalanyado-alapveto-szabalyai-2026-02-20.txt (a NAV „Az egyéni vállalkozók átalányadózásának
 alapvető szabályai”, 2026.02.20.):
   - 3. pont példa: 7 000 000 Ft éves vállalkozói bevétel, 45% költséghányad -> átalányos jövedelem 3 850 000 Ft,
     adóköteles rész 1 913 200 Ft, szja 286 980 Ft.

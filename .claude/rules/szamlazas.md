@@ -1,6 +1,6 @@
 # Kimenő számlák megfelelősége (Áfa tv.)
 
-> Forrás: 2007. évi CXXVII. törvény (`torvenytar/afa-tv/2026/2007-evi-cxxvii-torveny.txt`). A szakaszszámokat a letöltött szövegből vettem. Végrehajtás: `.claude/skills/szamlak/scripts/szamla_ellenorzes.py` (önteszt: `teszt_szamla_ellenorzes.py`).
+> Forrás: 2007. évi CXXVII. törvény (`torvenytar/docs/afa-tv/2026/2007-evi-cxxvii-torveny.txt`). A szakaszszámokat a letöltött szövegből vettem. Végrehajtás: `.claude/skills/szamlak/scripts/szamla_ellenorzes.py` (önteszt: `teszt_szamla_ellenorzes.py`).
 
 ## Mit ellenőriz a script számlánként (a sztornózott számlákat kihagyja)
 

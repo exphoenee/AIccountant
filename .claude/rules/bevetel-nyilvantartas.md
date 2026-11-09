@@ -7,7 +7,7 @@
 - Az átalányadózásnál a bevétel alapja a **kiegyenlített, nettó** bevétel.
 - A bevételt akkor kell nyilvántartásba venni, amikor a **pénz ténylegesen megérkezik** (bankszámlára vagy készpénzben) – nem a számla kelte vagy teljesítési dátuma számít.
 - **Billingo-adatnál** ezért a `paid_date` (kiegyenlítés napja) a mérvadó dátum, és a `payment_status = paid` számlák számítanak bevételnek. A kiállított, de ki nem fizetett számla **nem** része az adott időszak bevételének.
-- Devizás számlánál a forintösszeg (`summary.net_amount_local`) a Billingo (számlán alkalmazott) árfolyamával számolt érték. Szja tv. 6. § (2a) a) (`torvenytar/szja-tv/2026/`): ha az áfa-alap külföldi pénznemben kifejezett, az egyéni vállalkozó azt az árfolyamot alkalmazza, amelyet az ügyletben az áfa-alap átszámításához alkalmaz; a 6. § (4) b) pont szerint választhatja az MNB hivatalos árfolyamát is a bevétel megszerzése napját megelőző hónap 15. napján. **Nem ellenőrzött**, hogy külföldi vevős, alanyi adómentes ügyletnél a (2a) a) pont alkalmazandó-e – egyeztess a könyvelővel.
+- Devizás számlánál a forintösszeg (`summary.net_amount_local`) a Billingo (számlán alkalmazott) árfolyamával számolt érték. Szja tv. 6. § (2a) a) (`torvenytar/docs/szja-tv/2026/`): ha az áfa-alap külföldi pénznemben kifejezett, az egyéni vállalkozó azt az árfolyamot alkalmazza, amelyet az ügyletben az áfa-alap átszámításához alkalmaz; a 6. § (4) b) pont szerint választhatja az MNB hivatalos árfolyamát is a bevétel megszerzése napját megelőző hónap 15. napján. **Nem ellenőrzött**, hogy külföldi vevős, alanyi adómentes ügyletnél a (2a) a) pont alkalmazandó-e – egyeztess a könyvelővel.
 - Előleg: az átalányadóba beszámító és nem beszámító előleget külön kell kezelni.
 
 ## Mit kell vezetni?

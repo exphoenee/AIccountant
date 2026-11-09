@@ -9,7 +9,7 @@ Használat:
 
 Bemenet: config/vallalkozas.json: ipa_telepules (a vallalkozas-dokumentumok skill kérdezi meg és rögzíti), ipa_telephelyek, ipa_adozasi_mod.
 Az adókulcs az önkormányzat rendeletéből jön (config/ipa_telepulesek.json), forrással rögzítve; hiányában NEM SZÁMOLHATÓ.
-Szabályok: .claude/rules/adatkezeles.md, .claude/rules/nincs-becsles.md. Jogforrás: torvenytar/htv/2026/1990-evi-c-torveny.txt
+Szabályok: .claude/rules/adatkezeles.md, .claude/rules/nincs-becsles.md. Jogforrás: torvenytar/docs/htv/2026/1990-evi-c-torveny.txt
 (Htv. 39/A. § tételes adóalap, 40. § a mérték felső határa).
 """
 import argparse
