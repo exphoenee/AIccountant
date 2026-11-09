@@ -19,6 +19,9 @@ tax-reports/
 # ======================================================================
 config/vallalkozas.json
 config/konyvelo-dontesek.json
+config/ipa_telepulesek.json
+# a település helyi iparűzési adó rendelete a vállalkozó székhelyére utal: helyben marad
+torvenytar/docs/*-ipa-rendelet/
 .claude/memory/vallalkozasi-profil.md
 .claude/memory/adonaptar-*.md
 
@@ -30,3 +33,4 @@ graphify-out/
 .claude/skills/*/.venv/
 __pycache__/
 *.pyc
+.claude/memory/MEMORY.md

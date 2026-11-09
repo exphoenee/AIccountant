@@ -49,7 +49,7 @@ Write-Host 'OK   mappák létrehozva'
 # 4) .gitignore
 if (-not (Test-Path .gitignore)) { New-Item -ItemType File -Path .gitignore | Out-Null }
 $gi = Get-Content .gitignore -ErrorAction SilentlyContinue
-foreach ($e in '.env', 'data/', 'archive/', 'input/', 'tax-reports/', 'audits/', 'config/vallalkozas.json', 'config/konyvelo-dontesek.json', '.claude/memory/vallalkozasi-profil.md', '.claude/memory/adonaptar-*.md', 'todo.md', 'level-*.md', '__pycache__/', '*.pyc') {
+foreach ($e in '.env', 'data/', 'archive/', 'input/', 'tax-reports/', 'config/vallalkozas.json', 'config/konyvelo-dontesek.json', 'config/ipa_telepulesek.json', '.claude/memory/vallalkozasi-profil.md', '.claude/memory/adonaptar-*.md', '__pycache__/', '*.pyc') {
     if ($gi -notcontains $e) { Add-Content -Path .gitignore -Value $e -Encoding utf8 }
 }
 Write-Host 'OK   .gitignore ellenőrizve'

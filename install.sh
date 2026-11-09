@@ -48,7 +48,7 @@ echo "OK   mappák létrehozva"
 
 # 4) .gitignore: az érzékeny mappák ne kerüljenek verziókezelésbe
 touch .gitignore
-for e in ".env" "data/" "archive/" "input/" "tax-reports/" "audits/" "config/vallalkozas.json" "config/konyvelo-dontesek.json" ".claude/memory/vallalkozasi-profil.md" ".claude/memory/adonaptar-*.md" "todo.md" "level-*.md" "__pycache__/" "*.pyc"; do
+for e in ".env" "data/" "archive/" "input/" "tax-reports/" "config/vallalkozas.json" "config/konyvelo-dontesek.json" "config/ipa_telepulesek.json" ".claude/memory/vallalkozasi-profil.md" ".claude/memory/adonaptar-*.md" "__pycache__/" "*.pyc"; do
   grep -qxF "$e" .gitignore || echo "$e" >> .gitignore
 done
 echo "OK   .gitignore ellenőrizve"
