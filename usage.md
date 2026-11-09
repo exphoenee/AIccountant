@@ -44,6 +44,8 @@ A telepítő létrehozza a mappákat és a `.env` fájlt (rákérdez a Billingo 
 | Linux, macOS, Git Bash | `./install.sh` |
 | Windows (PowerShell) | `.\install.ps1` |
 
+A telepítő ellenőrzi a Python 3.10+ és a `pdftotext` meglétét, létrehozza az `input/` almappákat és a `data/`, `archive/`, `tax-reports/`, `audits/` mappákat, kiegészíti a `.gitignore`-t, majd lefuttatja a számítás önellenőrző tesztjét. Meglévő `.env` esetén a kitöltött értékeket megtartja. Nem interaktív használat: `BILLING_API_KEY=... SZAMLAZZ_API_KEY=... ./install.sh --nem-interaktiv` (PowerShell: környezeti változók, majd `.\install.ps1 -NemInteraktiv`).
+
 | Mit | Hogyan |
 |---|---|
 | **Python 3.10 vagy újabb** | `python --version`. Külső Python-csomag nem kell, a scriptek a standard könyvtárat használják. |
