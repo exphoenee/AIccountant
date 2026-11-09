@@ -309,6 +309,12 @@ def write_memory(cfg, tenyek, nyitott):
          f"Generálta a `vallalkozas-dokumentumok` skill (`--profil`), {datetime.now():%Y-%m-%d %H:%M}. Forrás: `config/vallalkozas.json` és `data/vallalkozas/profil-tenyek.json`; a részletes profil: `data/vallalkozas/profil.md`. "
          "Személyes azonosítót (adószám, TAJ, cím, bankszámla) nem tartalmaz.", "",
          f"**Igazolt tények száma: {len(tenyek)}**", "", "## Alapbeállítások", ""]
+    cfg = dict(cfg)
+    if cfg.get("koltseghanyad") is None:  # a költséghányad az év szabályfájljából jön (évente változik), nem a vallalkozas.json-ból
+        try:
+            cfg["koltseghanyad"] = json.loads(konfig.szabalyok_ut(cfg.get("ev") or datetime.now().year).read_text(encoding="utf-8")).get("koltseghanyad")
+        except (SystemExit, OSError, ValueError):
+            pass
     for k, lab in LABEL.items():
         if cfg.get(k) is None:
             continue
@@ -514,7 +520,7 @@ def cmd_kamara_kedvezmeny(kamara, osszeg, kedvezmeny):
             c.setdefault("kamara_hatarido", f"{c.get('ev', datetime.now().year)}-03-31")
             c.setdefault("kamara_befizetes_igazolva", False)
         c["_kamara_forras"] = (f"A felhasználó megadta ({ma}). Összeg és határidő: 1999. évi CXXI. törvény 34/A. § (2)-(3) "
-                               "(torvenytar/kamarai-tv/): évi 5000 Ft, a tárgyév március 31-ig; mentes, aki a teljes naptári évben szünetel és ezt bejelenti.")
+                               "(torvenytar/docs/kamarai-tv/): évi 5000 Ft, a tárgyév március 31-ig; mentes, aki a teljes naptári évben szünetel és ezt bejelenti.")
     if kedvezmeny:
         kulcsok = ("csaladi", "szemelyi", "elso_hazasok", "huszonot_ev_alatti", "anyak")
         kd = {"nincs": kedvezmeny == ["nincs"]}

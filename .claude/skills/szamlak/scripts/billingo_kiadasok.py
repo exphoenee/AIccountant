@@ -35,7 +35,8 @@ def load_key() -> str:
                 key = line.split("=", 1)[1].strip().strip('"').strip("'")
                 if key:
                     return key
-    sys.exit(0)  # nincs kulcs: csendben átugorjuk az adatok beszerzését
+    print("Nincs feldolgozandó: nincs BILLING_API_KEY a .env-ben, a Billingo bejövő számlák kimarad (az adatai nem szerepelnek a számításban).")
+    sys.exit(0)  # nincs kulcs: kihagyjuk, de kimondjuk
 
 
 def get(path: str, key: str, params: dict) -> dict:

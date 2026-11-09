@@ -8,12 +8,18 @@ Az azonosító a data/vallalkozas/azonosito.json fájlban van (nem verziózott; 
 cégadata (billingo-szervezet.json, a vallalkozas-dokumentumok --billingo hozza létre) és az iratokból kiolvasott adóazonosító jel.
 Személyes azonosítót ez a modul a kimenetre NEM ír ki: eltérésnél csak maszkolt, utolsó 3 számjegyet mutat.
 
+Az adóazonosító jelet az iratokból csak JELÖLTKÉNT olvassuk ki (heurisztika: a leggyakoribb 10 jegyű szám az "Azonosító:" után), mert egy ügyfél vagy a
+könyvelő azonosítója is lehet. Ellenőrzésre csak a felhasználó által MEGERŐSÍTETT adóazonosító jel használható (--megerosit-adoazonosito).
+
 CLI:
-    python -I .claude/scripts/azonosito.py --frissit    # azonosito.json előállítása
-    python -I .claude/scripts/azonosito.py --allapot    # megvan-e
+    python -I .claude/scripts/azonosito.py --frissit                  # azonosito.json előállítása (adószám a Billingóból; adóazonosító jel: jelölt)
+    python -I .claude/scripts/azonosito.py --megerosit-adoazonosito   # a jelölt megerősítése (a felhasználó látta a maszkolt számot, és a sajátja)
+    python -I .claude/scripts/azonosito.py --allapot                  # megvan-e
 """
 import json
+import os
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -25,6 +31,19 @@ RE_ADOAZON = re.compile(r"(?:adóazonosító\s*(?:jel\w*)?|Azonosító)\s*:?\s*(
 
 class AzonositoHiba(Exception):
     """A dokumentum nem a vállalkozásé, vagy nincs azonosító; az üzenet a felhasználónak szóló utasítás."""
+
+
+def _vedett(p: Path) -> None:
+    """A személyes azonosítókat tartalmazó fájl csak a jelenlegi felhasználó számára olvasható (Windows: icacls, egyébként chmod 600). Hiba nem állítja meg a futást."""
+    try:
+        if os.name == "nt":
+            user = os.environ.get("USERNAME")
+            if user:
+                subprocess.run(["icacls", str(p), "/inheritance:r", "/grant:r", f"{user}:(R,W)"], capture_output=True, timeout=20)
+        else:
+            os.chmod(p, 0o600)
+    except Exception:
+        pass
 
 
 def betolt():
@@ -58,9 +77,16 @@ def frissit() -> dict:
             # ellenőrizze (a kimenet csak maszkolva mutatja)
             jelolt, db = c.most_common(1)[0]
             azon = jelolt if db >= 2 else None
-    d = {"adoszam": adoszam, "adoazonosito": azon, "nev": o.get("name"), "ev_szam": o.get("ev_number")}
+    regi = betolt() or {}
+    # a már megerősített adóazonosító jel megmarad, ha a jelölt azonos vele; más jelölt nem írja felül (a felhasználónak kell újra megerősítenie)
+    megerositett = regi.get("adoazonosito") if regi.get("adoazonosito_megerositve") else None
+    if megerositett and azon and azon != megerositett:
+        print(f"FIGYELEM: az iratokból kiolvasott adóazonosító-jelölt ({maszk(azon)}) eltér a megerősítettől ({maszk(megerositett)}); a megerősítettet tartom meg.")
+    d = {"adoszam": adoszam, "adoazonosito": megerositett, "adoazonosito_megerositve": bool(megerositett),
+         "adoazonosito_jelolt": azon if not megerositett else None, "nev": o.get("name"), "ev_szam": o.get("ev_number")}
     FAJL.parent.mkdir(parents=True, exist_ok=True)
     FAJL.write_text(json.dumps(d, ensure_ascii=False, indent=1), encoding="utf-8")
+    _vedett(FAJL)
     return d
 
 
@@ -86,7 +112,7 @@ def ellenoriz(szoveg: str, fajlnev: str, skill: str, mit: str = "dokumentum") ->
     """Kivételt dob (AzonositoHiba) érthető utasítással, ha a dokumentum nem a vállalkozásé."""
     d = megvan_vagy_leall(skill)
     sajat_ado = re.sub(r"\D", "", d.get("adoszam") or "")
-    sajat_az = d.get("adoazonosito") or ""
+    sajat_az = (d.get("adoazonosito") or "") if d.get("adoazonosito_megerositve") else ""  # csak megerősített adóazonosító jel számít
     ado, az = tobb_azonosito(szoveg)
     ado_digits = {re.sub(r"\D", "", x) for x in ado}
     # Határolt keresés: a saját azonosító csak önálló számként (nem hosszabb számjegyfolyam részeként) fogadható el.
@@ -112,10 +138,23 @@ def ellenoriz(szoveg: str, fajlnev: str, skill: str, mit: str = "dokumentum") ->
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
     try:
-        if "--frissit" in sys.argv:
+        if "--megerosit-adoazonosito" in sys.argv:
+            d = betolt() or {}
+            j = d.get("adoazonosito_jelolt")
+            if not j:
+                print("Nincs megerősíthető adóazonosító-jelölt (futtasd előbb: --frissit, és legyen legalább 2 irat, amely tartalmazza).")
+                sys.exit(1)
+            d.update(adoazonosito=j, adoazonosito_megerositve=True, adoazonosito_jelolt=None)
+            FAJL.write_text(json.dumps(d, ensure_ascii=False, indent=1), encoding="utf-8")
+            _vedett(FAJL)
+            print(f"Adóazonosító jel megerősítve ({maszk(j)}); ettől kezdve az ellenőrzés használja.")
+        elif "--frissit" in sys.argv:
             d = frissit()
+            if d.get("adoazonosito_jelolt"):
+                print(f"Adóazonosító-JELÖLT az iratokból: {maszk(d['adoazonosito_jelolt'])} (utolsó 3 számjegy). Kérdezd meg a felhasználót, hogy ez a sajátja-e; "
+                      "ha igen: --megerosit-adoazonosito. Addig csak az adószám alapján ellenőrzök.")
             print("azonosito.json kész: adószám:", "megvan" if d.get("adoszam") else "HIÁNYZIK", "; adóazonosító jel:",
-                  "megvan" if d.get("adoazonosito") else "nincs (csak adószámmal ellenőrzök)", "; név:", "megvan" if d.get("nev") else "HIÁNYZIK")
+                  "megerősítve" if d.get("adoazonosito") else "nincs megerősítve (csak adószámmal ellenőrzök)", "; név:", "megvan" if d.get("nev") else "HIÁNYZIK")
         else:
             d = betolt()
             print("azonosito.json:", "megvan" if d else "HIÁNYZIK (--frissit)")

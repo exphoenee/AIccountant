@@ -1,6 +1,6 @@
 ---
 name: szamlak
-description: Kimenő számlák beszerzése és egyesítése: Billingo (csak olvasás), Számlázz.hu Számla Agent és az input/bevetelek/ mappába mentett fájlok (PDF, XML, CSV) Markdownná alakítása és feldolgozása; keresztvalidálás, hogy egy számla csak egyszer könyvelődjön; bejövő számlák a Billingóból. Kulcs nélkül a forrást csendben kihagyja. Használd, ha friss számlaadat kell, új számlafájl érkezett, vagy az adószámítás elavult számlaadatot jelez.
+description: Kimenő számlák beszerzése és egyesítése: Billingo (csak olvasás), Számlázz.hu Számla Agent és az input/bevetelek/ mappába mentett fájlok (PDF, XML, CSV) Markdownná alakítása és feldolgozása; keresztvalidálás, hogy egy számla csak egyszer könyvelődjön; bejövő számlák a Billingóból. Kulcs nélkül a forrást kihagyja, és ezt a futás kiírja. Használd, ha friss számlaadat kell, új számlafájl érkezett, vagy az adószámítás elavult számlaadatot jelez.
 ---
 
 # Billingo számlák lekérése
@@ -20,7 +20,7 @@ A `scripts/billingo_szamlak.py` a Billingo API v3-ból (`GET /documents`, csak o
 python -I .claude/skills/szamlak/scripts/billingo_szamlak.py ÉÉÉÉ-HH-NN ÉÉÉÉ-HH-NN
 ```
 
-Adóévi használathoz mindig az **év elejétől az év végéig** kérd le (pl. `2026-01-01 2026-12-31`), mert az `adoszamitas` skill csak az évet teljesen lefedő fájlt fogadja el.
+Adóévi használathoz mindig az **előző év elejétől az adóév végéig** kérd le (2026-ra: `2025-01-01 2026-12-31`), mert a tavaly kiállított, idén kifizetett számla idei bevétel (a bevétel a pénz megérkezésekor keletkezik), és az `adoszamitas` csak az ilyen (legkésőbb az előző év január 1-jén induló) fájlt fogadja el. Az `adoellenorzes` ezt automatikusan így kéri le.
 
 ## Bejövő számlák (kiadások)
 
@@ -34,7 +34,7 @@ Ellenőrizve: a végpont ezzel a kulccsal elérhető. **Nem ellenőrzött:** a d
 
 ## Számlázz.hu (Számla Agent)
 
-`scripts/szamlazz_szamlak.py TOL IG [--sorozat "ABC-2026-{n}"]`: a `.env` `SZAMLAZZ_API_KEY` kulcsával kérdez (csak olvasás). **Korlát (hivatalos dokumentáció):** a Számla Agent csak **egy számlát** ad vissza számlaszám, rendelésszám vagy külső azonosító alapján, időszak szerinti listázást nem. Ezért a script a számlaszám-sorozatot járja végig (`--sorozat`, vagy `SZAMLAZZ_SOROZAT` a `.env`-ben; `{n}` = sorszám), 5 egymás utáni hiányzó számlánál leáll, és a kelt alapján szűr az időszakra. Típusok: csak az `SZ` (számla) számít bevételnek; stornó külön; előleg-, vég-, helyesbítő, jóváíró számla és díjbekérő **nem kezelt típusként kimarad és jelzett** (a dupla könyvelés elkerülésére). Tömeges exportot a Számlázz.hu felületéről kell kérni, és az `input/bevetelek/` mappába tenni. **Kulcs nélkül a script csendben kilép.** A válasz XML mezőit a [hivatalos leírás](https://docs.szamlazz.hu/agent/querying_xml/response) szerint értelmezi; éles kulccsal még nem futtattam, ezért az első futásnál ellenőrizd a talált számlák számát.
+`scripts/szamlazz_szamlak.py TOL IG [--sorozat "ABC-2026-{n}"]`: a `.env` `SZAMLAZZ_API_KEY` kulcsával kérdez (csak olvasás). **Korlát (hivatalos dokumentáció):** a Számla Agent csak **egy számlát** ad vissza számlaszám, rendelésszám vagy külső azonosító alapján, időszak szerinti listázást nem. Ezért a script a számlaszám-sorozatot járja végig (`--sorozat`, vagy `SZAMLAZZ_SOROZAT` a `.env`-ben; `{n}` = sorszám), 5 egymás utáni hiányzó számlánál leáll, és a kelt alapján szűr az időszakra. Típusok: csak az `SZ` (számla) számít bevételnek; stornó külön; előleg-, vég-, helyesbítő, jóváíró számla és díjbekérő **nem kezelt típusként kimarad és jelzett** (a dupla könyvelés elkerülésére). Tömeges exportot a Számlázz.hu felületéről kell kérni, és az `input/bevetelek/` mappába tenni. **Kulcs nélkül a script üzenettel kilép (0-s kóddal).** A válasz XML mezőit a [hivatalos leírás](https://docs.szamlazz.hu/agent/querying_xml/response) szerint értelmezi; éles kulccsal még nem futtattam, ezért az első futásnál ellenőrizd a talált számlák számát.
 
 ## Bevételi fájlok (`input/bevetelek/`)
 
@@ -60,3 +60,7 @@ Minden API-lekérés előtt a script ellenőrzi, hogy a kulcs a vállalkozói pr
 4. A számlák fájlból olvasott adataiból **ne számolj te**. Összegzéshez, bevételhez, adóhoz használd az `adoszamitas` skillt.
 5. Hiba (401/403, hálózat, érvénytelen dátum) esetén idézd a script hibaüzenetét, ne találgass az okáról.
 6. A lekérés után mondd el: hány számla jött, melyik fájlba mentve, és hogy a Billingo szűrője a kiállítás dátumára vonatkozik-e, **nem ellenőrzött** (előző évi kiállítású, idén kifizetett számla hiányozhat).
+
+## Jogi forrás ehhez a skillhez
+
+A hivatkozott törvényhelyek (Áfa tv. 37., 163., 169., 187. §) a `torvenytar/` letöltött szövegében vannak (a mellékletek a `*.jogtar.txt`-ben); a hivatkozások meglétét a `nav-forrasok` skill `--ellenoriz` parancsa ellenőrzi. Ha a szabályfájl és a törvényszöveg eltér, a törvényszöveg az irányadó, az eltérést jelezni kell. Nyitott jogi kérdés: `adoszamitas/scripts/jogi_kerdesek.py --lista`; döntés nélkül a könyvelő/NAV dönt.

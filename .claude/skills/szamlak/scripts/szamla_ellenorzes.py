@@ -6,7 +6,7 @@ Használat:
 
 Bemenet: data/szamlak/egyesitett_*.json (a szamlak_egyesites.py kimenete, Billingo-formájú számlák).
 Kimenet: data/szamlak/szamla_ellenorzes.json és összegzés a képernyőn. Minden megállapítás szabályhivatkozást kap; a hivatkozott szakaszokat a
-torvenytar/afa-tv/2026/2007-evi-cxxvii-torveny.txt szövegéből ellenőriztem (lásd .claude/rules/afa.md, .claude/rules/szamlazas.md).
+torvenytar/docs/afa-tv/2026/2007-evi-cxxvii-torveny.txt szövegéből ellenőriztem (lásd .claude/rules/afa.md, .claude/rules/szamlazas.md).
 
 Szintek: "hiba" = a kötelező tartalom hiányzik vagy egyértelműen ellentmond a szabálynak; "figyelmeztetés" = ellenőrizendő (a számlaadatból
 nem dönthető el, vagy a törvényszöveg és a számlán szereplő kifejezés eltér); "info" = megfelelő. A script nem javít, nem becsül, nem dönt jogértelmezési

@@ -71,7 +71,8 @@ def main() -> None:
     sys.stdout.reconfigure(encoding="utf-8")
     kulcs = env_ertek("SZAMLAZZ_API_KEY")
     if not kulcs:
-        sys.exit(0)  # nincs kulcs: csendben átugorjuk az adatok beszerzését
+        print("Nincs feldolgozandó: nincs SZAMLAZZ_API_KEY a .env-ben, a Számlázz.hu-forrás kimarad (az adatai nem szerepelnek a számításban).")
+    sys.exit(0)  # nincs kulcs: kihagyjuk, de kimondjuk
     ap = argparse.ArgumentParser(description="Számlázz.hu számlák lekérése időszakra (számlaszám-sorozat alapján).")
     ap.add_argument("tol", type=date.fromisoformat)
     ap.add_argument("ig", type=date.fromisoformat)

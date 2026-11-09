@@ -53,6 +53,8 @@ data/vallalkozas/
 
 A `--profil` (és külön a `--billingo`) lekéri a vállalkozás adatait a Billingóból (csak olvasás: `/organization`, a legutóbbi számla `organization` blokkja: név, adószám, EV-szám, székhely, közösségi adószám, alanyi adómentesség, pénzforgalmi jelző) és összeveti az iratokból kiolvasottal; az értékeket nem írja ki (`data/vallalkozas/billingo-szervezet.json`). **Eltérésnél a script leáll (4-es kilépési kód): kérdezd meg a felhasználót** (AskUserQuestion), melyik a helyes; a válaszát vedd fel a `profil-tenyek.json`-ba (tény + nyitott pont), és csak utána futtasd újra: `--profil --billingo-eltereseket-elfogadom`. Ha a Billingo nem érhető el, a lépés kimarad, és ezt kiírja.
 
+**Adóazonosító jel:** a `--billingo`/`azonosito.py --frissit` az iratokból csak **jelöltet** olvas ki (a leggyakoribb 10 jegyű szám, legalább 2 iratban; lehet ügyfélé vagy a könyvelőé is). A maszkolt (utolsó 3 számjegy) jelöltet mutasd meg a felhasználónak (AskUserQuestion): ha a sajátja, `python -I .claude/scripts/azonosito.py --megerosit-adoazonosito`. Megerősítés nélkül az ellenőrzés csak az adószámot használja.
+
 ## Kamarai hozzájárulás és kedvezmények: kötelező kérdések
 
 A profil készítésekor (a `--profil` kilistázza, ha még nincs válasz) **kérdezd meg a felhasználót** (AskUserQuestion):
