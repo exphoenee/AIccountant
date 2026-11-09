@@ -26,7 +26,7 @@ Nincs külső betöltés (se CDN, se webfont), a fájl offline és privát. Szak
 
 | Szakasz | Tartalom |
 |---|---|
-| Hero és áttekintés | állapotsáv, adat-frissesség, hat mutató (a bevétel mutatón egy mini-vonal és egyetlen számláló) |
+| Hero és áttekintés | az észrevételek **külön piros buborékokban** (egy észrevétel = egy buborék), adat-frissesség, hat mutató (a bevétel mutatón egy mini-vonal és egyetlen számláló) |
 | Bevételek | havi bevétel + göngyölt bevétel (kombinált diagram, adómentes jövedelemhatár vonallal), két félkör-mérő (időarányos bevételi határ, adómentes keret), ügyfelenkénti fánk |
 | Kiadások (PDF számlák is) | bejövő számlák havonta (Billingo `/spendings`), az átalány-költség és a rögzített kiadás összevetése |
 | Adó | negyedéves számított szja/tbj/szocho, számított kötelezettség vs. NAV-befizetés, havi NAV-befizetések, következő fizetendő, adószámla-egyenleg |
@@ -35,7 +35,7 @@ Nincs külső betöltés (se CDN, se webfont), a fájl offline és privát. Szak
 | Könyvelői dokumentumok | a `data/konyvelo/` iratainak összegei (utalandó adók/járulékok, 2658) és a könyvelő számításai a számítottal összevetve adónemenként (SZJA, TBJ, SZOCHO); személyes azonosító és fájlnév nincs benne |
 | Beküldött bevallások | a `data/nav-egyenleg/bevallasok.json` nyilvántartása (2658, 25SZJA, 25EGYSZA, kivonat; a duplikátumok száma) és a negyedéves bevallások időbelisége (irat megléte, NAV-előírás a határidő napjára); a beadás napját a report nem állítja |
 | A vállalkozás története | a report alján: három fázis (működés, szünetelés, folytatás) és időrend a `data/vallalkozas/profil.json` forrással igazolt tényeiből (a `vallalkozas-dokumentumok` skill állítja elő); a források mappa-szintűek, személyes azonosító nincs benne |
-| Határidők | a vállalkozás indulása utáni adónaptári tételek állapottal; az **indulás előtti határidők külön, összecsukva, „nem releváns"-ként** |
+| Határidők | a **közelgő** határidők táblázata; a **lejárt határidők alapból zárt, lenyitható blokkban** (fejléc: darabszám és állapot-összegzés); az **indulás előtti határidők külön, összecsukva, „nem releváns"-ként** |
 | Amit nem ellenőriztem | a számítási és adatforrás-korlátok |
 
 ## Futtatás
@@ -58,6 +58,19 @@ A report a [`design-taste-frontend`](../design-taste-frontend/SKILL.md) skill re
 
 A taste-skill többi része (céges weboldal-építés stock fényképekkel, böngészős „gate", szövegellenőrzés) erre a privát adatreportra **nem** vonatkozik. A Geist betűtípust nem töltjük be (külső kérés lenne), rendszerbetűtípus a tartalék.
 
+## Elrendezési szabályok (a felhasználó kérése szerint)
+
+### Észrevételek a dashboardon: egy észrevétel = egy piros buborék
+- A dashboard tetején **nem egyetlen nagy piros sáv** foglalja össze a problémákat, hanem **minden észrevétel külön piros buborékot** kap (`<a class="banner bad">` a `.banners` tárolóban; a CSS-t az `assets/report.css` végén lévő „az észrevételek külön piros buborékok” blokk adja). A buborék a dátumot és a teendőt félkövéren, alatta az üzenetet mutatja, és a Határidők (vagy a Könyvelői dokumentumok) szakaszra ugrik.
+- Észrevételnek számít, és saját buborékot kap: (1) minden lejárt, be nem fizetett vagy hiányosan befizetett tétel (`… befizetés: …` üzenet), (2) minden eltérés a számított és a NAV által előírt összeg között (`≠ NAV előírás`; adónemenként külön buborék), (3) minden nem számolható tétel (`NEM SZÁMOLHATÓ`), (4) a könyvelői ellenőrzés minden eltérése (`data/konyvelo/ellenorzes_<év>.json`, `szint: hiba`; negyedévenként és adónemenként külön buborék).
+- Az észrevételeket **nem vonjuk össze** egy mondatba, és számot nem számolunk újra: a buborék szövege a `data/szamitas/ellenorzes_<év>.json` és a könyvelői ellenőrzés mentett üzenete. Ha nincs észrevétel, egyetlen semleges ✅ buborék jelenik meg („Nincs lejárt, be nem fizetett tétel…”).
+- Az ❓ (nem ellenőrizhető) tételek **nem** piros buborékok; azok a Határidők szakaszban és a Tennivalók között látszanak.
+
+### Határidők: a lejárt tételek lenyitható blokkban
+- A Határidők szakasz táblázata csak a **még nem lejárt** határidőket mutatja. A **lejárt határidők** (az indulás előttiek nélkül) egy **alapból zárt** `<details class="dt past">` blokkba kerülnek, amelynek fejléce összegzi őket (pl. „14 lejárt határidő (✅ 4 · ✅? 2 · ❓ 7 · 🔴 1)”), a tábla a blokkban van. A vállalkozás indulása előtti határidők továbbra is külön, saját lenyitható blokkban vannak.
+- Ha nincs közelgő határidő, a szakasz ezt kimondja („Nincs közelgő határidő az adónaptárban”), és a lejárt blokk marad. Ha egyáltalán nincs adat, a report az `adoellenorzes` futtatását kéri.
+- A fontos (🔴) lejárt tétel a dashboardon buborékként így is látszik, ezért a lenyitható blokk nem rejti el az észrevételt.
+
 ## Szabályok ehhez a skillhez
 
 1. A script csak összegez és csoportosít; **adót nem számol újra**. Az értékek az `adoszamitas` és `nav_egyenleg` kimeneteiből jönnek.
@@ -67,3 +80,5 @@ A taste-skill többi része (céges weboldal-építés stock fényképekkel, bö
 5. A kiadások a Billingo `/spendings` végpontjából jönnek; a mezőnevek **nem ellenőrzöttek**, mert jelenleg nincs rögzített bejövő számla. Amint van, ellenőrizd a `data/kiadasok/` mezőit és a „Kiadások" szakaszt.
 6. Átalányadózásnál a tényleges kiadás nem csökkenti az adóalapot; a report ezt kimondja, és a kiadást tájékoztató adatként kezeli.
 7. A reportban nincs becslés: ami nem számolható, azt a report is „nem számolható"-nak jelöli.
+8. **Az elrendezési szabályok kötelezőek** (lásd fent): az észrevételek külön piros buborékban jelennek meg a dashboardon, a lejárt határidők lenyitható blokkban vannak. Új észrevétel-típusnál (új ellenőrző skill kimenete) is az „egy észrevétel = egy buborék” elvet kell követni, a szöveget a mentett eredményből kell venni.
+9. Az `adoreport.py --ev <év>` az **eddig kiszámolt** adatokból újragenerálja a reportot (új ellenőrzés nélkül); az adatok frissítéséhez az `adoellenorzes` kell.

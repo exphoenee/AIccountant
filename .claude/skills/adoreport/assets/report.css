@@ -147,3 +147,11 @@ table{font-size:14px}th,td{padding-right:var(--s3)}
 @media(max-width:960px){.nav ul{height:calc(100dvh - var(--nav))}}
 
 @media(max-width:640px){.tablewrap table{min-width:560px}.tablewrap{box-shadow:inset -12px 0 10px -12px color-mix(in srgb,var(--ink) 25%,transparent)}}
+/* az észrevételek külön piros buborékok (egy észrevétel = egy buborék) */
+.banners{display:flex;flex-wrap:wrap;gap:var(--s3);margin-top:var(--s6)}
+.banners .banner{margin-top:0;display:flex;align-items:flex-start;gap:var(--s3);border-radius:18px;padding:var(--s3) var(--s5);line-height:1.4;font-weight:500;max-width:min(100%,560px);text-decoration:none;color:inherit}
+.banners .banner.bad{background:color-mix(in srgb,var(--warn) 10%,var(--surface));border-color:var(--warn);color:var(--warn)}
+.banners .banner.bad strong{font-weight:650}
+.banners a.banner:hover{background:color-mix(in srgb,var(--warn) 16%,var(--surface))}
+.banners .ico{flex:none}
+details.dt.past>summary{font-weight:600}

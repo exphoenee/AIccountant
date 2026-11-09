@@ -294,8 +294,24 @@ def build(ev: int) -> str:
             reszek.append(f"{len(elt)} eltérés a számított és a NAV által előírt összeg között ({E('; '.join(ugyek))}; összesen {ft(elt_ossz)}): az ok nem állapítható meg, a könyvelővel kell tisztázni")
         if nsz:
             reszek.append(f"{len(nsz)} nem számolható tétel (hiányzó beállítás)")
-        banner = (f'<div class="banner {"bad" if (elm or elt or nsz) else ""}" role="status" data-enter style="--i:4">{"🔴" if (elm or elt or nsz) else "✅"} '
-                  + ". ".join(reszek) + ". Részletek: lásd a Határidők részt.</div>")
+        # minden észrevétel (lejárt, be nem fizetett tétel; eltérés a számított és a NAV-előírás között; nem számolható tétel) saját piros buborékot kap
+        bubi = []
+        for f in findings:
+            datum = f.get("datum")
+            cim = (E(datum.replace("-", ".")) + ". " if datum else "") + E(f.get("teendo", "").replace("**", ""))
+            for m in f.get("uzenetek", []):
+                if " befizetés: " in m or "≠" in m or "NEM SZÁMOLHATÓ" in m:
+                    bubi.append(f'<a class="banner bad" href="#hataridok"><span class="ico" aria-hidden="true">🔴</span><span><strong>{cim}</strong><br>{E(m)}</span></a>')
+        kel_b = ROOT / "data" / "konyvelo" / f"ellenorzes_{ev}.json"  # a könyvelői ellenőrzés eltérései is saját buborékot kapnak
+        if kel_b.exists():
+            for q in loadj(kel_b).get("negyedevek", []):
+                for t in q.get("tetelek", []):
+                    if t.get("szint") == "hiba":
+                        bubi.append(f'<a class="banner bad" href="#konyvelo"><span class="ico" aria-hidden="true">🔴</span><span><strong>Könyvelői ellenőrzés: {q["negyedev"]}. negyedév, {E(t["adonem"])}</strong><br>'
+                                    f'a könyvelő {ft(t["konyvelo"])} ≠ számított {ft(t["szamitott"])} (eltérés {ft(abs(t["elteres"]))}); okát nem tudom megállapítani</span></a>')
+        if not bubi:
+            bubi.append(f'<div class="banner"><span class="ico" aria-hidden="true">✅</span><span>{E(reszek[0])}</span></div>')
+        banner = '<div class="banners" role="status" data-enter style="--i:4">' + "".join(bubi) + "</div>"
     else:
         banner = '<div class="banner" role="status" data-enter style="--i:4">Az ellenőrzés még nem futott le; a határidők állapota hiányzik.</div>'
     chips = [(f"Állapot: {today.isoformat()}", False), (f"Számlaadat: {sz['szamlak_forras']} ({sz['szamlak_kora_ora']/24:.1f} napos)", False)]
@@ -306,18 +322,33 @@ def build(ev: int) -> str:
     chips_html = "".join(f'<li{" class=warnchip" if w else ""}>{E(c)}</li>' for c, w in chips)
 
     # ---- határidők, NAV, következő
-    rows, pre_rows = [], []
+    rows, pre_rows, rows_past = [], [], []
     for it in ((ell or {}).get("hataridok") or []):
         if it["szint"] == "indulas_elott":
             pre_rows.append(f'<tr><td>{E(it["datum"].replace("-", "."))}.</td><td>{E(it["adonem"])}</td><td>{E(it["teendo"])}</td></tr>')
             continue
         msgs = "".join(f'<span class="msg">{E(m)}</span>' for m in it["uzenetek"])
         when = f"{it['nap']} nap múlva" if it["nap"] >= 0 else f"{-it['nap']} napja lejárt"
-        rows.append(f'<tr class="{"past-bad" if it["szint"] == "hiba" else ""}"><td>{E(it["datum"].replace("-", "."))}.</td><td>{E(it["jel"])}</td>'
+        (rows_past if it["nap"] < 0 else rows).append(f'<tr class="{"past-bad" if it["szint"] == "hiba" else ""}"><td>{E(it["datum"].replace("-", "."))}.</td><td>{E(it["jel"])}</td>'
                     f'<td>{E(it["adonem"])}</td><td>{E(it["teendo"])}{msgs}</td><td class="num">{E(when)}</td></tr>')
-    cal_html = ('<div class="tablewrap"><table><thead><tr><th>Határidő</th><th>Állapot</th><th>Adónem</th><th>Teendő</th>'
-                '<th class="num">Mikor</th></tr></thead><tbody>' + "".join(rows) + "</tbody></table></div>"
-                if rows else '<div class="empty">Nincs határidő-állapot adat: futtasd az adoellenorzes skillt.</div>')
+    _thead = ('<thead><tr><th>Határidő</th><th>Állapot</th><th>Adónem</th><th>Teendő</th><th class="num">Mikor</th></tr></thead>')
+
+    def _tabla(rs):
+        return '<div class="tablewrap"><table>' + _thead + '<tbody>' + "".join(rs) + '</tbody></table></div>'
+    if rows:
+        cal_html = _tabla(rows)
+    elif rows_past:
+        cal_html = '<div class="empty">Nincs közelgő határidő az adónaptárban.</div>'
+    else:
+        cal_html = '<div class="empty">Nincs határidő-állapot adat: futtasd az adoellenorzes skillt.</div>'
+    if rows_past:
+        _jelek = {}
+        for it in ((ell or {}).get("hataridok") or []):
+            if it["szint"] != "indulas_elott" and it["nap"] < 0:
+                _jelek[it["jel"]] = _jelek.get(it["jel"], 0) + 1
+        _osszegzes = " · ".join(f"{k} {v}" for k, v in sorted(_jelek.items()))
+        cal_html += (f'<details class="dt past"><summary>{len(rows_past)} lejárt határidő ({E(_osszegzes)})</summary>'
+                     + _tabla(rows_past) + '</details>')
     if pre_rows:
         cal_html += (f'<details class="dt"><summary>{len(pre_rows)} határidő a vállalkozás indulása ({E(sz["beallitasok"].get("vallalkozas_kezdete") or "")}) előtt: nem releváns</summary>'
                      '<div class="tablewrap"><table><thead><tr><th>Határidő</th><th>Adónem</th><th>Teendő</th></tr></thead><tbody>'
@@ -573,6 +604,10 @@ def build(ev: int) -> str:
         todo_konyvelo.append("Kamarai hozzájárulás: kérdezd meg, hogy köteles-e a vállalkozás (az egyéni vállalkozó évi 5 000 Ft-ot fizet március 31-ig, kivéve ha a teljes naptári évben szünetel; 1999. évi CXXI. tv. 34/A. §), és rögzítsd a profilban.")
     elif cfg.get("kamara_koteles") and not cfg.get("kamara_befizetes_igazolva"):
         todo_konyvelo.append(f"Kamarai hozzájárulás: igazold a 2026. évi {ft(cfg.get('kamara_hozzajarulas_ft') or 0)} befizetését (határidő {dtx(cfg.get('kamara_hatarido'))}, 1999. évi CXXI. tv. 34/A. §): kérd a banki bizonylatot vagy a kamara igazolását; a repóban nincs befizetési adat.")
+    for _mappa, _m in ((ell or {}).get("feldolgozatlan_input") or {}).items():
+        todo_ai.append(f"Feldolgozatlan fájlok az input/{_mappa}/ alatt: {_m['db']} fájl ({', '.join(f'{k}={v}' for k, v in _m['tipusok'].items())})"
+                       + (f"; {_m['nem_tamogatott']} nem támogatott formátum" if _m.get("nem_tamogatott") else "")
+                       + ". Futtasd a megfelelő skillt, és olvasd el az üzenetét: azonosító-eltérés, ismeretlen irattípus vagy ellentmondás miatt maradhatott ott.")
     if cfg.get("ipa_telepules") and ipa_p.exists():
         ipa = loadj(ipa_p)
         todo_konyvelo.append(f"Iparűzési adó ({cfg['ipa_telepules']}, éves IPA a számítás szerint {ft(ipa['eves_ipa'])}): kérdezd meg a könyvelőt, hogy a tételes adózás választását bejelentették-e (Htv. 39/A. § (4)), "
