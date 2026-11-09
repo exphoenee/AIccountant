@@ -14,7 +14,8 @@ Folyamat és helyek (lásd .claude/rules/adatkezeles.md):
     PDF-ek Markdown változata  data/pdf/<v...adatok>/    ->  data/vallalkozas/iratok-md/<ugyanaz a struktúra>/
     napló, terv, leltár, profil                              data/vallalkozas/
 A besorolás kizárólag az útvonal (mappa- és fájlnév) alapján történik a config/iratrend.json szabályaival; tartalom alapján nem.
-Amit nem tud besorolni, az a 99-ellenorizendo/ mappába kerül. Semmit nem töröl; az áthelyezés visszaállítható.
+Az iratok az archive/vallalkozas-iratok/<év>/<témakör>/ alá kerülnek (az év a keletkezés éve: fájlnév, mappanév, PDF-tartalom, végül módosítási idő);
+ami nem sorolható be témakörbe, az <év>/besorolatlan/ mappába kerül. Semmit nem töröl; az áthelyezés visszaállítható.
 """
 import argparse
 import hashlib
@@ -70,7 +71,19 @@ def load_rules():
     return cfg["alap"], rules
 
 
+RE_TEMAKOR = re.compile(r"^(0[1-6]-[^/]+)/(?:(.*)/)?[^/]+$")  # már témakör szerint rendezett útvonal: 01-alapadatok/…, 04-adozas/…
+BESOROLATLAN = "besorolatlan"
+RE_YMD = re.compile(r"(?<!\d)((?:19[89]\d|20[0-4]\d))(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])(?!\d)")
+RE_EVSZAM = re.compile(r"(?<!\d)(19[89]\d|20[0-4]\d)(?!\d)")
+RE_DATUM_SZOVEG = re.compile(r"(?<!\d)(19[89]\d|20[0-4]\d)[.\-/]\s?(0?[1-9]|1[0-2])[.\-/]\s?(0?[1-9]|[12]\d|3[01])(?!\d)")
+
+
 def classify(rel: str, rules):
+    """-> (szabály neve, témakör-útvonal ÉV NÉLKÜL). Sorrend: 1. a fájl már témakör-mappában van (01-…06-): megmarad; 2. a config/iratrend.json szabályai;
+    3. különben 'besorolatlan/<eredeti almappa>'."""
+    m = RE_TEMAKOR.match(rel)
+    if m:
+        return "meglevo-temakor", "/".join(x for x in (m.group(1), m.group(2)) if x)
     for r in rules:
         m = r["re"].search(rel)
         if m:
@@ -78,7 +91,35 @@ def classify(rel: str, rules):
             cel = re.sub(r"/{2,}", "/", r["cel"].format_map(g)).strip("/")
             return r["nev"], cel
     parent = rel.rsplit("/", 1)[0] if "/" in rel else ""
-    return "nincs-szabaly", "99-ellenorizendo/" + parent
+    return "nincs-szabaly", (BESOROLATLAN + "/" + parent).strip("/")
+
+
+def _plauzibilis(ev: int, ma_ev: int) -> bool:
+    return 1980 <= ev <= ma_ev
+
+
+def iras_eve(rel: str, mtime_iso: str, md_szoveg: str, ma_ev: int):
+    """A dokumentum keletkezésének éve és a forrása. Sorrend: 1. a fájlnév (ÉÉÉÉHHNN vagy önálló évszám), 2. a mappanevek (a legmélyebbtől),
+    3. a PDF szövegében az első teljes dátum. A fájl módosítási idejét NEM használjuk (az átmásolás megváltoztatja). Nincs találat: (None, 'ismeretlen')."""
+    parts = rel.split("/")
+    def keres(szoveg):
+        m = RE_YMD.search(szoveg)
+        if m and _plauzibilis(int(m.group(1)), ma_ev):
+            return int(m.group(1))
+        evek = [int(x) for x in RE_EVSZAM.findall(szoveg) if _plauzibilis(int(x), ma_ev)]
+        return evek[0] if evek else None
+    e = keres(parts[-1])
+    if e:
+        return e, "fajlnev"
+    for d in reversed(parts[:-1]):
+        e = keres(d)
+        if e:
+            return e, "mappa"
+    if md_szoveg:
+        m = RE_DATUM_SZOVEG.search(md_szoveg[:6000])
+        if m and _plauzibilis(int(m.group(1)), ma_ev):
+            return int(m.group(1)), "tartalom"
+    return None, "ismeretlen"
 
 
 # ------------------------------------------------------------------ parancsok
@@ -122,8 +163,13 @@ def cmd_terv(src: Path):
     lt = json.loads((DATA / "leltar.json").read_text(encoding="utf-8"))
     alap, rules = load_rules()
     plan, used, seen = [], Counter(), set()
+    ma_ev = datetime.now().year
     for it in lt["fajlok"]:
-        szab, cel = classify(it["rel"], rules)
+        szab, tema = classify(it["rel"], rules)
+        md = md_pair(src, it["rel"])
+        md_szoveg = md.read_text(encoding="utf-8", errors="ignore") if md is not None and md.exists() else ""
+        ev, ev_forras = iras_eve(it["rel"], it.get("modositva", ""), md_szoveg, ma_ev)
+        cel = f"{ev if ev else 'ismeretlen-ev'}/{tema}"  # év az első szint: <év>/<témakör>/<almappa>
         name = it["rel"].rsplit("/", 1)[-1]
         dest = f"{cel}/{name}"
         n = 2
@@ -133,25 +179,27 @@ def cmd_terv(src: Path):
             n += 1
         seen.add(dest.lower())
         used[szab] += 1
-        plan.append({"forras": it["rel"], "cel": dest, "szabaly": szab, "sha256": it["sha256"]})
+        plan.append({"forras": it["rel"], "cel": dest, "szabaly": szab, "sha256": it["sha256"], "ev": ev, "ev_forras": ev_forras})
     (DATA / "athelyezesi-terv.json").write_text(json.dumps({"alap": alap, "keszult": datetime.now().isoformat(timespec="seconds"),
                                                            "tetelek": plan}, ensure_ascii=False, indent=1), encoding="utf-8")
-    top, second = Counter(), Counter()
+    per_ev, per_ev_tema, forras_db = Counter(), Counter(), Counter()
     for p in plan:
         parts = p["cel"].split("/")
-        top[parts[0]] += 1
-        second["/".join(parts[:2])] += 1
-    print(f"Besorolási terv: {len(plan)} fájl -> {alap}/ (NEM történt áthelyezés) -> data/vallalkozas/athelyezesi-terv.json")
-    for k in sorted(top):
-        print(f"  {k}/  ({top[k]} fájl)")
-        for kk in sorted(x for x in second if x.startswith(k + "/")):
-            print(f"      {kk.split('/', 1)[1]}  ({second[kk]})")
-    unk = [p for p in plan if p["szabaly"] == "nincs-szabaly" or p["cel"].startswith("99-")]
-    print(f"  Ellenőrizendő (99-…): {len(unk)} fájl")
-    for p in unk[:25]:
-        print(f"      {p['forras']}")
-    if len(unk) > 25:
-        print(f"      ... további {len(unk) - 25}")
+        per_ev[parts[0]] += 1
+        per_ev_tema[(parts[0], parts[1])] += 1
+        forras_db[p["ev_forras"]] += 1
+    print(f"Besorolási terv: {len(plan)} fájl -> {alap}/<év>/<témakör>/ (NEM történt áthelyezés) -> data/vallalkozas/athelyezesi-terv.json")
+    for ev in sorted(per_ev):
+        print(f"  {ev}/  ({per_ev[ev]} fájl)")
+        for (e2, t2), n in sorted(per_ev_tema.items()):
+            if e2 == ev:
+                print(f"      {t2}  ({n})")
+    print("  Az év forrása: " + ", ".join(f"{k}={v}" for k, v in forras_db.most_common()) +
+          "  (ismeretlen = az év nem állapítható meg: ismeretlen-ev/ mappába kerül; a módosítási időt nem használjuk)")
+    besor = [p for p in plan if p["cel"].split("/")[1] == BESOROLATLAN]
+    print(f"  Besorolatlan (nincs témakör-szabály): {len(besor)} fájl, évek szerint: " +
+          (", ".join(f"{k}={v}" for k, v in sorted(Counter(p['cel'].split('/')[0] for p in besor).items())) or "nincs"))
+    print("  (A fájlnevek személyes adatot tartalmazhatnak, ezért nem listázom őket: lásd data/vallalkozas/athelyezesi-terv.json.)")
 
 
 def md_pair(src: Path, rel: str):
@@ -293,7 +341,22 @@ CAT = [("jogi", "Jogállás és a vállalkozás időrendje"), ("adozas", "Adóz�
 LABEL = {"jogallas": "Jogállás", "adozasi_mod": "Adózási mód", "tevekenyseg": "Főtevékenység", "koltseghanyad": "Költséghányad",
          "tb_statusz": "TB-státusz", "min_alap_tipus": "Minimális járulékalap típusa", "vallalkozas_kezdete": "A vállalkozás folytatásának első napja",
          "ipa_telepules": "Iparűzési adó illetékességi helye (települési önkormányzat)"}
+def ipa_mertek(cfg):
+    """A profilhoz tartozó IPA-mérték a config/ipa_telepulesek.json-ból (helyi-ipa skill, forrással rögzítve): (kulcs, forrás, év) vagy None."""
+    try:
+        t = json.loads((ROOT / "config" / "ipa_telepulesek.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return None
+    tel = cfg.get("ipa_telepules")
+    for ev in sorted(t, reverse=True):
+        if tel and tel in t[ev]:
+            return t[ev][tel]["kulcs"], t[ev][tel]["forras"], ev
+    return None
+
+
 EXTRA_ALAP = lambda cfg: [  # noqa: E731
+    ("Iparűzési adó mértéke", None if not ipa_mertek(cfg) else f"{float(ipa_mertek(cfg)[0]) * 100:g}% ({ipa_mertek(cfg)[2]}. év; az önkormányzati rendelet szövegéből, forrás: {ipa_mertek(cfg)[1]})"),
+    ("Iparűzési adóalap módja", {"tetelesen": "tételes", "hagyomanyos": "hagyományos"}.get(cfg.get("ipa_adozasi_mod"))),
     ("Kamarai hozzájárulás", ("köteles, " + str(cfg.get("kamara_hozzajarulas_ft")) + " Ft/év, határidő " + str(cfg.get("kamara_hatarido")) + (", befizetés igazolva" if cfg.get("kamara_befizetes_igazolva") else ", befizetés NEM igazolt")) if cfg.get("kamara_koteles") else ("nem köteles" if cfg.get("kamara_koteles") is False else None)),
     ("Adó- és járulékkedvezmények", None if cfg.get("kedvezmenyek") is None else ("nincs" if cfg["kedvezmenyek"].get("nincs") else ", ".join(k for k, v in cfg["kedvezmenyek"].items() if v and k != "nincs"))),
 ]
@@ -366,7 +429,7 @@ def cmd_profil(elfogad=False):
     facts = json.loads(facts_p.read_text(encoding="utf-8"))["tenyek"] if facts_p.exists() else []
     man = DATA / "athelyezes.json"
     docs = json.loads(man.read_text(encoding="utf-8"))["tetelek"] if man.exists() else []
-    cnt = Counter(e["uj"].split("/")[2] for e in docs) if docs else Counter()
+    cnt = Counter(e["uj"].split("/")[3] for e in docs if len(e["uj"].split("/")) > 3) if docs else Counter()  # archive/vallalkozas-iratok/<év>/<témakör>/…: a negyedik elem a témakör
     # a tényeknek forrása kell legyen, és a forrásfájl létezzen: különben nem kerül a profilba "ellenőrzött"-ként
     checked, unchecked = [], []
     for f in facts:
@@ -425,8 +488,17 @@ def cmd_billingo():
                 if inv is None or (x.get("invoice_date") or "") > (inv.get("invoice_date") or ""):
                     inv = x
         if inv is None:
-            print("❓ Billingo-ellenőrzés kimarad: nincs letöltött számla (futtasd a szamlak skillt), a cégadatok a számlán szerepelnek.")
-            return 1
+            # Friss telepítésnél nincs helyi számlafájl, és a számlaletöltés az azonosítót kéri (amit ez a parancs hoz létre): a körkörös függés
+            # elkerülésére a legutóbbi számlát közvetlenül a Billingóból kérjük le (csak olvasás), a cégadat ennek organization blokkjában van.
+            lista = billingo_get("/documents?page=1&per_page=100", key).get("data") or []
+            for x in lista:
+                if inv is None or (x.get("invoice_date") or "") > (inv.get("invoice_date") or ""):
+                    inv = x
+            if inv is None:
+                print("❓ Billingo-ellenőrzés kimarad: a Billingóban nincs számla, a cégadatok a számlán szerepelnek. Rögzítsd az azonosítót kézzel: "
+                      "data/vallalkozas/azonosito.json {\"adoszam\": \"...\", \"adoazonosito\": null, \"nev\": \"...\"}.")
+                return 1
+            print("ℹ️ Nincs helyi számlafájl: a legutóbbi számlát közvetlenül a Billingóból kértem le a cégadathoz (csak olvasás).")
         o = billingo_get(f"/documents/{inv['id']}", key)["organization"]
         banks = billingo_get("/bank-accounts", key)
     except Exception as e:
@@ -464,7 +536,7 @@ def cmd_billingo():
     facts = json.loads((DATA / "profil-tenyek.json").read_text(encoding="utf-8"))["tenyek"] if (DATA / "profil-tenyek.json").exists() else []
     aam = [f for f in facts if "alanyi adómentes" in f.get("allitas", "").casefold()]
     if aam:
-        chk(f"ÁFA-státusz: az iratok szerint alanyi adómentes ({len(aam)} tény), a Billingo is alanyi adómentesként tartja nyilván (small_taxpayer={o.get('small_taxpayer')})", bool(o.get("small_taxpayer")))
+        chk(f"ÁFA-státusz: az iratok szerint alanyi adómentes ({len(aam)} tény); a Billingóban a small_taxpayer jelölő = {o.get('small_taxpayer')} (alanyi adómentesnél igaznak kellene lennie: ha hamis, a Billingo eladói beállítását kell javítani)", bool(o.get("small_taxpayer")))
     try:
         sys.path.insert(0, str(ROOT / ".claude" / "scripts"))
         import azonosito
@@ -497,8 +569,9 @@ def cmd_ipa_javaslat():
             continue
         for m in re.finditer(r"[1-9]\d{3} ([A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]+(?:-[A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]+)?)", t):
             cnt[m.group(1)] += 1
-    helyi = ROOT / "archive" / "vallalkozas-iratok" / "04-adozas" / "helyi-adok"
-    mappak = sorted(d.name for d in helyi.iterdir() if d.is_dir()) if helyi.exists() else []
+    # az iratok <év>/04-adozas/helyi-adok/<önkormányzat>/ alatt vannak (évek szerint csoportosítva): minden év helyi-adok mappáját végignézzük
+    arch = ROOT / "archive" / "vallalkozas-iratok"
+    mappak = sorted({d.name for h in arch.glob("*/04-adozas/helyi-adok") if h.is_dir() for d in h.iterdir() if d.is_dir()}) if arch.exists() else []
     print("Az IPA illetékességi helye (székhely/telephely szerinti önkormányzat) a dokumentumokból nem állapítható meg biztosan.")
     print("Jelöltek (irányítószám utáni településnév, előfordulás a Markdown-okban; a legtöbbször előfordulók között lehet a vállalkozás székhelye, de ez NEM bizonyíték):")
     for n, c in cnt.most_common(6):
@@ -542,6 +615,13 @@ def kerdesek_hianyoznak():
         h.append("adó- és járulékkedvezmények: melyikre jogosult? (--kedvezmeny nincs | csaladi szemelyi elso_hazasok huszonot_ev_alatti anyak)")
     if not c.get("ipa_telepules"):
         h.append("iparűzési adó illetékességi helye (--ipa-beallit \"<település>\")")
+    else:
+        if not c.get("ipa_adozasi_mod"):
+            h.append("iparűzési adó módja: tételes vagy hagyományos adóalap? (helyi-ipa skill: ipa.py --mod tetelesen|hagyomanyos)")
+        if not ipa_mertek(c):
+            h.append(f"iparűzési adó MÉRTÉKE nincs beszerezve ({c['ipa_telepules']}): a profil része! A helyi-ipa skill szerzi be az önkormányzati rendeletből "
+                     "(webes keresés: a településnév külső szolgáltatáshoz kerül), az eredeti szöveg a torvenytar/docs/<település>-ipa-rendelet/<év>/ alá mentődik "
+                     "(forrasok.json + forras_letoltes.py), majd: ipa.py --rogzit <település> --kulcs 0.0X --forras <útvonal> --ev <év>")
     return h
 
 

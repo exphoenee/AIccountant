@@ -35,14 +35,14 @@ Az eredeti iratok (feldolgozott nyers fájlok) az `archive/vallalkozas-iratok/` 
 
 ```
 archive/vallalkozas-iratok/
-├── 01-alapadatok/          ev-bejelentes, kamara, szekhely, tevekenysegi-korok, szuneteltetes-<dátum>, letoltesek-<dátum>
-├── 02-szerzodesek/         ugyfelek/<ügyfél>/{szerzodes, teljesitesek/<év-hó>}, konyvelo, szolgaltatok/<szolgáltató>, egyeb-felek
-├── 03-szamlak/             kiallitott/<év>, szamlazo-archivum, rontott
-├── 04-adozas/              nav/<év>/<űrlapkód vagy eseménymappa>, nav/adoszamla-kivonatok, nav/jovedelemigazolasok,
-│                           kata/, helyi-adok/<önkormányzat>/<év>
-├── 05-konyveles/
-├── 06-egyeb/
-└── 99-ellenorizendo/       amit a szabályok nem tudtak besorolni (a felhasználó dönt)
+└── <év>/                       az irat KELETKEZÉSÉNEK éve (2018, 2019, … 2026, vagy ismeretlen-ev)
+    ├── 01-alapadatok/          ev-bejelentes, kamara, szekhely, tevekenysegi-korok, szuneteltetes-<dátum>, letoltesek-<dátum>
+    ├── 02-szerzodesek/         ugyfelek/<ügyfél>/{szerzodes, teljesitesek/<év-hó>}, konyvelo, szolgaltatok/<szolgáltató>, egyeb-felek
+    ├── 03-szamlak/             kiallitott, szamlazo-archivum, rontott
+    ├── 04-adozas/              nav/<űrlapkód vagy eseménymappa>, nav/adoszamla-kivonatok, kata/, helyi-adok/<önkormányzat>
+    ├── 05-konyveles/
+    ├── 06-egyeb/
+    └── besorolatlan/           amit a szabályok nem tudtak besorolni (évszámmal ellátva; a felhasználó dönt)
 
 data/vallalkozas/
 ├── leltar.json, athelyezesi-terv.json, athelyezes.json (napló), profil.json, profil.md, profil-tenyek.json
@@ -66,7 +66,7 @@ A válaszok a `config/vallalkozas.json`-ba és a memória-profilba kerülnek; az
 
 ## Iparűzési adó illetékességi helye
 
-A profil elkészítésekor **kérdezz rá az IPA illetékességi helyére** (székhely szerinti település). `--ipa-javaslat` jelölteket ad az iratokból és a helyi adó mappákból (ez nem bizonyíték). Kérdezd meg a felhasználót (AskUserQuestion): a székhely települése-e az IPA helye, van-e más telephely, vagy más (egyéni) válasz. Rögzítés: `--ipa-beallit "<település>" [--ipa-telephely "<település>"]`. Ez a [`helyi-ipa`](../helyi-ipa/SKILL.md) skill bemenete: az szerzi be az önkormányzat IPA-szabályait és számolja ki az adót.
+A profil elkészítésekor **kérdezz rá az IPA illetékességi helyére** (székhely szerinti település). `--ipa-javaslat` jelölteket ad az iratokból és a helyi adó mappákból (ez nem bizonyíték). Kérdezd meg a felhasználót (AskUserQuestion): a székhely települése-e az IPA helye, van-e más telephely, vagy más (egyéni) válasz. Rögzítés: `--ipa-beallit "<település>" [--ipa-telephely "<település>"]`. **Az IPA-mérték beszerzése a profil része** (a `--profil` kilistázza, ha hiányzik): a `helyi-ipa` skill szerzi be az önkormányzat rendeletéből, forrással, nem memóriából. Menete: (1) webes keresés a település helyi iparűzési adó rendeletére (a településnév külső szolgáltatáshoz kerül: ezt a README kimondja); (2) az eredeti szöveg felvétele a `torvenytar/forrasok.json`-ba (`mappa: <település>-ipa-rendelet/<év>`, `url`), letöltés: `forras_letoltes.py`; (3) a mérték kiolvasása a **letöltött szövegből** (nem a keresési összefoglalóból), és a hatályos állapot ellenőrzése (ha a szövegben nincs dátum, nyitott pontként rögzítendő); (4) `ipa.py --rogzit <település> --kulcs 0.0X --forras <útvonal> --ev <év>`; (5) a profil tényei közé kerül a mérték forrással. A mérték a profil `Alapbeállítások` részében is megjelenik. A `config/ipa_telepulesek.json` a település nevét tartalmazza, ezért nem verziózott. Ez a [`helyi-ipa`](../helyi-ipa/SKILL.md) skill bemenete: az szerzi be az önkormányzat IPA-szabályait és számolja ki az adót.
 
 ## A memória-profil (az `adoellenorzes` kapuja)
 
@@ -76,12 +76,13 @@ A tényeket a `data/vallalkozas/profil-tenyek.json`-ba kell írni (`kategoria`: 
 
 ## Szabályok ehhez a skillhez
 
-1. **A besorolás kizárólag az útvonal (mappa- és fájlnév) alapján történik** (`config/iratrend.json`); tartalom alapján nem. Ami nem illeszkedik szabályra, az `99-ellenorizendo/` alá kerül, ezt a felhasználó dönti el. Új szabályt a `config/iratrend.json`-ba írj, ne a scriptbe.
+1. **A témakört az útvonal (mappa- és fájlnév) határozza meg**: ha a fájl már `01-…`–`06-…` témakör-mappában van, ott marad (nem ismétlődik a mappanév); egyébként a `config/iratrend.json` szabályai döntenek. Ami nem illeszkedik szabályra, az `<év>/besorolatlan/` alá kerül, ezt a felhasználó dönti el. Új szabályt a `config/iratrend.json`-ba írj, ne a scriptbe.
+   **Az év a keletkezés éve** (nem az áthelyezésé), ebben a sorrendben: 1. a fájlnévben álló dátum vagy évszám, 2. a mappanevek (a legmélyebbtől), 3. a PDF szövegében az első teljes dátum. **A fájl módosítási idejét nem használjuk** (az átmásolás megváltoztatja). A `--terv` kiírja, hány fájl éve honnan származik (`fajlnev`/`mappa`/`tartalom`/`ismeretlen`), és a `data/vallalkozas/athelyezesi-terv.json` fájlonként tartalmazza (`ev`, `ev_forras`). Ha az év nem állapítható meg: `ismeretlen-ev/`.
 2. **Előbb mindig `--terv`, és a terv összesítését mutasd meg a felhasználónak** az áthelyezés előtt. A `--vegrehajt` nem ír felül semmit, névütközésnél `__2` utótagot ad, és minden fájl SHA-256-át ellenőrzi a célon.
 3. **Nem töröl semmit.** A tartalmilag azonos másolatokat (a leltár listázza) megőrzi; a felesleges másolatok törlése a felhasználó döntése.
 4. A **nem PDF fájlok** (docx, xlsx, msg, jar, jnlp, lnk, zip stb.) nem alakíthatók Markdownná (nincs hozzá eszköz), csak áthelyezhetők. A `.jar`, `.jnlp`, `.lnk` fájlokat **soha ne futtasd**. A szkennelt (szövegréteg nélküli) PDF-eknél OCR nincs; ezeket a script hibaként jelzi.
 5. **Személyes adat:** az iratok adószámot, nevet, címet, bankszámlát tartalmazhatnak. Ezek **nem kerülnek a chatbe, a `.claude/memory/`-ba vagy a profilba**; a profil csak üzleti tényeket tartalmaz (időpont, esemény, szerződő fél), mindegyik mellett forrásdokumentummal.
 6. **A profil tényeit forrásfájlból kell kiolvasni** (célzottan: `pdf_markdown.py --kereses/--olvas`), és a `data/vallalkozas/profil-tenyek.json`-ba kell írni (`allitas`, `datum`, `forras` = útvonalak listája, `ellenorzes` = `dokumentumból olvasva` | `mappanévből` | `felhasználótól`). A `--profil` csak a létező forrású tényeket fogadja el ellenőrzöttként; a többit „forrás nélküli"-ként külön listázza. Mappanévből vett dátum (pl. `2023-07-12`) nem azonos a dokumentumból ellenőrzött dátummal; ezt jelezd.
-7. A besorolási szabályok **nem jogi értelmezések**: a „Mentor", „EGYKE", „Egyéb" típusú, jelentésükben bizonytalan mappák a `99-ellenorizendo/` alá kerülnek, amíg a felhasználó meg nem mondja, mik.
+7. A besorolási szabályok **nem jogi értelmezések**: a „Mentor", „EGYKE", „Egyéb" típusú, jelentésükben bizonytalan mappák a `<év>/besorolatlan/` alá kerülnek, amíg a felhasználó meg nem mondja, mik.
 8. A profil tényei (`profil-tenyek.json`) bekerülnek az `adoreport` „A vállalkozás története” szakaszába is (a report aljára), ezért a forrásokat **mappa-szinten** add meg, és ne kerüljön beléjük adószám, TAJ-szám, cím vagy bankszámla (az iratok fájlnevei ilyet tartalmazhatnak).
 9. A visszaállítás (`--visszaallit`) a naplóból az eredeti útvonalra teszi vissza a fájlokat és a Markdown-jaikat; ha az eredeti hely foglalt, kihagyja és jelzi.

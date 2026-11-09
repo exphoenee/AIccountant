@@ -1,5 +1,5 @@
 {
-  "_megjegyzes": "Általános besorolási szabályok a vállalkozói iratokhoz: kizárólag az útvonal (mappa- és fájlnév) alapján; az első találat dönt, a többi a 99-ellenorizendo mappába kerül. Saját mappanevekhez bővítsd. A minta a teljes relatív útvonalra illesztett kisbetűs-nagybetűs regex; {REST} az eredeti almappa-szerkezetet adja a {rest} helyettesítéshez.",
+  "_megjegyzes": "Általános besorolási szabályok a vállalkozói iratokhoz: kizárólag az útvonal (mappa- és fájlnév) alapján; az első találat dönt, a többi az <év>/besorolatlan mappába kerül. A már témakör-mappában (01-…06-) lévő fájl ott marad; az év a keletkezés éve (lásd a vallalkozas-dokumentumok skillt). Saját mappanevekhez bővítsd. A minta a teljes relatív útvonalra illesztett kisbetűs-nagybetűs regex; {REST} az eredeti almappa-szerkezetet adja a {rest} helyettesítéshez.",
   "alap": "archive/vallalkozas-iratok",
   "szabalyok": [
     {"nev": "szerzodes", "minta": "^(?=.*(?:szerz[őo]d|megb[ií]z[aá]s)){REST}", "cel": "02-szerzodesek/{rest}"},
