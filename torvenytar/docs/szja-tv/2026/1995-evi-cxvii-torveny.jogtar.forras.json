@@ -1,0 +1,30 @@
+{
+ "id": "torveny-szja-tv",
+ "url": "https://net.jogtar.hu/jogszabaly?docid=99500117.tv",
+ "vegso_url": "https://net.jogtar.hu/jogszabaly?docid=99500117.tv",
+ "letoltve": "2026-11-08T21:55:20",
+ "http_allapot": 200,
+ "cim": "Szja tv. - 1995. évi CXVII. törvény a személyi jövedelemadóról - Hatályos Jogszabályok Gyűjteménye",
+ "bajt": 1911783,
+ "sha256": "a4c8c971711d0135a8e73a0a4af4127bfa48b59afda1506933f23516ec403d04",
+ "eredeti_fajl": "1995-evi-cxvii-torveny.jogtar.html",
+ "szovegkivonat": "1995-evi-cxvii-torveny.jogtar.txt",
+ "szovegkivonat_karakter": 808519,
+ "hatalyos_allapot": "2026.X.1. - 2026.XII.31.",
+ "mellekletek": [
+  "1",
+  "10",
+  "11",
+  "12",
+  "13",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9"
+ ],
+ "megjegyzes": "kiegészítő forrás: a mellékleteket tartalmazza (az njt.hu főoldali szövege nem); állítás előtt az njt.hu szövegével is vesd össze"
+}

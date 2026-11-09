@@ -87,7 +87,8 @@
       "mappa": "2025-lxxxiv-tv/2026",
       "nev": "2025-evi-lxxxiv-torveny",
       "url": "https://njt.hu/jogszabaly/2025-84-00-00",
-      "megjegyzes": "2025. évi LXXXIV. törvény: a 'Kedvező változások' oldal idézi"
+      "megjegyzes": "2025. évi LXXXIV. törvény: a 'Kedvező változások' oldal idézi | jogtar_url kikapcsolva: a net.jogtar.hu automatikus azonosítója 404-et adott (2026-11-08); rövid módosító törvény, melléklet nélkül",
+      "jogtar_url": false
     },
     {
       "id": "torveny-2025-xiv-tv",
@@ -137,6 +138,54 @@
       "nev": "ado-afa",
       "url": "https://nav.gov.hu/ado/afa",
       "megjegyzes": "NAV-oldal; felvéve az input/torveny/áfa.-tv.pdf hivatkozásából"
+    },
+    {
+      "id": "torveny-art",
+      "tipus": "torveny",
+      "mappa": "art/2026",
+      "nev": "2017-evi-cl-torveny",
+      "url": "https://njt.hu/jogszabaly/2017-150-00-00",
+      "megjegyzes": "Art. (2017. évi CL. törvény az adózás rendjéről): a határidők és a bevallási szabályok törvényi helye; az ellenőrzési audit hiányolta"
+    },
+    {
+      "id": "torveny-2025-xiii-tv",
+      "tipus": "torveny",
+      "mappa": "2025-xiii-tv/2026",
+      "nev": "2025-evi-xiii-torveny",
+      "url": "https://njt.hu/jogszabaly/2025-13-00-00",
+      "megjegyzes": "2025. évi XIII. törvény (30 év alatti anyák kedvezménye); a kedvezmények számításához (Szja tv. 29/H. § (1) a))"
+    },
+    {
+      "id": "torveny-air-tv",
+      "tipus": "torveny",
+      "mappa": "air-tv/2026",
+      "nev": "2017-evi-cli-torveny",
+      "url": "https://njt.hu/jogszabaly/2017-151-00-00",
+      "megjegyzes": "Air. (2017. évi CLI. törvény az adóigazgatási rendtartásról); az Art. és az Áfa tv. hivatkozza; a Graphify-gráf air_tv csomópontja"
+    },
+    {
+      "id": "torveny-tao-tv",
+      "tipus": "torveny",
+      "mappa": "tao-tv/2026",
+      "nev": "1996-evi-lxxxi-torveny",
+      "url": "https://njt.hu/jogszabaly/1996-81-00-00",
+      "megjegyzes": "Tao. tv. (1996. évi LXXXI. törvény a társasági adóról és az osztalékadóról); az Art. és a Szja tv. hivatkozza; a gráf tao_tv csomópontja"
+    },
+    {
+      "id": "torveny-cst",
+      "tipus": "torveny",
+      "mappa": "cst/2026",
+      "nev": "1998-evi-lxxxiv-torveny",
+      "url": "https://njt.hu/jogszabaly/1998-84-00-00",
+      "megjegyzes": "Cst. (1998. évi LXXXIV. törvény a családok támogatásáról): a családi pótlék és a kedvezményezett eltartott fogalmához (Szja tv. 29/A. §); a gráf cst csomópontja"
+    },
+    {
+      "id": "torveny-katv",
+      "tipus": "torveny",
+      "mappa": "katv/2026",
+      "nev": "2012-evi-cxlvii-torveny",
+      "url": "https://njt.hu/jogszabaly/2012-147-00-00",
+      "megjegyzes": "Katv. (2012. évi CXLVII. törvény a kisadózó vállalkozások tételes adójáról és a kisvállalati adóról); NEM azonos a kata_tv-vel (2022. évi XIII.); a 2025. évi LXXXIV. tv. módosítja; a gráf katv csomópontja"
     }
   ]
 }

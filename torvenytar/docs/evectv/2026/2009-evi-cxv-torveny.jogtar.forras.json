@@ -1,0 +1,18 @@
+{
+ "id": "torveny-evectv",
+ "url": "https://net.jogtar.hu/jogszabaly?docid=a0900115.tv",
+ "vegso_url": "https://net.jogtar.hu/jogszabaly?docid=a0900115.tv",
+ "letoltve": "2026-11-08T21:55:21",
+ "http_allapot": 200,
+ "cim": "Evectv. - 2009. évi CXV. törvény az egyéni vállalkozóról és az egyéni cégről - Hatályos Jogszabályok Gyűjteménye",
+ "bajt": 191273,
+ "sha256": "8d66e545addc941ea600c2de42adbefb6a904a75d33bbe4485d51265b2d1c253",
+ "eredeti_fajl": "2009-evi-cxv-torveny.jogtar.html",
+ "szovegkivonat": "2009-evi-cxv-torveny.jogtar.txt",
+ "szovegkivonat_karakter": 57301,
+ "hatalyos_allapot": "2026.IX.27. - 2026.XII.31.",
+ "mellekletek": [
+  "1"
+ ],
+ "megjegyzes": "kiegészítő forrás: a mellékleteket tartalmazza (az njt.hu főoldali szövege nem); állítás előtt az njt.hu szövegével is vesd össze"
+}

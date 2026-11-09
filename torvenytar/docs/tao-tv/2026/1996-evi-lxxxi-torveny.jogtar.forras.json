@@ -1,0 +1,23 @@
+{
+ "id": "torveny-tao-tv",
+ "url": "https://net.jogtar.hu/jogszabaly?docid=99600081.tv",
+ "vegso_url": "https://net.jogtar.hu/jogszabaly?docid=99600081.tv",
+ "letoltve": "2026-11-09T09:12:20",
+ "http_allapot": 200,
+ "cim": "Tao tv. - 1996. évi LXXXI. törvény a társasági adóról és az osztalékadóról - Hatályos Jogszabályok Gyűjteménye",
+ "bajt": 1380651,
+ "sha256": "0e425c39405a2d96d75e1e08f70c15d14d0fb49d1d24cb8b93cc53248d291535",
+ "eredeti_fajl": "1996-evi-lxxxi-torveny.jogtar.html",
+ "szovegkivonat": "1996-evi-lxxxi-torveny.jogtar.txt",
+ "szovegkivonat_karakter": 565713,
+ "hatalyos_allapot": "2026.X.1. - 2026.XII.31.",
+ "mellekletek": [
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6"
+ ],
+ "megjegyzes": "kiegészítő forrás: a mellékleteket tartalmazza (az njt.hu főoldali szövege nem); állítás előtt az njt.hu szövegével is vesd össze"
+}

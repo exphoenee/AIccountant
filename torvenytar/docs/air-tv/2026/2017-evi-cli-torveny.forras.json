@@ -1,0 +1,19 @@
+{
+ "id": "torveny-air-tv",
+ "url": "https://njt.hu/jogszabaly/2017-151-00-00",
+ "vegso_url": "https://njt.jog.gov.hu/jogszabaly/2017-151-00-00",
+ "letoltve": "2026-11-09T09:12:17",
+ "http_allapot": 200,
+ "tartalomtipus": "text/html; charset=UTF-8",
+ "last_modified": null,
+ "cim": "2017. évi CLI. törvény - Nemzeti Jogszabálytár",
+ "bajt": 438880,
+ "sha256": "601cc68e5c8336d762e83c35bbd9aaf95cd5422305ecfd3d8f23316444f74126",
+ "eredeti_fajl": "2017-evi-cli-torveny.html",
+ "szovegkivonat": "2017-evi-cli-torveny.txt",
+ "szovegkivonat_karakter": 178023,
+ "megjegyzes": "Air. (2017. évi CLI. törvény az adóigazgatási rendtartásról); az Art. és az Áfa tv. hivatkozza; a Graphify-gráf air_tv csomópontja",
+ "hatalyos_allapot": "2026.07.29.",
+ "varhato_cim": "2017. évi CLI. törvény",
+ "cim_egyezik": true
+}
