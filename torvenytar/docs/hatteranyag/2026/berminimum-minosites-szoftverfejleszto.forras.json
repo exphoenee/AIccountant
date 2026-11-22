@@ -1,0 +1,13 @@
+{
+ "id": "hatter-1",
+ "url": null,
+ "helyi_forras": "input/torveny/Bérminimum-minősítés_ szoftverfejlesztő egyéni vál.pdf",
+ "importalva": "2026-11-08T16:23:56",
+ "hivatalos": false,
+ "bajt": 490826,
+ "sha256": "b2d688f4bdc32a2729782980099dcb03808782d59d3c02bedd770951e0af0259",
+ "eredeti_fajl": "berminimum-minosites-szoftverfejleszto.pdf",
+ "szovegkivonat": "berminimum-minosites-szoftverfejleszto.txt",
+ "szovegkivonat_karakter": 4341,
+ "megjegyzes": "NEM hivatalos háttérelemzés (forrásokat idéz, a következtetése valószínűleg): a szoftverfejlesztő egyéni vállalkozó minimális járulékalapja garantált bérminimum. A hivatalos szabályt a NAV 03. füzet és a NAV tájékoztató mondja ki; a szoftverfejlesztés besorolását hivatalos forrás nem mondja ki. A felhasználó döntése: a magasabb alappal számolunk."
+}

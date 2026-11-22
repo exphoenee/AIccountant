@@ -3,6 +3,7 @@
 
 Használat:
     python -I .claude/skills/konyvelo-dokumentumok/scripts/konyvelo.py --feldolgoz        # PDF -> Markdown + adatkivonat, archiválás
+    python -I .claude/skills/konyvelo-dokumentumok/scripts/konyvelo.py --ujraosztalyoz    # az archívumban 'ismeretlen'-ként tárolt iratok újraosztályozása (mozgatás nélkül)
     python -I .claude/skills/konyvelo-dokumentumok/scripts/konyvelo.py --ellenoriz [ÉV]   # a könyvelő adói vs. számított, bevallások
 
 Szabályok: .claude/rules/adatkezeles.md, .claude/rules/nincs-becsles.md. Csak szabványos könyvtár; a PDF-szöveget a pdftotext adja.
@@ -108,6 +109,98 @@ def parse_2658(txt: str):
             "idoszak_tol": f(idosz[0]) if idosz else None, "idoszak_ig": f(idosz[1]) if idosz else None}
 
 
+def pdftotext_layout(pdf: Path) -> str:
+    r = subprocess.run([pdftotext(), "-layout", "-enc", "UTF-8", "-q", str(pdf), "-"], capture_output=True, text=True, encoding="utf-8")
+    return r.stdout
+
+
+def parse_afa_nyomtatvany(pdf: Path):
+    """2665A (áfabevallás) és 26A60 (összesítő nyilatkozat): a bevallási időszak és a nyomtatás napja.
+    A számmezőket (összegek) nem olvassuk ki: a szövegréteg nem adja megbízhatóan (lásd parse_2658); az időszak a -layout szövegből olvasható."""
+    t = pdftotext_layout(pdf)
+    m = re.search(r"(20\d\d)\s+(\d\d)\s+(\d\d)\s+_?\s*(20\d\d)\s+(\d\d)\s+(\d\d)", t)
+    ny = re.search(r"Nyomtatva: (20\d\d\.\d\d\.\d\d)", t)
+    r = {"nyomtatva": ny.group(1).replace(".", "-") if ny else None, "idoszak_tol": None, "idoszak_ig": None}
+    if m:
+        r["idoszak_tol"] = f"{m.group(1)}-{m.group(2)}-{m.group(3)}"
+        r["idoszak_ig"] = f"{m.group(4)}-{m.group(5)}-{m.group(6)}"
+    return r
+
+
+def idoszak_nev_datumokbol(nev: str):
+    """'ÁFA lista 2026.10.01-2026.10.31' -> ('2026-10-01', '2026-10-31') (a könyvelőprogram listáinak fájlneve)."""
+    m = re.search(r"(20\d\d)\.(\d\d)\.(\d\d)-(20\d\d)\.(\d\d)\.(\d\d)", nev)
+    return (f"{m.group(1)}-{m.group(2)}-{m.group(3)}", f"{m.group(4)}-{m.group(5)}-{m.group(6)}") if m else (None, None)
+
+
+def afa_idoszak(rec: dict):
+    """A teljes naptári hónapot kitevő időszakból ev + 'M<hó>' + negyedév; egyéb időszaknál nem állapítja meg (None)."""
+    tol, ig = rec.get("idoszak_tol"), rec.get("idoszak_ig")
+    if not (tol and ig and tol[:7] == ig[:7] and tol.endswith("-01")):
+        return
+    ho = int(ig[5:7])
+    nap_ig = (date(int(ig[:4]) + (ho == 12), ho % 12 + 1, 1) - date(int(ig[:4]), ho, 1)).days
+    if int(ig[8:]) != nap_ig:
+        return
+    rec["ev"], rec["idoszak"], rec["negyedev"] = int(ig[:4]), "M" + str(ho), (ho - 1) // 3 + 1
+
+
+def osztalyoz(p: Path, txt: str, ev, per):
+    """Az irat típusa a fájlnév alapján + a típusonkénti kivonat. Visszatér: (rec-kiegészítés, hiba-e)."""
+    n = p.name
+    if n.startswith("2658_"):
+        rec = {"tipus": "2658", **parse_2658(txt)}
+        if rec["idoszak_ig"]:
+            rec["ev"] = int(rec["idoszak_ig"][:4])
+            rec["negyedev"] = (int(rec["idoszak_ig"][5:7]) - 1) // 3 + 1
+        return rec, False
+    if n.startswith("Utalandó"):
+        tet, tot, kelt = parse_utalando(txt)
+        ok = tot is not None and sum(t["osszeg"] for t in tet) == tot
+        rec = {"tipus": "utalando", "ev": ev, "idoszak": per, "negyedev": negyedev_of(per) if per else None,
+               "tetelek": tet, "osszesen_fizetendo": tot, "osszeg_egyezik": ok, "kelt": kelt}
+        if not ok:
+            print(f"🔴 {n}: a tételek összege nem egyezik az ÖSSZESEN sorral, a kivonat nem megbízható")
+        return rec, not ok
+    if n.startswith("Bérösszesítő"):
+        return {"tipus": "berosszesito", "ev": ev, "idoszak": per, "negyedev": negyedev_of(per) if per else None}, False
+    if n.startswith("2665A_") or n.startswith("26A60_"):
+        # NAV nyomtatvány: 2665A = áfabevallás, 26A60 = összesítő nyilatkozat (NAV nyomtatványoldal és kitöltési útmutató: torvenytar/docs/NAV/2026/)
+        rec = {"tipus": "afa_bevallas" if n.startswith("2665A_") else "osszesito_nyilatkozat", **parse_afa_nyomtatvany(p)}
+        afa_idoszak(rec)
+        return rec, False
+    if n.startswith("ÁFA lista") or n.startswith("Közösségi analitika"):
+        # a könyvelőprogram belső listája (nem NAV-nyomtatvány); az időszak a fájlnévből
+        tol, ig = idoszak_nev_datumokbol(n)
+        rec = {"tipus": "afa_lista" if n.startswith("ÁFA lista") else "kozossegi_analitika", "idoszak_tol": tol, "idoszak_ig": ig}
+        afa_idoszak(rec)
+        return rec, False
+    print(f"❓ {n}: ismeretlen irattípus; csak Markdown készül, kivonat nincs")
+    return {"tipus": "ismeretlen"}, False
+
+
+def ujraosztalyoz():
+    """Az archive/konyvelo/-ban lévő, a kivonatban 'ismeretlen' típusú iratok újraosztályozása (az eredeti nem mozog)."""
+    adat = load()
+    valt = 0
+    for rec in adat["iratok"]:
+        if rec.get("tipus") != "ismeretlen":
+            continue
+        p = ARCH / rec["fajl"]
+        if not p.exists():
+            print(f"❓ {rec['fajl']}: nincs az archive/konyvelo/-ban, nem osztályozható újra")
+            continue
+        ev, per = idoszak_a_nevbol(p.stem)
+        uj, _ = osztalyoz(p, raw_text(p), ev, per)
+        if uj["tipus"] != "ismeretlen":
+            rec.update(uj)
+            valt += 1
+            print(f"+ {p.name}: {uj['tipus']}" + (f", {uj['ev']} {uj['idoszak']}" if uj.get("ev") else ""))
+    KIV.write_text(json.dumps(adat, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"Újraosztályozva: {valt} irat.")
+    return 0
+
+
 def load():
     return json.loads(KIV.read_text(encoding="utf-8")) if KIV.exists() else {"iratok": []}
 
@@ -136,24 +229,9 @@ def feldolgoz():
         ev, per = idoszak_a_nevbol(p.stem)
         rec = {"fajl": p.name, "sha256": hashlib.sha256(p.read_bytes()).hexdigest(),
                "feldolgozva": datetime.now().isoformat(timespec="seconds")}
-        if p.name.startswith("2658_"):
-            rec.update({"tipus": "2658", **parse_2658(txt)})
-            if rec["idoszak_ig"]:
-                rec["ev"] = int(rec["idoszak_ig"][:4])
-                rec["negyedev"] = (int(rec["idoszak_ig"][5:7]) - 1) // 3 + 1
-        elif p.name.startswith("Utalandó"):
-            tet, tot, kelt = parse_utalando(txt)
-            ok = tot is not None and sum(t["osszeg"] for t in tet) == tot
-            rec.update({"tipus": "utalando", "ev": ev, "idoszak": per, "negyedev": negyedev_of(per) if per else None,
-                        "tetelek": tet, "osszesen_fizetendo": tot, "osszeg_egyezik": ok, "kelt": kelt})
-            if not ok:
-                print(f"🔴 {p.name}: a tételek összege nem egyezik az ÖSSZESEN sorral, a kivonat nem megbízható")
-                hiba += 1
-        elif p.name.startswith("Bérösszesítő"):
-            rec.update({"tipus": "berosszesito", "ev": ev, "idoszak": per, "negyedev": negyedev_of(per) if per else None})
-        else:
-            rec.update({"tipus": "ismeretlen"})
-            print(f"❓ {p.name}: ismeretlen irattípus; csak Markdown készül, kivonat nincs")
+        uj, rossz = osztalyoz(p, txt, ev, per)
+        rec.update(uj)
+        hiba += rossz
         by[p.name] = rec
         subprocess.run([sys.executable, "-I", str(PDFMD), "--fajl", str(p), "--ki", str(DATA / "md" / (p.stem + ".md"))],
                        capture_output=True, text=True, encoding="utf-8")
@@ -248,17 +326,63 @@ def ellenoriz(ev: int):
                 print(f"   🔴 a NAV adószámlán nincs negyedéves bevallási előírás a {d} napra: a bevallás elkészültét nem tudom igazolni")
             sor["tetelek"].append({"bevallas": "nav-eloiras", "van": van})
         ki.append(sor)
-    return {"allapot": "kesz", "ev": ev, "negyedevek": ki}
+    afa = afa_iratok_ellenorzes(adat, ev)
+    return {"allapot": "kesz", "ev": ev, "negyedevek": ki, "afa_iratok": afa}
+
+
+def afa_hatarido(ev: int, ho: int) -> str:
+    """Havi áfabevallás / összesítő nyilatkozat: a tárgyhót követő hó 20. napja (NAV nyomtatványoldal, 26A60 kitöltési útmutató; Áfa tv. 4/A. melléklet I. 2.).
+    A munkaszüneti napra eső határidő eltolását a script nem számolja (lásd az adónaptárat)."""
+    return f"{ev + (ho == 12)}-{ho % 12 + 1:02d}-20"
+
+
+def afa_iratok_ellenorzes(adat: dict, ev: int):
+    """Havi áfa-iratok: melyik hónaphoz milyen irat van meg, és mikor nyomtatták. Összeget nem hasonlít, a kötelezettség vonatkozását nem dönti el."""
+    tipusok = {"afa_bevallas": "2665A áfabevallás", "osszesito_nyilatkozat": "26A60 összesítő nyilatkozat",
+               "afa_lista": "ÁFA lista (belső)", "kozossegi_analitika": "Közösségi analitika (belső)"}
+    havi = {}
+    for x in adat["iratok"]:
+        if x["tipus"] in tipusok and x.get("ev") == ev and x.get("idoszak"):
+            havi.setdefault(x["idoszak"], {})[x["tipus"]] = x
+        elif x["tipus"] in tipusok and x.get("ev") == ev:
+            print(f"   ❓ {x['fajl']}: az időszak nem teljes naptári hónap vagy nem olvasható ki; nem sorolom hónaphoz")
+    if not havi:
+        return []
+    print(f"-- ÁFA-iratok ({ev}), havi")
+    ki = []
+    for per in sorted(havi, key=lambda k: int(k[1:])):
+        ho = int(per[1:])
+        d = afa_hatarido(ev, ho)
+        sor = {"idoszak": per, "hatarido": d, "iratok": {}}
+        print(f"   {ev}. {ho}. hó (határidő a tárgyhót követő hó 20. napja: {d}; munkaszüneti nap miatti eltolás nincs figyelembe véve)")
+        for t, nev in tipusok.items():
+            x = havi[per].get(t)
+            if not x:
+                print(f"      ❓ nincs {nev} irat")
+                sor["iratok"][t] = None
+                continue
+            ny = x.get("nyomtatva")
+            if t in ("afa_bevallas", "osszesito_nyilatkozat") and ny:
+                print(f"      {nev}: megvan, nyomtatva {ny} ({'a határidő előtt' if ny <= d else 'a határidő UTÁN'}); a nyomtatás napja nem a beadás napja")
+            else:
+                print(f"      {nev}: megvan")
+            sor["iratok"][t] = {"nyomtatva": ny}
+        ki.append(sor)
+    print("   ℹ️ Nem ellenőrzött: hogy az összesítő nyilatkozat és a havi bevallás rád, a státuszod és gyakoriságod szerint kötelező-e (afa.md, nyitott pont: könyvelő / NAV), az iratokban szereplő összegek, és a beadás ténye (NAV beküldési igazolás kell).")
+    return ki
 
 
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
     ap = argparse.ArgumentParser()
     ap.add_argument("--feldolgoz", action="store_true")
+    ap.add_argument("--ujraosztalyoz", action="store_true")
     ap.add_argument("--ellenoriz", nargs="?", const=str(date.today().year))
     a = ap.parse_args()
     if a.feldolgoz:
         sys.exit(feldolgoz())
+    if a.ujraosztalyoz:
+        sys.exit(ujraosztalyoz())
     if a.ellenoriz:
         r = ellenoriz(int(a.ellenoriz))
         DATA.mkdir(parents=True, exist_ok=True)

@@ -83,7 +83,7 @@ A törvénytárat a `torvenytar/forrasok.json` jegyzék határozza meg: a `forra
 
 ## Szabályok ehhez a skillhez
 
-1. **A forrásfájlokat soha ne szerkeszd, ne fordítsd, ne foglald össze bennük.** Az értelmezés külön dokumentumba megy (pl. `torvenytar/vallalkozasomra-vonatkozo-szabalyok-2026.md`; az értelmező háttéranyagok (pl. `atalanyado-szabalyok-osszefoglalo.md`) szintén a `torvenytar/docs/` alatt vannak).
+1. **A forrásfájlokat soha ne szerkeszd, ne fordítsd, ne foglald össze bennük.** Az értelmezés külön dokumentumba megy (pl. `torvenytar/docs/vallalkozasomra-vonatkozo-szabalyok-2026.md`; az értelmező háttéranyagok (pl. `atalanyado-szabalyok-osszefoglalo.md`) szintén a `torvenytar/docs/` alatt vannak).
 2. **Állítást csak olvasott szövegrészletre alapozz.** A forrást célzottan olvasd (`Grep` a `.txt`-ben, majd a találat környéke); a törvények nagyok (az Szja tv. kivonata kb. 690 000 karakter), ne töltsd be egészben.
 3. **A gráf nem helyettesíti a forrást.** Egy gráf-állítás (él, fogalom, mérték) előtt a gráf által megjelölt szakaszt a `torvenytar/docs/` forrásszövegben ellenőrizd. Az `INFERRED`/`AMBIGUOUS` élekre ezt mondd is ki.
 4. A rövidítéssel idézett törvény (pl. „Tbj.") számát a **letöltött cím alapján** erősítsd meg, ne emlékezetből.

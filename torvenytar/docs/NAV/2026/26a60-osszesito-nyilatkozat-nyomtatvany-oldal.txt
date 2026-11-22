@@ -1,0 +1,152 @@
+26A60
+
+Nyomtatványok 2026.09.02.
+
+Összesítő nyilatkozat az Európai Közösség területén belül történő közösségi termékértékesítésekről és szolgáltatásnyújtásokról, valamint az Európai Közösség területéről történő termékbeszerzésekről és szolgáltatás igénybevételekről
+
+Letölthető elemek
+
+További letöltési lehetőségek
+
+PDF
+
+Kitöltési útmutató
+2026.04.29.
+
+568 kB Letöltés
+
+INFO
+
+26A60 – Aktív súgó (JAVA)
+2026.01.01. Verzió: 1.0
+
+207 kB Letöltés
+
+2026.01.01. Verzió: 1.0
+
+2026.04.29. Verzió: 2.0
+
+Az adózó neve egyszerűsítés, M043 hibakód programozásának módosítása
+
+INFO
+
+26A60 – Aktív súgó (RPM Csomag)
+2026.01.01. Verzió: 1.0
+
+211 kB Letöltés
+
+2026.01.01. Verzió: 1.0
+
+2026.04.29. Verzió: 2.0
+
+Az adózó neve egyszerűsítés, M043 hibakód programozásának módosítása
+
+INFO
+
+26A60 – Aktív súgó
+2026.01.01. Verzió: 1.0
+
+937 B Letöltés
+
+2026.01.01. Verzió: 1.0
+
+2026.04.29. Verzió: 2.0
+
+Az adózó neve egyszerűsítés, M043 hibakód programozásának módosítása
+
+JAVA
+
+26A60 (JAVA)
+2026.01.01. Verzió: 1.0
+
+315 kB Letöltés
+
+2026.01.01. Verzió: 1.0
+
+2026.04.29. Verzió: 2.0
+
+Az adózó neve egyszerűsítés, M043 hibakód programozásának módosítása
+
+2026.09.02. Verzió: 3.0
+
+M045 hibakód programműködésének módosítása
+
+RPM
+
+26A60 (RPM csomag)
+2026.01.01. Verzió: 1.0
+
+278 kB Letöltés
+
+2026.01.01. Verzió: 1.0
+
+2026.04.29. Verzió: 2.0
+
+Az adózó neve egyszerűsítés, M043 hibakód programozásának módosítása
+
+2026.09.02. Verzió: 3.0
+
+M045 hibakód programműködésének módosítása
+
+WS
+
+26A60 nyomtatványkitöltő program
+2026.01.01. Verzió: 1.0
+
+929 B Letöltés
+
+2026.01.01. Verzió: 1.0
+
+2026.04.29. Verzió: 2.0
+
+Az adózó neve egyszerűsítés, M043 hibakód programozásának módosítása
+
+2026.09.02. Verzió: 3.0
+
+M045 hibakód programműködésének módosítása
+
+GPG
+
+GPG publikus kulcs
+
+Publikus kulcs letöltése az RPM-csomagokhoz
+
+1 kB Letöltés
+
+kizárólag elektronikusan küldhető be
+
+Hozzáadás a kedvencekhez, regisztráció és bejelentkezés után.
+
+Hozzáadás a myNAV-hoz
+
+Ugrás a myNAV oldalamra
+
+Kitöltéshez szükséges keretprogram
+
+Általános Nyomtatványkitöltő (ÁNYK) program
+
+Tájékoztatók
+
+Segítség az ÁNYK és az Oracle JRE futtató környezet telepítéséhez
+
+Tudnivalók a nyomtatványkitöltő programokhoz
+
+Technikai információ az ANYK program alkalmazásához
+
+Általános tudnivalók az e-bevallásról
+
+Segítség verzióeltérés esetére
+
+Fontos információk
+
+Az ÁNYK program használatához nem javasoljuk a Java 1.8.0_291-es verziójának letöltését
+
+Letöltések - egyéb
+
+Adatlapok, igazolások, meghatalmazásminták
+
+Tájékoztatók az adatszolgáltatáshoz
+
+Nyomtatványtervezetek
+
+ONYA segédletek

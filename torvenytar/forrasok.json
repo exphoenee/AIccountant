@@ -1,5 +1,5 @@
 {
-  "_megjegyzes": "A torvenytar/atalanyado-szabalyok-osszefoglalo.md hivatkozásai. Új forrás: új elem; a script csak a még nem letöltöttet tölti le. mappa = NAV: NAV/<év>, jogszabály: <törvény>/<év>.",
+  "_megjegyzes": "A torvenytar/docs/atalanyado-szabalyok-osszefoglalo.md hivatkozásai. Új forrás: új elem; a script csak a még nem letöltöttet tölti le. mappa = NAV: NAV/<év>, jogszabály: <törvény>/<év>.",
   "forrasok": [
     {
       "id": "nav-1",
@@ -186,6 +186,54 @@
       "nev": "2012-evi-cxlvii-torveny",
       "url": "https://njt.hu/jogszabaly/2012-147-00-00",
       "megjegyzes": "Katv. (2012. évi CXLVII. törvény a kisadózó vállalkozások tételes adójáról és a kisvállalati adóról); NEM azonos a kata_tv-vel (2022. évi XIII.); a 2025. évi LXXXIV. tv. módosítja; a gráf katv csomópontja"
+    },
+    {
+      "id": "ipa-pecs-rendelet",
+      "tipus": "torveny",
+      "mappa": "pecs-ipa-rendelet/2026",
+      "nev": "pecs-iparuzesi-ado-rendelet",
+      "url": "https://pecs.hu/app/uploads/2021/09/pecs-iparuzesi-ado.pdf",
+      "megjegyzes": "Pécs Megyei Jogú Város helyi iparűzési adóról szóló rendelete (egységes szerkezet), a pecs.hu Rendeletek, szabályzatok oldaláról; a helyi-ipa skill IPA-mértékének forrása. A letöltött PDF hatályos állapotát és a módosításokat a szövegből kell ellenőrizni (a pecs.hu oldalán nincs dátum)."
+    },
+    {
+      "id": "nav-6",
+      "tipus": "nav",
+      "mappa": "NAV/2026",
+      "nev": "2665-afa-bevallas-nyomtatvany-oldal",
+      "url": "https://nav.gov.hu/nyomtatvanyok/letoltesek/nyomtatvanykitolto_programok/nyomtatvanykitolto_programok_nav/2665",
+      "megjegyzes": "NAV: a 2665 (áfabevallás) nyomtatvány oldala (2665A: a 2026. évi nyomtatvány; határidők, lapok, verziótörténet); a könyvelő 2026. októberi áfabevallásának irattípusa"
+    },
+    {
+      "id": "nav-7",
+      "tipus": "nav",
+      "mappa": "NAV/2026",
+      "nev": "2665-kitoltesi-utmutato",
+      "url": "https://nav.gov.hu/pfile/file?path=%2Fnyomtatvanyok%2Fletoltesek%2Fnyomtatvanykitolto_programok%2Fnyomtatvanykitolto_programok_nav%2F2665%2F2665-kitoltesi-utmutato",
+      "megjegyzes": "NAV: Kitöltési útmutató a 2665 jelű bevallához (PDF)"
+    },
+    {
+      "id": "nav-8",
+      "tipus": "nav",
+      "mappa": "NAV/2026",
+      "nev": "26a60-osszesito-nyilatkozat-nyomtatvany-oldal",
+      "url": "https://nav.gov.hu/nyomtatvanyok/letoltesek/nyomtatvanykitolto_programok/nyomtatvanykitolto_programok_nav/26A60",
+      "megjegyzes": "NAV: a 26A60 (összesítő nyilatkozat) nyomtatvány oldala; a könyvelő 2026. októberi összesítő nyilatkozatának irattípusa"
+    },
+    {
+      "id": "nav-9",
+      "tipus": "nav",
+      "mappa": "NAV/2026",
+      "nev": "26a60-kitoltesi-utmutato",
+      "url": "https://nav.gov.hu/pfile/file?path=%2Fnyomtatvanyok%2Fletoltesek%2Fnyomtatvanykitolto_programok%2Fnyomtatvanykitolto_programok_nav%2F26A60%2Fkitoltesi-utmutato",
+      "megjegyzes": "NAV: Kitöltési útmutató a 26A60 jelű összesítő nyilatkozathoz (PDF); a 26A60-03 lap az Áfa tv. 37. § (1) szerinti szolgáltatásnyújtásra"
+    },
+    {
+      "id": "torveny-dap-tv",
+      "tipus": "torveny",
+      "mappa": "dap-tv/2026",
+      "nev": "2023-evi-ciii-torveny",
+      "url": "https://njt.hu/jogszabaly/2023-103-00-00",
+      "megjegyzes": "Dáptv. (2023. évi CIII. törvény a digitális államról és a digitális szolgáltatások nyújtásának egyes szabályairól): a NAV 2665 és 26A60 kitöltési útmutatója a figyelembe veendő jogszabályok között nevezi meg (elektronikus kapcsolattartás)"
     }
   ]
 }

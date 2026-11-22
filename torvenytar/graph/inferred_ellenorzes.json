@@ -1,30 +1,21 @@
 {
- "ellenorzes": "2026-11-09T09:07:57",
- "osszesen": 601,
+ "ellenorzes": "2026-11-22T12:27:55",
+ "osszesen": 802,
  "eredmeny": {
-  "kifejezett": 0,
-  "nev_alapjan": 27,
-  "nincs": 77,
-  "nem_ellenorizheto": 497
+  "kifejezett": 1,
+  "nev_alapjan": 30,
+  "nincs": 95,
+  "nem_ellenorizheto": 676
  },
  "elek": [
   {
-   "source": "afa_tv_89_par",
-   "target": "afa_tv_37_par",
+   "source": "afa_tv_142_par",
+   "target": "fogalom_forditott_adozas",
    "relation": "conceptually_related_to",
-   "eredeti_confidence": 0.55,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "afa_tv_89_par"
-  },
-  {
-   "source": "szja_tv_27_par",
-   "target": "szja_tv_28_par",
-   "relation": "references",
-   "eredeti_confidence": 0.55,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "szja_tv_27_par"
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
   },
   {
    "source": "szja_tv_2_par",
@@ -45,9 +36,81 @@
    "hivatkozo": null
   },
   {
+   "source": "afa_tv_89_par",
+   "target": "afa_tv_37_par",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.55,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "afa_tv_89_par"
+  },
+  {
+   "source": "szja_tv_27_par",
+   "target": "szja_tv_28_par",
+   "relation": "references",
+   "eredeti_confidence": 0.55,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "szja_tv_27_par"
+  },
+  {
+   "source": "cst_41_par",
+   "target": "cst_5_par",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.55,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "cst_41_par"
+  },
+  {
+   "source": "cst_45_par",
+   "target": "fogalom_csaladi_kedvezmeny",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.55,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "cst_4_par",
+   "target": "fogalom_egyeni_vallalkozo",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.55,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
    "source": "nav_ado_afa",
    "target": "fogalom_szamla",
    "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.65,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "art_224_par",
+   "target": "fogalom_egyeni_vallalkozo",
+   "relation": "references",
+   "eredeti_confidence": 0.65,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "kata_tv_10_par",
+   "target": "fogalom_bevetel_megszerzese",
+   "relation": "references",
+   "eredeti_confidence": 0.65,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "szja_tv_10_par",
+   "target": "fogalom_szamla",
+   "relation": "references",
    "eredeti_confidence": 0.65,
    "eredmeny": "nem_ellenorizheto",
    "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
@@ -108,33 +171,6 @@
    "hivatkozo": "art_221_par"
   },
   {
-   "source": "art_224_par",
-   "target": "fogalom_egyeni_vallalkozo",
-   "relation": "references",
-   "eredeti_confidence": 0.65,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "kata_tv_10_par",
-   "target": "fogalom_bevetel_megszerzese",
-   "relation": "references",
-   "eredeti_confidence": 0.65,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "szja_tv_10_par",
-   "target": "fogalom_szamla",
-   "relation": "references",
-   "eredeti_confidence": 0.65,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
    "source": "szja_tv_29_par",
    "target": "szocho_tv",
    "relation": "references",
@@ -153,6 +189,15 @@
    "hivatkozo": "szocho_tv_27_par"
   },
   {
+   "source": "katv_17_par",
+   "target": "katv_16_par",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.65,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "katv_17_par"
+  },
+  {
    "source": "afa_tv_169_par",
    "target": "fogalom_alanyi_adomentesseg",
    "relation": "conceptually_related_to",
@@ -160,33 +205,6 @@
    "eredmeny": "nem_ellenorizheto",
    "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
    "hivatkozo": null
-  },
-  {
-   "source": "nav_ado_afa",
-   "target": "afa_tv_188_par",
-   "relation": "conceptually_related_to",
-   "eredeti_confidence": 0.75,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "nav_ado_afa"
-  },
-  {
-   "source": "szja_tv_49_c_par",
-   "target": "szja_tv_49_b_par",
-   "relation": "conceptually_related_to",
-   "eredeti_confidence": 0.75,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "szja_tv_49_c_par"
-  },
-  {
-   "source": "szja_tv_49_par",
-   "target": "szja_tv_49_b_par",
-   "relation": "conceptually_related_to",
-   "eredeti_confidence": 0.75,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "szja_tv_49_par"
   },
   {
    "source": "szja_tv_54_par",
@@ -198,60 +216,6 @@
    "hivatkozo": null
   },
   {
-   "source": "szja_tv_55_par",
-   "target": "szja_tv_52_par",
-   "relation": "conceptually_related_to",
-   "eredeti_confidence": 0.75,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "szja_tv_55_par"
-  },
-  {
-   "source": "szja_tv_57_par",
-   "target": "szja_tv_50_par",
-   "relation": "conceptually_related_to",
-   "eredeti_confidence": 0.75,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "szja_tv_57_par"
-  },
-  {
-   "source": "szja_tv_59_par",
-   "target": "szja_tv_60_par",
-   "relation": "conceptually_related_to",
-   "eredeti_confidence": 0.75,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "szja_tv_59_par"
-  },
-  {
-   "source": "szja_tv_67_b_par",
-   "target": "szja_tv_65_par",
-   "relation": "conceptually_related_to",
-   "eredeti_confidence": 0.75,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "szja_tv_67_b_par"
-  },
-  {
-   "source": "anya30_tv_2_par",
-   "target": "szja_tv_29_a_par",
-   "relation": "references",
-   "eredeti_confidence": 0.75,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "anya30_tv_2_par"
-  },
-  {
-   "source": "art_164_par",
-   "target": "art_172_par",
-   "relation": "references",
-   "eredeti_confidence": 0.75,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "art_164_par"
-  },
-  {
    "source": "art_16_par",
    "target": "fogalom_adoazonosito_szam",
    "relation": "references",
@@ -261,33 +225,6 @@
    "hivatkozo": null
   },
   {
-   "source": "art_204_par",
-   "target": "art_202_par",
-   "relation": "references",
-   "eredeti_confidence": 0.75,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "art_204_par"
-  },
-  {
-   "source": "art_213_par",
-   "target": "art_215_par",
-   "relation": "references",
-   "eredeti_confidence": 0.75,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "art_213_par"
-  },
-  {
-   "source": "art_214_par",
-   "target": "art_206_par",
-   "relation": "references",
-   "eredeti_confidence": 0.75,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "art_214_par"
-  },
-  {
    "source": "art_231_par",
    "target": "fogalom_adoeloleg",
    "relation": "references",
@@ -295,42 +232,6 @@
    "eredmeny": "nem_ellenorizheto",
    "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
    "hivatkozo": null
-  },
-  {
-   "source": "art_232_par",
-   "target": "art_206_par",
-   "relation": "references",
-   "eredeti_confidence": 0.75,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "art_232_par"
-  },
-  {
-   "source": "art_237_par",
-   "target": "art_220_par",
-   "relation": "references",
-   "eredeti_confidence": 0.75,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "art_237_par"
-  },
-  {
-   "source": "art_238_par",
-   "target": "art_220_par",
-   "relation": "references",
-   "eredeti_confidence": 0.75,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "art_238_par"
-  },
-  {
-   "source": "art_242_par",
-   "target": "art_241_par",
-   "relation": "references",
-   "eredeti_confidence": 0.75,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "art_242_par"
   },
   {
    "source": "art_47_par",
@@ -367,15 +268,6 @@
    "eredmeny": "nem_ellenorizheto",
    "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
    "hivatkozo": null
-  },
-  {
-   "source": "kamarai_tv_34_par",
-   "target": "kamarai_tv_34_a_par",
-   "relation": "references",
-   "eredeti_confidence": 0.75,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "kamarai_tv_34_par"
   },
   {
    "source": "kata_tv_11_par",
@@ -504,6 +396,186 @@
    "hivatkozo": null
   },
   {
+   "source": "szocho_tv_8_par",
+   "target": "fogalom_minimalis_jarulekalap",
+   "relation": "references",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "szocho_tv_9_par",
+   "target": "fogalom_egyeni_vallalkozo",
+   "relation": "references",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "szocho_tv_3_par",
+   "target": "art",
+   "relation": "references",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nev_alapjan",
+   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
+   "hivatkozo": "szocho_tv_3_par"
+  },
+  {
+   "source": "nav_ado_afa",
+   "target": "afa_tv_188_par",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "nav_ado_afa"
+  },
+  {
+   "source": "szja_tv_49_c_par",
+   "target": "szja_tv_49_b_par",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "szja_tv_49_c_par"
+  },
+  {
+   "source": "szja_tv_49_par",
+   "target": "szja_tv_49_b_par",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "szja_tv_49_par"
+  },
+  {
+   "source": "szja_tv_55_par",
+   "target": "szja_tv_52_par",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "szja_tv_55_par"
+  },
+  {
+   "source": "szja_tv_57_par",
+   "target": "szja_tv_50_par",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "szja_tv_57_par"
+  },
+  {
+   "source": "szja_tv_59_par",
+   "target": "szja_tv_60_par",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "szja_tv_59_par"
+  },
+  {
+   "source": "szja_tv_67_b_par",
+   "target": "szja_tv_65_par",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "szja_tv_67_b_par"
+  },
+  {
+   "source": "anya30_tv_2_par",
+   "target": "szja_tv_29_a_par",
+   "relation": "references",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "anya30_tv_2_par"
+  },
+  {
+   "source": "art_164_par",
+   "target": "art_172_par",
+   "relation": "references",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "art_164_par"
+  },
+  {
+   "source": "art_204_par",
+   "target": "art_202_par",
+   "relation": "references",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "art_204_par"
+  },
+  {
+   "source": "art_213_par",
+   "target": "art_215_par",
+   "relation": "references",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "art_213_par"
+  },
+  {
+   "source": "art_214_par",
+   "target": "art_206_par",
+   "relation": "references",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "art_214_par"
+  },
+  {
+   "source": "art_232_par",
+   "target": "art_206_par",
+   "relation": "references",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "art_232_par"
+  },
+  {
+   "source": "art_237_par",
+   "target": "art_220_par",
+   "relation": "references",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "art_237_par"
+  },
+  {
+   "source": "art_238_par",
+   "target": "art_220_par",
+   "relation": "references",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "art_238_par"
+  },
+  {
+   "source": "art_242_par",
+   "target": "art_241_par",
+   "relation": "references",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "art_242_par"
+  },
+  {
+   "source": "kamarai_tv_34_par",
+   "target": "kamarai_tv_34_a_par",
+   "relation": "references",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "kamarai_tv_34_par"
+  },
+  {
    "source": "szocho_tv_30_par",
    "target": "szja_tv",
    "relation": "references",
@@ -522,27 +594,243 @@
    "hivatkozo": "szocho_tv_33_par"
   },
   {
-   "source": "szocho_tv_3_par",
-   "target": "art",
-   "relation": "references",
-   "eredeti_confidence": 0.75,
-   "eredmeny": "nev_alapjan",
-   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
-   "hivatkozo": "szocho_tv_3_par"
-  },
-  {
-   "source": "szocho_tv_8_par",
-   "target": "fogalom_minimalis_jarulekalap",
-   "relation": "references",
+   "source": "air_tv_120_par",
+   "target": "fogalom_fellebbezes",
+   "relation": "conceptually_related_to",
    "eredeti_confidence": 0.75,
    "eredmeny": "nem_ellenorizheto",
    "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
    "hivatkozo": null
   },
   {
-   "source": "szocho_tv_9_par",
-   "target": "fogalom_egyeni_vallalkozo",
-   "relation": "references",
+   "source": "air_tv_36_par",
+   "target": "fogalom_alanyi_adomentesseg",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "air_tv_50_par",
+   "target": "fogalom_hatarido_szamitasa",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "air_tv_53_par",
+   "target": "fogalom_hatarido_szamitasa",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "air_tv_87_a_par",
+   "target": "afa_tv",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "air_tv_87_a_par"
+  },
+  {
+   "source": "cst_27_par",
+   "target": "cst_20_par",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "cst_27_par"
+  },
+  {
+   "source": "cst_9_par",
+   "target": "cst_8_par",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "cst_9_par"
+  },
+  {
+   "source": "dap_tv_118_par",
+   "target": "dap_tv_119_par",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "dap_tv_118_par"
+  },
+  {
+   "source": "dap_tv_19_par",
+   "target": "dap_tv_57_par",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "dap_tv_19_par"
+  },
+  {
+   "source": "katv_15_par",
+   "target": "fogalom_kisvallalati_ado",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "katv_22_par",
+   "target": "fogalom_onadozas",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "nav_2665_oldal",
+   "target": "nav_26a60_oldal",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "nav_2665_utmutato",
+   "target": "fogalom_szamla",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "nav_26a60_oldal",
+   "target": "fogalom_kozossegi_kereskedelem",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "nav_26a60_oldal",
+   "target": "afa_tv_4_a_melleklet",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "nav_26a60_oldal"
+  },
+  {
+   "source": "pecs_ipa_rendelet_1_b_par",
+   "target": "fogalom_helyi_iparuzesi_ado",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_14_par",
+   "target": "fogalom_telephely",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_16_par",
+   "target": "fogalom_fejlesztesi_tartalek",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_18_b_par",
+   "target": "fogalom_helyi_iparuzesi_ado",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_20_par",
+   "target": "fogalom_kozhasznu_szervezet",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_22_a_par",
+   "target": "fogalom_kis_es_kozepvallalkozas",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_22_b_par",
+   "target": "fogalom_kis_es_kozepvallalkozas",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_23_par",
+   "target": "fogalom_csoportos_tarsasagi_adoalany",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_24_a_par",
+   "target": "fogalom_adoeloleg",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_24_par",
+   "target": "fogalom_csoportos_tarsasagi_adoalany",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_26_par",
+   "target": "fogalom_csoportos_tarsasagi_adoalany",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.75,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_7_par",
+   "target": "fogalom_elhatarolt_veszteseg",
+   "relation": "conceptually_related_to",
    "eredeti_confidence": 0.75,
    "eredmeny": "nem_ellenorizheto",
    "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
@@ -570,6 +858,15 @@
    "source": "art_77_par",
    "target": "fogalom_szamla",
    "relation": "references",
+   "eredeti_confidence": 0.8,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "air_tv_115_par",
+   "target": "fogalom_adoellenorzes",
+   "relation": "conceptually_related_to",
    "eredeti_confidence": 0.8,
    "eredmeny": "nem_ellenorizheto",
    "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
@@ -619,15 +916,6 @@
    "eredmeny": "nem_ellenorizheto",
    "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
    "hivatkozo": null
-  },
-  {
-   "source": "afa_tv_36_par",
-   "target": "afa_tv_37_par",
-   "relation": "conceptually_related_to",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "afa_tv_36_par"
   },
   {
    "source": "afa_tv_45_a_par",
@@ -855,24 +1143,6 @@
    "hivatkozo": null
   },
   {
-   "source": "szja_tv_47_par",
-   "target": "szja_tv_49_par",
-   "relation": "conceptually_related_to",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "szja_tv_47_par"
-  },
-  {
-   "source": "szja_tv_47_par",
-   "target": "szja_tv_46_par",
-   "relation": "conceptually_related_to",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "szja_tv_47_par"
-  },
-  {
    "source": "szja_tv_48_par",
    "target": "fogalom_jogosultsagi_honap",
    "relation": "conceptually_related_to",
@@ -880,15 +1150,6 @@
    "eredmeny": "nem_ellenorizheto",
    "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
    "hivatkozo": null
-  },
-  {
-   "source": "szja_tv_48_par",
-   "target": "szja_tv_47_par",
-   "relation": "conceptually_related_to",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "szja_tv_48_par"
   },
   {
    "source": "szja_tv_49_a_par",
@@ -954,15 +1215,6 @@
    "hivatkozo": null
   },
   {
-   "source": "szja_tv_49_par",
-   "target": "szja_tv_48_par",
-   "relation": "conceptually_related_to",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "szja_tv_49_par"
-  },
-  {
    "source": "szja_tv_50_par",
    "target": "fogalom_egyeni_vallalkozo",
    "relation": "conceptually_related_to",
@@ -981,15 +1233,6 @@
    "hivatkozo": null
   },
   {
-   "source": "szja_tv_50_par",
-   "target": "szja_tv_53_par",
-   "relation": "conceptually_related_to",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "szja_tv_50_par"
-  },
-  {
    "source": "szja_tv_51_par",
    "target": "fogalom_penztarkonyv",
    "relation": "conceptually_related_to",
@@ -997,24 +1240,6 @@
    "eredmeny": "nem_ellenorizheto",
    "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
    "hivatkozo": null
-  },
-  {
-   "source": "szja_tv_51_par",
-   "target": "szja_tv_50_par",
-   "relation": "conceptually_related_to",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "szja_tv_51_par"
-  },
-  {
-   "source": "szja_tv_53_par",
-   "target": "szja_tv_52_par",
-   "relation": "conceptually_related_to",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "szja_tv_53_par"
   },
   {
    "source": "szja_tv_54_par",
@@ -1062,15 +1287,6 @@
    "hivatkozo": null
   },
   {
-   "source": "szja_tv_65_par",
-   "target": "szja_tv_67_par",
-   "relation": "conceptually_related_to",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "szja_tv_65_par"
-  },
-  {
    "source": "szja_tv_67_a_par",
    "target": "fogalom_adokiegyenlites",
    "relation": "conceptually_related_to",
@@ -1078,15 +1294,6 @@
    "eredmeny": "nem_ellenorizheto",
    "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
    "hivatkozo": null
-  },
-  {
-   "source": "szja_tv_67_a_par",
-   "target": "szja_tv_67_par",
-   "relation": "conceptually_related_to",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "szja_tv_67_a_par"
   },
   {
    "source": "szja_tv_67_c_par",
@@ -1105,15 +1312,6 @@
    "eredmeny": "nem_ellenorizheto",
    "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
    "hivatkozo": null
-  },
-  {
-   "source": "szja_tv_68_par",
-   "target": "szja_tv_67_par",
-   "relation": "conceptually_related_to",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "szja_tv_68_par"
   },
   {
    "source": "szja_tv_69_par",
@@ -1177,15 +1375,6 @@
    "eredmeny": "nem_ellenorizheto",
    "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
    "hivatkozo": null
-  },
-  {
-   "source": "anya30_tv_2_par",
-   "target": "anya30_tv_1_par",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "anya30_tv_2_par"
   },
   {
    "source": "anya3_tv_1_par",
@@ -1485,15 +1674,6 @@
    "hivatkozo": null
   },
   {
-   "source": "art_133_a_par",
-   "target": "kata_tv",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nev_alapjan",
-   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
-   "hivatkozo": "art_133_a_par"
-  },
-  {
    "source": "art_133_par",
    "target": "fogalom_adatszolgaltatas",
    "relation": "references",
@@ -1627,15 +1807,6 @@
    "eredmeny": "nem_ellenorizheto",
    "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
    "hivatkozo": null
-  },
-  {
-   "source": "art_153_par",
-   "target": "art_157_par",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "art_153_par"
   },
   {
    "source": "art_153_par",
@@ -1944,6 +2115,807 @@
    "hivatkozo": null
   },
   {
+   "source": "art_228_par",
+   "target": "fogalom_szamla",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "art_50_par",
+   "target": "fogalom_egyeni_vallalkozo",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "art_50_par",
+   "target": "fogalom_szocialis_hozzajarulasi_ado",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "art_50_par",
+   "target": "fogalom_csaladi_kedvezmeny",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "art_50_par",
+   "target": "fogalom_anyak_kedvezmenye",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "art_50_par",
+   "target": "fogalom_tarsadalombiztositasi_jarulek",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "art_52_par",
+   "target": "fogalom_egyeni_vallalkozo",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "art_52_par",
+   "target": "fogalom_szuneteles",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "art_74_par",
+   "target": "fogalom_adoszamla",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "art_7_par",
+   "target": "fogalom_egyeni_vallalkozo",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "evectv_17_par",
+   "target": "fogalom_egyeni_vallalkozo",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "evectv_18_par",
+   "target": "fogalom_egyeni_vallalkozo",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "htv_38_par",
+   "target": "fogalom_helyi_iparuzesi_ado",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "htv_39_a_par",
+   "target": "fogalom_adoeloleg",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "htv_3_melleklet",
+   "target": "fogalom_helyi_iparuzesi_ado",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "htv_42_par",
+   "target": "fogalom_helyi_iparuzesi_ado",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "htv_52_par",
+   "target": "fogalom_egyeni_vallalkozo",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "kamarai_tv_2_par",
+   "target": "fogalom_egyeni_vallalkozo",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "kamarai_tv_34_par",
+   "target": "fogalom_kamarai_hozzajarulas",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "kamarai_tv_8_a_par",
+   "target": "fogalom_kamarai_hozzajarulas",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "kata_tv_12_par",
+   "target": "fogalom_atalanyadozas",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "kata_tv_8_par",
+   "target": "fogalom_atalanyadozas",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "kata_tv_8_par",
+   "target": "fogalom_szocialis_hozzajarulasi_ado",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "szja_tv_12_d_par",
+   "target": "fogalom_egyeni_vallalkozo",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "szja_tv_17_par",
+   "target": "fogalom_elismert_koltseg",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "szja_tv_17_par",
+   "target": "fogalom_koltseghanyad",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "szja_tv_18_par",
+   "target": "fogalom_koltseghanyad",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "szja_tv_18_par",
+   "target": "fogalom_atalanyadozas",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "szja_tv_1_par",
+   "target": "fogalom_adoeloleg",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "szja_tv_20_par",
+   "target": "fogalom_atalanyadozas",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "szja_tv_29_a_par",
+   "target": "fogalom_csaladi_jarulekkedvezmeny",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "szja_tv_29_h_par",
+   "target": "fogalom_osszevont_adoalap",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "szja_tv_32_par",
+   "target": "fogalom_atalanyadozas",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "szja_tv_39_par",
+   "target": "fogalom_osszevont_adoalap",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "szja_tv_5_par",
+   "target": "fogalom_szokasos_piaci_ertek",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "szocho_tv_1_par",
+   "target": "fogalom_osszevont_adoalap",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "szocho_tv_2_par",
+   "target": "fogalom_minimalber",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "szocho_tv_34_par",
+   "target": "fogalom_garantalt_berminimum",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "szocho_tv_6_par",
+   "target": "fogalom_egyeni_vallalkozo",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "szocho_tv_8_par",
+   "target": "fogalom_egyeni_vallalkozo",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tbj_23_par",
+   "target": "fogalom_szocialis_hozzajarulasi_ado",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tbj_27_par",
+   "target": "fogalom_minimalber",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tbj_34_par",
+   "target": "fogalom_atalanyadozas",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tbj_34_par",
+   "target": "fogalom_csaladi_kedvezmeny",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tbj_39_par",
+   "target": "fogalom_minimalber",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tbj_40_par",
+   "target": "fogalom_szuneteles",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tbj_42_par",
+   "target": "fogalom_egyeni_vallalkozo",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tbj_6_par",
+   "target": "fogalom_minimalber",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tbj_80_par",
+   "target": "fogalom_egyeni_vallalkozo",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tbj_88_par",
+   "target": "fogalom_bevetel_megszerzese",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "art_133_a_par",
+   "target": "kata_tv",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nev_alapjan",
+   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
+   "hivatkozo": "art_133_a_par"
+  },
+  {
+   "source": "art_7_par",
+   "target": "evectv",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nev_alapjan",
+   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
+   "hivatkozo": "art_7_par"
+  },
+  {
+   "source": "evectv_6_par",
+   "target": "art",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nev_alapjan",
+   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
+   "hivatkozo": "evectv_6_par"
+  },
+  {
+   "source": "htv_39_a_par",
+   "target": "szja_tv",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nev_alapjan",
+   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
+   "hivatkozo": "htv_39_a_par"
+  },
+  {
+   "source": "htv_41_par",
+   "target": "art",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nev_alapjan",
+   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
+   "hivatkozo": "htv_41_par"
+  },
+  {
+   "source": "htv_43_par",
+   "target": "art",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nev_alapjan",
+   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
+   "hivatkozo": "htv_43_par"
+  },
+  {
+   "source": "htv_52_par",
+   "target": "szja_tv",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nev_alapjan",
+   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
+   "hivatkozo": "htv_52_par"
+  },
+  {
+   "source": "szja_tv_10_par",
+   "target": "afa_tv",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nev_alapjan",
+   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
+   "hivatkozo": "szja_tv_10_par"
+  },
+  {
+   "source": "szja_tv_12_c_par",
+   "target": "szocho_tv",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nev_alapjan",
+   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
+   "hivatkozo": "szja_tv_12_c_par"
+  },
+  {
+   "source": "szja_tv_15_par",
+   "target": "art",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nev_alapjan",
+   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
+   "hivatkozo": "szja_tv_15_par"
+  },
+  {
+   "source": "szja_tv_29_h_par",
+   "target": "anya30_tv",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nev_alapjan",
+   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
+   "hivatkozo": "szja_tv_29_h_par"
+  },
+  {
+   "source": "szja_tv_29_h_par",
+   "target": "anya3_tv",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nev_alapjan",
+   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
+   "hivatkozo": "szja_tv_29_h_par"
+  },
+  {
+   "source": "szja_tv_29_h_par",
+   "target": "anya2_tv",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nev_alapjan",
+   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
+   "hivatkozo": "szja_tv_29_h_par"
+  },
+  {
+   "source": "szja_tv_3_par",
+   "target": "art",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nev_alapjan",
+   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
+   "hivatkozo": "szja_tv_3_par"
+  },
+  {
+   "source": "szja_tv_3_par",
+   "target": "evectv",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nev_alapjan",
+   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
+   "hivatkozo": "szja_tv_3_par"
+  },
+  {
+   "source": "szja_tv_46_par",
+   "target": "art",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nev_alapjan",
+   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
+   "hivatkozo": "szja_tv_46_par"
+  },
+  {
+   "source": "szja_tv_49_par",
+   "target": "art",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nev_alapjan",
+   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
+   "hivatkozo": "szja_tv_49_par"
+  },
+  {
+   "source": "szja_tv_4_par",
+   "target": "afa_tv",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nev_alapjan",
+   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
+   "hivatkozo": "szja_tv_4_par"
+  },
+  {
+   "source": "szja_tv_58_par",
+   "target": "afa_tv",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nev_alapjan",
+   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
+   "hivatkozo": "szja_tv_58_par"
+  },
+  {
+   "source": "szja_tv_63_par",
+   "target": "art",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nev_alapjan",
+   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
+   "hivatkozo": "szja_tv_63_par"
+  },
+  {
+   "source": "szja_tv_65_b_par",
+   "target": "art",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nev_alapjan",
+   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
+   "hivatkozo": "szja_tv_65_b_par"
+  },
+  {
+   "source": "szja_tv_65_par",
+   "target": "art",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nev_alapjan",
+   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
+   "hivatkozo": "szja_tv_65_par"
+  },
+  {
+   "source": "szja_tv_66_par",
+   "target": "art",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nev_alapjan",
+   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
+   "hivatkozo": "szja_tv_66_par"
+  },
+  {
+   "source": "szja_tv_69_par",
+   "target": "art",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nev_alapjan",
+   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
+   "hivatkozo": "szja_tv_69_par"
+  },
+  {
+   "source": "szja_tv_9_par",
+   "target": "afa_tv",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nev_alapjan",
+   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
+   "hivatkozo": "szja_tv_9_par"
+  },
+  {
+   "source": "tbj_4_par",
+   "target": "evectv",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nev_alapjan",
+   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
+   "hivatkozo": "tbj_4_par"
+  },
+  {
+   "source": "afa_tv_36_par",
+   "target": "afa_tv_37_par",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "afa_tv_36_par"
+  },
+  {
+   "source": "szja_tv_47_par",
+   "target": "szja_tv_49_par",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "szja_tv_47_par"
+  },
+  {
+   "source": "szja_tv_47_par",
+   "target": "szja_tv_46_par",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "szja_tv_47_par"
+  },
+  {
+   "source": "szja_tv_48_par",
+   "target": "szja_tv_47_par",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "szja_tv_48_par"
+  },
+  {
+   "source": "szja_tv_49_par",
+   "target": "szja_tv_48_par",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "szja_tv_49_par"
+  },
+  {
+   "source": "szja_tv_50_par",
+   "target": "szja_tv_53_par",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "szja_tv_50_par"
+  },
+  {
+   "source": "szja_tv_51_par",
+   "target": "szja_tv_50_par",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "szja_tv_51_par"
+  },
+  {
+   "source": "szja_tv_53_par",
+   "target": "szja_tv_52_par",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "szja_tv_53_par"
+  },
+  {
+   "source": "szja_tv_65_par",
+   "target": "szja_tv_67_par",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "szja_tv_65_par"
+  },
+  {
+   "source": "szja_tv_67_a_par",
+   "target": "szja_tv_67_par",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "szja_tv_67_a_par"
+  },
+  {
+   "source": "szja_tv_68_par",
+   "target": "szja_tv_67_par",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "szja_tv_68_par"
+  },
+  {
+   "source": "anya30_tv_2_par",
+   "target": "anya30_tv_1_par",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "anya30_tv_2_par"
+  },
+  {
+   "source": "art_153_par",
+   "target": "art_157_par",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "art_153_par"
+  },
+  {
    "source": "art_207_par",
    "target": "art_206_par",
    "relation": "references",
@@ -2034,15 +3006,6 @@
    "hivatkozo": "art_228_par"
   },
   {
-   "source": "art_228_par",
-   "target": "fogalom_szamla",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
    "source": "art_229_par",
    "target": "art_220_par",
    "relation": "references",
@@ -2068,114 +3031,6 @@
    "eredmeny": "nincs",
    "reszlet": "a szövegben nincs kifejezett idézet",
    "hivatkozo": "art_240_par"
-  },
-  {
-   "source": "art_50_par",
-   "target": "fogalom_egyeni_vallalkozo",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "art_50_par",
-   "target": "fogalom_szocialis_hozzajarulasi_ado",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "art_50_par",
-   "target": "fogalom_csaladi_kedvezmeny",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "art_50_par",
-   "target": "fogalom_anyak_kedvezmenye",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "art_50_par",
-   "target": "fogalom_tarsadalombiztositasi_jarulek",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "art_52_par",
-   "target": "fogalom_egyeni_vallalkozo",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "art_52_par",
-   "target": "fogalom_szuneteles",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "art_74_par",
-   "target": "fogalom_adoszamla",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "art_7_par",
-   "target": "fogalom_egyeni_vallalkozo",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "art_7_par",
-   "target": "evectv",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nev_alapjan",
-   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
-   "hivatkozo": "art_7_par"
-  },
-  {
-   "source": "evectv_17_par",
-   "target": "fogalom_egyeni_vallalkozo",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "evectv_18_par",
-   "target": "fogalom_egyeni_vallalkozo",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
   },
   {
    "source": "evectv_18_par",
@@ -2205,15 +3060,6 @@
    "hivatkozo": "evectv_21_par"
   },
   {
-   "source": "evectv_6_par",
-   "target": "art",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nev_alapjan",
-   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
-   "hivatkozo": "evectv_6_par"
-  },
-  {
    "source": "htv_35_par",
    "target": "evectv",
    "relation": "references",
@@ -2221,33 +3067,6 @@
    "eredmeny": "nincs",
    "reszlet": "a szövegben nincs kifejezett idézet",
    "hivatkozo": "htv_35_par"
-  },
-  {
-   "source": "htv_38_par",
-   "target": "fogalom_helyi_iparuzesi_ado",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "htv_39_a_par",
-   "target": "fogalom_adoeloleg",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "htv_39_a_par",
-   "target": "szja_tv",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nev_alapjan",
-   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
-   "hivatkozo": "htv_39_a_par"
   },
   {
    "source": "htv_39_b_par",
@@ -2259,78 +3078,6 @@
    "hivatkozo": "htv_39_b_par"
   },
   {
-   "source": "htv_3_melleklet",
-   "target": "fogalom_helyi_iparuzesi_ado",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "htv_41_par",
-   "target": "art",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nev_alapjan",
-   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
-   "hivatkozo": "htv_41_par"
-  },
-  {
-   "source": "htv_42_par",
-   "target": "fogalom_helyi_iparuzesi_ado",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "htv_43_par",
-   "target": "art",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nev_alapjan",
-   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
-   "hivatkozo": "htv_43_par"
-  },
-  {
-   "source": "htv_52_par",
-   "target": "szja_tv",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nev_alapjan",
-   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
-   "hivatkozo": "htv_52_par"
-  },
-  {
-   "source": "htv_52_par",
-   "target": "fogalom_egyeni_vallalkozo",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "kamarai_tv_2_par",
-   "target": "fogalom_egyeni_vallalkozo",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "kamarai_tv_34_par",
-   "target": "fogalom_kamarai_hozzajarulas",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
    "source": "kamarai_tv_42_par",
    "target": "art",
    "relation": "references",
@@ -2338,42 +3085,6 @@
    "eredmeny": "nincs",
    "reszlet": "a szövegben nincs kifejezett idézet",
    "hivatkozo": "kamarai_tv_42_par"
-  },
-  {
-   "source": "kamarai_tv_8_a_par",
-   "target": "fogalom_kamarai_hozzajarulas",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "kata_tv_12_par",
-   "target": "fogalom_atalanyadozas",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "kata_tv_8_par",
-   "target": "fogalom_atalanyadozas",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "kata_tv_8_par",
-   "target": "fogalom_szocialis_hozzajarulasi_ado",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
   },
   {
    "source": "nav_atalanyado_2026",
@@ -2394,15 +3105,6 @@
    "hivatkozo": "nav_ev_szja_jarulek_2026"
   },
   {
-   "source": "szja_tv_10_par",
-   "target": "afa_tv",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nev_alapjan",
-   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
-   "hivatkozo": "szja_tv_10_par"
-  },
-  {
    "source": "szja_tv_12_b_par",
    "target": "szja_tv_12_c_par",
    "relation": "references",
@@ -2410,141 +3112,6 @@
    "eredmeny": "nincs",
    "reszlet": "a szövegben nincs kifejezett idézet",
    "hivatkozo": "szja_tv_12_b_par"
-  },
-  {
-   "source": "szja_tv_12_c_par",
-   "target": "szocho_tv",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nev_alapjan",
-   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
-   "hivatkozo": "szja_tv_12_c_par"
-  },
-  {
-   "source": "szja_tv_12_d_par",
-   "target": "fogalom_egyeni_vallalkozo",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "szja_tv_15_par",
-   "target": "art",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nev_alapjan",
-   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
-   "hivatkozo": "szja_tv_15_par"
-  },
-  {
-   "source": "szja_tv_17_par",
-   "target": "fogalom_elismert_koltseg",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "szja_tv_17_par",
-   "target": "fogalom_koltseghanyad",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "szja_tv_18_par",
-   "target": "fogalom_koltseghanyad",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "szja_tv_18_par",
-   "target": "fogalom_atalanyadozas",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "szja_tv_1_par",
-   "target": "fogalom_adoeloleg",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "szja_tv_20_par",
-   "target": "fogalom_atalanyadozas",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "szja_tv_29_a_par",
-   "target": "fogalom_csaladi_jarulekkedvezmeny",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "szja_tv_29_h_par",
-   "target": "fogalom_osszevont_adoalap",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "szja_tv_29_h_par",
-   "target": "anya30_tv",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nev_alapjan",
-   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
-   "hivatkozo": "szja_tv_29_h_par"
-  },
-  {
-   "source": "szja_tv_29_h_par",
-   "target": "anya3_tv",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nev_alapjan",
-   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
-   "hivatkozo": "szja_tv_29_h_par"
-  },
-  {
-   "source": "szja_tv_29_h_par",
-   "target": "anya2_tv",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nev_alapjan",
-   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
-   "hivatkozo": "szja_tv_29_h_par"
-  },
-  {
-   "source": "szja_tv_32_par",
-   "target": "fogalom_atalanyadozas",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
   },
   {
    "source": "szja_tv_35_par",
@@ -2556,123 +3123,6 @@
    "hivatkozo": "szja_tv_35_par"
   },
   {
-   "source": "szja_tv_39_par",
-   "target": "fogalom_osszevont_adoalap",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "szja_tv_3_par",
-   "target": "art",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nev_alapjan",
-   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
-   "hivatkozo": "szja_tv_3_par"
-  },
-  {
-   "source": "szja_tv_3_par",
-   "target": "evectv",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nev_alapjan",
-   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
-   "hivatkozo": "szja_tv_3_par"
-  },
-  {
-   "source": "szja_tv_46_par",
-   "target": "art",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nev_alapjan",
-   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
-   "hivatkozo": "szja_tv_46_par"
-  },
-  {
-   "source": "szja_tv_49_par",
-   "target": "art",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nev_alapjan",
-   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
-   "hivatkozo": "szja_tv_49_par"
-  },
-  {
-   "source": "szja_tv_4_par",
-   "target": "afa_tv",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nev_alapjan",
-   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
-   "hivatkozo": "szja_tv_4_par"
-  },
-  {
-   "source": "szja_tv_58_par",
-   "target": "afa_tv",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nev_alapjan",
-   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
-   "hivatkozo": "szja_tv_58_par"
-  },
-  {
-   "source": "szja_tv_5_par",
-   "target": "fogalom_szokasos_piaci_ertek",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "szja_tv_63_par",
-   "target": "art",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nev_alapjan",
-   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
-   "hivatkozo": "szja_tv_63_par"
-  },
-  {
-   "source": "szja_tv_65_b_par",
-   "target": "art",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nev_alapjan",
-   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
-   "hivatkozo": "szja_tv_65_b_par"
-  },
-  {
-   "source": "szja_tv_65_par",
-   "target": "art",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nev_alapjan",
-   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
-   "hivatkozo": "szja_tv_65_par"
-  },
-  {
-   "source": "szja_tv_66_par",
-   "target": "art",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nev_alapjan",
-   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
-   "hivatkozo": "szja_tv_66_par"
-  },
-  {
-   "source": "szja_tv_69_par",
-   "target": "art",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nev_alapjan",
-   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
-   "hivatkozo": "szja_tv_69_par"
-  },
-  {
    "source": "szja_tv_6_par",
    "target": "afa_tv",
    "relation": "references",
@@ -2680,42 +3130,6 @@
    "eredmeny": "nincs",
    "reszlet": "a szövegben nincs kifejezett idézet",
    "hivatkozo": "szja_tv_6_par"
-  },
-  {
-   "source": "szja_tv_9_par",
-   "target": "afa_tv",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nev_alapjan",
-   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
-   "hivatkozo": "szja_tv_9_par"
-  },
-  {
-   "source": "szocho_tv_1_par",
-   "target": "fogalom_osszevont_adoalap",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "szocho_tv_2_par",
-   "target": "fogalom_minimalber",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "szocho_tv_34_par",
-   "target": "fogalom_garantalt_berminimum",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
   },
   {
    "source": "szocho_tv_6_par",
@@ -2727,24 +3141,6 @@
    "hivatkozo": "szocho_tv_6_par"
   },
   {
-   "source": "szocho_tv_6_par",
-   "target": "fogalom_egyeni_vallalkozo",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "szocho_tv_8_par",
-   "target": "fogalom_egyeni_vallalkozo",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
    "source": "tbj_16_par",
    "target": "evectv",
    "relation": "references",
@@ -2752,87 +3148,6 @@
    "eredmeny": "nincs",
    "reszlet": "a szövegben nincs kifejezett idézet",
    "hivatkozo": "tbj_16_par"
-  },
-  {
-   "source": "tbj_23_par",
-   "target": "fogalom_szocialis_hozzajarulasi_ado",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "tbj_27_par",
-   "target": "fogalom_minimalber",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "tbj_34_par",
-   "target": "fogalom_atalanyadozas",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "tbj_34_par",
-   "target": "fogalom_csaladi_kedvezmeny",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "tbj_39_par",
-   "target": "fogalom_minimalber",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "tbj_40_par",
-   "target": "fogalom_szuneteles",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "tbj_42_par",
-   "target": "fogalom_egyeni_vallalkozo",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "tbj_4_par",
-   "target": "evectv",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nev_alapjan",
-   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
-   "hivatkozo": "tbj_4_par"
-  },
-  {
-   "source": "tbj_6_par",
-   "target": "fogalom_minimalber",
-   "relation": "references",
-   "eredeti_confidence": 0.85,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
   },
   {
    "source": "tbj_6_par",
@@ -2853,7 +3168,376 @@
    "hivatkozo": "tbj_72_par"
   },
   {
-   "source": "tbj_80_par",
+   "source": "afa_tv_37_par",
+   "target": "afa_tv_4_a_melleklet",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "afa_tv_37_par"
+  },
+  {
+   "source": "air_tv_106_par",
+   "target": "fogalom_becsles",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "air_tv_123_par",
+   "target": "fogalom_utolagos_adomegallapitas",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "air_tv_36_par",
+   "target": "fogalom_osszesito_nyilatkozat",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "air_tv_36_par",
+   "target": "fogalom_egyeni_vallalkozo",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "air_tv_71_a_par",
+   "target": "air_tv_71_b_par",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "air_tv_71_a_par"
+  },
+  {
+   "source": "air_tv_71_a_par",
+   "target": "air_tv_71_c_par",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "air_tv_71_a_par"
+  },
+  {
+   "source": "air_tv_71_a_par",
+   "target": "air_tv_71_d_par",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "air_tv_71_a_par"
+  },
+  {
+   "source": "air_tv_84_par",
+   "target": "fogalom_biztositasi_intezkedes",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "air_tv_89_par",
+   "target": "fogalom_adoellenorzes",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "air_tv_89_par",
+   "target": "fogalom_jogkovetesi_vizsgalat",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "air_tv_96_par",
+   "target": "fogalom_adoellenorzes",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "air_tv_98_par",
+   "target": "fogalom_adoellenorzes",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "cst_20_a_par",
+   "target": "fogalom_gyermekgondozast_segito_ellatas",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "cst_26_par",
+   "target": "fogalom_gyermekgondozast_segito_ellatas",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_19_par",
+   "target": "dap_tv_26_par",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "dap_tv_19_par"
+  },
+  {
+   "source": "katv_1_par",
+   "target": "fogalom_kisvallalati_ado",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "katv_20_par",
+   "target": "fogalom_szokasos_piaci_ar",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "katv_21_par",
+   "target": "fogalom_kisvallalati_adoalap",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "katv_21_par",
+   "target": "fogalom_szocialis_hozzajarulasi_ado",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "nav_2665_utmutato",
+   "target": "fogalom_alanyi_adomentesseg",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "nav_2665_utmutato",
+   "target": "fogalom_teljesites_helye",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "pecs_ipa_rendelet_1_par",
+   "target": "fogalom_teteles_adoalap",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_13_a_par",
+   "target": "fogalom_kozhasznu_szervezet",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_16_par",
+   "target": "fogalom_egyeni_ceg",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_17_par",
+   "target": "fogalom_csoportos_tarsasagi_adoalany",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_1_par",
+   "target": "fogalom_tarsasagi_ado",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_2_a_par",
+   "target": "fogalom_csoportos_tarsasagi_adoalany",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_2_par",
+   "target": "fogalom_egyeni_ceg",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_4_par",
+   "target": "fogalom_kis_es_kozepvallalkozas",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_4_par",
+   "target": "fogalom_latvany_csapatsport_tamogatasa",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_4_par",
+   "target": "fogalom_szokasos_piaci_ar",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_5_par",
+   "target": "fogalom_tarsasagi_ado",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_6_par",
+   "target": "fogalom_csoportos_tarsasagi_adoalany",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_7_par",
+   "target": "fogalom_adoalap",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_7_par",
+   "target": "fogalom_kutatas_fejlesztes",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_8_par",
+   "target": "fogalom_adoalap",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_9_par",
+   "target": "fogalom_kozhasznu_szervezet",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "air_tv_54_par",
+   "target": "air_tv_71_a_par",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "air_tv_54_par"
+  },
+  {
+   "source": "air_tv_81_par",
+   "target": "dap_tv",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "kifejezett",
+   "reszlet": "esítésére vonatkozó jogszabályok vagy a Dáptv. megsértésével történt. (2) Természetes",
+   "hivatkozo": "air_tv_81_par"
+  },
+  {
+   "source": "air_tv_92_par",
+   "target": "air_tv_93_par",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "air_tv_92_par"
+  },
+  {
+   "source": "cst_50_f_par",
    "target": "fogalom_egyeni_vallalkozo",
    "relation": "references",
    "eredeti_confidence": 0.85,
@@ -2862,8 +3546,35 @@
    "hivatkozo": null
   },
   {
-   "source": "tbj_88_par",
-   "target": "fogalom_bevetel_megszerzese",
+   "source": "cst_50_f_par",
+   "target": "fogalom_atalanyadozas",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "cst_6_par",
+   "target": "fogalom_csaladi_kedvezmeny",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_38_par",
+   "target": "fogalom_rendelkezesi_nyilvantartas",
+   "relation": "references",
+   "eredeti_confidence": 0.85,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "nav_26a60_utmutato",
+   "target": "nav_2665_oldal",
    "relation": "references",
    "eredeti_confidence": 0.85,
    "eredmeny": "nem_ellenorizheto",
@@ -2889,16 +3600,25 @@
    "hivatkozo": null
   },
   {
-   "source": "afa_tv_140_par",
-   "target": "fogalom_forditott_adozas",
+   "source": "air_tv_126_par",
+   "target": "fogalom_fellebbezes",
    "relation": "conceptually_related_to",
-   "eredeti_confidence": 0.95,
+   "eredeti_confidence": 0.9,
    "eredmeny": "nem_ellenorizheto",
    "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
    "hivatkozo": null
   },
   {
-   "source": "afa_tv_142_par",
+   "source": "air_tv_127_par",
+   "target": "fogalom_fellebbezes",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.9,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "afa_tv_140_par",
    "target": "fogalom_forditott_adozas",
    "relation": "conceptually_related_to",
    "eredeti_confidence": 0.95,
@@ -3043,15 +3763,6 @@
   },
   {
    "source": "afa_tv_36_par",
-   "target": "fogalom_teljesites_helye",
-   "relation": "conceptually_related_to",
-   "eredeti_confidence": 0.95,
-   "eredmeny": "nem_ellenorizheto",
-   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
-   "hivatkozo": null
-  },
-  {
-   "source": "afa_tv_37_par",
    "target": "fogalom_teljesites_helye",
    "relation": "conceptually_related_to",
    "eredeti_confidence": 0.95,
@@ -3976,24 +4687,6 @@
    "eredmeny": "nem_ellenorizheto",
    "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
    "hivatkozo": null
-  },
-  {
-   "source": "art_203_par",
-   "target": "art_202_par",
-   "relation": "references",
-   "eredeti_confidence": 0.95,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "art_203_par"
-  },
-  {
-   "source": "art_219_par",
-   "target": "art_215_par",
-   "relation": "references",
-   "eredeti_confidence": 0.95,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "art_219_par"
   },
   {
    "source": "art_26_par",
@@ -5049,51 +5742,6 @@
    "hivatkozo": null
   },
   {
-   "source": "szja_tv_29_h_par",
-   "target": "szja_tv_29_d_par",
-   "relation": "references",
-   "eredeti_confidence": 0.95,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "szja_tv_29_h_par"
-  },
-  {
-   "source": "szja_tv_29_h_par",
-   "target": "szja_tv_29_f_par",
-   "relation": "references",
-   "eredeti_confidence": 0.95,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "szja_tv_29_h_par"
-  },
-  {
-   "source": "szja_tv_29_h_par",
-   "target": "szja_tv_29_e_par",
-   "relation": "references",
-   "eredeti_confidence": 0.95,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "szja_tv_29_h_par"
-  },
-  {
-   "source": "szja_tv_29_h_par",
-   "target": "szja_tv_29_c_par",
-   "relation": "references",
-   "eredeti_confidence": 0.95,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "szja_tv_29_h_par"
-  },
-  {
-   "source": "szja_tv_29_h_par",
-   "target": "szja_tv_29_a_par",
-   "relation": "references",
-   "eredeti_confidence": 0.95,
-   "eredmeny": "nincs",
-   "reszlet": "a szövegben nincs kifejezett idézet",
-   "hivatkozo": "szja_tv_29_h_par"
-  },
-  {
    "source": "szja_tv_29_par",
    "target": "fogalom_osszevont_adoalap",
    "relation": "references",
@@ -5416,6 +6064,1167 @@
    "eredmeny": "nem_ellenorizheto",
    "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
    "hivatkozo": null
+  },
+  {
+   "source": "art_203_par",
+   "target": "art_202_par",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "art_203_par"
+  },
+  {
+   "source": "art_219_par",
+   "target": "art_215_par",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "art_219_par"
+  },
+  {
+   "source": "szja_tv_29_h_par",
+   "target": "szja_tv_29_d_par",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "szja_tv_29_h_par"
+  },
+  {
+   "source": "szja_tv_29_h_par",
+   "target": "szja_tv_29_f_par",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "szja_tv_29_h_par"
+  },
+  {
+   "source": "szja_tv_29_h_par",
+   "target": "szja_tv_29_e_par",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "szja_tv_29_h_par"
+  },
+  {
+   "source": "szja_tv_29_h_par",
+   "target": "szja_tv_29_c_par",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "szja_tv_29_h_par"
+  },
+  {
+   "source": "szja_tv_29_h_par",
+   "target": "szja_tv_29_a_par",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "szja_tv_29_h_par"
+  },
+  {
+   "source": "afa_tv_186_par",
+   "target": "fogalom_afa_visszaigenyles",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "air_tv_109_par",
+   "target": "fogalom_becsles",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "air_tv_117_par",
+   "target": "fogalom_utolagos_adomegallapitas",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "air_tv_11_par",
+   "target": "fogalom_adozo",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "air_tv_122_par",
+   "target": "fogalom_fellebbezes",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "air_tv_124_par",
+   "target": "fogalom_fellebbezes",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "air_tv_128_par",
+   "target": "fogalom_felugyeleti_intezkedes",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "air_tv_130_par",
+   "target": "fogalom_kozigazgatasi_per",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "air_tv_52_par",
+   "target": "fogalom_hatarido_szamitasa",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "air_tv_53_par",
+   "target": "fogalom_igazolasi_kerelem",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "air_tv_69_par",
+   "target": "fogalom_eljarasi_birsag",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "air_tv_81_par",
+   "target": "fogalom_kezbesitesi_kifogas",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "air_tv_82_par",
+   "target": "fogalom_biztositasi_intezkedes",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "air_tv_83_par",
+   "target": "fogalom_biztositasi_intezkedes",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "air_tv_90_par",
+   "target": "fogalom_adoellenorzes",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "air_tv_91_par",
+   "target": "fogalom_jogkovetesi_vizsgalat",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "cst_11_par",
+   "target": "fogalom_csaladi_potlek",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "cst_20_par",
+   "target": "fogalom_gyermekgondozast_segito_ellatas",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "cst_29_par",
+   "target": "fogalom_anyasagi_tamogatas",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "cst_31_par",
+   "target": "fogalom_anyasagi_tamogatas",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "cst_6_par",
+   "target": "fogalom_csaladi_potlek",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "katv_16_par",
+   "target": "fogalom_kisvallalati_ado",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "katv_20_par",
+   "target": "fogalom_szemelyi_jellegu_kifizetes",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "katv_20_par",
+   "target": "fogalom_kisvallalati_adoalap",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "katv_23_par",
+   "target": "fogalom_adoeloleg",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "katv_2_par",
+   "target": "fogalom_szokasos_piaci_ar",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "katv_2_par",
+   "target": "fogalom_kedvezmenyezett_foglalkoztatott",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "nav_2665_utmutato",
+   "target": "fogalom_afa_bevallasi_gyakorisag",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "nav_2665_utmutato",
+   "target": "fogalom_afa_visszaigenyles",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "nav_2665_utmutato",
+   "target": "fogalom_forditott_adozas",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "nav_2665_utmutato",
+   "target": "fogalom_onellenorzes",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "nav_2665_utmutato",
+   "target": "fogalom_osszesito_nyilatkozat",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "pecs_ipa_rendelet",
+   "target": "fogalom_helyi_iparuzesi_ado",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "pecs_ipa_rendelet_ado_merteke",
+   "target": "fogalom_helyi_iparuzesi_ado",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_16_b_par",
+   "target": "fogalom_hibrid_elteres",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_16_par",
+   "target": "fogalom_kedvezmenyezett_atalakulas",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_17_par",
+   "target": "fogalom_elhatarolt_veszteseg",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_18_a_par",
+   "target": "fogalom_ifrs_adozo",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_18_b_par",
+   "target": "fogalom_ifrs_adozo",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_18_c_par",
+   "target": "fogalom_ifrs_adozo",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_18_d_par",
+   "target": "fogalom_ifrs_adozo",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_18_par",
+   "target": "fogalom_kapcsolt_vallalkozas",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_18_par",
+   "target": "fogalom_szokasos_piaci_ar",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_19_par",
+   "target": "fogalom_tarsasagi_ado",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_20_par",
+   "target": "fogalom_adomentesseg",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_22_a_par",
+   "target": "fogalom_adokedvezmeny",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_22_b_par",
+   "target": "fogalom_adokedvezmeny",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_22_b_par",
+   "target": "fogalom_fejlesztesi_adokedvezmeny",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_22_c_par",
+   "target": "fogalom_adokedvezmeny",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_22_c_par",
+   "target": "fogalom_latvany_csapatsport_tamogatasa",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_22_e_par",
+   "target": "fogalom_adokedvezmeny",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_22_f_par",
+   "target": "fogalom_adokedvezmeny",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_22_g_par",
+   "target": "fogalom_adokedvezmeny",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_22_g_par",
+   "target": "fogalom_kutatas_fejlesztes",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_22_h_par",
+   "target": "fogalom_adokedvezmeny",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_22_i_par",
+   "target": "fogalom_adokedvezmeny",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_22_par",
+   "target": "fogalom_adokedvezmeny",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_23_par",
+   "target": "fogalom_adokedvezmeny",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_24_a_par",
+   "target": "fogalom_latvany_csapatsport_tamogatasa",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_26_a_par",
+   "target": "fogalom_novekedesi_adohitel",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_26_par",
+   "target": "fogalom_adoeloleg",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_4_par",
+   "target": "fogalom_ellenorzott_kulfoldi_tarsasag",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_4_par",
+   "target": "fogalom_hibrid_elteres",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_4_par",
+   "target": "fogalom_kamatlevonasi_kapacitas",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_4_par",
+   "target": "fogalom_kapcsolt_vallalkozas",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_4_par",
+   "target": "fogalom_kedvezmenyezett_atalakulas",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_4_par",
+   "target": "fogalom_telephely",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_6_par",
+   "target": "fogalom_adoalap",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_6_par",
+   "target": "fogalom_adozas_elotti_eredmeny",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_6_par",
+   "target": "fogalom_jovedelem_nyereseg_minimum",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_7_par",
+   "target": "fogalom_adozas_elotti_eredmeny",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_7_par",
+   "target": "fogalom_fejlesztesi_tartalek",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_7_par",
+   "target": "fogalom_kedvezmenyezett_atalakulas",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_8_par",
+   "target": "fogalom_adozas_elotti_eredmeny",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_8_par",
+   "target": "fogalom_ellenorzott_kulfoldi_tarsasag",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_8_par",
+   "target": "fogalom_kamatlevonasi_kapacitas",
+   "relation": "conceptually_related_to",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_10_par",
+   "target": "fogalom_digitalis_allampolgar_azonosito",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_119_par",
+   "target": "fogalom_ugyfelkapu",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_11_par",
+   "target": "fogalom_felhasznaloi_profil",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_18_par",
+   "target": "fogalom_elektronikus_ugyintezes",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_19_par",
+   "target": "fogalom_gazdalkodo_szervezet",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_19_par",
+   "target": "fogalom_kotelezo_elektronikus_ugyintezes",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_25_par",
+   "target": "fogalom_rendelkezesi_nyilvantartas",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_25_par",
+   "target": "fogalom_hivatalos_elerhetoseg",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_26_par",
+   "target": "fogalom_ajanlott_elektronikus_kezbesites",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_26_par",
+   "target": "fogalom_eposta",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_26_par",
+   "target": "fogalom_gazdalkodo_szervezet",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_26_par",
+   "target": "fogalom_hivatalos_elerhetoseg",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_26_par",
+   "target": "fogalom_rendelkezesi_nyilvantartas",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_26_par",
+   "target": "fogalom_egyeni_vallalkozo",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_27_par",
+   "target": "fogalom_kezbesitettnek_minosules",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_34_par",
+   "target": "fogalom_elektronikus_azonositas",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_35_par",
+   "target": "fogalom_gazdalkodo_szervezet",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_38_par",
+   "target": "fogalom_egyeni_vallalkozo",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_3_par",
+   "target": "fogalom_digitalis_allampolgar_azonosito",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_46_par",
+   "target": "fogalom_elektronikus_azonositas",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_46_par",
+   "target": "fogalom_ugyfelkapu",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_48_par",
+   "target": "fogalom_rendelkezesi_nyilvantartas",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_4_par",
+   "target": "fogalom_felhasznaloi_profil",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_52_par",
+   "target": "fogalom_eposta",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_52_par",
+   "target": "fogalom_efizetes",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_52_par",
+   "target": "fogalom_keretalkalmazas",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_53_par",
+   "target": "fogalom_elektronikus_azonositas",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_55_par",
+   "target": "fogalom_eposta",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_55_par",
+   "target": "fogalom_ajanlott_elektronikus_kezbesites",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_57_par",
+   "target": "fogalom_efizetes",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_57_par",
+   "target": "fogalom_gazdalkodo_szervezet",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_63_par",
+   "target": "fogalom_felhasznaloi_profil",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_64_par",
+   "target": "fogalom_felhasznaloi_profil",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_82_par",
+   "target": "fogalom_bizalmi_szolgaltatas",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_8_par",
+   "target": "fogalom_ajanlott_elektronikus_kezbesites",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_8_par",
+   "target": "fogalom_felhasznaloi_profil",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_8_par",
+   "target": "fogalom_gazdalkodo_szervezet",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_8_par",
+   "target": "fogalom_keretalkalmazas",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_8_par",
+   "target": "fogalom_digitalis_allampolgarsag",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "dap_tv_8_par",
+   "target": "fogalom_digitalis_allampolgar_azonosito",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nem_ellenorizheto",
+   "reszlet": "nincs ellenőrizhető hivatkozó szöveg",
+   "hivatkozo": null
+  },
+  {
+   "source": "tao_tv_16_par",
+   "target": "szja_tv",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nev_alapjan",
+   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
+   "hivatkozo": "tao_tv_16_par"
+  },
+  {
+   "source": "tao_tv_1_par",
+   "target": "air_tv",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "tao_tv_1_par"
+  },
+  {
+   "source": "tao_tv_1_par",
+   "target": "art",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "tao_tv_1_par"
+  },
+  {
+   "source": "tao_tv_4_par",
+   "target": "htv",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nev_alapjan",
+   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
+   "hivatkozo": "tao_tv_4_par"
+  },
+  {
+   "source": "tao_tv_4_par",
+   "target": "szja_tv",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nev_alapjan",
+   "reszlet": "a törvényt a szöveg csak nevével említi, száma/rövidítése nélkül",
+   "hivatkozo": "tao_tv_4_par"
+  },
+  {
+   "source": "tao_tv_4_par",
+   "target": "tbj",
+   "relation": "references",
+   "eredeti_confidence": 0.95,
+   "eredmeny": "nincs",
+   "reszlet": "a szövegben nincs kifejezett idézet",
+   "hivatkozo": "tao_tv_4_par"
   }
  ]
 }

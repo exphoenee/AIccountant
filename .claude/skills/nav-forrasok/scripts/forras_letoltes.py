@@ -408,7 +408,7 @@ def cmd_graf_ellenoriz():
 
 LAW_NUM = re.compile(r"(\d{4})\.\s*évi\s+([IVXLCDM]+)\.\s*törvény(?:\s*\(([^)]{2,25})\))?", re.I)
 ABBR = re.compile(r"\b(Szja\.? tv\.?|Tbj\.?|Szocho\.? tv\.?|Szochotv\.?|Art\.|Áfa tv\.?|Htv\.?|Eht\.?|Mt\.|Ptk\.|Eker\.? tv\.?|"
-                  r"Katv\.?|Kata tv\.?|Szt\.|Tao\.? tv\.?)", re.I)
+                  r"Katv\.?|Kata tv\.?|Szt\.|Tao\.? tv\.?|D[áa]ptv\.?|Air\.?)", re.I)
 
 
 def cmd_hivatkozasok():

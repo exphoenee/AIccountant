@@ -267,5 +267,130 @@
     ]
    }
   ]
+ },
+ "2017-evi-cli-torveny": {
+  "forras": "torvenytar/docs/air-tv/2026/2017-evi-cli-torveny.txt",
+  "forras_sorok_osszesen": 2658,
+  "kihagyott_labjegyzet_sorok": [
+   2067,
+   2658
+  ],
+  "reszek": [
+   {
+    "fajl": "2017-evi-cli-torveny.txt",
+    "forras_sorok": [
+     1,
+     2066
+    ]
+   }
+  ]
+ },
+ "1996-evi-lxxxi-torveny": {
+  "forras": "torvenytar/docs/tao-tv/2026/1996-evi-lxxxi-torveny.txt",
+  "forras_sorok_osszesen": 7059,
+  "kihagyott_labjegyzet_sorok": [
+   3081,
+   7059
+  ],
+  "reszek": [
+   {
+    "fajl": "1996-evi-lxxxi-torveny_01.txt",
+    "forras_sorok": [
+     1,
+     1758
+    ]
+   },
+   {
+    "fajl": "1996-evi-lxxxi-torveny_02.txt",
+    "forras_sorok": [
+     1759,
+     3080
+    ]
+   }
+  ]
+ },
+ "1998-evi-lxxxiv-torveny": {
+  "forras": "torvenytar/docs/cst/2026/1998-evi-lxxxiv-torveny.txt",
+  "forras_sorok_osszesen": 1679,
+  "kihagyott_labjegyzet_sorok": [
+   863,
+   1679
+  ],
+  "reszek": [
+   {
+    "fajl": "1998-evi-lxxxiv-torveny.txt",
+    "forras_sorok": [
+     1,
+     862
+    ]
+   }
+  ]
+ },
+ "2012-evi-cxlvii-torveny": {
+  "forras": "torvenytar/docs/katv/2026/2012-evi-cxlvii-torveny.txt",
+  "forras_sorok_osszesen": 973,
+  "kihagyott_labjegyzet_sorok": [
+   547,
+   973
+  ],
+  "reszek": [
+   {
+    "fajl": "2012-evi-cxlvii-torveny.txt",
+    "forras_sorok": [
+     1,
+     546
+    ]
+   }
+  ]
+ },
+ "pecs-iparuzesi-ado-rendelet": {
+  "forras": "torvenytar/docs/pecs-ipa-rendelet/2026/pecs-iparuzesi-ado-rendelet.txt",
+  "forras_sorok_osszesen": 141,
+  "kihagyott_labjegyzet_sorok": null,
+  "reszek": [
+   {
+    "fajl": "pecs-iparuzesi-ado-rendelet.txt",
+    "forras_sorok": [
+     1,
+     141
+    ]
+   }
+  ]
+ },
+ "nav-2665-afa-bevallas-nyomtatvany-oldal.txt": {
+  "forras": "torvenytar/docs/NAV/2026/2665-afa-bevallas-nyomtatvany-oldal.txt"
+ },
+ "nav-2665-kitoltesi-utmutato.md": {
+  "forras": "torvenytar/docs/NAV/2026/2665-kitoltesi-utmutato.md"
+ },
+ "nav-26a60-osszesito-nyilatkozat-nyomtatvany-oldal.txt": {
+  "forras": "torvenytar/docs/NAV/2026/26a60-osszesito-nyilatkozat-nyomtatvany-oldal.txt"
+ },
+ "nav-26a60-kitoltesi-utmutato.md": {
+  "forras": "torvenytar/docs/NAV/2026/26a60-kitoltesi-utmutato.md"
+ },
+ "2023-evi-ciii-torveny": {
+  "forras": "torvenytar/docs/dap-tv/2026/2023-evi-ciii-torveny.txt",
+  "forras_sorok_osszesen": 3474,
+  "kihagyott_labjegyzet_sorok": [
+   2541,
+   3474
+  ],
+  "reszek": [
+   {
+    "fajl": "2023-evi-ciii-torveny_01.txt",
+    "forras_sorok": [
+     1,
+     1710
+    ]
+   },
+   {
+    "fajl": "2023-evi-ciii-torveny_02.txt",
+    "forras_sorok": [
+     1711,
+     2540
+    ]
+   }
+  ]
  }
 }

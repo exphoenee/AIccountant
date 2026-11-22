@@ -188,6 +188,17 @@
       "alias_szoveg": [
         "kisadózó vállalkozások tételes adójáról és a kisvállalati adóról szóló"
       ]
+    },
+    "dap_tv": {
+      "nev": "2023. évi CIII. (digitális állam és a digitális szolgáltatások, Dáptv.)",
+      "fajl_elotag": [
+        "2023-evi-ciii-"
+      ],
+      "rovidites": "D[áa]ptv\\.?|2023\\. évi CIII\\.",
+      "nev_alias": "digitális államról és a digitális szolgáltatások nyújtásának egyes szabályairól szóló",
+      "alias_szoveg": [
+        "digitális államról és a digitális szolgáltatások nyújtásának egyes szabályairól szóló"
+      ]
     }
   },
   "nav_forrasok": [
@@ -196,7 +207,11 @@
     "nav_ado_afa",
     "nav_adozasi_mod",
     "nav_atalanyado_teendok",
-    "nav_kedvezo_valtozasok"
+    "nav_kedvezo_valtozasok",
+    "nav_2665_oldal",
+    "nav_2665_utmutato",
+    "nav_26a60_oldal",
+    "nav_26a60_utmutato"
   ],
   "fogalmak": [
     "atalanyadozas",

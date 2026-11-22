@@ -1,0 +1,87 @@
+Bérminimum-minősítés: szoftverfejlesztő egyéni
+vállalkozó
+
+Következtetés
+
+A szoftverfejlesztői főtevékenység esetében valószínűleg a garantált bérminimum (2026-ban
+373 200 Ft/hó) az irányadó, nem a minimálbér (322 800 Ft/hó). Ennek alapja, hogy a NAV
+szabálya szerint a garantált bérminimum akkor alkalmazandó, ha a személyesen végzett
+főtevékenység legalább középfokú iskolai végzettséget vagy középfokú szakképzettséget
+igényel; a szoftverfejlesztő FEOR-besorolása ennél magasabb képzettségi szintet jelez. [1] [2] [3]
+
+Döntési szabály
+
+    A lényeg nem a TEÁOR-kód, hanem a ténylegesen végzett főtevékenység képzettségi
+    igénye. [3] [1]
+
+    Ha a főtevékenység legalább középfokú végzettséget vagy szakképzettséget igényel:
+    garantált bérminimum, 2026-ban 373 200 Ft. [1] [3]
+    Egyébként: minimálbér, 2026-ban 322 800 Ft. [3] [1]
+
+    A NAV 2658-as bevallás kitöltési útmutatója ugyanezt a szabályt rögzíti a TBJ és a szocho
+    minimumalapjához. [3]
+
+Szoftverfejlesztő besorolása
+
+    A KSH FEOR-08 szerint a szoftverfejlesztő (FEOR 2142) a felsőfokú képzettséget igénylő
+    foglalkozások közé tartozik. [2] [4]
+
+    Ez erős érv amellett, hogy a tevékenység legalább középfokú végzettséget vagy
+    szakképzettséget igényel, ezért a garantált bérminimum alkalmazása valószínű.[2] [1]
+
+    A TEÁOR 62.01, azaz a számítógép-programozási tevékenység, önmagában nem zárja ki a
+    garantált bérminimumot; a főtevékenység tényleges munkatartalma és képzettségi igénye a
+    mérvadó. [4] [3]
+
+Pénzügyi hatás                        2026-os havi minimumalap    Szoftverfejlesztői főtevékenységre várható
+                                                      322 800 Ft  Nem valószínű
+                     Alap típusa                      373 200 Ft  Valószínűleg ez az irányadó
+                Minimálbér
+                Garantált bérminimum
+A két alap közötti havi különbség 50 400 Ft, negyedévente 151 200 Ft. Ezért a korábbi
+negyedéves előlegek módosulhatnak: a 2. és 3. negyedévben jellemzően pótfizetés, a 4.
+negyedévben pedig kisebb előleg várható, mert az éves elszámolás a tényleges alapok szerint
+rendeződik. [1] [3]
+
+Források
+
+    NAV — Egyéni vállalkozók szja- és járulékkötelezettsége, 2026: NAV tájékoztató[1]
+    NAV — 2658-as bevallás kitöltési útmutatója: NAV kitöltési útmutató[3]
+    KSH — FEOR-08 foglalkozási lista: KSH FEOR lista[2]
+    Nemzeti Jogszabálytár — 426/2025. (XII. 23.) Korm. rendelet a minimálbérről és garantált
+    bérminimumról: Jogszabály [5]
+    Kormányhivatal — Mi mennyi 2026-ban?: Összefoglaló [6]
+    BérIndex — Szoftverfejlesztő foglalkozási besorolása: BérIndex [4]
+
+Konfigurációhoz teendő
+
+    Állítsd át a config/vallalkozas.json fájlban a min_alap_tipus értékét "garantalt"-ra.
+    Ne állítsd még min_alap_tipus_megerositve: true értékre, mert ez a minimálbér melletti
+    döntés megerősítésére való.
+    A korábbi negyedéves bevallások korrekcióját érdemes a NAV-tól vagy adótanácsadótól is
+    megerősíttetni, mert a már benyújtott bevallások minimálbér alapúak voltak. [1] [3]
+
+NAV-nak küldhető ellenőrző mondat
+
+        „Egyéni vállalkozó vagyok, főtevékenységem szoftverfejlesztés (TEÁOR 62.01, FEOR
+        2142). A személyesen végzett főtevékenységem legalább középfokú szakképzettséget
+        igényel, ezért kérem erősítsék meg, hogy a 2026. évi negyedéves bevallásaimban a TBJ
+        és szocho minimumalapja a garantált bérminimum, azaz 373 200 Ft legyen.”
+
+A lényeg: a nyilvános források alapján a garantált bérminimum a helyesebb alapbeállítás, de
+mivel a korábbi bevallások minimálbérre készültek, a korrekció mértékét és eljárását érdemes
+a NAV-tól vagy egy adótanácsadótól is megerősíttetni. [3] [1]
+
+                                                                   ⁂
+
+  1. https://nav.gov.hu/pfile/file?path=/ugyfeliranytu/nezzen-utana/inf_fuz/rejtett/Informacios-fuzetek---Aktualis/03_Az-eg
+     yeni-vallalkozok-szja--es-jarulekkotelezettsege
+
+  2. https://www.ksh.hu/docs/szolgaltatasok/hun/feor08/feorlista.html
+  3. https://nav.gov.hu/pfile/file?path=/nyomtatvanyok/letoltesek/nyomtatvanykitolto_programok/nyomtatvanykitolto_pr
+
+     ogramok_nav/2058/2058_kitoltesi_utmutato
+  4. https://berindex.hu/fizetes/szoftverfejleszto/
+  5. https://njt.jog.gov.hu/jogszabaly/2025-426-20-22.2
+6. https://kormanyhivatalok.hu/sites/default/files/2026-01/mi-mennyi-2026.pdf
+

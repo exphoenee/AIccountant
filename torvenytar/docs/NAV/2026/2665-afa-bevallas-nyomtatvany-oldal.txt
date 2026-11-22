@@ -1,0 +1,161 @@
+2665
+
+Nyomtatványok 2026.08.26.
+
+2665 ÁFABEVALLÁS (BEVALLÁS, ADATSZOLGÁLTATÁS)
+
+Letölthető elemek
+
+További letöltési lehetőségek
+
+JAVA
+
+2665 (JAVA)
+2026.01.01. Verzió: 1.0
+
+706 kB Letöltés
+
+2026.01.01. Verzió: 1.0
+
+2026.08.26. Verzió: 2.0
+
+Az általános forgalmi adóról szóló 2007. évi CXXVII. törvény módosításáról szóló 2026. évi XL. törvény alapján 2026. szeptember 1-től 0 %-ra csökken a vényköteles gyógyszerek áfája, ezzel összefüggésben kiegészült az áfabevallás 2665A-01-02-es lapján a 41. sor és 45. sor megnevezése.
+
+RPM
+
+2665 (RPM csomag)
+2026.01.01. Verzió: 1.0
+
+559 kB Letöltés
+
+2026.01.01. Verzió: 1.0
+
+2026.08.26. Verzió: 2.0
+
+Az általános forgalmi adóról szóló 2007. évi CXXVII. törvény módosításáról szóló 2026. évi XL. törvény alapján 2026. szeptember 1-től 0 %-ra csökken a vényköteles gyógyszerek áfája, ezzel összefüggésben kiegészült az áfabevallás 2665A-01-02-es lapján a 41. sor és 45. sor megnevezése.
+
+WS
+
+2665 nyomtatványkitöltő program
+2026.01.01. Verzió: 1.0
+
+924 B Letöltés
+
+2026.01.01. Verzió: 1.0
+
+2026.08.26. Verzió: 2.0
+
+Az általános forgalmi adóról szóló 2007. évi CXXVII. törvény módosításáról szóló 2026. évi XL. törvény alapján 2026. szeptember 1-től 0 %-ra csökken a vényköteles gyógyszerek áfája, ezzel összefüggésben kiegészült az áfabevallás 2665A-01-02-es lapján a 41. sor és 45. sor megnevezése.
+
+INFO
+
+2665 – Aktív súgó (JAVA)
+2026.01.01. Verzió: 1.0
+
+314 kB Letöltés
+
+2026.01.01. Verzió: 1.0
+
+2026.08.05. Verzió: 2.0
+
+0 %-os kulcs alá tartozó értékesítéshez kapcsolódó pontosítás.
+
+INFO
+
+2665 – Aktív súgó (RPM Csomag)
+2026.01.01. Verzió: 1.0
+
+315 kB Letöltés
+
+2026.01.01. Verzió: 1.0
+
+2026.08.05. Verzió: 2.0
+
+0 %-os kulcs alá tartozó értékesítéshez kapcsolódó pontosítás.
+
+INFO
+
+2665 – Aktív súgó
+2026.01.01. Verzió: 1.0
+
+932 B Letöltés
+
+2026.01.01. Verzió: 1.0
+
+2026.08.05. Verzió: 2.0
+
+0 %-os kulcs alá tartozó értékesítéshez kapcsolódó pontosítás.
+
+PDF
+
+2665 kitöltési útmutató
+2026.08.05.
+
+1085 kB Letöltés
+
+PDF
+
+2665A nyomtatványkép.pdf
+2026.08.26.
+
+557 kB Letöltés
+
+PDF
+
+2665M nyomtatványkép.pdf
+2026.01.01.
+
+205 kB Letöltés
+
+XLSX
+
+2665 mezőazonosítók.xlsx
+2026.01.01.
+
+115 kB Letöltés
+
+GPG
+
+GPG publikus kulcs
+
+Publikus kulcs letöltése az RPM-csomagokhoz
+
+1 kB Letöltés
+
+elektronikusan is beküldhető
+
+Hozzáadás a kedvencekhez, regisztráció és bejelentkezés után.
+
+Hozzáadás a myNAV-hoz
+
+Ugrás a myNAV oldalamra
+
+Kitöltéshez szükséges keretprogram
+
+Általános Nyomtatványkitöltő (ÁNYK) program
+
+Tájékoztatók
+
+Segítség az ÁNYK és az Oracle JRE futtató környezet telepítéséhez
+
+Tudnivalók a nyomtatványkitöltő programokhoz
+
+Technikai információ az ANYK program alkalmazásához
+
+Általános tudnivalók az e-bevallásról
+
+Segítség verzióeltérés esetére
+
+Fontos információk
+
+Az ÁNYK program használatához nem javasoljuk a Java 1.8.0_291-es verziójának letöltését
+
+Letöltések - egyéb
+
+Adatlapok, igazolások, meghatalmazásminták
+
+Tájékoztatók az adatszolgáltatáshoz
+
+Nyomtatványtervezetek
+
+ONYA segédletek

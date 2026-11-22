@@ -2,8 +2,8 @@
 
 Generált mappa: a `nav-forrasok` skill állítja elő (`graf_ellenorzes.py`), kézzel ne szerkeszd. A gráf a `torvenytar/docs/` hivatalos jogszabályszövegeiből és NAV-tájékoztatóiból készült; **személyes adatot nem tartalmaz** (csak nyilvános szöveg), ezért verziózott.
 
-Utolsó közzététel: 2026-11-09T09:07:59
-- Csomópont: 731, él: 1255; EXTRACTED 651, INFERRED 601, AMBIGUOUS 3.
+Utolsó közzététel: 2026-11-22T12:27:57
+- Csomópont: 1125, él: 1876; EXTRACTED 1070, INFERRED 801, AMBIGUOUS 5.
 
 | Fájl | Tartalom |
 |---|---|

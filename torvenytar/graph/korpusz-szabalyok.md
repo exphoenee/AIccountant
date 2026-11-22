@@ -5,8 +5,8 @@
 A korpusz magyar jogszabályszöveg (törvények szakaszokra, bekezdésekre bontva) és NAV-tájékoztató. Hogy a különálló fájlokat olvasó alügynökök hivatkozásai összeérjenek, a KÖZÖS entitások azonosítója mindenhol ugyanaz (a node-ID szabály alól ez a kivétel: ezeknél NEM a fájlútvonal a prefix). Csupa kisbetű, ékezet nélkül (á->a, é->e, í->i, ó,ö,ő->o, ú,ü,ű->u), csak [a-z0-9_].
 
 ## 1. Törvények (id = a rövid név; label = a törvény neve)
-szja_tv = 1995. évi CXVII. (Szja tv.) | szocho_tv = 2018. évi LII. (Szocho tv.) | tbj = 2019. évi CXXII. (Tbj.) | htv = 1990. évi C. (helyi adók, Htv.) | afa_tv = 2007. évi CXXVII. (Áfa tv.) | art = 2017. évi CL. (adózás rendje, Art.) | evectv = 2009. évi CXV. (Evectv.) | kata_tv = 2022. évi XIII. (Kata tv.) | kamarai_tv = 1999. évi CXXI. (gazdasági kamarák) | anya30_tv = 2025. évi XIII. (30 év alatti anyák kedvezménye) | anya2_tv = 2025. évi XIV. (két gyermeket nevelő anyák kedvezménye) | anya3_tv = 2025. évi XV. (három gyermeket nevelő anyák kedvezménye) | modosito_2025_lxxxiv = 2025. évi LXXXIV. (módosító törvény)
-NAV-források: nav_atalanyado_2026 | nav_ev_szja_jarulek_2026 | nav_ado_afa | nav_adozasi_mod | nav_atalanyado_teendok | nav_kedvezo_valtozasok
+szja_tv = 1995. évi CXVII. (Szja tv.) | szocho_tv = 2018. évi LII. (Szocho tv.) | tbj = 2019. évi CXXII. (Tbj.) | htv = 1990. évi C. (helyi adók, Htv.) | afa_tv = 2007. évi CXXVII. (Áfa tv.) | art = 2017. évi CL. (adózás rendje, Art.) | evectv = 2009. évi CXV. (Evectv.) | kata_tv = 2022. évi XIII. (Kata tv.) | kamarai_tv = 1999. évi CXXI. (gazdasági kamarák) | anya30_tv = 2025. évi XIII. (30 év alatti anyák kedvezménye) | anya2_tv = 2025. évi XIV. (két gyermeket nevelő anyák kedvezménye) | anya3_tv = 2025. évi XV. (három gyermeket nevelő anyák kedvezménye) | modosito_2025_lxxxiv = 2025. évi LXXXIV. (módosító törvény) | air_tv = 2017. évi CLI. (adóigazgatási rendtartás, Air.) | tao_tv = 1996. évi LXXXI. (társasági adó, Tao. tv.) | cst = 1998. évi LXXXIV. (családok támogatása, Cst.) | katv = 2012. évi CXLVII. (kisadózó vállalkozások tételes adója és kisvállalati adó, Katv.; NEM a 2022. évi Kata tv.) | dap_tv = 2023. évi CIII. (digitális állam és a digitális szolgáltatások, Dáptv.)
+NAV-források: nav_atalanyado_2026 | nav_ev_szja_jarulek_2026 | nav_ado_afa | nav_adozasi_mod | nav_atalanyado_teendok | nav_kedvezo_valtozasok | nav_2665_oldal | nav_2665_utmutato | nav_26a60_oldal | nav_26a60_utmutato
 
 ## 2. Szakaszok: `<torveny>_<szakaszszam>_par`, a "/" jele "_" (29/A. § -> szja_tv_29_a_par; 47. § -> szja_tv_47_par; 4/A. melléklet -> afa_tv_4_a_melleklet). Bekezdést NE külön node-nak vedd fel, hanem a source_location-be írd (pl. "(4a)").
 Egy hivatkozás másik törvény szakaszára ("Tbj. 43. §") a cél-törvény szakasz-ID-jára mutasson (tbj_43_par), akkor is, ha az a szakasz nem szerepel a te fájlodban: ilyenkor is hozd létre a node-ot (file_type: document, label: "Tbj. 43. §").
@@ -36,4 +36,9 @@ Ha a szöveg a törvényt nem számmal vagy rövidítéssel idézi, hanem a nev�
 - "30 év alatti anyák kedvezménye" -> anya30_tv
 - "két gyermeket nevelő anyák kedvezménye" -> anya2_tv
 - "három gyermeket nevelő anyák kedvezménye" -> anya3_tv
+- "adóigazgatási rendtartásról szóló" -> air_tv
+- "társasági adóról és az osztalékadóról szóló" -> tao_tv
+- "családok támogatásáról szóló" -> cst
+- "kisadózó vállalkozások tételes adójáról és a kisvállalati adóról szóló" -> katv
+- "digitális államról és a digitális szolgáltatások nyújtásának egyes szabályairól szóló" -> dap_tv
 - négy vagy több gyermeket nevelő anyák kedvezménye -> szja_tv_29_d_par (az Szja tv. saját szakasza, nem külön törvény)
